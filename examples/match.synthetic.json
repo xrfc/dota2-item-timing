@@ -1,0 +1,23 @@
+{
+  "_fixture": "Synthetic data only. Not an actual match or current patch build recommendation.",
+  "match_id": 1000000001,
+  "patch": null,
+  "game_mode": 22,
+  "duration": 2100,
+  "players": [
+    {
+      "player_slot": 0,
+      "hero_id": 44,
+      "purchase_log": [
+        {"time": -30, "key": "tango"},
+        {"time": 180, "key": "boots"},
+        {"time": 420, "key": "power_treads"},
+        {"time": 1100, "key": "desolator"},
+        {"time": 1390, "key": "black_king_bar"},
+        {"time": 1500, "key": "tpscroll"},
+        {"time": 1660, "key": "tpscroll"}
+      ]
+    },
+    {"player_slot": 128, "hero_id": 2, "purchase_log": null}
+  ]
+}
