@@ -79,9 +79,8 @@ docs/            工程设计与后续计划
 .\.venv\Scripts\pytest.exe -q
 ```
 
-CI 模板位于 `docs/ci-workflow.yml`，配置了 Python 3.11 / 3.12 的检查、测试与示例报告。
-当前尚未启用 GitHub Actions：CLI 授权缺少 `workflow` 权限，补充授权后将该文件移至
-`.github/workflows/ci.yml` 并提交即可启用。版本号在 `pyproject.toml` 和 `src/dota_items/__init__.py`。
+GitHub Actions 位于 `.github/workflows/ci.yml`，在 Python 3.11 / 3.12 上运行检查、测试与示例报告。
+版本号在 `pyproject.toml` 和 `src/dota_items/__init__.py`。
 
 ## 下一步
 

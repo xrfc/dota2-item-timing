@@ -5,8 +5,7 @@
 - [x] 原始 JSON 抓取、缓存和指纹
 - [x] 购买事件标准化和质量提示
 - [x] 首次记录与 HTML/JSON 报告
-- [x] 合成数据、边界测试和 CI 模板
-- [ ] 补充 GitHub workflow 权限，启用 Actions
+- [x] 合成数据、边界测试和 GitHub Actions
 
 ## v0.2：实际数据验证
 - [ ] 选择一个英雄/位置/模式/补丁版本
