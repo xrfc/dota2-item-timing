@@ -22,6 +22,8 @@ def normalize_match(
     flags: list[str] = []
     if isinstance(raw.get("_fixture"), str):
         flags.append("synthetic_fixture: 合成示例数据，不是真实比赛或出装建议")
+    if isinstance(raw.get("adapter_issues"), list):
+        flags.extend(issue for issue in raw["adapter_issues"] if isinstance(issue, str))
     log = player.get("purchase_log")
     status = "present"
     if log is None:
@@ -53,7 +55,13 @@ def normalize_match(
         ):
             flags.append(f"invalid_event:{reference}")
             continue
-        events.append(ItemEvent(item_key=key, time_seconds=time, source_event_ref=reference))
+        events.append(
+            ItemEvent(
+                item_key=key,
+                time_seconds=time,
+                source_event_ref=entry.get("source_ref", reference),
+            )
+        )
     events.sort(key=lambda event: event.time_seconds)
     return PlayerTimeline(
         match_id=raw["match_id"],
@@ -78,9 +86,20 @@ def load_timeline(path: Any, player_slot: int) -> PlayerTimeline:
     raw = json.loads(contents)
     if not isinstance(raw, dict):
         raise ValueError("Match JSON must be an object")
+    evidence_source = raw.get("evidence_source")
+    source = (
+        evidence_source if isinstance(evidence_source, str) and evidence_source else file_path.name
+    )
+    evidence_hash = raw.get("evidence_sha256")
+    if not (
+        isinstance(evidence_hash, str)
+        and len(evidence_hash) == 64
+        and all(character in "0123456789abcdef" for character in evidence_hash)
+    ):
+        evidence_hash = hashlib.sha256(contents).hexdigest()
     return normalize_match(
         raw,
         player_slot,
-        source=file_path.name,
-        fingerprint="sha256:" + hashlib.sha256(contents).hexdigest(),
+        source=source,
+        fingerprint="sha256:" + evidence_hash,
     )

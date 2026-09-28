@@ -2,7 +2,10 @@
 
 一个从自己的比赛出发的学习项目：重建装备购买日志，逐步加入同类对局比较和相似案例检索。
 
-**当前 v0.1 可运行：**离线 JSON → 装备事件 → 候选装备首次记录 → HTML/JSON 报告；支持 OpenDota 比赛抓取与原始缓存。
+**当前工程可运行：**离线 JSON → 装备事件 → 候选装备首次记录 → HTML/JSON 报告；支持 OpenDota 比赛抓取与原始缓存。
+
+**本地 replay 管道：**DOTA2 `.dem`（或 `.dem.bz2` / `.dem.zst` / `.dem.zip`）
+→ Gem 原始 JSON → 项目标准 JSON → SQLite 索引 → 现有报告。解析完全离线。
 
 **尚未实现：**参考组、角色/版本过滤、经济条件比较、相似案例与机器学习。不要把当前报告理解成出装推荐。
 
@@ -39,6 +42,47 @@ python3 -m venv .venv
 `fetch --refresh` 可重新抓取。部分比赛没有解析购买日志，报告会显示缺失；当前程序不会自动提交解析任务。
 
 可选 API key 通过环境变量 `OPENDOTA_API_KEY` 提供；不要写进命令参数、提交到 Git 或分享原始认证信息。`.env.example` 只是说明，本程序不会自动读取 `.env`。
+
+## 导入已下载的 DOTA2 Demo
+
+首次使用先安装 replay 可选依赖：
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[dev,replay]"
+.\.venv\Scripts\dota-items.exe ingest-demo "C:\path\to\match.dem.bz2" --data-dir data
+.\.venv\Scripts\dota-items.exe data-status --data-dir data
+```
+
+`ingest-demo` 每成功导入一场，会输出包含 `normalized_json` 的 JSON 行。
+把该路径传给已有的 `report` 命令：
+
+```powershell
+.\.venv\Scripts\dota-items.exe report "data\matches\<输出中的source_sha256>\normalized.json" --player-slot 0 --output reports/my-match
+```
+
+也可以传入存放回放的目录；默认只扫描该目录，添加 `--recursive` 扫描子目录。
+相同输入内容再次导入会跳过解析，`--force` 可重新解析。批量导入时一场失败不会阻止
+其他比赛，但命令会返回非零退出码。Gem 对大型比赛的离线解析可能需要数分钟。
+
+文件位于 `data/matches/<源文件 SHA-256>/`：
+
+| 文件 | 含义 |
+|---|---|
+| `raw-gem.json` | Gem 的完整、未简化解析结果 |
+| `normalized.json` | 可直接供本项目 `report` 使用的玩家与购买事件 |
+| `manifest.json` | 原文件和解包后回放哈希、解析器版本、数据质量提示 |
+| `data/index.sqlite` | 比赛、玩家、购买事件的本地索引 |
+
+原始 JSON 可能包含玩家昵称、Steam ID、聊天等内容，因此整个 `data/` 默认不提交 Git。
+项目不会把 `.dem` 复制进仓库，也不会自动把真实比赛上传到 OpenDota。
+
+Gem 使用 0–9 的玩家编号，本项目标准 JSON 转为 OpenDota 风格槽位：天辉 0–4、
+夜魇 128–132。`purchase_log` 中无法确定时间的事件会跳过并在报告中提示；装备 key
+去掉 `item_` 前缀。比赛版本目前保持未知值，不从当前静态资料反推历史版本。
+
+管道已用一场公开的完整比赛（ID `8822520406`）做端到端测试：10 名玩家、362 条购买事件，
+事件都能追溯到原始 Gem JSON。自动化测试使用合成数据验证边界情况。
+**购买时间的游戏语义仍需人工核验**：正式使用前应拿几场自己的回放核对至少 10–20 条购买记录。
 
 配置在 `configs/analysis.json`，`candidate_items` 使用上游物品 key。当前只指定关注装备，英雄、角色和版本限制留给后续参考组模块。
 
