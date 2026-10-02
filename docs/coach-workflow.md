@@ -3,6 +3,8 @@
 本阶段提供数据和程序执行管线。训练算法、网络结构、特征窗口、标签策略和模型权重由下一阶段实现。
 程序可在本地或云端的 Python 环境运行；当前通过文件夹接入回放，尚无网页上传服务。
 
+核对日期：2026-10-02。实际完成度见[项目状态](project-status.md)，字段与限制见[数据契约](data-contracts.md)，技术取舍见[选型路线](long-term-roadmap.md)。
+
 ## 1. 安装与离线验证
 
 Python 3.11+，在仓库根目录运行：
@@ -48,7 +50,7 @@ python coach.py ingest /path/to/replays
 1. 本地 Gem 解析，保留原始 JSON；支持已有 `dota-items ingest-demo` 产物。
 2. 校验比赛、玩家槽位、购买事件、时间序列、原始证据指纹和事件引用。
 3. 在临时目录复制并再次验证，发布数据包后原子更新目录索引。
-4. 按 `match_id` 去重。同一比赛重复导入返回 `cached`；同一比赛内容冲突则拒绝覆盖。
+4. 按 `match_id` 去重。内容指纹相同返回 `cached`；同一比赛内容冲突则拒绝覆盖。
 5. 每个输入的结果写入 `imports/import-*.json`，单场失败后继续处理其他文件，批次返回非零退出码。
 
 `--force` 只重建中间解析缓存，不覆盖已冻结的数据包或数据集。
@@ -57,6 +59,7 @@ python coach.py ingest /path/to/replays
 
 旧 `dota-items` 的缓存仍采用源文件字节哈希，并可能对同一回放的不同压缩格式分别解析。
 新工作区在解析后按比赛去重，保证这些格式不会重复进入数据集；尚未实现解析前的跨压缩格式缓存复用。
+原 demo 不会自动复制进数据包；请自行保存原文件和来源。导入目录中不要混入 manifest/quality 等辅助 JSON，它们也会被尝试当作比赛。
 
 导入成功不代表训练价值已核验。角色、补丁、职业身份或分数来源需要你记录：
 
@@ -68,6 +71,7 @@ python coach.py annotate 1234567890 --tier personal --patch 7.xx --role 1 --play
 `7.xx` 和比赛 ID 是命令占位示例，请替换为真实值。角色为 1–5 号位；玩家槽位使用
 天辉 0–4、夜魇 128–132，不是数组下标。一次标注的角色适用于所选的全部玩家；应只选择
 确实担任该角色的玩家。当前每场比赛保存一组参考玩家标注，不自动推断角色或 MMR。
+重复 annotate 会覆盖当前标签，没有标签历史；已冻结数据集中的标签不受影响。
 `tier` 为 `pro` / `high_mmr` / `personal` / `unknown` / `synthetic`。
 合成样本不能重新标成真实比赛。
 
@@ -79,6 +83,7 @@ python coach.py build-dataset --patch 7.xx --role 1 --hero-id 44 --require-spati
 
 默认只纳入已标注的 `pro` 和 `high_mmr` 比赛，排除个人回放、未标注记录和合成数据。
 `--hero-id` 可省略，`--require-spatial` 要求玩家具有位置和至少有一个可用数值的经济采样。
+该开关只检查非空，不检查时间覆盖率、完整解析或采样对齐；购买日志 present 也可能是空数组。
 只做出装实验时可省略它。合成测试使用 `--synthetic-only`，该开关会仅选择 synthetic，
 不会将合成和真实样本混合。
 
@@ -102,11 +107,14 @@ datasets/<dataset-id>/
 数据集复制数据包，不依赖后续目录索引或标注变化。启动训练前后都会校验它的文件指纹。
 数据集路径可随整个工作区搬迁，不依赖原 `.dem` 路径或旧 SQLite 中的绝对路径。
 保存完整 raw 会占用磁盘，暂未使用硬链接、对象存储或自动清理。
+`excluded` 筛选原因仅随命令结果返回，尚未保存进 manifest；需要审计时保存本次 stdout。
+快照目前没有完整携带原 demo、解析 manifest、Git 版本和依赖锁，哈希只能保证已登记内容可校验，不能单独保证实验完整复现。
 
 ### 数据契约 `coach-match/1`
 
-数据集中的 match 必须包含 `match_id`、`duration`、`players`；每个玩家有
-`player_slot`、`hero_id`、`purchase_log`，可选 `position_log`、`economy_log`。
+`coach-match/1` 是数据集声明的观测契约名称，目前没有完整的 Pydantic Match 类或独立 Schema。
+比赛必须包含 `match_id`、`duration`、`players`；玩家需要有效 `player_slot`、`hero_id`。
+`purchase_log` 缺失会记录警告并阻止该玩家成为训练参考；位置/经济通道可缺失。
 Gem 的导出版本为 `gem-adapter/2.0`。
 
 | 通道 | 字段 | 语义 |
@@ -122,6 +130,7 @@ Gem 的导出版本为 `gem-adapter/2.0`。
 购买记录不代表完成合成、库存或装备送达；当前没有库存可用性、存活状态、敌方可见性契约。
 
 数据集是整场快照，还没有切成训练窗口。尤其导入 OpenDota JSON 时可能保留整局汇总字段；
+快照还保留其他玩家，训练器应遵守 split 行的 `player_slots`。
 未来训练器必须显式选择时间序列字段，按决策截止时间取历史，分开生成未来标签。
 标准化器和词表仅用训练集拟合；验证集用于调参，测试集只作最后评估。
 框架检查输出证据的时间范围，但不能检查任意用户模型内部是否偷看了未来。
@@ -132,7 +141,7 @@ Gem 的导出版本为 `gem-adapter/2.0`。
 JSON Schema。模板会明确退出并提示尚未实现，不会输出伪造权重。
 再次 init 不覆盖你已经修改的适配器。
 
-实现模型后执行：
+实现模型后执行以下命令，替换 DATASET_ID / RUN_ID 与脚本路径；`configs/my-training.json` 需先自行创建为 JSON 对象，不传 `--config` 时使用 `{}`：
 
 ```bash
 python coach.py train DATASET_ID --config configs/my-training.json
@@ -216,7 +225,8 @@ python coach.py review 1234567890 --player-slot 128 --model MODEL_ID --predictor
 上面分数仅为格式示例。`players[5]` 是 JSON 数组索引，不等于玩家槽位，必须按实际输入定位。
 引用需指向该玩家的一整条购买、位置或经济记录；该记录时间不得晚于决策时间。
 报告检查模型/比赛/玩家身份、范围、任务和证据。个人回放的补丁、角色、英雄须匹配数据集范围；
-合成模型不会用于真实回放。已出现在训练数据集中的比赛会在报告里标注，避免当成泛化验证。
+合成模型不会用于真实回放。已出现在关联数据集任意 split 中的比赛会在报告里标注，避免当成独立泛化验证。
+`observed_action` 和解释文字由预测器提供，框架不会逐项验证其中的事实断言；预测器也会收到整场输入，必须自行遵守特征截止时间。
 
 HTML 不依赖 CDN，外部文本全部转义，同时输出事实报告和预测 JSON。
 模型分数表示模型偏好，不自动解释成胜率或“正确/错误”；因果价值评估留给后续模型设计。
@@ -239,9 +249,12 @@ coach-workspace/
   reviews/<id>/            # 状态、日志、事实和预测报告
 ```
 
-`status` 查看 ID、未标注比赛和任务状态；`doctor` 校验数据包和数据集，报告是否安装 Gem。
+`status` 查看比赛/数据集/模型 ID、未标注比赛数量和运行/复盘状态，本身不做完整性扫描。
+`doctor` 对回放包做文件与比赛校验、对数据集做身份与文件指纹校验，并报告是否安装 Gem。
+它不检查模型、运行、报告、原 demo 或旧缓存，也不修复损坏；Gem 缺失本身不会令 JSON 工作流的 doctor.ok 变为 false。
 Gem 缺失只阻止 `.dem` 解析，不阻止 JSON 数据、训练适配器或报告。
-导入和数据集构建使用一个工作区写锁；训练和复盘各有独立输出目录。
+新工作区导入发布、标注和数据集构建使用一个写锁；Gem 中间缓存解析不受此锁保护。
+训练和复盘各有独立输出目录。数据包/快照内部采用相对路径；历史 invocation.json 和 review.json 的命令、报告路径可能为绝对路径，搬迁后不会自动改写。
 
 | 现象 | 处理 |
 |---|---|
@@ -256,6 +269,27 @@ Gem 缺失只阻止 `.dem` 解析，不阻止 JSON 数据、训练适配器或�
 重跑训练不会覆盖先前 run；检查点恢复由训练器通过自己的 config 实现，当前无通用自动续训。
 超时控制管理直接启动的适配器进程；若训练器自行创建分布式子进程，需要自行清理进程组。
 本轮未引入后台队列、Web API、GPU 调度、自动下载职业回放或模型性能判定。
+
+## 7. 命令与机器输出速查
+
+全局 `--workspace` 必须放在子命令前；可运行 `python coach.py <命令> --help` 查看精确参数。
+
+| 命令 | 输入/默认值 | 成功输出重点 |
+|---|---|---|
+| init | 工作区；重复运行保留现有配置和适配器，重新导出 Schema | workspace、status=ready |
+| demo | 6 场内置合成比赛 | dataset、report、doctor |
+| ingest [INPUT] | 默认 inbox；默认递归；--force 重建解析缓存 | batch_id、results、ok；逐文件日志在 imports |
+| annotate MATCH_ID | --tier、--patch、--role、--player-slots、--label-source 必填 | match_id、labels |
+| build-dataset | --patch、--role 必填；可选 --hero-id、--require-spatial、--synthetic-only | dataset_id、path、split_matches、excluded |
+| train DATASET_ID | 默认 adapters/train.py；默认超时 86400 秒 | run_id、status、model、files |
+| register-model RUN_ID | 仅 succeeded run | model_id、path、dataset_id |
+| review MATCH_ID | --player-slot 必填；--model 可选，默认预测器 adapters/predict.py；超时 3600 秒 | review_id、mode、status、report |
+| status | 已初始化工作区 | 比赛计数/ID、数据集、模型、runs、reviews |
+| doctor | 已初始化工作区 | ok、validated_matches、errors、replay_parser_installed |
+
+成功结果为 stdout 上的单个 JSON 对象（可多行，不是 JSONL），进度与错误在 stderr。
+正常退出 0；处理错误、批次有失败或 doctor 检出错误时退出 1；参数用法错误通常为 2；用户中断为 130。
+旧 `dota-items ingest-demo` 的 stdout JSONL 协议不同，见[操作指南](workflow.md)。
 
 ## 验证范围
 

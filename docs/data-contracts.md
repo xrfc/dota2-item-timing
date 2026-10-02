@@ -1,183 +1,214 @@
-# 数据、任务与接口契约
+# 数据与模型接口契约
 
-设计日期：2026-09-29。**本文全部是目标契约草案，不是当前可用 schema 或 API。**
-现有 JSON/SQLite 结构见 [工程设计第 3 节](engineering-design.md#3-当前数据契约)。
-实施 D01～D05 时只落地所需部分；数据集、快照和实验结构在对应阶段再创建。
+基线：**0.3.0 / 2026-10-02**。本文件描述已实现格式。训练窗口、动作词表、质量资格状态和完整来源修订模型尚未实现。
 
-## 1. 身份与版本必须分开
+## 1. 版本与校验来源
 
-| 概念 | 身份/唯一性 | 规则 |
+| 对象 | 当前版本 | 校验位置 |
 |---|---|---|
-| 来源记录 source | 独立 source_id，引用输入 artifact | 同文件从两个路径取得可有两个来源记录，但不扩大逻辑样本 |
-| 字节产物 artifact | SHA-256 原始字节；附大小与类型 | 压缩包、解包 Demo、raw JSON、标准结果分别计算，不混称一个 hash |
-| 比赛 match | `match_id` | 正式有效 ID 才建立比赛；未知 ID 的输入可隔离保留，不伪造正式比赛 ID |
-| 回放修订 replay_revision | 解包 Demo hash | 同比赛多个内容修订保留独立；不能只按 match_id 覆盖 |
-| 解析推导 parse_key | Demo hash + 解析器身份/版本 + 解析配置 + 环境快照标识 | 相同内容和同规则可复用成功产物；压缩格式不影响该键 |
-| 标准化推导 fact_key | raw hash + adapter/rule/schema 版本 + 标准化配置 + 相关静态资料 hash | 改标准化规则可复用 raw，无需重新解析 Demo |
-| 执行尝试 attempt_id | 每次执行唯一 ID | 重试和强制重跑是新尝试；不覆盖失败/旧成功记录 |
-| 事实集 fact_set_id | 已提交标准化产物的 ID | 指向一套自洽玩家/事件及质量；不得拼接不同运行的半套数据 |
-| 数据集 dataset_id | 冻结清单的内容 hash | 成员、选择规则、元数据或版本改变即产生新数据集 |
-| 分析/实验 analysis_id | 唯一运行 ID，附输入/配置/代码指纹 | 同数据可有多个分析；运行身份不等同数据身份 |
+| Gem 规范导出 | gem-adapter/2.0 | Gem 适配器与比赛校验器 |
+| 导入缓存清单 | demo-import/1.0 | 旧导入流程 |
+| 工作区配置 | coach-workspace/1 | WorkspaceConfig；导出 workspace.schema.json |
+| catalog | coach-catalog/1 | Workspace 程序检查 |
+| 标签 | 无独立版本字段 | Labels；导出 labels.schema.json |
+| 数据集 | coach-dataset/1 | 清单身份和文件指纹校验 |
+| 数据集观测契约名称 | coach-match/1 | 清单中的 observation_schema；没有完整 Pydantic 模型或导出 Schema |
+| 训练状态 | coach-run/1 | jobs 程序管理 |
+| 模型描述 | coach-model/1 | ModelOutput；导出 model.schema.json |
+| 登记模型 | coach-registry/1 | 清单身份、模型描述和文件指纹校验 |
+| 预测 | coach-predictions/1 | Predictions + 复盘语义校验；导出 predictions.schema.json |
+| 复盘状态 | coach-review/1 | reviews 程序管理 |
+| 旧购买时间线/分析结果 | 0.1 | domain.py 中的事实模型 |
 
-推导键使用明确字段与版本的规范化 JSON 编码再计算 hash，不能拼接无分隔字符串。
-规范化规则需固定键顺序、UTF-8、有限数字与默认值，并保存实际配置快照；排除执行时间和本地绝对路径。
-代码版本记录提交及未提交改动的内容指纹；正式可复现实验要求干净提交。
-同键多次运行如语义输出不同，保留两次 attempt，标记非确定性调查，不默默选最新。
+`init` 导出的 4 个 Schema 位于工作区 `contracts/`。Pydantic 契约拒绝额外字段及非有限浮点数，但并非所有字段都启用严格类型模式，部分输入可被转换。其余 JSON 对象不应假定拥有同样的完整 Schema 校验。
 
-目标公共 JSON 契约中的 match_id 采用十进制字符串，避免未来 JS 客户端对大整数的歧义；
-这是对当前整数契约的显式版本变更，不允许直接修改旧 `gem-adapter/1.0` 文件。
-slot 仍用整数；所有 ID 均为身份而非统计数值。
+所有受控 JSON 使用 UTF-8；指纹序列化采用排序键、2 空格缩进和末尾换行。文件哈希为文件字节 SHA-256；身份哈希为上述 JSON 序列化的 SHA-256，ID 截取前 24 个十六进制字符。
 
-## 2. 最小实体与关系
+## 2. 比赛、玩家和观测
 
-| 实体 | 必需信息 | 关系和约束 |
-|---|---|---|
-| artifacts | hash、字节数、media_type、相对路径、创建阶段 | 可被多个运行引用；路径必须在 data 根目录内 |
-| sources | 来源类型、原文件名/脱敏来源、input hash、获取时间、可选 Demo hash | 不把认证参数写入 URL；原件不在本地时标记 external/missing |
-| matches / revisions | match_id、revision hash、关联 source | 同 ID 多修订可共存；质量择优需要记录规则 |
-| attempts | attempt_id、stage、推导键、输入/输出 artifacts、状态、时间、版本、错误 | 成功不可重写为新结果；取消/重试单独保留 |
-| fact_sets | fact_set_id、match_id、revision/source、schema、规则、质量引用 | 完整记录所属产物；一次提交后不可就地编辑 |
-| players / events | fact_set_id + slot；event_id、事件字段、证据 | 外键关联事实集，不能仅用 match_id 跨运行连接 |
-| metadata_assertions | 对象、字段、值、状态、依据、作者/规则、版本、有效时间 | 用于 patch、角色等；冲突与选择决定可追溯 |
-| dataset_manifests | 范围、选中事实集/玩家、排除清单、元数据快照、版本 | 同一比赛只能选择一个事实集；同一 match_id + slot 不重复 |
-| analysis_runs | dataset/input ID、config hash、代码/环境、结果 artifacts | 报告页展示版本和质量范围；缺依赖时不可声称完整复现 |
+比赛导入至少需要正整数 `match_id`、有效 `duration` 和非空 `players`。比赛 ID 在 JSON 中是数值，不是字符串；catalog 用其字符串形式作为对象键。玩家槽位必须唯一且属于天辉 0–4 或夜魇 128–132。槽位不等于 `players` 数组下标。
 
-这是逻辑模型，M1 不需要一次建齐所有表。SQLite 是可查询目录；JSON 产物保留不可变证据与清单。
-定义哪个字段以哪个产物为准，避免 SQLite 与 JSON 成为两个可独立手改的事实源。
+用于理解格式的最小合成样本：
 
-## 3. 事件、未知值与证据
+```json
+{
+  "_fixture": "Synthetic documentation example; not expert play",
+  "schema_version": "gem-adapter/2.0",
+  "match_id": 1000000200,
+  "duration": 300,
+  "players": [{
+    "player_slot": 0,
+    "hero_id": 44,
+    "purchase_log": [{"time": 180, "key": "boots"}],
+    "position_log": [{"time": 180, "x": -3200, "y": -4100}],
+    "economy_log": [{
+      "time": 180,
+      "gold": 700,
+      "net_worth": 1200,
+      "last_hits": 12,
+      "denies": 1,
+      "xp_progress": null
+    }]
+  }]
+}
+```
 
-### 3.1 有效购买事件
+该样本没有独立 raw 证据；校验只能证明自身结构一致。Gem 导入另有 `raw.json`，规范 JSON 通过 `evidence_source` 和 `evidence_sha256` 引用它。
 
-| 字段 | 目标类型/含义 | 必须满足 |
-|---|---|---|
-| event_id | fact_set 内稳定标识 | 包含源事件身份；重复购买不能仅按 item_key/time 去重 |
-| match_id、player_slot | 比赛与玩家身份 | 对应当前事实集中的有效玩家 |
-| event_kind | 首先仅 purchase_record | 新类型需要独立规则、核验与 schema 版本 |
-| item_key、source_item_key | 统一 key 和上游原 key | 保留未知但合法非空 key；无法识别的原始值进入质量明细 |
-| game_time_seconds | 有限数值，支持赛前负数 | 有明确时钟基准，不能用墙上时间、tick 或最终比赛长度代填 |
-| source_tick | 可空整数 | 不用固定 tickrate 假装可转成游戏秒数 |
-| time_basis | source_game_clock / derived_clock | 衍生时间保存转换规则和所依赖时钟证据 |
-| provenance | artifact hash、引用类型、字段路径、规则版本 | 定位的是实际核验的证据产物 |
+| 通道/字段 | 当前语义 |
+|---|---|
+| purchase_log.time / key | 游戏秒数、装备键；保留赛前负时间和重复购买 |
+| purchase_log.source_tick / source_ref | Gem 原始 tick 和购买事件引用；普通 JSON 可无 |
+| position_log.time / x / y | 自身世界坐标及游戏时间；不代表可达区域或路线动作 |
+| position_log.source_tick / source_ref | tick 及 raw 中的三元组引用 |
+| economy_log.time / source_tick | 此经济采样的时间与 tick |
+| gold / net_worth | 未花费金钱 / 净资产；不是同一个量 |
+| last_hits / denies | 原始补刀 / 反补采样 |
+| xp_progress | 当前等级内经验进度，不是累计经验 |
+| economy_log.source_refs | 每个非空经济字段到 raw 数值的引用 |
 
-时间未知的原始观察仍保存在 raw 与 rejected/unknown 明细中，不作为有时间的有效事件。
-之后若需要分析无时间事件，建立单独 observation 契约，不放宽已有有效时间线的意义。
-过滤配方是业务规则，记录原因和计数；它不能意味着原始记录被删除。
+Gem 用暂停感知的 `game_clock.game_seconds_at(tick)` 转换时间，位置/经济只导出 `0 <= time <= duration` 的有效采样。无时钟时这些通道为空；缺失或非法经济值为 null，不补零、不插值。位置和经济分别排序，没有统一重采样时间轴。
 
-目标证据引用使用 JSON Pointer，例如 `/players/0/purchase_log/3`，并与 artifact hash 绑定；
-旧 `players[0].purchase_log[3]` 格式由兼容读入层处理。引用转义遵循
-[RFC 6901](https://www.rfc-editor.org/rfc/rfc6901)，不能把字段路径当成可执行表达式。
-时间来自游戏时钟换算时，可有多条证据引用；校验器既检查源事件，也检查转换依赖与规则。
+购买缺失、空数组、非法记录含义不同：缺失可导入但有警告；空数组记为 present 并有空日志提示；非法购买会被新工作区拒绝。因而 present 不保证真的发生过购买，也不保证日志完整。
 
-### 3.2 元数据与未知状态
+自定义 JSON 的位置/经济校验目前以 -1 作为时间排序初值，可能接受 [-1, 0) 的记录；这是待收紧的验证边界。新生成的数据应遵循非负观测时间。校验器不会重建 raw 的 game_clock 逐项验证导出的秒数，不能仅凭数值引用通过宣称时间语义已完全核验。
 
-任何会用于筛选的字段至少保存 `value`、`status=known/unknown/conflict`、`source_ref`、
-`method=observed/manual/inferred` 与规则版本。推断置信度可选，未校准时不造一个小数来表示“可靠”。
+## 3. 证据引用
 
-- patch 使用带命名空间的标识并保留原始 provider ID、可得 build、映射快照。只有验证过的映射才参与同补丁筛选。
-- 角色使用明确的 pos1～pos5 或 unknown，并记录是人工确认还是推断；lane 信息单独存。
-- 比赛开始日期保留 UTC 和来源；未知日期不能用导入日期替代进入时间测试集。
-- 英雄/变体、物品价格和合成树绑定静态资料版本；静态资料包本身是带 hash 的 artifact。
-- 人工更正追加 assertion 和选择决定，不改 raw；旧数据集仍引用旧的元数据快照。
-- missing、invalid、empty、zero、not_observed 分开；null 只表示其字段契约约定的未知，不能一律填 0。
+当前引用是受限路径语法，如 `players[0].purchase_log[2]` 或 `players[0].gold_t[3]`；**不是 JSON Pointer**，没有 eval。
 
-## 4. 质量与提交是两个维度
+外部 raw 模式会核对证据哈希及 match_id：
 
-任务执行成功不保证数据适合统计。采用两个独立状态：
+- 购买：核对装备、原始时间（存在时）和 tick。
+- 位置：核对 raw 三元组 `[tick, x, y]`。
+- 经济：核对非空字段对应的原始数值。
 
-- **执行状态**：queued → running → validating → committed；终止分支为 failed / cancelled。
-- **使用资格**：unassessed / qualified / quarantined / rejected，并附 quality_policy_version 与适用分析范围。
+导入发布后 `evidence_source` 改为数据包内 `raw.json`。没有外部证据时，购买引用默认指向输入自身；这不提供独立解析证明。
 
-qualified 表示通过某个范围的门槛，不是整个回放绝对正确。局部语义不明可保存为 committed + quarantined
-供排错和浏览；数据集只接收通过其门槛的事实集。研究使用资格不能由“退出码为 0”自动推导。
+预测解释的 `evidence_refs` 使用另一层引用：指向 **normalized.json** 中所选玩家的一整条 purchase_log / position_log / economy_log 记录，不能指向整局汇总或单一字段，且记录时间不得晚于决策时间。原始证据引用和预测解释引用不要混用。
 
-质量报告至少包含：结构、解析完成、证据一致性、时间可靠性、元数据覆盖、目标事件覆盖；
-每项有 pass/fail/unknown、检查版本、证据和原因码。
-源事件数应等于保留数 + 预期过滤数 + 异常丢弃数 + 暂不可判定数；分类互斥并在指定输入层统计。
-不要把玩家级汇总与全场事件数混合相减。
+## 4. 质量、标签和 catalog
 
-## 5. 幂等、失败与恢复协议
+`quality.json` 包含 `match_id`、`synthetic`、`warnings`、`channels`。每个槽位的 channels 包含：
 
-1. 注册 attempt 与输入身份，取得写入权；解析子进程不直接修改主目录数据库。
-2. 写独立 staging 目录，关闭文件后计算实际字节 hash，验证 JSON、证据、数量和质量。
-3. 在同一文件系统内发布到新的不可变运行目录，保留完整 manifest；不覆盖旧运行目录。
-4. 用短 SQLite 事务登记 artifacts、fact_set、质量与 committed 状态，按显式规则更新默认选择。
-5. 读端只认目录中 committed 的完整结果；是否进研究集再看使用资格。
+- `purchases`：购买日志状态。
+- `positions`：位置记录数。
+- `economy`：至少一个经济字段有值的记录数。
 
-| 故障位置 | 应看到什么 | 恢复动作 |
-|---|---|---|
-| 解析/写 staging 中断 | 旧结果仍可读，新 attempt 未提交 | 标失败或取消；重新运行，不复用未知完整度的临时文件 |
-| 发布文件后、DB 提交前 | 孤立不可变输出，不被正常查询选中 | 核验 manifest 后显式恢复登记，或列入可清理清单 |
-| DB 事务失败 | 无半套新索引，旧选择不变 | 保留失败记录，检查磁盘/锁，有限重试 |
-| 已提交文件后来缺失/改动 | 完整性检查失败，不再作为健康缓存 | 标记 damaged，受影响分析显示不可复现；从备份恢复或创建新运行 |
-| 同键并发/重复任务 | 最多一个结果被设为有效选择 | 本地写锁与唯一约束；其他 attempt 复用已验证结果或重试 |
+这些数字不是覆盖率。尚无统一 `qualified/quarantined` 状态、完整解析证明、逐原因丢弃计数或死亡期间有效性判断。
 
-`damaged` 是产物健康状态，不把历史 committed 改写成“从未提交”；恢复操作留审计记录。
-先保证进程异常的可恢复性；断电耐久性取决于文件同步、数据库设置和存储介质，未测试前不声称覆盖。
-超时、资源限额和取消归入明确原因；失败重试不无限循环，也不在 schema/输入错误上反复重试。
+标签：
 
-## 6. 应用接口草案
+```json
+{
+  "tier": "pro",
+  "patch": "7.xx",
+  "role": 1,
+  "player_slots": [0],
+  "label_source": "填写实际赛事或分数证据"
+}
+```
 
-以下名称表达未来用例，不是已实现 CLI 命令或 Python API；具体签名在各任务实施时冻结。
+patch 是人工填写并精确比较的非空字符串，示例 `7.xx` 必须替换。tier 可为 pro/high_mmr/personal/unknown/synthetic；role 为 1–5，槽位列表非空且不重复、必须存在。每场只有一组标签；重复 annotate 覆盖当前组。工作区依据 `_fixture` 标记区分合成样本并限制重标，不能把它当成数据真伪鉴定机制。
 
-| 用例 | 输入 | 输出 | 关键约束 |
-|---|---|---|---|
-| ImportReplay | 本地路径、数据根、解析配置、重用策略 | task/attempt ID、阶段状态、fact_set ID、质量 | 缓存命中先校验；支持取消；不直接生成比较结论 |
-| ValidateArtifacts | artifact/run/fact_set 选择、检查策略 | 结构化验证报告与健康状态 | 只验证不修补；修复是另一个显式操作 |
-| RecoverCatalog | 待恢复目录、预览/执行选项 | 差异清单、恢复记录 | 默认预览，不自动信任孤立文件 |
-| BuildDataset | 范围、元数据与事实集版本、质量策略 | 冻结清单、纳入/排除原因、计数 | 同场选择唯一事实集，来源冲突明确处置 |
-| AnalyzeMatch | fact_set + slot、candidate config、可选 dataset | 结构化事实/比较结果、证据、局限 | 无参考集时降级为事实；不临时改范围凑样本 |
-| BuildSnapshots / RetrieveCases | dataset、cutoff、特征与视角版本 | 快照或案例及距离解释 | 严格截止、排除自身、来源可追溯 |
-| RunExperiment | 数据/划分清单、任务、基线与参数 | 指标、模型/预测、误差和环境清单 | 测试隔离；实验不改数据集 |
+catalog 顶层为 `schema_version` 与 `matches`。每条比赛记录包含 match_id、bundle_id、相对 path、files、demo_sha256（可空）、labels（初始为空）、synthetic、imported_at、channels、warnings。bundle_id 由数据包文件指纹映射生成。当前标签和 catalog 本身不属于只读证据；固定数据集会复制当时标签。
 
-错误对象统一包含 code、stage、retryable、safe_message、attempt_id、局部 evidence ID；
-预期原因至少区分 INPUT_INVALID、PARSER_UNSUPPORTED、PARSE_INCOMPLETE、RESOURCE_LIMIT、
-EVIDENCE_MISMATCH、SCHEMA_UNSUPPORTED、CATALOG_CONFLICT、IO_FAILURE。
-业务空结果属于有解释的结果状态，不一律算程序异常。日志不含认证串或完整聊天内容。
+## 5. 工作区和数据集
 
-现有 CLI 的 JSON 行字段保留到迁移期；新增协议带版本，不能突然改变 stdout 的含义。
-进度走 stderr，机器结果走 stdout。未来 HTTP API 使用任务 ID 查询状态，不直接返回服务器文件路径。
+默认配置：
 
-## 7. 数据集、快照与分析结果
+```json
+{
+  "schema_version": "coach-workspace/1",
+  "seed": 42,
+  "validation_fraction": 0.15,
+  "test_fraction": 0.15,
+  "candidate_items": ["power_treads", "desolator", "black_king_bar"]
+}
+```
 
-数据集清单包含：schema、成员及所有相关 artifact hash、范围与排除规则、质量策略、元数据/静态快照、
-创建代码版本、创建时间、每项排除原因与各层计数。创建时间不参与成员内容身份的定义，另存运行元数据。
-manifest 的 hash 由无自引用的规范化内容计算；不要把 dataset_id 自身放进待 hash 的内容。
+两个留出比例均在 (0, 1)，和必须小于 1；候选装备列表非空。candidate_items 目前用于事实报告，仍会进入数据集身份，因此改它也会改变新数据集 ID。
 
-未来快照最少包含 match/slot/fact_set、cutoff_game_seconds、feature_schema、perspective、
-各特征值/缺失状态、source_time 与 available_at_game_seconds。整局统计的可用时间不得伪装为 0。
-取样点按“最后一个不晚于 cutoff 的已知观察”读取；不跨缺失区间或暂停盲目插值。
-标签窗口、观察终止原因和已购目标状态与特征分列，防止标签被当成输入。
+manifest 包含 schema_version、observation_schema、config、filters、matches、files、limitations、dataset_id、created_at。filters 包含 patch、role、hero_id、require_spatial、synthetic_only。
 
-分析结果包含 input/dataset/config/代码/规则版本、任务、过滤计数、统计分母、结果值、证据列表、局限。
-每个结果值应能定位到对应数据集与计算定义；UI 不重新计算另一个版本的指标。
-涉及预测时增加 split ID、特征与标签版本、随机种子、基线结果和适用范围。
+每条 matches / split JSONL 记录包含 match_id、bundle_id、player_slots、labels、channels、split、path。path 相对于快照目录；完整数据包位于 `matches/<match-id>/`。JSONL 每行一场比赛。
 
-## 8. schema 演进与旧库迁移
+- 默认 tier 仅 pro/high_mmr；synthetic-only 模式仅 synthetic，禁止混合。
+- 按 seed 与 match_id 哈希排序；validation/test 各取 `max(1, int(N * fraction))`，剩余为 train。无训练比赛时报错。
+- 最少 3 场，6 场默认划分为 train 4 / validation 1 / test 1。
+- require_spatial 仅要求位置数和可用经济行数都大于 0。
+- ID 计算排除 dataset_id 和 created_at，包含其余清单内容及文件哈希。
+- 筛选的 excluded 列表仅随命令结果返回，尚未保存到 manifest；需要留档时保存 stdout。
+- 所选槽位是使用约定，快照没有物理剔除其他玩家或未来数据。
 
-领域 schema、数据库 migration、解析器、适配器、静态资料、质量策略和报告版本分别管理。
-契约重大版本变化包括：字段改义、单位变化、事件类型含义变化或删除字段；兼容读取范围必须显式声明。
-当前 Pydantic 拒绝额外字段，所以即使“只加一个可选字段”也要升级读取器和兼容测试，不能假定旧程序自然兼容。
+目前没有 features、labels、窗口长度、地图分区或动作词表的正式模型输入契约。
 
-v0.2.0 → 新契约建议采用**并存迁移**：
+## 6. 训练器协议和模型描述
 
-1. 备份旧 JSON、数据库与原始 Demo；记录旧库版本，迁移前做预检和空间估算。
-2. 建新目录/目录库，验证 legacy raw，计算迁移时实际 hash；不伪造历史上并未保存的 hash 或版本。
-3. 有 Demo 原件时按解包内容建立修订；缺原件但有 raw 时标记 legacy provenance，不能声称重新验证了原 Demo。
-4. 重新构建事实集与引用，记录旧 source hash → 新 source/revision/fact_set 的映射。
-5. 对比比赛、玩家、事件数量、已核验候选时间与排除明细，抽查报告；失败时回到旧目录。
-6. 显式切换默认数据根。旧结果保持可读；迁移完成不自动删除旧库。
+调用形式：
 
-标准化输出可以重算，原始证据、人工标注、数据集选择与实验清单不能假定能再下载得到。
-依赖升级通过同样的固定样本差异报告，不原地改写被冻结的实验数据。
+```text
+<当前Python> <trainer.py> --dataset <快照绝对目录> --output <run/output绝对目录> --config <保存后的配置JSON>
+```
 
-## 9. 保留、删除与备份
+配置必须是 JSON 对象，未提供时为 `{}`。工作目录为 trainer 所在目录，stdout/stderr 合并到 process.log；默认超时 86400 秒。程序成功退出且产物契约通过后 run 才变为 succeeded。
 
-未来默认保留已引用证据及最新可用结果；临时 staging 和未引用失败产物可按期限列入清理预览。
-清理先遍历 source → run → dataset → analysis 的引用关系；删除会影响复现时先列出受影响结果并显式确认。
-已冻结不意味着永不能删除隐私数据：需要删除时撤销相关数据集资格并保留不含敏感内容的失效记录。
+输出 `model.json`：
 
-本地备份至少包括目录数据库的一致快照、被引用 artifacts、人工标注和冻结清单；
-保留独立副本，并用一次恢复到新路径的校验演练证明可恢复。
-启用 WAL 后不得在活跃写入时仅复制主 `.sqlite` 文件当作一致备份。
-原件外置时记录位置与可用状态；移动 data 不改其内容 hash，路径依赖通过数据根解析。
+```json
+{
+  "schema_version": "coach-model/1",
+  "framework": "pytorch",
+  "feature_schema": "my-decision-features/1",
+  "tasks": ["item", "route"],
+  "artifacts": ["weights.pt", "preprocessor.json"],
+  "metrics": {},
+  "notes": "记录训练范围、实际评估和限制"
+}
+```
+
+framework / feature_schema 非空；tasks 至少一个且只能 item/route。artifacts 非空且不重复，每项必须是 output 内非空普通文件，禁止目录穿越、符号链接和保留名称 model.json/registry.json。metrics 必填，可为空，值必须有限；框架不核验计算方式或性能门槛。
+
+run_id 是 `run-` 加 16 位 UUID 十六进制片段。run.json 记录 dataset_id、状态、起止时间、配置、主脚本哈希、部分环境版本；成功时记录模型描述和文件指纹，失败时记录 error。状态为 running/succeeded/failed/interrupted，没有 queued/resuming；强杀可能残留 running。
+
+register-model 只接受 succeeded run，复验数据集和输出。registry 包含 run_id、dataset_id、model、files、model_id、registered_at；ID 排除 model_id/registered_at，**包含 run_id**，所以不同训练运行即使权重相同也可得到不同模型 ID。
+
+## 7. 预测器协议和复盘
+
+```text
+<当前Python> <predict.py> --model <登记目录> --match <normalized.json> --player-slot 128 --output <predictions.json>
+```
+
+预测器默认超时 3600 秒。模型目录包含 registry.json、model.json 和声明的产物。
+
+```json
+{
+  "schema_version": "coach-predictions/1",
+  "model_id": "填写本次登记的模型ID",
+  "match_id": 1234567890,
+  "player_slot": 128,
+  "decisions": [{
+    "time_seconds": 600,
+    "task": "route",
+    "observed_action": "由预测器描述的行动",
+    "alternatives": [{"label": "候选地图区域", "score": 0.6}],
+    "evidence_refs": ["players[5].position_log[30]"],
+    "note": "填写当时上下文与局限"
+  }],
+  "limitations": []
+}
+```
+
+这是格式示例，引用索引、比赛、模型和槽位必须与实际输入一致。score 示例没有模型依据。
+
+限制：decisions 最多 10000；每个 decision 时间非负且不超过比赛时长；候选 1–10 个，label 最长 300 字符，score 在 [0,1]；证据 1–20 条；observed_action 可空、最长 300；note 最长 3000。候选分数不要求和为 1，也不代表校准后的胜率。
+
+复盘还检查模型的 patch/role/英雄适用域、所选槽位、合成/真实一致、声明任务和时间引用。若比赛出现在关联数据集的任意 split，会添加“非独立泛化验证”的提示。observed_action 和 note 是模型输出文字，未逐项验证其事实含义。
+
+review.json 包含 review_id、match_id、player_slot、model_id、bundle_id、mode、状态与时间；成功时有 report 路径。facts 模式也输出 facts.json/facts.html/report.html；模型模式另有 predictions.json 与执行日志。
+
+## 8. 兼容和待设计接口
+
+当前不会自动迁移 schema 或合并同比赛的多个解析修订。升级导致内容变化时，新建工作区重导入并保留旧数据集。旧缓存版本、绝对路径和 OpenDota 缓存策略见[操作指南](workflow.md)。
+
+下一阶段应先定义独立来源身份、解析版本、质量资格及标注修订，再定义严格截止时间的训练窗口、动作/标签与评估输入。不要把这些规划字段写入现有 Pydantic 对象；extra=forbid 会拒绝未知字段。
