@@ -11,5 +11,7 @@ dist/
 !.env.example
 data/
 reports/
+.tools/
+coach-workspace/
 .DS_Store
 Thumbs.db

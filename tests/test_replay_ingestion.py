@@ -49,7 +49,10 @@ def install_fake_gem(monkeypatch, calls):
         "gem",
         types.SimpleNamespace(
             parse=parse,
-            to_json=lambda match: json.dumps({"match_id": match.match_id, "players": []}),
+            to_json=lambda match: json.dumps(
+                {"match_id": match.match_id, "players": [vars(p) for p in match.players]},
+                default=vars,
+            ),
         ),
     )
 

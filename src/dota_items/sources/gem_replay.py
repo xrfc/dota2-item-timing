@@ -14,11 +14,13 @@ from pathlib import Path
 from typing import Any
 
 from ..normalize import normalize_match
+from .gem_observations import number, observations
 
 MAX_DEMO_BYTES = 2 * 1024**3
 CHUNK_BYTES = 1024**2
 DEMO_MAGIC = b"PBDEMS2"
 ZSTD_MAGIC = b"\x28\xb5\x2f\xfd"
+ADAPTER_VERSION = "gem-adapter/2.0"
 
 
 def _sha256(path: Path) -> str:
@@ -45,6 +47,8 @@ def prepared_demo(source: Path, scratch_dir: Path) -> Iterator[Path]:
         raise ValueError(f"Replay file does not exist: {source}")
     name = source.name.lower()
     if name.endswith(".dem"):
+        if source.stat().st_size > MAX_DEMO_BYTES:
+            raise ValueError("Replay exceeds the 2 GiB safety limit")
         with source.open("rb") as stream:
             if stream.read(len(DEMO_MAGIC)) != DEMO_MAGIC:
                 raise ValueError("Replay is not a Source 2 PBDEMS2 .dem file")
@@ -129,7 +133,7 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
             if second is None:
                 issues.append(f"player {slot}: purchase time unavailable at tick {event.tick}")
                 continue
-            if not isinstance(second, (int, float)) or second > match.duration:
+            if not number(second) or second > match.duration:
                 issues.append(f"player {slot}: purchase time outside match at tick {event.tick}")
                 continue
             key = name.removeprefix("item_")
@@ -148,6 +152,7 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
                 "player_slot": slot,
                 "hero_id": player.hero_id,
                 "purchase_log": purchases,
+                **observations(player, player_index, match),
             }
         )
     if not players:
@@ -155,7 +160,7 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
     if getattr(match, "post_game_tick", None) is None:
         issues.append("post_game_tick unavailable: replay may be incomplete")
     return {
-        "schema_version": "gem-adapter/1.0",
+        "schema_version": ADAPTER_VERSION,
         "match_id": match.match_id,
         "duration": match.duration,
         "game_mode": match.game_mode,
@@ -220,7 +225,16 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
             "WHERE source_sha256 = ?",
             (source_sha,),
         ).fetchone()
+        cache_valid = False
         if existing and Path(existing[2]).is_file() and Path(existing[3]).is_file() and not force:
+            try:
+                cached = json.loads(Path(existing[2]).read_text(encoding="utf-8"))
+                cache_valid = cached.get("schema_version") == ADAPTER_VERSION and cached.get(
+                    "evidence_sha256"
+                ) == _sha256(Path(existing[3]))
+            except (ValueError, OSError, AttributeError):
+                cache_valid = False
+        if cache_valid:
             return {
                 "status": "cached",
                 "source_sha256": source_sha,
