@@ -8,12 +8,12 @@ import uuid
 from pathlib import Path
 
 from ..sources.gem_replay import ingest_demo
+from ..storage import now, write_json
 from .contracts import Labels, ModelOutput, Predictions, WorkspaceConfig
 from .datasets import build_dataset
 from .demo import demo
 from .jobs import register_model, train
 from .reviews import review
-from .storage import now, write_json
 from .templates import PREDICTOR, TRAINER
 from .workspace import Workspace
 

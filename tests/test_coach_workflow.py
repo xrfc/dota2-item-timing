@@ -9,13 +9,13 @@ from test_replay_ingestion import DEMO, fake_match, install_fake_gem
 
 from dota_items.sources.gem_observations import observations
 from dota_items.sources.gem_replay import canonicalize_match, ingest_demo
+from dota_items.storage import file_hash, read_json, write_json, writer_lock
 from dota_items.workflow.cli import ingest, initialize, main
 from dota_items.workflow.contracts import Labels, Predictions
 from dota_items.workflow.datasets import build_dataset
 from dota_items.workflow.demo import demo
 from dota_items.workflow.jobs import load_model, register_model, train
 from dota_items.workflow.reviews import review, validate_predictions
-from dota_items.workflow.storage import file_hash, read_json, write_json, writer_lock
 from dota_items.workflow.validation import validate_match
 from dota_items.workflow.workspace import Workspace
 

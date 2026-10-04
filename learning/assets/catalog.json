@@ -1,0 +1,384 @@
+{
+  "components": [
+    {
+      "id": "ingest",
+      "title": "回放导入",
+      "subtitle": "DEMO → JSON",
+      "tasks": [
+        "W02"
+      ],
+      "ready_label": "已实现",
+      "learning": [
+        "L02",
+        "L03"
+      ],
+      "technology": [
+        "python",
+        "gem"
+      ],
+      "purpose": "把回放与压缩文件转成可追溯的购买、位置和自身经济记录。",
+      "input": "本地 .dem、压缩回放或比赛 JSON",
+      "output": "raw-gem.json、normalized.json、解析缓存与批次结果",
+      "reason": "复用 Gem 处理游戏协议，把项目精力放在字段语义、证据和学习任务上。",
+      "limits": "解析暂无独立超时和内存上限；新增时序的真实回放核验尚待完成。购买不等于库存或送达。",
+      "analogy": "数据结构与算法：压缩读取、事件排序、适配器与复杂度。",
+      "files": [
+        "src/dota_items/sources/gem_replay.py",
+        "src/dota_items/sources/gem_observations.py"
+      ],
+      "question": "一个 tick 怎样变成游戏秒数？暂停时直接除以 30 会发生什么？"
+    },
+    {
+      "id": "evidence",
+      "title": "证据与质量",
+      "subtitle": "VALIDATE",
+      "tasks": [
+        "D01",
+        "D05"
+      ],
+      "learning": [
+        "L03",
+        "L04"
+      ],
+      "technology": [
+        "pydantic",
+        "hash"
+      ],
+      "purpose": "检查身份、时间和原始引用，记录数据质量，让输入是否可信成为明确问题。",
+      "input": "规范比赛、raw 证据、事件引用",
+      "output": "基础校验结果、quality.json、警告与通道数量",
+      "reason": "格式约束与证据指纹分别检查结构和内容变化；任务资格还需要真实语义与覆盖规则。",
+      "limits": "自引用 JSON 缺独立证据；没有完整覆盖率、隔离和训练资格体系。doctor 只检查比赛包与数据集。",
+      "analogy": "程序验证：契约、边界条件、可追溯错误。",
+      "files": [
+        "src/dota_items/workflow/validation.py",
+        "src/dota_items/workflow/contracts.py"
+      ],
+      "question": "日志为空、日志缺失和完整窗口内没有购买，为什么不能使用同一个标签？"
+    },
+    {
+      "id": "workspace",
+      "title": "工作区与标签",
+      "subtitle": "CATALOG",
+      "tasks": [
+        "D02",
+        "D04"
+      ],
+      "learning": [
+        "L02",
+        "L04",
+        "L06"
+      ],
+      "technology": [
+        "json",
+        "hash",
+        "sqlite"
+      ],
+      "purpose": "保存比赛数据包、来源标注和索引，避免重复比赛膨胀样本量。",
+      "input": "已校验比赛、人工 patch / role / tier",
+      "output": "replays 数据包、catalog.json、当前标签",
+      "reason": "同文件系统发布与原子 JSON 替换适合单机工作流；人工标签保留需要核实的范围。",
+      "limits": "每场只有一组当前标签，重标覆盖；旧解析缓存与新 catalog 是两套存储边界。",
+      "analogy": "操作系统：文件发布、锁与崩溃一致性。",
+      "files": [
+        "src/dota_items/workflow/workspace.py",
+        "src/dota_items/storage.py"
+      ],
+      "question": "文件已经发布而 catalog 尚未更新时，怎样让下一次导入安全恢复？"
+    },
+    {
+      "id": "dataset",
+      "title": "固定数据集",
+      "subtitle": "SPLIT & SNAPSHOT",
+      "tasks": [
+        "W03",
+        "W04"
+      ],
+      "ready_label": "基础快照已实现",
+      "learning": [
+        "L06",
+        "L10"
+      ],
+      "technology": [
+        "json",
+        "hash"
+      ],
+      "purpose": "按比赛分组并复制固定快照，让实验绑定明确的数据范围和版本。",
+      "input": "带标签的比赛、筛选规则与 seed",
+      "output": "manifest.json、train / validation / test.jsonl",
+      "reason": "同场玩家与窗口共享上下文，比赛级划分减少跨组泄漏；哈希让变化可检测。",
+      "limits": "至少 3 场只保证三个 split 非空。快照仍含整场未来字段，没有训练窗口；excluded 尚未写入 manifest。",
+      "analogy": "数据库与测试：身份、固定输入、可重复结果。",
+      "files": [
+        "src/dota_items/workflow/datasets.py"
+      ],
+      "question": "一场比赛产生 1000 个窗口，为什么仍然不能算 1000 场独立经验？"
+    },
+    {
+      "id": "features",
+      "title": "历史特征与标签",
+      "subtitle": "X(t) / y(t,t+H)",
+      "tasks": [
+        "E02"
+      ],
+      "learning": [
+        "L05",
+        "L07",
+        "L08"
+      ],
+      "technology": [
+        "python",
+        "json"
+      ],
+      "purpose": "把整场时序切成决策时刻的历史输入，并单独构造未来行动标签。",
+      "input": "固定 split、cutoff、历史和未来窗口",
+      "output": "历史特征 X、未来标签 y、缺失标记和证据",
+      "reason": "显式分开过去和未来，才能检验模型在决策时刻是否使用了可知信息。",
+      "limits": "生产模块待实现。时间对齐、观察不足、并列事件和标签有效性需先确定规则。",
+      "analogy": "算法不变量：改未来数据，过去特征应保持不变。",
+      "files": [
+        "learning/docs/roadmap.md",
+        "learning/docs/development-workflow.md"
+      ],
+      "question": "比赛在 t+150 秒结束，能否将未来 300 秒标签标成“无购买”？"
+    },
+    {
+      "id": "preprocess",
+      "title": "数值预处理",
+      "subtitle": "FIT → TRANSFORM",
+      "tasks": [
+        "E04"
+      ],
+      "learning": [
+        "L09",
+        "L11"
+      ],
+      "technology": [
+        "python",
+        "json"
+      ],
+      "purpose": "保存只在训练集拟合的尺度、填补参数和类别映射，训练与推理共用。",
+      "input": "训练样本、缺失与类别规则",
+      "output": "拟合产物、变换后的各 split、参数指纹",
+      "reason": "把 fit 与 transform 分开，能够证明留出数据不会改变训练统计量。",
+      "limits": "生产模块待实现。未知类别、零方差和全缺失列需要明确行为。",
+      "analogy": "软件工程：共享接口、保存状态、版本兼容。",
+      "files": [
+        "learning/docs/development-workflow.md"
+      ],
+      "question": "改变测试集的金币分布，训练集的均值和标准差应当改变吗？"
+    },
+    {
+      "id": "train",
+      "title": "训练程序执行",
+      "subtitle": "RUN ADAPTER",
+      "tasks": [
+        "W05"
+      ],
+      "ready_label": "执行接口已就绪",
+      "learning": [
+        "L10",
+        "L12"
+      ],
+      "technology": [
+        "subprocess",
+        "pytorch"
+      ],
+      "purpose": "调用自己的训练程序，记录配置、主脚本、退出码、日志和模型产物。",
+      "input": "数据集 ID、训练脚本、配置",
+      "output": "run.json、process.log、output/model.json 与产物",
+      "reason": "通过子进程协议解耦算法框架与数据管理，保留执行失败的证据。",
+      "limits": "默认模板尚未训练模型；环境与主程序共用，只控制直接子进程超时，没有通用续训。",
+      "analogy": "操作系统：进程生命周期、退出码、I/O 与超时。",
+      "files": [
+        "src/dota_items/workflow/jobs.py",
+        "src/dota_items/workflow/templates.py"
+      ],
+      "question": "进程退出 0，但权重文件缺失，为什么不能把运行登记为成功？"
+    },
+    {
+      "id": "registry",
+      "title": "模型登记",
+      "subtitle": "ARTIFACTS",
+      "tasks": [
+        "W06"
+      ],
+      "ready_label": "登记接口已就绪",
+      "learning": [
+        "L10",
+        "L12"
+      ],
+      "technology": [
+        "hash",
+        "json"
+      ],
+      "purpose": "从成功运行复制并登记产物，关联训练来源、描述与文件指纹。",
+      "input": "成功 run、声明的非空产物",
+      "output": "models/<id>、registry.json、权重与预处理文件",
+      "reason": "权重、预处理和类别映射应作为一套可验证产物交付。",
+      "limits": "登记不评价模型性能，也不自动部署服务；不同 run 的模型 ID 可以不同。",
+      "analogy": "构建与发布：不可混用版本的交付产物。",
+      "files": [
+        "src/dota_items/workflow/jobs.py"
+      ],
+      "question": "只保存 weights.pt 而不保存词表，为什么可能导致新比赛预测错误？"
+    },
+    {
+      "id": "predict",
+      "title": "新比赛推理",
+      "subtitle": "PREDICT ADAPTER",
+      "tasks": [
+        "W06"
+      ],
+      "ready_label": "预测接口已就绪",
+      "learning": [
+        "L07",
+        "L09",
+        "L11"
+      ],
+      "technology": [
+        "subprocess",
+        "pydantic"
+      ],
+      "purpose": "调用预测器并核对比赛、玩家、模型范围、任务和解释引用。",
+      "input": "登记模型、个人比赛、玩家槽位",
+      "output": "predictions.json、过程日志与限制说明",
+      "reason": "结构化预测便于校验、审计和展示，训练与推理需复用同一套特征。",
+      "limits": "真实预测器和权重尚未实现；输出引用检查不能证明任意模型内部没有读取未来。",
+      "analogy": "网络协议与契约：生产者、消费者、身份和格式。",
+      "files": [
+        "src/dota_items/workflow/reviews.py",
+        "src/dota_items/workflow/contracts.py"
+      ],
+      "question": "解释引用没有超过 cutoff，是否足以证明模型输入也没有未来信息？"
+    },
+    {
+      "id": "report",
+      "title": "复盘报告",
+      "subtitle": "FACTS & REVIEW",
+      "tasks": [
+        "W07"
+      ],
+      "ready_label": "事实报告可用",
+      "learning": [
+        "L03",
+        "L11"
+      ],
+      "technology": [
+        "html"
+      ],
+      "purpose": "展示购买事实与数据质量；接入模型后显示候选决策、分数和证据。",
+      "input": "购买分析、可选模型预测",
+      "output": "离线 facts.html、report.html、JSON",
+      "reason": "静态 HTML 无需服务器或 CDN，便于查看和分享完整上下文。",
+      "limits": "尚无实际模型建议和地图轨迹。行为偏好分数不能直接解释为胜率或决策正确性。",
+      "analogy": "可观察性：让结果、来源与限制一起可见。",
+      "files": [
+        "src/dota_items/report.py",
+        "src/dota_items/workflow/reviews.py"
+      ],
+      "question": "模型更偏好职业选手的行为，为什么不一定说明你的选择是错的？"
+    }
+  ],
+  "choices": [
+    {
+      "id": "python",
+      "title": "Python 3.11+",
+      "tag": "当前采用",
+      "summary": "数据处理与未来模型共用生态",
+      "why": "Gem、数据工具和 PyTorch 可使用同一种语言；CLI 与算法通过清晰接口连接。",
+      "cost": "嵌套 JSON 对象占内存，CPU 解析并行需要独立设计。",
+      "alternative": "在实测热点后考虑有界多进程、列式读取或局部原生实现。",
+      "trigger": "解析耗时或峰值内存已成为瓶颈，并有固定样本与基准。",
+      "lesson": "语言生态、算法复杂度与运行时成本一起决定选型。"
+    },
+    {
+      "id": "gem",
+      "title": "Gem",
+      "tag": "当前可选依赖",
+      "summary": "复用游戏回放协议解析",
+      "why": "减少从零维护协议的工作，项目关注游戏语义、证据和任务定义。",
+      "cost": "依赖解析器与游戏补丁；安装成功不能证明字段语义正确。",
+      "alternative": "必要时用另一解析器作为独立来源对照，保留各自证据。",
+      "trigger": "固定真实回放集证明当前解析器缺失必需能力。",
+      "lesson": "复用基础能力之后，语义验证仍是自己的责任。"
+    },
+    {
+      "id": "pydantic",
+      "title": "Pydantic 2",
+      "tag": "当前采用",
+      "summary": "版本化输入输出与 Schema",
+      "why": "在配置、标签、模型和预测边界集中校验并导出 JSON Schema。",
+      "cost": "部分字段可类型转换；契约不验证指标或游戏事实。",
+      "alternative": "按真实兼容问题收紧类型与增加语义校验，保留迁移策略。",
+      "trigger": "错误格式或隐式转换导致无法解释的数据进入管线。",
+      "lesson": "结构校验与语义校验承担不同责任。"
+    },
+    {
+      "id": "json",
+      "title": "JSON / JSONL",
+      "tag": "当前采用",
+      "summary": "易检查、可携带的数据与清单",
+      "why": "早期能够直接观察证据与样本，JSONL 为每场比赛保存一条索引。",
+      "cost": "全量读取、嵌套对象和复制快照占内存与磁盘。",
+      "alternative": "时序大规模扫描可使用 Parquet / Arrow；小清单和原始证据保留 JSON。",
+      "trigger": "测量证明数据读写而不是算法计算成为主要瓶颈。",
+      "lesson": "存储格式需要与访问模式、规模和审计需求匹配。"
+    },
+    {
+      "id": "hash",
+      "title": "SHA-256 + 快照",
+      "tag": "当前采用",
+      "summary": "绑定明确的数据与产物版本",
+      "why": "指纹用于检查内容变化，复制快照防止后续标签修改影响旧实验。",
+      "cost": "重复存储和扫描开销；没有签名或物理只读保证。",
+      "alternative": "内容对象池或受控文件复用，并保留搬迁与恢复验证。",
+      "trigger": "快照复制占用显著，且已有完整引用管理。",
+      "lesson": "内容身份、逻辑比赛身份和执行身份需要分别设计。"
+    },
+    {
+      "id": "sqlite",
+      "title": "SQLite",
+      "tag": "仅用于解析缓存",
+      "summary": "单机索引无需数据库服务",
+      "why": "旧导入流程用 SQLite 管理比赛、玩家与购买事件索引。新 catalog 目前仍是 JSON。",
+      "cost": "SQL 事务不保护外部文件；旧缓存有绝对路径与版本追踪缺口。",
+      "alternative": "需要时统一元数据层，文件产物继续独立存储。",
+      "trigger": "catalog 全量读写和任务查询成本增长，且迁移/备份可验收。",
+      "lesson": "数据库事务与文件发布不能自动成为一个整体事务。"
+    },
+    {
+      "id": "subprocess",
+      "title": "Python 子进程",
+      "tag": "当前采用",
+      "summary": "让模型实现独立于管线",
+      "why": "保存命令、退出码和日志，基础管线不用理解网络结构或权重格式。",
+      "cost": "共用环境与权限；暂无队列、进程树清理或 GPU 调度。",
+      "alternative": "可靠性完善后按需求增加独立环境、本地 worker 或执行后端。",
+      "trigger": "出现依赖冲突、分布式训练或无人值守长期任务。",
+      "lesson": "执行协议、任务状态与算法代码可以分别演进。"
+    },
+    {
+      "id": "html",
+      "title": "静态 HTML + 原生 JS",
+      "tag": "当前采用",
+      "summary": "离线报告与可交互学习",
+      "why": "学习页面无需常驻服务、前端构建或 CDN，可由独立 Python 标准库脚本生成。",
+      "cost": "项目进度是生成时的快照；更新 ToDo 后需要重新生成。学习记录保存在浏览器。",
+      "alternative": "有实时多人需求后再考虑 API、worker 与独立前端。",
+      "trigger": "实际使用需要上传任务、实时进度和共享账户。",
+      "lesson": "先用适合当前交付方式的最小运行架构。"
+    },
+    {
+      "id": "pytorch",
+      "title": "PyTorch",
+      "tag": "下一阶段建议",
+      "summary": "自己实现网络与训练循环",
+      "why": "自定义时序模型、损失和 CPU/GPU 训练较直接，可通过已有适配器接入。",
+      "cost": "尚未引入；任务、可信样本、独立评估要先完成。",
+      "alternative": "TensorFlow / JAX 也可通过相同协议接入，按经验和需求选择。",
+      "trigger": "L01–L12 的相关样本与可靠性验收完成，进入实际模型阶段。",
+      "lesson": "框架选择不能替代任务、标签和评估设计。"
+    }
+  ]
+}

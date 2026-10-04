@@ -1,9 +1,9 @@
 """Offline infrastructure smoke data; no model and no genuine Dota match."""
 
+from ..storage import write_json
 from .contracts import Labels
 from .datasets import build_dataset
 from .reviews import review
-from .storage import write_json
 from .workspace import Workspace
 
 

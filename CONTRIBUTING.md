@@ -2,7 +2,7 @@
 
 当前重点是可靠、便于执行的训练前后基础设施。实际模型属于下一阶段；不要用生成随机权重或固定分数的演示代替可验证的模型能力。
 
-按学习计划推进时，从 [L01–L12 数据准备任务](docs/roadmap.md)选择一个依赖已满足的小任务，遵循[开发流程](docs/development-workflow.md)。先用[任务记录模板](docs/templates/task-record.md)写输入输出和验收，再实现最小改动；真实语义使用[数据审计模板](docs/templates/data-audit.md)留证。规划、合成接口验证、真实验收分别记录。
+学习计划、练习与个人记录统一放在 [learning/](learning/README.md)。工程贡献以本指南和工程 ToDo 为准。
 
 ## 环境与检查
 
@@ -10,19 +10,35 @@ Python 3.11+。在仓库根目录执行：
 
 ```bash
 python scripts/bootstrap.py --replay --dev
-.venv/bin/python -m ruff check .
-.venv/bin/python -m ruff format --check .
-.venv/bin/python -m pytest -q
+python scripts/check.py
 python coach.py --workspace coach-workspace/dev-check demo
 python coach.py --workspace coach-workspace/dev-check doctor
 ```
 
-Windows 将 `.venv/bin/python` 替换为 `.venv/Scripts/python.exe`。只开发 JSON 工作流可不安装 `--replay`；真实回放解析需要它。测试和 demo 不要求 CUDA、PyTorch 或 API key。
+检查入口自动选择 `.venv`，跨平台使用同一命令。可用 `--scope engineering` 或 `--scope learning` 选择检查范围；安装 Node.js 22+ 后执行 JavaScript 检查。只开发 JSON 工作流可不安装 `--replay`；真实回放解析需要它。测试和 demo 不要求 CUDA、PyTorch 或 API key。
 
-CI 在 Ubuntu Python 3.11/3.12 执行完整检查；Windows Python 3.12 执行工作流测试与 demo，见[配置](.github/workflows/ci.yml)。具体测试边界见[验证与交付](docs/validation-and-delivery.md)。
+CI 在 Ubuntu Python 3.11/3.12 执行完整检查；Windows Python 3.12 执行工作流测试、独立学习检查与 demo，见[配置](.github/workflows/ci.yml)。具体测试边界见[验证与交付](docs/validation-and-delivery.md)。
+
+## 仓库结构与维护约定
+
+```text
+src/dota_items/       正式工程包、数据源适配与工作流
+tests/              工程回归测试
+scripts/            环境准备与统一检查入口
+docs/               工程设计、契约、操作、验收与 ToDo
+learning/           全部学习资料、可视化、实验、模板和学习测试
+configs/            工程配置示例
+examples/           明确标注的公开合成输入
+coach.py            自动使用 venv 的工程启动入口
+```
+
+新增文件按职责放入现有目录；不保留手工复制的模块、文档副本或空占位目录。正式包只从 `src/` 构建，工程测试只放 `tests/`，学习测试只放 `learning/tests/`。每份文档维护一项主职责，相同命令和验收状态通过链接引用；历史实现通过 Git 查看，不维护版本名副本。
+
+`build/`、`dist/`、缓存和环境属于可再生输出；`coach-workspace/`、`data/`、`reports/` 是工程数据/产物，`learning/output/` 是学习产物，均不提交。清理时可删除已确认的构建和缓存；用户回放、工作区、模型和笔记需先备份，不当作缓存删除。不要创建另一个源码目录来保存生成产物。
 
 ## 代码边界
 
+- `storage.py` 维护数据源与工作流共用的文件指纹和存储基础操作。
 - `sources/` 负责外部读取、Gem 解析和观测导出。
 - `normalize.py / domain.py / analysis.py / report.py` 保留购买事实管线。
 - `workflow/` 负责工作区、质量校验、快照、任务协议和模型报告。

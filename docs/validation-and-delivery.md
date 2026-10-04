@@ -15,9 +15,11 @@
 | 新位置/经济语义 | 尚未完成真实对照 | 不宣称新时序已通过真实数据验收 |
 | 模型效果 | 尚无模型和独立评估 | 不报告准确率、胜率或决策改善 |
 
-工程基线：[364d9ad](https://github.com/xrfc/dota2-item-timing/commit/364d9adf07373e925c9d420b5804403f866c432e)，[成功 CI](https://github.com/xrfc/dota2-item-timing/actions/runs/36997970952)。本次文档整理不会把历史验证写成新的实测结果。
+工程基线：[364d9ad](https://github.com/xrfc/dota2-item-timing/commit/364d9adf07373e925c9d420b5804403f866c432e)，[成功 CI](https://github.com/xrfc/dota2-item-timing/actions/runs/36997970952)。这是原基础设施基线的验证记录；后续修改的验证单独列出。
 
-本轮文档核验：14 份 Markdown、99 个仓库相对链接、7 个 JSON 契约示例通过检查；24 次 CLI 调用通过，覆盖帮助、重复 demo、doctor/status、数据集构建、JSON 导入/去重/标注/事实复盘和旧报告入口。检查在临时工作区使用现有 Python 依赖执行，没有重新安装 Gem 或解析真实 demo。运行代码与上述基线一致。
+2026-10-02 文档核验：14 份 Markdown、99 个仓库相对链接、7 个 JSON 契约示例通过检查；24 次 CLI 调用通过，覆盖帮助、重复 demo、doctor/status、数据集构建、JSON 导入/去重/标注/事实复盘和旧报告入口。检查在临时工作区使用现有 Python 依赖执行，没有重新安装 Gem 或解析真实 demo。当时运行代码与上述基线一致。
+
+2026-10-03 仓库整理核验：共享存储模块迁移后，工程 47 项测试及 Ruff 检查通过；学习生成器 10 项标准库测试和教学/个人记录规则 6 项 JavaScript 测试通过。所有当前 Markdown 相对链接与组件源码路径存在，正式包不包含学习代码。学习测试详见 [learning/](../learning/README.md)；当前云端环境禁止浏览器所需的进程通信，未完成真实浏览器布局与交互核验。
 
 ## 2. 开发者复现命令
 
@@ -25,9 +27,7 @@
 
 ```bash
 python scripts/bootstrap.py --replay --dev
-.venv/bin/python -m ruff check .
-.venv/bin/python -m ruff format --check .
-.venv/bin/python -m pytest -q
+python scripts/check.py
 .venv/bin/python -m dota_items.cli report examples/match.synthetic.json --player-slot 0 --output reports/smoke
 python coach.py --workspace coach-workspace/validation demo
 python coach.py --workspace coach-workspace/validation doctor
@@ -68,7 +68,7 @@ Windows 的解释器路径为 `.venv/Scripts/python.exe`。只核对 JSON 工作
 
 ## 5. 交付验收
 
-2026-10-03 新增的数据准备学习任务见 [L01–L12](roadmap.md)，逐场/逐样本的正反例要求见[开发流程验收矩阵](development-workflow.md)。这些是后续任务的完成条件，不包含在当前 47 项测试已通过的声明中；填写模板也不代表执行了验收。
+2026-10-03 新增的数据准备学习任务见 [L01–L12](../learning/docs/roadmap.md)，逐场/逐样本的正反例要求见[开发流程验收矩阵](../learning/docs/development-workflow.md)。这些是后续任务的完成条件，不包含在当前 47 项测试已通过的声明中；填写模板也不代表执行了验收。
 
 ### 当前基础设施交付
 

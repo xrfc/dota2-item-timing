@@ -70,7 +70,7 @@ python coach.py --workspace coach-workspace/real ingest /path/to/replays
 - [架构](docs/engineering-design.md)与[数据契约](docs/data-contracts.md)：代码边界和真实接口。
 - [日常操作与恢复](docs/workflow.md)、[验证与交付](docs/validation-and-delivery.md)。
 - [任务清单](docs/roadmap.md)、[风险复核](docs/project-review.md)。
-- [学习驱动的开发流程](docs/development-workflow.md)：先完成 L01–L12 数据准备任务，配套任务记录、数据审计和防泄漏验收。
+- [独立学习区](learning/README.md)：组件地图、技术选型、交互实验和 L01–L12 实践计划。运行 `python learning/build.py`，打开 `learning/output/index.html`。
 - [贡献指南](CONTRIBUTING.md)、[变更记录](CHANGELOG.md)。
 
 旧入口 `dota-items fetch / ingest-demo / data-status / report` 保留，可继续生成购买事实报告；它的缓存和校验边界见[操作指南](docs/workflow.md)。新工作区的去重、快照和证据校验不能反推成旧入口也具有同等保障。
@@ -79,9 +79,7 @@ python coach.py --workspace coach-workspace/real ingest /path/to/replays
 
 ```bash
 python scripts/bootstrap.py --dev --replay
-.venv/bin/python -m ruff check .
-.venv/bin/python -m ruff format --check .
-.venv/bin/python -m pytest -q
+python scripts/check.py
 ```
 
-Windows 将 `.venv/bin/python` 换为 `.venv/Scripts/python.exe`。测试中的模型程序是接口桩，不能作为训练效果证据。许可证：[MIT](LICENSE)。
+检查入口自动使用项目 `.venv`，Linux、macOS 和 Windows 使用同一命令。安装 Node.js 22+ 可执行学习区的 JavaScript 检查。测试中的模型程序是接口桩，不能作为训练效果证据。许可证：[MIT](LICENSE)。

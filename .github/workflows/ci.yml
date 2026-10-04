@@ -16,9 +16,10 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - run: python -m pip install -e ".[dev,replay]"
-      - run: ruff check .
-      - run: ruff format --check .
-      - run: pytest -q
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: python scripts/check.py
       - run: dota-items report examples/match.synthetic.json --player-slot 0 --output reports/smoke
       - run: python coach.py --workspace coach-workspace/ci demo
       - run: python coach.py --workspace coach-workspace/ci doctor
@@ -30,5 +31,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install -e ".[dev]"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - run: python -m pytest tests/test_coach_workflow.py -q
+      - run: python scripts/check.py --scope learning
       - run: python coach.py --workspace coach-workspace/ci demo

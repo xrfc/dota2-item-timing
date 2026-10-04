@@ -5,8 +5,7 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from .contracts import Labels
-from .storage import (
+from ..storage import (
     digest,
     hashes,
     json_bytes,
@@ -16,6 +15,7 @@ from .storage import (
     write_json,
     writer_lock,
 )
+from .contracts import Labels
 from .workspace import Workspace
 
 

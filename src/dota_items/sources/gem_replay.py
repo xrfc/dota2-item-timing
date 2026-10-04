@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from ..normalize import normalize_match
+from ..storage import file_hash
 from .gem_observations import number, observations
 
 MAX_DEMO_BYTES = 2 * 1024**3
@@ -21,14 +22,6 @@ CHUNK_BYTES = 1024**2
 DEMO_MAGIC = b"PBDEMS2"
 ZSTD_MAGIC = b"\x28\xb5\x2f\xfd"
 ADAPTER_VERSION = "gem-adapter/2.0"
-
-
-def _sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as stream:
-        for chunk in iter(lambda: stream.read(CHUNK_BYTES), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
 
 
 def _copy_bounded(source: Any, target: Any) -> None:
@@ -217,7 +210,7 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
     source = source.resolve()
     if not source.is_file():
         raise ValueError(f"Replay file does not exist: {source}")
-    source_sha = _sha256(source)
+    source_sha = file_hash(source)
     database = data_dir / "index.sqlite"
     with closing(_initialize_index(database)) as index:
         existing = index.execute(
@@ -231,7 +224,7 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
                 cached = json.loads(Path(existing[2]).read_text(encoding="utf-8"))
                 cache_valid = cached.get("schema_version") == ADAPTER_VERSION and cached.get(
                     "evidence_sha256"
-                ) == _sha256(Path(existing[3]))
+                ) == file_hash(Path(existing[3]))
             except (ValueError, OSError, AttributeError):
                 cache_valid = False
         if cache_valid:
@@ -247,7 +240,7 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
     except ImportError as error:
         raise ValueError("Gem is not installed; run pip install -e '.[replay]'") from error
     with prepared_demo(source, data_dir / ".tmp") as replay:
-        replay_sha = _sha256(replay)
+        replay_sha = file_hash(replay)
         match = gem.parse(replay)
     canonical, issues = canonicalize_match(match)
     for player in canonical["players"]:

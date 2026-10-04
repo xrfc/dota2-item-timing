@@ -19,15 +19,15 @@
 ## 2. 开发循环
 
 1. **选任务。** 从 roadmap 选择一个依赖已满足的 L 任务；同一时间只推进一个主要学习问题。大任务拆为一页契约、一个纯函数、一组边界验证等小改动。
-2. **写任务卡。** 复制[任务记录模板](templates/task-record.md)，写目标、范围、依赖、输入输出、验收、兼容和回退；引用相关 D/V/E/ML 编号。
+2. **写任务卡。** 复制[任务记录模板](../templates/task-record.md)，写目标、范围、依赖、输入输出、验收、兼容和回退；引用相关 D/V/E/ML 编号。
 3. **固定输入。** 记录 Git 提交、依赖环境、数据集/原始文件哈希和规则版本。使用专门的开发样本，不通过查看最终测试结果来选清洗阈值或特征。
-4. **先验证假设。** 用能手工计算的小例子说明规则；真实语义使用[数据审计模板](templates/data-audit.md)对照。字段未知时排除或阻塞，不能补造数值。
+4. **先验证假设。** 用能手工计算的小例子说明规则；真实语义使用[数据审计模板](../templates/data-audit.md)对照。字段未知时排除或阻塞，不能补造数值。
 5. **做最小实现。** 确定性变换尽量写成无隐式全局状态的函数；文件读取、发布、CLI 接入单独处理。先让一条样本可解释，再扩大批次。
 6. **验证实际风险。** 对时间边界、缺失、身份和发布行为写有意义的正反例；训练前代码尤其检查未来数据和留出集是否影响过去特征/拟合产物。
 7. **审阅差异并提交。** 说明具体问题、结果、证据和限制；只提交本任务相关改动，保留现有快照与兼容策略。通过检查后同步开发分支。
 8. **更新状态与复盘。** 仅在验收满足时关闭 L 任务，按实际范围更新旧任务子项。记录一个学到的机制、一个失败案例和下一步假设。
 
-建议任务记录放在未来建立的 `docs/records/<任务ID>-<主题>.md`，只提交适合公开的设计和摘要。真实回放、完整玩家记录、大型输出放在 `coach-workspace/` 等被忽略目录，摘要用 ID/哈希引用；自定义数据路径需检查忽略规则。当前仓库提供模板，尚未创建这些任务的实际验收记录。
+建议任务记录放在未来建立的 `learning/records/<任务ID>-<主题>.md`，只提交适合公开的设计和摘要。学习核验用的真实回放、完整玩家记录、大型输出放在 `learning/output/` 等被忽略目录，摘要用 ID/哈希引用；自定义数据路径需检查忽略规则。当前仓库提供模板，尚未创建这些任务的实际验收记录。
 
 ## 3. 环境与分支
 
@@ -39,11 +39,11 @@
 git clone --branch feat/coach-workflow-infrastructure https://github.com/xrfc/dota2-item-timing.git
 cd dota2-item-timing
 python scripts/bootstrap.py --dev
-python coach.py --workspace coach-workspace/learning demo
-python coach.py --workspace coach-workspace/learning doctor
+python coach.py --workspace learning/output/workspace demo
+python coach.py --workspace learning/output/workspace doctor
 ```
 
-已有检出先检查 `git status`、当前分支与未提交内容，保存已有工作后再切换/更新；不要在混合改动上执行 reset/clean。进行实际回放解析时安装 `python scripts/bootstrap.py --replay --dev`，并使用独立真实工作区。具体导入命令见[教练工作流](coach-workflow.md)。
+已有检出先检查 `git status`、当前分支与未提交内容，保存已有工作后再切换/更新；不要在混合改动上执行 reset/clean。进行实际回放解析时安装 `python scripts/bootstrap.py --replay --dev`，并使用独立真实工作区。具体导入命令见[教练工作流](../../docs/coach-workflow.md)。
 
 在干净、已同步的功能分支上，为一个小任务创建工作分支，例如：
 
@@ -65,7 +65,7 @@ git switch -c feat/l05-causal-alignment
 | 数值预处理 | train 样本 → 拟合产物；各 split → 变换结果 | fit 只用 train，transform 共用保存产物 | 计划中的 preprocessing 模块 |
 | 派生快照 | 样本、规则、拟合产物 → 清单与哈希 | 保留源 dataset_id 与原 split，不覆盖整场快照 | 计划中的样本发布层 |
 
-上述模块可以在实现时逐步建立于 `src/dota_items/` 的独立数据准备包；具体命名随接口设计确定，不预先生成空模块。后续模型适配器消费这些接口，特征变换不在 train.py/predict.py 各写一套。
+学习练习模块逐步建立于 `learning/exercises/`，具体命名随接口设计确定，不预先生成空模块。经独立工程任务审阅和验收后，确需用于正式管线的能力再迁入工程包；学习脚本和笔记始终留在 learning/。后续模型适配器消费这些接口，特征变换不在 train.py/predict.py 各写一套。
 
 现有 `train` 读取的是 `coach-dataset/1` 整场快照。派生样本没有现成 Schema/CLI，不能把规划字段直接塞进现有 Pydantic 契约；L10 需要设计新版本清单及适配器如何引用它，保留旧入口兼容。
 
@@ -118,12 +118,12 @@ git switch -c feat/l05-causal-alignment
 .venv/bin/python -m ruff check .
 .venv/bin/python -m ruff format --check .
 .venv/bin/python -m pytest -q
-python coach.py --workspace coach-workspace/learning demo
-python coach.py --workspace coach-workspace/learning doctor
+python coach.py --workspace learning/output/workspace demo
+python coach.py --workspace learning/output/workspace doctor
 ```
 
-Windows 使用 `.venv/Scripts/python.exe`。纯计划/文字修改核对链接、任务依赖、现有命令及“已实现/待实现”边界，不需要增加代码测试；不要把未运行的真实回放或新接口测试写成通过。更完整要求见[验证与交付](validation-and-delivery.md)。
+Windows 使用 `.venv/Scripts/python.exe`。纯计划/文字修改核对链接、任务依赖、现有命令及“已实现/待实现”边界，不需要增加代码测试；不要把未运行的真实回放或新接口测试写成通过。更完整要求见[验证与交付](../../docs/validation-and-delivery.md)。
 
 提交前检查 `git diff` 与 `git status`，逐文件选择本任务改动。PR/提交说明包括：具体触发场景、结果、正反例证据、数据/Schema 兼容、已知限制和关联任务 ID。CI 通过后仍需确认真实语义验收是否满足；不能据此自动关闭 L03。
 
-任务关闭需要代码/文档产物、实际验收记录、版本/回退说明和学习复盘。把链接补回 roadmap，更新[项目状态](project-status.md)的实际能力及[变更记录](../CHANGELOG.md)。本轮仅新增流程与模板，L01–L12 仍待执行；没有新增数据清洗命令，也没有开始训练模型。
+任务关闭需要代码/文档产物、实际验收记录、版本/回退说明和学习复盘。把链接补回 roadmap，更新[项目状态](../../docs/project-status.md)的实际能力及[变更记录](../../CHANGELOG.md)。可视化学习工具与模板帮助理解和记录，但不能作为任务已完成的证据。未执行的真实核验、清洗和预处理任务继续保留待办。

@@ -6,7 +6,7 @@ from typing import Any
 
 from ..normalize import normalize_match
 from ..sources.gem_observations import number
-from .storage import file_hash, inside, read_json
+from ..storage import file_hash, inside, read_json
 
 
 def resolve_ref(value: Any, reference: str) -> Any:

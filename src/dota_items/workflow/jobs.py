@@ -10,8 +10,17 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+from ..storage import (
+    digest,
+    file_hash,
+    identifier,
+    inside,
+    now,
+    read_json,
+    verify_files,
+    write_json,
+)
 from .contracts import ModelOutput
-from .storage import digest, file_hash, identifier, inside, now, read_json, verify_files, write_json
 from .workspace import Workspace
 
 

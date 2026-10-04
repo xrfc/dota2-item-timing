@@ -2,7 +2,7 @@
 
 基线：v0.3。首次使用及模型接入命令见[教练工作流](coach-workflow.md)；本文件维护日常操作、旧入口衔接与真实回放核验。
 
-按学习计划开发清洗、对齐、样本和预处理功能时，使用[开发流程](development-workflow.md)与 [L01–L12 任务清单](roadmap.md)。下述日常操作是已有命令；学习任务中的新接口仍待实现。完整来源、质量和样本记录可复制[数据审计模板](templates/data-audit.md)。
+按学习计划开发清洗、对齐、样本和预处理功能时，使用[开发流程](../learning/docs/development-workflow.md)与 [L01–L12 任务清单](../learning/docs/roadmap.md)。下述日常操作是已有命令；学习任务中的新接口仍待实现。完整来源、质量和样本记录可复制[数据审计模板](../learning/templates/data-audit.md)。
 
 ## 1. 建议的本地使用方式
 

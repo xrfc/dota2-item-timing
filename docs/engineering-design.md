@@ -36,7 +36,7 @@ flowchart TD
 | [sources/opendota.py](../src/dota_items/sources/opendota.py) | OpenDota HTTP 请求、有限重试、原始响应缓存 |
 | [normalize.py](../src/dota_items/normalize.py)、[domain.py](../src/dota_items/domain.py) | 购买时间线、缺失/非法事件状态和事实结构 |
 | [analysis.py](../src/dota_items/analysis.py)、[report.py](../src/dota_items/report.py) | 关注装备的最早购买记录、转义的静态 HTML |
-| [workflow/storage.py](../src/dota_items/workflow/storage.py) | JSON 原子替换、相对路径检查、指纹、写锁 |
+| [storage.py](../src/dota_items/storage.py) | 跨数据源与工作流共用的文件指纹、JSON 原子替换、相对路径检查和写锁 |
 | [workflow/validation.py](../src/dota_items/workflow/validation.py) | 比赛结构、原始证据引用和时序基础检查 |
 | [workflow/workspace.py](../src/dota_items/workflow/workspace.py) | 数据包、catalog、标签、status、doctor |
 | [workflow/datasets.py](../src/dota_items/workflow/datasets.py) | 筛选、按比赛划分、复制快照、数据集 ID |

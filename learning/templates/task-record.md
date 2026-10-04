@@ -1,6 +1,6 @@
 # 任务记录模板
 
-用途：复制后填写一个可独立验收的小任务；此模板不是已完成记录。任务状态统一维护于[roadmap](../roadmap.md)，执行步骤见[开发流程](../development-workflow.md)。
+用途：复制后填写一个可独立验收的小任务；此模板不是已完成记录。任务状态统一维护于[roadmap](../docs/roadmap.md)，执行步骤见[开发流程](../docs/development-workflow.md)。
 
 ## 身份与范围
 
