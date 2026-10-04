@@ -32,7 +32,7 @@ def main() -> int:
             commands.extend(
                 [
                     [node, "--check", "learning/assets/learning.js"],
-                    [node, "--test", "--test-isolation=none", "learning/tests/test_labs.cjs"],
+                    [node, "learning/tests/test_labs.cjs"],
                 ]
             )
         else:
