@@ -59,6 +59,16 @@ learning/
 python scripts/check.py --scope learning
 ```
 
-Python 检查仅使用标准库；安装 Node.js 22+ 时同时检查界面脚本语法和教学算法，CI 固定执行这两类检查。真实浏览器布局与交互仍需手动核验，不能以这些测试代替。
+Python 检查仅使用标准库；安装 Node.js 22+ 时同时检查界面脚本语法和教学算法，CI 固定执行这两类检查。Ubuntu / Python 3.12 的 CI 另执行 Chromium 验收，检查导航、笔记、进度隔离、三个实验、导入/导出与 390px 布局，并保存 `learning-preview` 截图。源码说明或样式变更后也应人工检查截图。
 
 从 [L01 任务计划](docs/roadmap.md) 开始，按[开发流程](docs/development-workflow.md)使用[任务记录](templates/task-record.md)和[数据审计](templates/data-audit.md)模板留下实践证据。
+
+可选地在本地执行同一浏览器检查；Playwright 仅供学习测试使用：
+
+```bash
+python -m pip install "playwright>=1.50,<2"
+python -m playwright install chromium
+python learning/tests/browser_check.py
+```
+
+截图保存在 `learning/output/screenshots/`；浏览器检查需要允许浏览器进程启动与通信的环境。
