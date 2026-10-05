@@ -1,5 +1,7 @@
 # 日常操作、迁移与恢复
 
+> v0.4 数据准备更新：`prepare` 已实现单文件清洗/特征/标签；`build-samples` 输出固定 split 的训练数组和 train-only 预处理。输入、错误策略、任务 mask 和操作示例以[数据管线](data-pipeline.md)为准。实际模型与真实字段验收仍待完成。
+
 基线：v0.3。首次使用及模型接入命令见[教练工作流](coach-workflow.md)；本文件维护日常操作、旧入口衔接与真实回放核验。
 
 按学习计划开发清洗、对齐、样本和预处理功能时，使用[开发流程](../learning/docs/development-workflow.md)与 [L01–L12 任务清单](../learning/docs/roadmap.md)。下述日常操作是已有命令；学习任务中的新接口仍待实现。完整来源、质量和样本记录可复制[数据审计模板](../learning/templates/data-audit.md)。

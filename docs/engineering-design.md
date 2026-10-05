@@ -1,5 +1,7 @@
 # 工程设计：v0.3
 
+> v0.4 数据准备更新：`prepare` 已实现单文件清洗/特征/标签；`build-samples` 输出固定 split 的训练数组和 train-only 预处理。输入、错误策略、任务 mask 和操作示例以[数据管线](data-pipeline.md)为准。实际模型与真实字段验收仍待完成。
+
 基线日期：2026-10-02。功能状态见[完成度](project-status.md)，选型理由见[技术选型](long-term-roadmap.md)。本文描述现有结构；文末单列规划。
 
 ## 系统边界

@@ -48,6 +48,8 @@ def validate_match(path: Path) -> dict[str, Any]:
         slot = player.get("player_slot")
         if isinstance(slot, bool) or slot not in {*range(5), *range(128, 133)} or slot in slots:
             raise ValueError(f"Invalid or duplicate player slot: {slot}")
+        if type(slot) is not int or type(player.get("hero_id")) is not int or player["hero_id"] <= 0:
+            raise ValueError("Player slot and hero_id must be valid integers")
         slots.add(slot)
         timeline = normalize_match(raw, slot, source=path.name, fingerprint=file_hash(path))
         if timeline.purchase_log_status == "invalid" or any(
@@ -72,7 +74,7 @@ def validate_match(path: Path) -> dict[str, Any]:
             entries = player.get(channel, [])
             if not isinstance(entries, list):
                 raise ValueError(f"{channel} must be an array")
-            previous = -1
+            previous = 0
             for row in entries:
                 if not isinstance(row, dict):
                     raise ValueError(f"Invalid {channel} sample")

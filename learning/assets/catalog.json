@@ -48,7 +48,7 @@
       "input": "规范比赛、raw 证据、事件引用",
       "output": "基础校验结果、quality.json、警告与通道数量",
       "reason": "格式约束与证据指纹分别检查结构和内容变化；任务资格还需要真实语义与覆盖规则。",
-      "limits": "自引用 JSON 缺独立证据；没有完整覆盖率、隔离和训练资格体系。doctor 只检查比赛包与数据集。",
+      "limits": "已有隔离明细和任务 mask；真实覆盖率与游戏语义尚未核验。doctor 检查比赛、prepared 产物与数据集。",
       "analogy": "程序验证：契约、边界条件、可追溯错误。",
       "files": [
         "src/dota_items/workflow/validation.py",
@@ -107,7 +107,7 @@
       "input": "带标签的比赛、筛选规则与 seed",
       "output": "manifest.json、train / validation / test.jsonl",
       "reason": "同场玩家与窗口共享上下文，比赛级划分减少跨组泄漏；哈希让变化可检测。",
-      "limits": "至少 3 场只保证三个 split 非空。快照仍含整场未来字段，没有训练窗口；excluded 尚未写入 manifest。",
+      "limits": "至少 3 场只保证三个 split 非空。观察快照保留全场；build-samples 生成独立样本，excluded 已持久化。",
       "analogy": "数据库与测试：身份、固定输入、可重复结果。",
       "files": [
         "src/dota_items/workflow/datasets.py"
@@ -128,17 +128,19 @@
       ],
       "technology": [
         "python",
+        "pandas",
         "json"
       ],
       "purpose": "把整场时序切成决策时刻的历史输入，并单独构造未来行动标签。",
       "input": "固定 split、cutoff、历史和未来窗口",
       "output": "历史特征 X、未来标签 y、缺失标记和证据",
       "reason": "显式分开过去和未来，才能检验模型在决策时刻是否使用了可知信息。",
-      "limits": "生产模块待实现。时间对齐、观察不足、并列事件和标签有效性需先确定规则。",
+      "limits": "初始历史特征、下个观察购买和未来位移标签已实现；库存、视野、死亡状态和真实字段核验待补。",
       "analogy": "算法不变量：改未来数据，过去特征应保持不变。",
       "files": [
-        "learning/docs/roadmap.md",
-        "learning/docs/development-workflow.md"
+        "src/dota_items/data/cleaning.py",
+        "src/dota_items/data/features.py",
+        "docs/data-pipeline.md"
       ],
       "question": "比赛在 t+150 秒结束，能否将未来 300 秒标签标成“无购买”？"
     },
@@ -154,17 +156,18 @@
         "L11"
       ],
       "technology": [
-        "python",
+        "sklearn",
         "json"
       ],
       "purpose": "保存只在训练集拟合的尺度、填补参数和类别映射，训练与推理共用。",
       "input": "训练样本、缺失与类别规则",
       "output": "拟合产物、变换后的各 split、参数指纹",
       "reason": "把 fit 与 transform 分开，能够证明留出数据不会改变训练统计量。",
-      "limits": "生产模块待实现。未知类别、零方差和全缺失列需要明确行为。",
+      "limits": "已实现 train-only 标准化、缺失指示器、未知英雄全零编码与 JSON 状态。大数据分块和真实样本评估待做。",
       "analogy": "软件工程：共享接口、保存状态、版本兼容。",
       "files": [
-        "learning/docs/development-workflow.md"
+        "src/dota_items/data/preprocessing.py",
+        "src/dota_items/data/pipeline.py"
       ],
       "question": "改变测试集的金币分布，训练集的均值和标准差应当改变吗？"
     },
@@ -379,6 +382,28 @@
       "alternative": "TensorFlow / JAX 也可通过相同协议接入，按经验和需求选择。",
       "trigger": "L01–L12 的相关样本与可靠性验收完成，进入实际模型阶段。",
       "lesson": "框架选择不能替代任务、标签和评估设计。"
+    },
+    {
+      "id": "pandas",
+      "title": "pandas merge_asof",
+      "tag": "data 可选依赖",
+      "summary": "复用成熟的时间对齐实现",
+      "why": "backward 与 tolerance 明确限制观测时刻和年龄，配合未来扰动测试。",
+      "cost": "单场/整个 split 的 Python 对象仍在内存。",
+      "alternative": "规模增长后考虑 Polars / Arrow 扫描。",
+      "trigger": "真实采样基准证明内存或对齐时间成为瓶颈。",
+      "lesson": "库实现连接，项目定义时间语义和缺失规则。"
+    },
+    {
+      "id": "sklearn",
+      "title": "scikit-learn",
+      "tag": "data 可选依赖",
+      "summary": "复用预处理，不重写标准化和编码",
+      "why": "SimpleImputer、StandardScaler、OneHotEncoder 处理填补、零方差和未知类别。",
+      "cost": "必须自己保证 fit 来源是 train；JSON 状态绑定特征版本。",
+      "alternative": "后续模型可选框架内变换，但必须做一致性验证。",
+      "trigger": "部署或增量规模提出明确新要求。",
+      "lesson": "熟悉的算法原理转化为可重现的 fit/transform 边界。"
     }
   ]
 }

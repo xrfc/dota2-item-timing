@@ -35,6 +35,7 @@ class Workspace:
                 "cache",
                 "replays",
                 "datasets",
+                "prepared",
                 "runs",
                 "models",
                 "reviews",
@@ -144,11 +145,20 @@ class Workspace:
         self.config()
         folder = self.root / "datasets" / identifier(dataset_id)
         manifest = read_json(folder / "manifest.json")
-        if manifest.get("schema_version") != "coach-dataset/1":
+        if manifest.get("schema_version") not in ("coach-dataset/1", "coach-samples/1"):
             raise ValueError("Unsupported dataset schema")
         identity = {k: v for k, v in manifest.items() if k not in ("dataset_id", "created_at")}
         if digest(identity)[:24] != dataset_id:
             raise ValueError("Dataset manifest fingerprint mismatch")
+        verify_files(folder, manifest["files"])
+        return manifest, folder
+
+    def preparation(self, preparation_id: str) -> tuple[dict[str, Any], Path]:
+        folder = self.root / "prepared" / identifier(preparation_id)
+        manifest = read_json(folder / "manifest.json")
+        identity = {k: v for k, v in manifest.items() if k not in ("preparation_id", "created_at")}
+        if manifest.get("schema_version") != "coach-preparation/1" or digest(identity)[:24] != preparation_id:
+            raise ValueError("Preparation manifest fingerprint mismatch")
         verify_files(folder, manifest["files"])
         return manifest, folder
 
@@ -158,6 +168,7 @@ class Workspace:
         return {
             "workspace": str(self.root),
             "matches": len(matches),
+            "prepared": sorted(p.name for p in (self.root / "prepared").glob("*") if p.is_dir()),
             "unlabeled_matches": sum(record["labels"] is None for record in matches),
             "match_ids": sorted(record["match_id"] for record in matches),
             "datasets": sorted(p.name for p in (self.root / "datasets").iterdir() if p.is_dir()),
@@ -185,6 +196,12 @@ class Workspace:
                     self.dataset(path.name)
                 except (OSError, ValueError, KeyError, TypeError) as error:
                     errors.append(f"dataset {path.name}: {error}")
+        for path in sorted((self.root / "prepared").glob("*")):
+            if path.is_dir():
+                try:
+                    self.preparation(path.name)
+                except (OSError, ValueError, KeyError, TypeError) as error:
+                    errors.append(f"prepared {path.name}: {error}")
         return {
             "ok": not errors,
             "python": sys.version.split()[0],

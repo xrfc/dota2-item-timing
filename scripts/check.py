@@ -20,8 +20,8 @@ def main() -> int:
     if args.scope in ("all", "engineering"):
         commands.extend(
             [
-                [python, "-m", "ruff", "check", "."],
-                [python, "-m", "ruff", "format", "--check", "."],
+                [python, "-m", "ruff", "check", "--output-format", "full", "."],
+                [python, "-m", "ruff", "format", "--check", "--diff", "."],
                 [python, "-m", "pytest", "-q"],
             ]
         )
@@ -40,12 +40,12 @@ def main() -> int:
                 "Node.js unavailable: JavaScript checks skipped; CI runs them with Node 22.",
                 flush=True,
             )
+    exit_code = 0
     for command in commands:
         print("Running: " + " ".join(command), flush=True)
         result = subprocess.run(command, cwd=ROOT, check=False)
-        if result.returncode:
-            return result.returncode
-    return 0
+        exit_code = max(exit_code, result.returncode)
+    return exit_code
 
 
 if __name__ == "__main__":

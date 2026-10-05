@@ -21,7 +21,7 @@ MAX_DEMO_BYTES = 2 * 1024**3
 CHUNK_BYTES = 1024**2
 DEMO_MAGIC = b"PBDEMS2"
 ZSTD_MAGIC = b"\x28\xb5\x2f\xfd"
-ADAPTER_VERSION = "gem-adapter/2.0"
+ADAPTER_VERSION = "gem-adapter/2.1"
 
 
 def _copy_bounded(source: Any, target: Any) -> None:
@@ -97,9 +97,9 @@ def _player_slot(player_id: int) -> int:
 
 def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
     """Convert Gem's typed match into the existing OpenDota-shaped report input."""
-    if not isinstance(match.match_id, int) or match.match_id <= 0:
+    if type(match.match_id) is not int or match.match_id <= 0:
         raise ValueError("Replay has no valid match_id; cannot initialize the match index")
-    if not isinstance(match.duration, int) or match.duration < 0:
+    if type(match.duration) is not int or match.duration < 0:
         raise ValueError("Replay has no valid game duration")
     if not match.players:
         raise ValueError("Replay contains no player summaries")
@@ -111,7 +111,7 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
         if slot in slots:
             raise ValueError(f"Replay contains duplicate player slot {slot}")
         slots.add(slot)
-        if not isinstance(player.hero_id, int) or player.hero_id <= 0:
+        if type(player.hero_id) is not int or player.hero_id <= 0:
             issues.append(f"player {slot}: missing hero_id; omitted from normalized match")
             continue
         purchases: list[dict[str, Any]] = []
@@ -145,7 +145,7 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
                 "player_slot": slot,
                 "hero_id": player.hero_id,
                 "purchase_log": purchases,
-                **observations(player, player_index, match),
+                **observations(player, player_index, match, issues),
             }
         )
     if not players:

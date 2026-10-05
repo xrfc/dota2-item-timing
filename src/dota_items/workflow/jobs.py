@@ -26,7 +26,7 @@ from .workspace import Workspace
 
 def environment_info() -> dict[str, str]:
     result = {"python": sys.version.split()[0]}
-    for name in ("dota2-item-timing", "gem-dota", "torch", "numpy", "pydantic"):
+    for name in ("dota2-item-timing", "gem-dota", "torch", "numpy", "pydantic", "pandas", "scikit-learn"):
         try:
             result[name] = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:

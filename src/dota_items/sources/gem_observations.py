@@ -8,10 +8,15 @@ def number(value: Any) -> bool:
     return not isinstance(value, bool) and isinstance(value, (int, float)) and math.isfinite(value)
 
 
-def observations(player: Any, index: int, match: Any) -> dict[str, Any]:
+def observations(player: Any, index: int, match: Any, issues: list | None = None) -> dict[str, Any]:
+    def discarded(reference, reason):
+        if issues is not None:
+            issues.append(f"{reference}: {reason}")
+
     clock = getattr(match, "game_clock", None)
     result: dict[str, Any] = {"position_log": [], "economy_log": []}
     if clock is None:
+        discarded(f"players[{index}]", "position/economy clock unavailable")
         return result
 
     def second(tick):
@@ -22,10 +27,12 @@ def observations(player: Any, index: int, match: Any) -> dict[str, Any]:
 
     for ordinal, position in enumerate(getattr(player, "position_log", [])):
         if not isinstance(position, (list, tuple)) or len(position) != 3:
+            discarded(f"players[{index}].position_log[{ordinal}]", "invalid row shape")
             continue
         tick, x, y = position
         time = second(tick)
         if time is None or not number(x) or not number(y):
+            discarded(f"players[{index}].position_log[{ordinal}]", "invalid clock or coordinates")
             continue
         result["position_log"].append(
             {
@@ -46,12 +53,15 @@ def observations(player: Any, index: int, match: Any) -> dict[str, Any]:
     for ordinal, tick in enumerate(getattr(player, "times", [])):
         time = second(tick)
         if time is None:
+            discarded(f"players[{index}].times[{ordinal}]", "invalid clock")
             continue
         entry = {"time": time, "source_tick": tick, "source_refs": {}}
         for name, upstream in fields.items():
             values = getattr(player, upstream, [])
             value = values[ordinal] if ordinal < len(values) else None
             entry[name] = value if number(value) and value >= 0 else None
+            if value is not None and entry[name] is None:
+                discarded(f"players[{index}].{upstream}[{ordinal}]", "invalid value replaced with null")
             if entry[name] is not None:
                 entry["source_refs"][name] = f"players[{index}].{upstream}[{ordinal}]"
         result["economy_log"].append(entry)

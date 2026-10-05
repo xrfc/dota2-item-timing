@@ -7,8 +7,9 @@ import sys
 import uuid
 from pathlib import Path
 
+from ..data.contracts import PreparationConfig
 from ..sources.gem_replay import ingest_demo
-from ..storage import now, write_json
+from ..storage import now, read_json, write_json
 from .contracts import Labels, ModelOutput, Predictions, WorkspaceConfig
 from .datasets import build_dataset
 from .demo import demo
@@ -25,8 +26,12 @@ def initialize(workspace: Workspace) -> dict:
         ("predictions", Predictions),
         ("labels", Labels),
         ("workspace", WorkspaceConfig),
+        ("preparation", PreparationConfig),
     ):
         write_json(workspace.root / "contracts" / f"{name}.schema.json", model.model_json_schema())
+    config = workspace.root / "preparation.json"
+    if not config.exists():
+        write_json(config, PreparationConfig().model_dump())
     folder = workspace.root / "adapters"
     folder.mkdir(exist_ok=True)
     for name, content in (("train.py", TRAINER), ("predict.py", PREDICTOR)):
@@ -90,6 +95,13 @@ def main(argv: list[str] | None = None) -> int:
     upload.add_argument("input", type=Path, nargs="?")
     upload.add_argument("--force", action="store_true", help="Reparse the intermediate cache")
     upload.add_argument("--no-recursive", action="store_true")
+    prepare_parser = commands.add_parser("prepare", help="Import, clean and extract one replay or folder")
+    prepare_parser.add_argument("input", type=Path, nargs="?")
+    prepare_parser.add_argument("--config", type=Path)
+    prepare_parser.add_argument("--force", action="store_true")
+    samples = commands.add_parser("build-samples", help="Prepare a frozen dataset for model training")
+    samples.add_argument("dataset_id")
+    samples.add_argument("--config", type=Path)
     label = commands.add_parser("annotate", help="Record expert provenance and selected players")
     label.add_argument("match_id", type=int)
     label.add_argument(
@@ -140,6 +152,19 @@ def main(argv: list[str] | None = None) -> int:
             result = ingest(
                 workspace, args.input, force=args.force, recursive=not args.no_recursive
             )
+        elif args.command in ("prepare", "build-samples"):
+            try:
+                from ..data.pipeline import build_samples, prepare
+            except ImportError as error:
+                raise ValueError("Install data tools: python scripts/bootstrap.py --data --replay") from error
+            initialize(workspace)
+            config = PreparationConfig.model_validate(
+                read_json(args.config or workspace.root / "preparation.json")
+            )
+            if args.command == "prepare":
+                result = prepare(workspace, args.input, config, force=args.force)
+            else:
+                result = build_samples(workspace, args.dataset_id, config)
         elif args.command == "annotate":
             result = workspace.annotate(
                 args.match_id,

@@ -116,6 +116,7 @@ def build_dataset(
                     "require_spatial": require_spatial,
                     "synthetic_only": allow_synthetic,
                 },
+                "excluded": excluded,
                 "matches": sorted(match_rows, key=lambda row: row["match_id"]),
                 "files": hashes(staging),
                 "limitations": [

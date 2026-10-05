@@ -12,9 +12,19 @@ parser.add_argument("--config", type=Path, required=True)
 args = parser.parse_args()
 manifest = json.loads((args.dataset / "manifest.json").read_text(encoding="utf-8"))
 config = json.loads(args.config.read_text(encoding="utf-8"))
-# Read train.jsonl / validation.jsonl / test.jsonl relative to args.dataset.
-# Fit scalers, vocabularies and weights on train only. Never use test for tuning.
-# Slice observations by decision time; construct targets separately from future data.
+# For coach-samples/1, preprocessing is already fitted on train only:
+# import numpy as np
+# with np.load(args.dataset / "train.npz", allow_pickle=False) as batch:
+#     X = batch["X"]
+#     mask = batch["item_mask"]
+#     X_item, y_item = X[mask], batch["item_target"][mask]
+#     route_mask = batch["route_mask"]
+#     X_route, y_route = X[route_mask], batch["route_target"][route_mask]
+# Never train on item_target=-1 or unmasked zero-filled route placeholders.
+# Copy preprocessor.json into output artifacts for identical inference transforms.
+# train.features/labels/trace.jsonl provide readable rows and source references.
+# coach-dataset/1 instead contains observation bundles: run build-samples first.
+# Never fit parameters or tune using test. See docs/data-pipeline.md.
 # Write checkpoints beneath args.output and a model.json matching contracts/model.schema.json.
 # See docs/coach-workflow.md for the output protocol.
 raise SystemExit("Trainer is not implemented yet. Add your model here in the next phase.")
