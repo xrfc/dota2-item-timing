@@ -25,17 +25,23 @@ def fit_preprocessor(train_rows):
     scaler = StandardScaler().fit(numeric_matrix(train_rows, columns))
     heroes = sorted({int(r["hero_id"]) for r in train_rows})
     return {
-        "schema_version": "coach-preprocessor/1", "feature_schema": FEATURE_SCHEMA,
-        "columns": columns, "imputation": "constant_zero_with_explicit_missing_indicators",
-        "mean": scaler.mean_.tolist(), "scale": scaler.scale_.tolist(),
-        "variance": scaler.var_.tolist(), "train_samples": int(scaler.n_samples_seen_),
+        "schema_version": "coach-preprocessor/1",
+        "feature_schema": FEATURE_SCHEMA,
+        "columns": columns,
+        "imputation": "constant_zero_with_explicit_missing_indicators",
+        "mean": scaler.mean_.tolist(),
+        "scale": scaler.scale_.tolist(),
+        "variance": scaler.var_.tolist(),
+        "train_samples": int(scaler.n_samples_seen_),
         "hero_categories": heroes,
         "output_columns": [*columns, *(f"hero_id_{hero}" for hero in heroes)],
     }
 
 
 def transform_features(rows, state):
-    if state["schema_version"] != "coach-preprocessor/1" or not set(COLUMNS) <= set(state["columns"]):
+    if state["schema_version"] != "coach-preprocessor/1" or not set(COLUMNS) <= set(
+        state["columns"]
+    ):
         raise ValueError("Unsupported preprocessing state")
     if not rows:
         return np.empty((0, len(state["output_columns"])), dtype=np.float32)
@@ -49,7 +55,9 @@ def transform_features(rows, state):
     encoder = OneHotEncoder(categories=[categories], handle_unknown="ignore", sparse_output=False)
     encoder.fit(np.asarray(categories).reshape(-1, 1))
     heroes = encoder.transform(np.asarray([r["hero_id"] for r in rows]).reshape(-1, 1))
-    result = np.concatenate([scaler.transform(numeric_matrix(rows, state["columns"])), heroes], axis=1)
+    result = np.concatenate(
+        [scaler.transform(numeric_matrix(rows, state["columns"])), heroes], axis=1
+    )
     with np.errstate(over="ignore", invalid="ignore"):
         result = result.astype(np.float32)
     if not np.isfinite(result).all():
@@ -66,9 +74,11 @@ def save_arrays(path, features, labels, state, config):
     if not np.isfinite(route).all():
         raise ValueError("Route targets overflow float32")
     np.savez_compressed(
-        path, X=transform_features(features, state),
+        path,
+        X=transform_features(features, state),
         sample_id=np.asarray([r["sample_id"] for r in features], dtype=str),
         item_target=np.asarray(item, dtype=np.int64),
         item_mask=np.asarray([r["item_mask"] for r in labels], dtype=bool),
-        route_target=route, route_mask=np.asarray([r["route_mask"] for r in labels], dtype=bool),
+        route_target=route,
+        route_mask=np.asarray([r["route_mask"] for r in labels], dtype=bool),
     )

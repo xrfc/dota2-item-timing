@@ -36,7 +36,9 @@ def code_fingerprint():
 def write_rows(path, rows):
     with path.open("w", encoding="utf-8", newline="\n") as stream:
         for row in rows:
-            stream.write(json.dumps(row, ensure_ascii=False, sort_keys=True, allow_nan=False) + "\n")
+            stream.write(
+                json.dumps(row, ensure_ascii=False, sort_keys=True, allow_nan=False) + "\n"
+            )
 
 
 def write_samples(folder, match, quality, config, slots=None):
@@ -91,18 +93,28 @@ def prepare_one(workspace, path: Path, config: PreparationConfig, *, force=False
             write_json(staging / "cleaned.json", cleaned)
             import_path = staging / "cleaned.json"
         identity = {
-            "schema_version": PIPELINE_VERSION, "feature_schema": FEATURE_SCHEMA,
-            "source_sha256": source_sha, "match_id": cleaned["match_id"],
-            "config": config.model_dump(), "dependencies": dependencies(),
-            "code": code_fingerprint(), "counts": counts, "files": hashes(staging),
+            "schema_version": PIPELINE_VERSION,
+            "feature_schema": FEATURE_SCHEMA,
+            "source_sha256": source_sha,
+            "match_id": cleaned["match_id"],
+            "config": config.model_dump(),
+            "dependencies": dependencies(),
+            "code": code_fingerprint(),
+            "counts": counts,
+            "files": hashes(staging),
         }
         preparation_id = digest(identity)[:24]
         imported = workspace.import_json(
             import_path, demo_sha256=parsed.get("demo_sha256") if parsed else None
         )
-        write_json(staging / "manifest.json", {
-            **identity, "preparation_id": preparation_id, "created_at": now(),
-        })
+        write_json(
+            staging / "manifest.json",
+            {
+                **identity,
+                "preparation_id": preparation_id,
+                "created_at": now(),
+            },
+        )
         destination = workspace.root / "prepared" / preparation_id
         with writer_lock(workspace.root):
             if destination.exists():
@@ -110,8 +122,11 @@ def prepare_one(workspace, path: Path, config: PreparationConfig, *, force=False
             else:
                 staging.rename(destination)
     return {
-        "status": "prepared", "preparation_id": preparation_id,
-        "match_id": imported["match_id"], "path": str(destination), **counts,
+        "status": "prepared",
+        "preparation_id": preparation_id,
+        "match_id": imported["match_id"],
+        "path": str(destination),
+        **counts,
         "quarantined": quality["quarantined"],
     }
 
@@ -122,8 +137,12 @@ def prepare(workspace, source, config: PreparationConfig, *, force=False):
     if source.is_file():
         files = [source]
     elif source.is_dir():
-        files = sorted(p for p in source.rglob("*") if p.is_file() and p.name.lower().endswith(
-            (".json", ".dem", ".dem.bz2", ".dem.zst", ".dem.zip")))
+        files = sorted(
+            p
+            for p in source.rglob("*")
+            if p.is_file()
+            and p.name.lower().endswith((".json", ".dem", ".dem.bz2", ".dem.zst", ".dem.zip"))
+        )
     else:
         raise ValueError(f"Input does not exist: {source}")
     if not files:
@@ -174,7 +193,8 @@ def build_samples(workspace, dataset_id: str, config: PreparationConfig):
                 for kind, rows in (("features", features), ("labels", labels), ("trace", traces)):
                     write_rows(staging / f"{split}.{kind}.jsonl", rows)
                 summaries[split] = {
-                    "matches": len(matches), "samples": len(features),
+                    "matches": len(matches),
+                    "samples": len(features),
                     "item_supervised": sum(r["item_mask"] for r in labels),
                     "route_supervised": sum(r["route_mask"] for r in labels),
                 }
@@ -186,31 +206,47 @@ def build_samples(workspace, dataset_id: str, config: PreparationConfig):
             for split, (features, labels) in split_rows.items():
                 save_arrays(staging / f"{split}.npz", features, labels, state, config)
             identity = {
-                "schema_version": "coach-samples/1", "feature_schema": FEATURE_SCHEMA,
-                "source_dataset_id": dataset_id, "source_manifest_sha256": file_hash(source / "manifest.json"),
-                "preparation_version": PIPELINE_VERSION, "preparation_config": config.model_dump(),
-                "filters": source_manifest["filters"], "config": source_manifest["config"],
-                "matches": [{k: v for k, v in row.items() if k != "path"}
-                            for row in source_manifest["matches"]],
-                "dependencies": dependencies(), "code": code_fingerprint(),
-                "splits": summaries, "item_classes": ["no_purchase", "other", *config.candidate_items],
-                "feature_columns": state["output_columns"], "files": hashes(staging),
+                "schema_version": "coach-samples/1",
+                "feature_schema": FEATURE_SCHEMA,
+                "source_dataset_id": dataset_id,
+                "source_manifest_sha256": file_hash(source / "manifest.json"),
+                "preparation_version": PIPELINE_VERSION,
+                "preparation_config": config.model_dump(),
+                "filters": source_manifest["filters"],
+                "config": source_manifest["config"],
+                "matches": [
+                    {k: v for k, v in row.items() if k != "path"}
+                    for row in source_manifest["matches"]
+                ],
+                "dependencies": dependencies(),
+                "code": code_fingerprint(),
+                "splits": summaries,
+                "item_classes": ["no_purchase", "other", *config.candidate_items],
+                "feature_columns": state["output_columns"],
+                "files": hashes(staging),
                 "limitations": [
                     "Imitation labels describe observed behavior, not causal decision quality.",
                     "Purchase records are not completed builds or usable inventory.",
-                    "Route target is endpoint displacement, not a safe/optimal route or map region.",
+                    "Route target is endpoint displacement; route quality is not evaluated.",
                     "No enemy visibility, life state, inventory or teammate context is modeled.",
                     "Honor task masks; unknown/censored labels are not negative examples.",
-                    "Split is grouped by match; temporal/patch-disjoint evaluation remains separate.",
+                    "Split is grouped by match; temporal/patch holdouts remain separate.",
                 ],
             }
             target_id = digest(identity)[:24]
             destination = workspace.root / "datasets" / target_id
-            write_json(staging / "manifest.json", {**identity, "dataset_id": target_id, "created_at": now()})
+            write_json(
+                staging / "manifest.json",
+                {**identity, "dataset_id": target_id, "created_at": now()},
+            )
             workspace.dataset(dataset_id)
             if destination.exists():
                 workspace.dataset(target_id)
             else:
                 staging.rename(destination)
-    return {"dataset_id": target_id, "source_dataset_id": dataset_id,
-            "path": str(destination), "splits": summaries}
+    return {
+        "dataset_id": target_id,
+        "source_dataset_id": dataset_id,
+        "path": str(destination),
+        "splits": summaries,
+    }

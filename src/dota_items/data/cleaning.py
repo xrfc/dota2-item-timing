@@ -23,9 +23,13 @@ def clean_match(raw: Any, config: PreparationConfig) -> tuple[dict, dict]:
     if not isinstance(players, list) or not 1 <= len(players) <= 10:
         raise ValueError("players must contain 1 to 10 players")
     cleaned = copy.deepcopy(raw)
-    quality = {"schema_version": "coach-cleaning/1", "issues": [], "channels": {},
-               "adapter_issues": raw.get("adapter_issues", []),
-               "source_cleaning_audit": raw.get("cleaning_audit")}
+    quality = {
+        "schema_version": "coach-cleaning/1",
+        "issues": [],
+        "channels": {},
+        "adapter_issues": raw.get("adapter_issues", []),
+        "source_cleaning_audit": raw.get("cleaning_audit"),
+    }
     slots = set()
 
     def issue(ref, reason, action="quarantine"):
@@ -113,8 +117,10 @@ def clean_match(raw: Any, config: PreparationConfig) -> tuple[dict, dict]:
                             invalid += 1
             player[channel] = retained if available or channel != "purchase_log" else None
             stats[channel] = {
-                "input_rows": len(rows), "retained_rows": len(retained),
-                "available": available, "invalid_rows": invalid,
+                "input_rows": len(rows),
+                "retained_rows": len(retained),
+                "available": available,
+                "invalid_rows": invalid,
             }
         coverage = player.get("purchase_coverage")
         if coverage is not None:

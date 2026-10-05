@@ -8,7 +8,12 @@ FEATURE_SCHEMA = "coach-features/1"
 PIPELINE_VERSION = "coach-preparation/1"
 ECONOMY = ("gold", "net_worth", "last_hits", "denies", "xp_progress")
 NUMERIC = (
-    "time_seconds", "x", "y", "position_age", *ECONOMY, "economy_age",
+    "time_seconds",
+    "x",
+    "y",
+    "position_age",
+    *ECONOMY,
+    "economy_age",
     "recent_purchase_count",
 )
 SLOTS = {*range(5), *range(128, 133)}
@@ -31,7 +36,8 @@ class PreparationConfig(StrictContract):
     invalid_policy: Literal["quarantine", "reject"] = "quarantine"
     candidate_items: list[str] = Field(
         default_factory=lambda: ["power_treads", "desolator", "black_king_bar"],
-        min_length=1, max_length=512,
+        min_length=1,
+        max_length=512,
     )
 
     @field_validator("candidate_items")
@@ -39,8 +45,10 @@ class PreparationConfig(StrictContract):
     def item_names(cls, values):
         import re
 
-        if {"other", "no_purchase"} & set(values) or len(set(values)) != len(values) or any(
-            not re.fullmatch(r"[a-z][a-z0-9_]{0,99}", value) for value in values
+        if (
+            {"other", "no_purchase"} & set(values)
+            or len(set(values)) != len(values)
+            or any(not re.fullmatch(r"[a-z][a-z0-9_]{0,99}", value) for value in values)
         ):
             raise ValueError("candidate_items must be unique canonical item keys")
         return values
