@@ -157,7 +157,10 @@ class Workspace:
         folder = self.root / "prepared" / identifier(preparation_id)
         manifest = read_json(folder / "manifest.json")
         identity = {k: v for k, v in manifest.items() if k not in ("preparation_id", "created_at")}
-        if manifest.get("schema_version") != "coach-preparation/1" or digest(identity)[:24] != preparation_id:
+        if (
+            manifest.get("schema_version") != "coach-preparation/1"
+            or digest(identity)[:24] != preparation_id
+        ):
             raise ValueError("Preparation manifest fingerprint mismatch")
         verify_files(folder, manifest["files"])
         return manifest, folder

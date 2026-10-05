@@ -20,7 +20,11 @@ def main() -> None:
     if not (environment / "pyvenv.cfg").is_file():
         venv.EnvBuilder(with_pip=True).create(environment)
     python = environment / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
-    extras = [name for name, enabled in (("replay", args.replay), ("dev", args.dev), ("data", args.data)) if enabled]
+    extras = [
+        name
+        for name, enabled in (("replay", args.replay), ("dev", args.dev), ("data", args.data))
+        if enabled
+    ]
     requirement = "." + ("[" + ",".join(extras) + "]" if extras else "")
     subprocess.run([str(python), "-m", "pip", "install", "-e", requirement], cwd=root, check=True)
     print("Ready. Run: python coach.py demo")

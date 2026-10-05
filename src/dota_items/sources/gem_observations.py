@@ -61,7 +61,9 @@ def observations(player: Any, index: int, match: Any, issues: list | None = None
             value = values[ordinal] if ordinal < len(values) else None
             entry[name] = value if number(value) and value >= 0 else None
             if value is not None and entry[name] is None:
-                discarded(f"players[{index}].{upstream}[{ordinal}]", "invalid value replaced with null")
+                discarded(
+                    f"players[{index}].{upstream}[{ordinal}]", "invalid value replaced with null"
+                )
             if entry[name] is not None:
                 entry["source_refs"][name] = f"players[{index}].{upstream}[{ordinal}]"
         result["economy_log"].append(entry)

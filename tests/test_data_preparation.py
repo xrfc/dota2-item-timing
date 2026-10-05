@@ -25,15 +25,23 @@ from dota_items.workflow.workspace import Workspace
 
 def fixture(match_id=100):
     return {
-        "_fixture": "Synthetic unit test; not expert data", "match_id": match_id,
-        "duration": 120, "players": [{
-            "player_slot": 0, "hero_id": 44,
-            "purchase_log": [{"time": -10, "key": "tango"}, {"time": 60, "key": "boots"}],
-            "purchase_coverage": {"start_seconds": 0.0, "end_seconds": 120.0,
-                                  "source": "synthetic fixture construction"},
-            "position_log": [{"time": t, "x": t * 2, "y": t * 3} for t in range(0, 121, 10)],
-            "economy_log": [{"time": t, "gold": 500 + t} for t in range(0, 121, 10)],
-        }],
+        "_fixture": "Synthetic unit test; not expert data",
+        "match_id": match_id,
+        "duration": 120,
+        "players": [
+            {
+                "player_slot": 0,
+                "hero_id": 44,
+                "purchase_log": [{"time": -10, "key": "tango"}, {"time": 60, "key": "boots"}],
+                "purchase_coverage": {
+                    "start_seconds": 0.0,
+                    "end_seconds": 120.0,
+                    "source": "synthetic fixture construction",
+                },
+                "position_log": [{"time": t, "x": t * 2, "y": t * 3} for t in range(0, 121, 10)],
+                "economy_log": [{"time": t, "gold": 500 + t} for t in range(0, 121, 10)],
+            }
+        ],
     }
 
 
@@ -191,9 +199,13 @@ class PreparationTests(unittest.TestCase):
         source = self.root / "one.dem"
         source.write_bytes(b"PBDEMS2test")
         normalized = self.write(fixture())
-        with patch("dota_items.data.pipeline.ingest_demo", return_value={
-            "normalized_json": str(normalized), "demo_sha256": "a" * 64,
-        }) as parser:
+        with patch(
+            "dota_items.data.pipeline.ingest_demo",
+            return_value={
+                "normalized_json": str(normalized),
+                "demo_sha256": "a" * 64,
+            },
+        ) as parser:
             result = prepare(self.workspace, source, self.config)
         parser.assert_called_once()
         self.assertTrue(result["ok"])
@@ -202,9 +214,16 @@ class PreparationTests(unittest.TestCase):
     def build(self):
         for match_id in range(100, 106):
             self.workspace.import_json(self.write(fixture(match_id)))
-            self.workspace.annotate(match_id, Labels(
-                tier="synthetic", patch="synthetic", role=1, player_slots=[0], label_source="test",
-            ))
+            self.workspace.annotate(
+                match_id,
+                Labels(
+                    tier="synthetic",
+                    patch="synthetic",
+                    role=1,
+                    player_slots=[0],
+                    label_source="test",
+                ),
+            )
         frozen = build_dataset(self.workspace, patch="synthetic", role=1, allow_synthetic=True)
         return build_samples(self.workspace, frozen["dataset_id"], self.config)
 
@@ -226,10 +245,14 @@ class PreparationTests(unittest.TestCase):
     def test_frozen_splits_arrays_and_preprocessor_match_training_rows(self):
         result = self.build()
         manifest, folder = self.workspace.dataset(result["dataset_id"])
-        groups = [set(r["match_id"] for r in manifest["matches"] if r["split"] == s)
-                  for s in ("train", "validation", "test")]
+        groups = [
+            set(r["match_id"] for r in manifest["matches"] if r["split"] == s)
+            for s in ("train", "validation", "test")
+        ]
         self.assertFalse(groups[0] & groups[1] or groups[0] & groups[2] or groups[1] & groups[2])
-        rows = [json.loads(line) for line in (folder / "train.features.jsonl").read_text().splitlines()]
+        rows = [
+            json.loads(line) for line in (folder / "train.features.jsonl").read_text().splitlines()
+        ]
         state = read_json(folder / "preprocessor.json")
         self.assertEqual(state, fit_preprocessor(rows))
         with np.load(folder / "train.npz", allow_pickle=False) as arrays:
@@ -251,20 +274,29 @@ class PreparationTests(unittest.TestCase):
                 for row in raw["players"][0]["economy_log"]:
                     row["gold"] += 1000000
             other.import_json(self.write(raw))
-            other.annotate(match_id, Labels(
-                tier="synthetic", patch="synthetic", role=1, player_slots=[0], label_source="test",
-            ))
+            other.annotate(
+                match_id,
+                Labels(
+                    tier="synthetic",
+                    patch="synthetic",
+                    role=1,
+                    player_slots=[0],
+                    label_source="test",
+                ),
+            )
         frozen = build_dataset(other, patch="synthetic", role=1, allow_synthetic=True)
         second = build_samples(other, frozen["dataset_id"], self.config)
         target = Path(second["path"])
-        self.assertEqual((original / "preprocessor.json").read_bytes(),
-                         (target / "preprocessor.json").read_bytes())
+        self.assertEqual(
+            (original / "preprocessor.json").read_bytes(),
+            (target / "preprocessor.json").read_bytes(),
+        )
         self.assertEqual((original / "train.npz").read_bytes(), (target / "train.npz").read_bytes())
 
     def test_training_adapter_receives_prepared_arrays(self):
         result = self.build()
         trainer = self.root / "trainer.py"
-        trainer.write_text('''import argparse,json
+        trainer.write_text("""import argparse,json
 from pathlib import Path
 import numpy as np
 p=argparse.ArgumentParser()
@@ -276,12 +308,15 @@ with np.load(a.dataset/"train.npz",allow_pickle=False) as batch:
 (a.output/"model.json").write_text(json.dumps({"schema_version":"coach-model/1",
 "framework":"test","feature_schema":"coach-features/1","tasks":["item"],
 "artifacts":["weights.bin"],"metrics":{}}))
-''')
-        self.assertEqual(train(self.workspace, result["dataset_id"], trainer)["status"], "succeeded")
+""")
+        self.assertEqual(
+            train(self.workspace, result["dataset_id"], trainer)["status"], "succeeded"
+        )
 
     def test_cli_prepare_initializes_workspace(self):
-        self.assertEqual(main(["--workspace", str(self.root / "new"), "prepare",
-                               str(self.write(fixture()))]), 0)
+        self.assertEqual(
+            main(["--workspace", str(self.root / "new"), "prepare", str(self.write(fixture()))]), 0
+        )
 
 
 if __name__ == "__main__":

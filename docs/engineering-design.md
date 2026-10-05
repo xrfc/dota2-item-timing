@@ -17,7 +17,8 @@ flowchart TD
     CHECK --> BUNDLE["replays 数据包 + catalog"]
     LABEL["人工来源 / patch / role / slot"] --> BUNDLE
     BUNDLE --> DATASET["固定数据集 + 比赛级 split"]
-    DATASET --> TRAIN["用户训练器：下一阶段实现"]
+    DATASET --> SAMPLES["build-samples：历史 X / 未来 y / train-only 预处理"]
+    SAMPLES --> TRAIN["用户训练器：下一阶段实现"]
     TRAIN --> RUN["运行状态 / 日志 / 模型输出契约"]
     RUN --> REGISTRY["模型登记与哈希"]
     BUNDLE --> FACTS["购买事实报告"]
@@ -42,6 +43,7 @@ flowchart TD
 | [workflow/validation.py](../src/dota_items/workflow/validation.py) | 比赛结构、原始证据引用和时序基础检查 |
 | [workflow/workspace.py](../src/dota_items/workflow/workspace.py) | 数据包、catalog、标签、status、doctor |
 | [workflow/datasets.py](../src/dota_items/workflow/datasets.py) | 筛选、按比赛划分、复制快照、数据集 ID |
+| [data/](../src/dota_items/data/) | 输入清洗、backward 对齐、未来标签、固定样本、sklearn 预处理 |
 | [workflow/contracts.py](../src/dota_items/workflow/contracts.py) | 配置、标签、模型和预测的 Pydantic 契约 |
 | [workflow/jobs.py](../src/dota_items/workflow/jobs.py) | 子进程运行、日志、状态、模型登记与读取 |
 | [workflow/reviews.py](../src/dota_items/workflow/reviews.py) | 模型适用范围、预测引用校验、复盘输出 |
@@ -64,7 +66,7 @@ flowchart TD
 ## 导入与一致性
 
 1. 解压流按实际格式处理；zip 只接受一个 demo，读取成员内容而不按成员路径落盘。
-2. 解析并保留原始 JSON；适配器导出 `gem-adapter/2.0`。
+2. 解析并保留原始 JSON；适配器导出 `gem-adapter/2.1`。
 3. 校验输入，在同文件系统的 `.staging` 复制证据、规范数据和质量记录，再校验一次。
 4. 计算数据包文件哈希，重命名发布目录，原子替换 catalog。
 5. 发布后、catalog 更新前若中断，相同输入再次导入可识别已发布数据包并补上索引。
@@ -79,7 +81,7 @@ flowchart TD
 
 按 `hash(seed, match_id)` 排序后分配 split，同场所有玩家归到一组。最少 3 场保证三组非空；小样本比例会取整。新增比赛会改变新数据集的划分，因此比较实验应固定 dataset_id。当前没有时间外推留出集或跨版本评估机制。
 
-数据包完整复制到数据集，包含其他玩家及整场原始字段；JSONL 中的 `player_slots` 声明应使用哪些参考玩家。未来训练器必须遵守这个列表并生成截止时间窗口。框架目前只校验预测解释所引用的记录没有晚于决策时间，无法保证模型内部没有使用未来数据。
+数据包完整复制到数据集，包含其他玩家及整场原始字段；JSONL 中的 `player_slots` 声明应使用哪些参考玩家。`build-samples` 遵守这个列表并生成截止时间窗口；单文件 `prepare` 独立输出样本供审计。框架目前只校验预测解释所引用的记录没有晚于决策时间，无法保证模型内部没有使用未来数据。
 
 ## 模型执行边界
 

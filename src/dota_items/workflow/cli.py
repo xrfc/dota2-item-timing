@@ -95,11 +95,15 @@ def main(argv: list[str] | None = None) -> int:
     upload.add_argument("input", type=Path, nargs="?")
     upload.add_argument("--force", action="store_true", help="Reparse the intermediate cache")
     upload.add_argument("--no-recursive", action="store_true")
-    prepare_parser = commands.add_parser("prepare", help="Import, clean and extract one replay or folder")
+    prepare_parser = commands.add_parser(
+        "prepare", help="Import, clean and extract one replay or folder"
+    )
     prepare_parser.add_argument("input", type=Path, nargs="?")
     prepare_parser.add_argument("--config", type=Path)
     prepare_parser.add_argument("--force", action="store_true")
-    samples = commands.add_parser("build-samples", help="Prepare a frozen dataset for model training")
+    samples = commands.add_parser(
+        "build-samples", help="Prepare a frozen dataset for model training"
+    )
     samples.add_argument("dataset_id")
     samples.add_argument("--config", type=Path)
     label = commands.add_parser("annotate", help="Record expert provenance and selected players")
@@ -156,7 +160,9 @@ def main(argv: list[str] | None = None) -> int:
             try:
                 from ..data.pipeline import build_samples, prepare
             except ImportError as error:
-                raise ValueError("Install data tools: python scripts/bootstrap.py --data --replay") from error
+                raise ValueError(
+                    "Install data tools: python scripts/bootstrap.py --data --replay"
+                ) from error
             initialize(workspace)
             config = PreparationConfig.model_validate(
                 read_json(args.config or workspace.root / "preparation.json")

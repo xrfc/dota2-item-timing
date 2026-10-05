@@ -2,19 +2,24 @@
 
 > v0.4 数据准备更新：`prepare` 已实现单文件清洗/特征/标签；`build-samples` 输出固定 split 的训练数组和 train-only 预处理。输入、错误策略、任务 mask 和操作示例以[数据管线](data-pipeline.md)为准。实际模型与真实字段验收仍待完成。
 
-基线：**0.3.0 / 2026-10-02**。本文件描述已实现格式。训练窗口、动作词表、质量资格状态和完整来源修订模型尚未实现。
+基线：**0.4.0 / 2026-10-05**。本文件描述已实现格式。派生样本和任务资格见[数据管线](data-pipeline.md)；完整来源修订和真实语义资格仍待补足。
 
 ## 1. 版本与校验来源
 
 | 对象 | 当前版本 | 校验位置 |
 |---|---|---|
-| Gem 规范导出 | gem-adapter/2.0 | Gem 适配器与比赛校验器 |
+| Gem 规范导出 | gem-adapter/2.1 | Gem 适配器与比赛校验器 |
 | 导入缓存清单 | demo-import/1.0 | 旧导入流程 |
 | 工作区配置 | coach-workspace/1 | WorkspaceConfig；导出 workspace.schema.json |
 | catalog | coach-catalog/1 | Workspace 程序检查 |
 | 标签 | 无独立版本字段 | Labels；导出 labels.schema.json |
 | 数据集 | coach-dataset/1 | 清单身份和文件指纹校验 |
 | 数据集观测契约名称 | coach-match/1 | 清单中的 observation_schema；没有完整 Pydantic 模型或导出 Schema |
+| 数据准备配置 | coach-preparation-config/1 | 严格 PreparationConfig；导出 preparation.schema.json |
+| 单文件准备 | coach-preparation/1 | 清单身份、输入/清洗/样本文件哈希 |
+| 特征 | coach-features/1 | data/features.py 白名单与时间规则 |
+| 样本数据集 | coach-samples/1 | 来源、split、配置、环境、源码与产物哈希 |
+| 预处理 | coach-preprocessor/1 | JSON 参数、固定列序、train-only 拟合 |
 | 训练状态 | coach-run/1 | jobs 程序管理 |
 | 模型描述 | coach-model/1 | ModelOutput；导出 model.schema.json |
 | 登记模型 | coach-registry/1 | 清单身份、模型描述和文件指纹校验 |
@@ -22,7 +27,7 @@
 | 复盘状态 | coach-review/1 | reviews 程序管理 |
 | 旧购买时间线/分析结果 | 0.1 | domain.py 中的事实模型 |
 
-`init` 导出的 4 个 Schema 位于工作区 `contracts/`。Pydantic 契约拒绝额外字段及非有限浮点数，但并非所有字段都启用严格类型模式，部分输入可被转换。其余 JSON 对象不应假定拥有同样的完整 Schema 校验。
+`init` 导出的 5 个 Schema 位于工作区 `contracts/`。Pydantic 契约拒绝额外字段及非有限浮点数，但并非所有字段都启用严格类型模式，部分输入可被转换。其余 JSON 对象不应假定拥有同样的完整 Schema 校验。
 
 所有受控 JSON 使用 UTF-8；指纹序列化采用排序键、2 空格缩进和末尾换行。文件哈希为文件字节 SHA-256；身份哈希为上述 JSON 序列化的 SHA-256，ID 截取前 24 个十六进制字符。
 
@@ -35,7 +40,7 @@
 ```json
 {
   "_fixture": "Synthetic documentation example; not expert play",
-  "schema_version": "gem-adapter/2.0",
+  "schema_version": "gem-adapter/2.1",
   "match_id": 1000000200,
   "duration": 300,
   "players": [{

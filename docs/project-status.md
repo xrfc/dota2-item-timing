@@ -29,6 +29,9 @@
 
 ## 已执行的验证
 
+v0.4 首轮 CI 已通过 66 项 Python 功能测试（新增 19 项数据管线回归），另有 10 项学习生成器与 6 项 JS 测试通过。首轮暴露格式问题，交付前继续以开发分支最终 CI 为准；真实 demo 语义验收未完成。
+
+
 代码基线提交：[364d9ad](https://github.com/xrfc/dota2-item-timing/commit/364d9adf07373e925c9d420b5804403f866c432e)。
 
 [GitHub Actions 36997970952](https://github.com/xrfc/dota2-item-timing/actions/runs/36997970952) 的三个任务全部成功：
