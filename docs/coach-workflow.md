@@ -117,7 +117,7 @@ datasets/<dataset-id>/
 `coach-match/1` 是数据集声明的观测契约名称，目前没有完整的 Pydantic Match 类或独立 Schema。
 比赛必须包含 `match_id`、`duration`、`players`；玩家需要有效 `player_slot`、`hero_id`。
 `purchase_log` 缺失会记录警告并阻止该玩家成为训练参考；位置/经济通道可缺失。
-Gem 的导出版本为 `gem-adapter/2.1`。
+Gem 的导出版本为 `gem-adapter/2.2`。
 
 | 通道 | 字段 | 语义 |
 |---|---|---|

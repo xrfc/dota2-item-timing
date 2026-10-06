@@ -21,7 +21,7 @@ MAX_DEMO_BYTES = 2 * 1024**3
 CHUNK_BYTES = 1024**2
 DEMO_MAGIC = b"PBDEMS2"
 ZSTD_MAGIC = b"\x28\xb5\x2f\xfd"
-ADAPTER_VERSION = "gem-adapter/2.1"
+ADAPTER_VERSION = "gem-adapter/2.2"
 
 
 def _copy_bounded(source: Any, target: Any) -> None:
@@ -111,7 +111,22 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
         if slot in slots:
             raise ValueError(f"Replay contains duplicate player slot {slot}")
         slots.add(slot)
-        if type(player.hero_id) is not int or player.hero_id <= 0:
+        hero_id = player.hero_id
+        identity = None
+        name = getattr(player, "hero_name", None)
+        if type(hero_id) is int and hero_id == 0 and isinstance(name, str):
+            from gem.catalog.heroes import hero_meta, hero_npc_name
+
+            canonical_name = hero_npc_name(name.removeprefix("npc_dota_hero_"))
+            if canonical_name:
+                hero_id = hero_meta(canonical_name).get("id", 0)
+                identity = {
+                    "method": "gem_catalog_alias",
+                    "source_ref": f"players[{player_index}].hero_name",
+                    "source_name": name,
+                    "canonical_name": canonical_name,
+                }
+        if type(hero_id) is not int or hero_id <= 0:
             issues.append(f"player {slot}: missing hero_id; omitted from normalized match")
             continue
         purchases: list[dict[str, Any]] = []
@@ -143,7 +158,8 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
         players.append(
             {
                 "player_slot": slot,
-                "hero_id": player.hero_id,
+                "hero_id": hero_id,
+                **({"hero_identity": identity} if identity else {}),
                 "purchase_log": purchases,
                 **observations(player, player_index, match, issues),
             }

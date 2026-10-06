@@ -37,7 +37,7 @@ python coach.py --workspace coach-workspace/practice build-samples OBSERVATION_D
 
 ## 输入与配置契约
 
-Gem 协议解析仍由 `gem-dota` 完成。JSON 输入必须是本项目的规范比赛格式或兼容的 OpenDota 形状，不能直接把 Gem 原始导出交给 prepare。支持无 `schema_version` 的历史输入，以及 `gem-adapter/2.0`、`gem-adapter/2.1`；未知版本拒绝。最小可检查示例：
+Gem 协议解析仍由 `gem-dota` 完成。JSON 输入必须是本项目的规范比赛格式或兼容的 OpenDota 形状，不能直接把 Gem 原始导出交给 prepare。支持无 `schema_version` 的历史输入，以及 `gem-adapter/2.0`、`gem-adapter/2.1`、`gem-adapter/2.2`；未知版本拒绝。最小可检查示例：
 
 ```json
 {

@@ -8,7 +8,7 @@
 
 | 对象 | 当前版本 | 校验位置 |
 |---|---|---|
-| Gem 规范导出 | gem-adapter/2.1 | Gem 适配器与比赛校验器 |
+| Gem 规范导出 | gem-adapter/2.2 | Gem 适配器与比赛校验器 |
 | 导入缓存清单 | demo-import/1.0 | 旧导入流程 |
 | 工作区配置 | coach-workspace/1 | WorkspaceConfig；导出 workspace.schema.json |
 | catalog | coach-catalog/1 | Workspace 程序检查 |
@@ -40,7 +40,7 @@
 ```json
 {
   "_fixture": "Synthetic documentation example; not expert play",
-  "schema_version": "gem-adapter/2.1",
+  "schema_version": "gem-adapter/2.2",
   "match_id": 1000000200,
   "duration": 300,
   "players": [{

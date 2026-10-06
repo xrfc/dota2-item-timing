@@ -10,7 +10,8 @@ import gem
 from dota_items.data.acceptance import audit_prepared, compare_api_observations
 from dota_items.data.contracts import PreparationConfig
 from dota_items.data.pipeline import prepare_one
-from dota_items.storage import file_hash, read_json, write_json
+from dota_items.sources.gem_replay import ADAPTER_VERSION, canonicalize_match
+from dota_items.storage import file_hash, inside, read_json, write_json
 from dota_items.workflow.validation import resolve_ref
 from dota_items.workflow.workspace import Workspace
 
@@ -37,9 +38,21 @@ def main():
         if len(cached) != 1:
             raise ValueError(f"Expected one saved parser export for {match_id}")
         api = read_json(args.source / "metadata" / f"{match_id}.json")
+        original_normalized = read_json(cached[0])
+        raw_path = inside(cached[0].parent, original_normalized["evidence_source"])
+        if file_hash(raw_path) != original_normalized["evidence_sha256"]:
+            raise ValueError(f"Raw Gem fingerprint mismatch for {match_id}")
+        # Reuse Gem's saved typed data and catalog, preserving the original parse evidence.
+        canonical, _ = canonicalize_match(gem.load_json(raw_path))
+        canonical.update(evidence_source="raw.json", evidence_sha256=file_hash(raw_path))
+        recanonicalized = args.output / "normalized" / str(match_id)
+        recanonicalized.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(raw_path, recanonicalized / "raw.json")
+        input_path = recanonicalized / "normalized.json"
+        write_json(input_path, canonical)
         workspace = Workspace(args.output / "workspaces" / str(match_id))
         workspace.init()
-        prepared = prepare_one(workspace, cached[0], PreparationConfig())
+        prepared = prepare_one(workspace, input_path, PreparationConfig())
         folder = Path(prepared["path"])
         audit = audit_prepared(folder, api)
         normalized = read_json(folder / "input.json")
@@ -103,6 +116,7 @@ def main():
             {
                 "schema_version": "saved-replay-regression/1",
                 "parser_exports_reused": True,
+                "adapter_version": ADAPTER_VERSION,
                 "source_report_sha256": file_hash(args.source / "report.json"),
                 "results": results,
             },
