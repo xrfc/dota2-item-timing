@@ -11,6 +11,7 @@
 | 日常操作、旧命令迁移、备份、故障恢复、人工核验 | [操作指南](workflow.md) |
 | 了解模块边界和数据流 | [工程设计](engineering-design.md) |
 | 一份 demo 到清洗、特征、标签与训练数组 | [数据管线](data-pipeline.md) |
+| 采集 7.41f 高分候选、复现真实回放验收 | [真实数据准入](real-data-acceptance.md) |
 | 实现训练器或预测器 | [数据契约](data-contracts.md) |
 | 理解技术选择和后续性能优化 | [技术选型与优化路线](long-term-roadmap.md) |
 | 安排下一轮开发 | [任务清单](roadmap.md) |

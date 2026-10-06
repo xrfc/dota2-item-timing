@@ -5,7 +5,7 @@ from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 FEATURE_SCHEMA = "coach-features/1"
-PIPELINE_VERSION = "coach-preparation/1"
+PIPELINE_VERSION = "coach-preparation/2"
 ECONOMY = ("gold", "net_worth", "last_hits", "denies", "xp_progress")
 NUMERIC = (
     "time_seconds",
@@ -47,10 +47,11 @@ class PreparationConfig(StrictContract):
 
         if (
             {"other", "no_purchase"} & set(values)
+            or any(value == "ward_dispenser" or value.startswith("recipe_") for value in values)
             or len(set(values)) != len(values)
             or any(not re.fullmatch(r"[a-z][a-z0-9_]{0,99}", value) for value in values)
         ):
-            raise ValueError("candidate_items must be unique canonical item keys")
+            raise ValueError("candidate_items must be unique eligible purchase keys")
         return values
 
 

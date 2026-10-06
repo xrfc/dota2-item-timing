@@ -6,6 +6,7 @@ Run this opt-in command separately from offline unit tests.
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -15,7 +16,7 @@ from urllib.parse import urlsplit
 
 import httpx
 
-from dota_items.data.acceptance import audit_prepared
+from dota_items.data.acceptance import AcceptanceConfig, audit_prepared, cohort_reasons
 from dota_items.sources.opendota import fetch_match
 from dota_items.storage import file_hash, now, write_json
 
@@ -24,15 +25,24 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=Path("configs/acceptance/7.41f.json"))
     parser.add_argument("--output", type=Path, default=Path("data/acceptance"))
+    parser.add_argument(
+        "--candidates", type=Path, help="Reuse rank evidence from a previous report"
+    )
+    parser.add_argument(
+        "--strict", action="store_true", help="Fail unless all requested audits pass"
+    )
     args = parser.parse_args()
     root = args.output
-    config = json.loads(args.config.read_text())
+    if (root / "report.json").exists():
+        raise ValueError("Output already has a report; choose a new --output to preserve evidence")
+    config = AcceptanceConfig.model_validate_json(args.config.read_text()).model_dump()
     report = {
         "schema_version": "real-acceptance/1",
         "started_at": now(),
         "config": config,
         "results": [],
         "status": "collecting",
+        "source_commit": os.environ.get("GITHUB_SHA"),
     }
     client = httpx.Client(timeout=45, follow_redirects=True)
     total_bytes = 0
@@ -53,7 +63,9 @@ def main():
     try:
         url = "https://www.dota2.com/datafeed/patchnoteslist?language=english"
         patches = get_json(url, "patchnotes.json")["patches"]
-        patch = next(p for p in patches if p["patch_number"] == config["patch"])
+        patch = next((p for p in patches if p["patch_number"] == config["patch"]), None)
+        if patch is None:
+            raise ValueError("Requested patch absent from official patch list")
         lower = patch["patch_timestamp"] + config["patch_boundary_buffer_seconds"]
         upper = min(
             [
@@ -70,24 +82,33 @@ def main():
             "confidence": "time_inferred",
         }
         candidates = {}
+        excluded = []
         before = ""
-        for page in range(config["discovery_pages"]):
-            url = "https://api.opendota.com/api/publicMatches?min_rank=75" + before
-            matches = get_json(url, f"public-{page}.json")
+        frozen = None
+        if args.candidates:
+            previous = json.loads(args.candidates.read_text())
+            frozen = [r["rank_evidence"] for r in previous["results"] if "archive_sha256" in r]
+            report["candidate_manifest_sha256"] = file_hash(args.candidates)
+        for page in range(1 if frozen is not None else config["discovery_pages"]):
+            url = (
+                "https://api.opendota.com/api/publicMatches?min_rank="
+                + str(config["minimum_average_rank_tier"])
+                + before
+            )
+            matches = frozen if frozen is not None else get_json(url, f"public-{page}.json")
             if not matches:
                 break
             for match in matches:
-                if (
-                    (match.get("avg_rank_tier") or 0) >= config["minimum_average_rank_tier"]
-                    and (match.get("num_rank_tier") or 0) >= config["minimum_ranked_players"]
-                    and match.get("game_mode") == 22
-                    and match.get("lobby_type") == 7
-                ):
+                reasons = cohort_reasons(match, config, lower, upper)
+                if not reasons:
                     candidates[match["match_id"]] = match
+                else:
+                    excluded.append({"match_id": match.get("match_id"), "reasons": reasons})
             before = "&less_than_match_id=" + str(min(m["match_id"] for m in matches))
             if len(candidates) >= config["max_candidates"]:
                 break
         report["discovered"] = len(candidates)
+        write_json(root / "excluded.json", excluded)
         save()
         ordered = sorted(candidates.values(), key=lambda r: (-r["num_rank_tier"], -r["match_id"]))
         for candidate in ordered[: config["max_candidates"]]:
@@ -104,14 +125,6 @@ def main():
             try:
                 start = candidate.get("start_time", 0)
                 duration = candidate.get("duration", 0)
-                if not lower <= start < start + duration < upper:
-                    raise ValueError("outside requested letter-patch time interval")
-                if (
-                    not config["minimum_duration_seconds"]
-                    <= duration
-                    <= config["maximum_duration_seconds"]
-                ):
-                    raise ValueError("duration outside acceptance cohort")
                 time.sleep(1.1)
                 api_path = fetch_match(match_id, root / "metadata", client=client)
                 api = json.loads(api_path.read_text())
@@ -216,10 +229,24 @@ def main():
             download_bytes=total_bytes,
             status="collected" if downloaded == config["target_downloads"] else "incomplete",
             training_admission="see_per_match_audit",
+            prepared=sum(r["status"] == "prepared" for r in report["results"]),
+            audit_passed=sum(
+                r.get("audit", {}).get("pipeline_status") == "passed" for r in report["results"]
+            ),
         )
         save()
-        print(json.dumps(report, indent=2))
+        print(json.dumps({k: v for k, v in report.items() if k != "results"}, indent=2))
+        summary = (
+            f"Downloaded: {downloaded}/{config['target_downloads']}; "
+            f"prepared: {report['prepared']}; pipeline audits passed: {report['audit_passed']}.\n\n"
+            "See acceptance-evidence/report.json for failures and scope. "
+            "Collector completion does not mean data admission or decision-quality validation.\n"
+        )
+        if os.environ.get("GITHUB_STEP_SUMMARY"):
+            with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as stream:
+                stream.write(summary)
+    return int(args.strict and report["audit_passed"] < config["target_downloads"])
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

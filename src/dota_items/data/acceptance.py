@@ -3,10 +3,53 @@
 import json
 from collections import Counter
 from pathlib import Path
+from typing import Literal
 
+from pydantic import Field
+
+from ..sources.gem_observations import number
 from ..storage import inside, read_json, verify_files
 from ..workflow.validation import resolve_ref, validate_match
-from .contracts import ECONOMY, SLOTS
+from .contracts import ECONOMY, SLOTS, StrictContract
+
+
+class AcceptanceConfig(StrictContract):
+    schema_version: Literal["real-acceptance-config/1"] = "real-acceptance-config/1"
+    patch: str = Field(pattern=r"^\d+\.\d+[a-z]?$", max_length=12)
+    target_downloads: int = Field(default=8, ge=1, le=20)
+    minimum_average_rank_tier: int = Field(default=75, ge=10, le=75)
+    minimum_ranked_players: int = Field(default=8, ge=1, le=10)
+    patch_boundary_buffer_seconds: int = Field(default=86400, ge=0, le=604800)
+    minimum_duration_seconds: int = Field(default=900, ge=1, le=21600)
+    maximum_duration_seconds: int = Field(default=5400, ge=1, le=21600)
+    max_candidates: int = Field(default=30, ge=1, le=100)
+    discovery_pages: int = Field(default=5, ge=1, le=20)
+    max_archive_bytes: int = Field(default=536870912, ge=1, le=2 * 1024**3)
+    max_total_download_bytes: int = Field(default=4294967296, ge=1, le=16 * 1024**3)
+    parse_timeout_seconds: int = Field(default=480, ge=1, le=1800)
+
+
+def cohort_reasons(row, config, lower, upper):
+    """75 is OpenDota's highest averaged medal, including individual rank 80."""
+    reasons = []
+    for key, minimum, maximum in (
+        ("avg_rank_tier", config["minimum_average_rank_tier"], 75),
+        ("num_rank_tier", config["minimum_ranked_players"], 10),
+    ):
+        if type(row.get(key)) is not int or not minimum <= row[key] <= maximum:
+            reasons.append(f"insufficient_{key}_evidence")
+    if type(row.get("match_id")) is not int or row["match_id"] <= 0:
+        reasons.append("invalid_match_id")
+    if row.get("game_mode") != 22 or row.get("lobby_type") != 7:
+        reasons.append("not_ranked_all_pick")
+    start, duration = row.get("start_time"), row.get("duration")
+    if not number(start) or not number(duration) or not lower <= start < start + duration < upper:
+        reasons.append("outside_letter_patch_time_interval")
+    if not number(duration) or not (
+        config["minimum_duration_seconds"] <= duration <= config["maximum_duration_seconds"]
+    ):
+        reasons.append("duration_outside_cohort")
+    return reasons
 
 
 def observation_metrics(match, features, labels):
@@ -56,6 +99,55 @@ def observation_metrics(match, features, labels):
             }
         )
     return rows
+
+
+def compare_api_observations(match, api):
+    """Compare only compatible fields; expose sampling differences rather than overwrite them."""
+    comparisons = []
+    for player in match["players"]:
+        external = next(p for p in api["players"] if p["player_slot"] == player["player_slot"])
+        if not isinstance(external.get("purchase_log"), list):
+            continue
+        observed = Counter((r["time"], r["key"]) for r in player["purchase_log"])
+        expected = Counter(
+            (r["time"], r["key"])
+            for r in external["purchase_log"]
+            if r["key"] != "ward_dispenser"
+            and not r["key"].startswith("recipe_")
+            and -3600 <= r["time"] <= match["duration"]
+        )
+        fields = {}
+        economy = {r["time"]: r for r in player["economy_log"]}
+        for field, source in (
+            ("net_worth", "networth_t"),
+            ("last_hits", "lh_t"),
+            ("denies", "dn_t"),
+        ):
+            pairs = [
+                (second, economy[second][field], value)
+                for second, value in zip(
+                    external.get("times") or [], external.get(source) or [], strict=False
+                )
+                if second in economy and economy[second][field] is not None
+            ]
+            differences = [r for r in pairs if r[1] != r[2]]
+            fields[field] = {
+                "compared": len(pairs),
+                "different": len(differences),
+                "max_absolute_difference": max((abs(a - b) for _, a, b in pairs), default=None),
+                "examples": differences[:5],
+            }
+        comparisons.append(
+            {
+                "player_slot": player["player_slot"],
+                "purchase_records": sum(observed.values()),
+                "api_purchase_records": sum(expected.values()),
+                "purchase_only_gem": sum((observed - expected).values()),
+                "purchase_only_api": sum((expected - observed).values()),
+                "economy_comparison": fields,
+            }
+        )
+    return {"status": "compared" if comparisons else "api_unparsed", "players": comparisons}
 
 
 def compare_evidence(match, raw, api, clock):

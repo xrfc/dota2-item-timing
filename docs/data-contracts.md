@@ -16,7 +16,7 @@
 | 数据集 | coach-dataset/1 | 清单身份和文件指纹校验 |
 | 数据集观测契约名称 | coach-match/1 | 清单中的 observation_schema；没有完整 Pydantic 模型或导出 Schema |
 | 数据准备配置 | coach-preparation-config/1 | 严格 PreparationConfig；导出 preparation.schema.json |
-| 单文件准备 | coach-preparation/1 | 清单身份、输入/清洗/样本文件哈希 |
+| 单文件准备 | coach-preparation/2 | 清单身份、输入/清洗/样本文件哈希；仍可检查历史 /1 |
 | 特征 | coach-features/1 | data/features.py 白名单与时间规则 |
 | 样本数据集 | coach-samples/1 | 来源、split、配置、环境、源码与产物哈希 |
 | 预处理 | coach-preprocessor/1 | JSON 参数、固定列序、train-only 拟合 |

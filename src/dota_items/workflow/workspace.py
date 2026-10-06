@@ -158,7 +158,7 @@ class Workspace:
         manifest = read_json(folder / "manifest.json")
         identity = {k: v for k, v in manifest.items() if k not in ("preparation_id", "created_at")}
         if (
-            manifest.get("schema_version") != "coach-preparation/1"
+            manifest.get("schema_version") not in ("coach-preparation/1", "coach-preparation/2")
             or digest(identity)[:24] != preparation_id
         ):
             raise ValueError("Preparation manifest fingerprint mismatch")

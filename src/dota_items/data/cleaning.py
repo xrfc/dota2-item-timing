@@ -79,6 +79,11 @@ def clean_match(raw: Any, config: PreparationConfig) -> tuple[dict, dict]:
                         issue(ref, "invalid canonical item key")
                         invalid += 1
                         continue
+                    # Match OpenDota's purchase projection. Combined wards are not a shop buy;
+                    # preserve actual free observer wards and repeated purchases.
+                    if row["key"] == "ward_dispenser" or row["key"].startswith("recipe_"):
+                        issue(ref, "non-purchase recipe/combined-ward record", "exclude")
+                        continue
                 elif channel == "position_log":
                     if not all(number(row.get(k)) for k in ("x", "y")):
                         issue(ref, "non-finite position")
