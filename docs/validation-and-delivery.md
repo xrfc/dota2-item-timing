@@ -1,10 +1,10 @@
 # 验证与交付
 
-> v0.4 数据准备更新：`prepare` 已实现单文件清洗/特征/标签；`build-samples` 输出固定 split 的训练数组和 train-only 预处理。输入、错误策略、任务 mask 和操作示例以[数据管线](data-pipeline.md)为准。实际模型与真实字段验收仍待完成。
+> 2026-10-06 更新：已完成 8 场 7.41f 真实解析及修正后的原始导出回归，3 场通过机械审计、5 场隔离；75 项工程测试和跨平台 CI 通过。逐场清单、下载链接、购买对照及未解决语义见[真实数据验收](real-data-acceptance.md)。实际模型尚未训练，机械审计不能替代完整训练准入。
 
-基线：v0.3，2026-10-02。验证分为工程运行、真实回放语义和模型效果三层，不能相互替代。
+以下旧基线记录为 v0.3、2026-10-02；最新结果以上方真实验收报告为准。验证分为工程运行、真实回放语义和模型效果三层，不能相互替代。
 
-## 1. 当前证据
+## 1. 历史基线证据
 
 | 层级 | 已有结果 | 结论范围 |
 |---|---|---|
@@ -28,7 +28,7 @@
 仓库根目录，Python 3.11+：
 
 ```bash
-python scripts/bootstrap.py --replay --dev
+python scripts/bootstrap.py --replay --data --dev
 python scripts/check.py
 .venv/bin/python -m dota_items.cli report examples/match.synthetic.json --player-slot 0 --output reports/smoke
 python coach.py --workspace coach-workspace/validation demo
@@ -57,11 +57,11 @@ Windows 的解释器路径为 `.venv/Scripts/python.exe`。只核对 JSON 工作
 
 | 能力 | 当前状态 | 所需证据 |
 |---|---|---|
-| 购买 key/tick/引用 | 一场历史样本已核对 | 固定回放集重跑与人工游戏事件对照 |
+| 购买 key/tick/引用 | 8 场 raw 引用审计；一场 346 条与 OpenDota 完全一致 | 其他比赛事件对照和人工游戏事件核验 |
 | 购买漏检/合成/送达 | 未完成 | 独立人工事件集合，误检/漏检分母与语义分类 |
-| 暂停感知时钟 | 受控测试通过；真实待验 | 暂停前/中/后的 tick 和游戏时间对照 |
+| 暂停感知时钟 | 真实导出与 Gem 转换一致；发现暂停边界状态冲突 | 暂停前/中/后的游戏画面核验及冲突处理规则 |
 | 位置与坐标语义 | 导出/受控测试通过；真实待验 | 坐标、时间、死亡/复活与采样覆盖对照 |
-| gold / net_worth / 补刀反补 / xp_progress | 导出/受控测试通过；真实待验 | UI/原始值、单位、等级变化与缺失片段 |
+| gold / net_worth / 补刀反补 / xp_progress | 已有真实分钟对照，存在数值差异与 XP 语义冲突 | 采样边界、游戏 UI、XP 语义及缺失片段 |
 | 截断/不完整回放 | 部分提示；资格规则未实现 | 完整/缺失/截断样本和训练排除结果 |
 | 跨补丁/平台 Gem 能力 | 未形成矩阵 | 精确版本和范围逐项记录 |
 | 真实模型复盘 | 未实现 | 独立评估、错误案例与适用范围 |

@@ -1,6 +1,8 @@
 # 项目完成度与验证证据
 
-核对日期：**2026-10-05**；代码版本：**0.4.0**。
+核对日期：**2026-10-06**；包版本基线：**0.4.0**，后续开发分支更新见下文真实验收记录。
+
+最新真实数据结果见 [7.41f 验收与准入](real-data-acceptance.md)：8 场真实回放完成解析和清洗；3 场进入机械审计通过组，5 场隔离。修正了组合眼事件进入购买标签，以及英雄别名导致玩家被遗漏的问题。管线通过组仍不等于完整训练集已获准使用。
 
 仓库整理与学习工具更新：**2026-10-03**。学习计划、模板、可视化源码和测试已统一放在 [learning/](../learning/README.md)。离线页面展示组件、选型、任务与教学实验；学习实践及工程功能分别验收，L01–L12 仍待执行。此项为 v0.3 时的交付记录。
 
@@ -11,9 +13,9 @@
 | 能力 | 状态 | 实现/证据 | 当前边界 |
 |---|---|---|---|
 | 一键环境与统一 CLI | 已实现 | [bootstrap](../scripts/bootstrap.py)、[coach.py](../coach.py) | 创建 venv，未锁定完整环境或配置 GPU |
-| 本地回放与压缩导入 | 已实现 | [Gem 适配器](../src/dota_items/sources/gem_replay.py) | 原生/解压后 2 GiB 限制；解析无独立超时、内存上限 |
+| 本地回放与压缩导入 | 已实现；8 场真实解析 | [Gem 适配器](../src/dota_items/sources/gem_replay.py) | 原生/解压后 2 GiB 限制；采集脚本有单场 480 秒超时，普通 prepare 仍无隔离/内存配额 |
 | 购买事件规范化与报告 | 已实现；有历史真实样本验证 | [normalize](../src/dota_items/normalize.py)、[report](../src/dota_items/report.py) | 购买事件不等于合成、库存可用或装备送达 |
-| 位置/自身经济时序 | 已实现；合成/接口测试通过 | [观测导出](../src/dota_items/sources/gem_observations.py) | 新字段的真实回放对照未完成 |
+| 位置/自身经济时序 | 已实现；真实观测、覆盖率和时间映射已审计 | [观测导出](../src/dota_items/sources/gem_observations.py) | 分钟经济值存在来源差异；游戏客户端逐点语义核验仍未完成 |
 | 证据与数据包 | 已实现基础校验 | [validation](../src/dota_items/workflow/validation.py)、[workspace](../src/dota_items/workflow/workspace.py) | 无统一完整性/训练资格判定；纯 JSON 可只有自引用证据 |
 | 比赛去重与冲突拒绝 | 已实现于新工作区 | 同上；[工作流测试](../tests/test_coach_workflow.py) | 不合并不同来源；不同压缩输入仍可能重复解析 |
 | 职业/高分、patch、role 标注 | 已实现人工标注 | [Labels](../src/dota_items/workflow/contracts.py) | 不验证职业/MMR；每场仅一组标签，重标覆盖 |
@@ -24,12 +26,13 @@
 | 预测校验与复盘 HTML | 已实现协议；桩程序验证 | [reviews](../src/dota_items/workflow/reviews.py) | 无可用预测模型；路线为候选文字，无地图可视化 |
 | 离线 demo | 已实现 | [demo](../src/dota_items/workflow/demo.py) | 6 场合成比赛、4/1/1 快照、事实报告，不训练 |
 | Linux/Windows CI | 已通过 | [CI 配置](../.github/workflows/ci.yml) | Windows 仅验证不安装 Gem 的工作流 |
+| 公开回放采集与独立准入审计 | 已实现；真实运行完成 | [采集和审计](real-data-acceptance.md) | 自动审计未成为所有数据集入口的强制门禁；Actions 回放产物有保留期限 |
 
 “已实现”表示有相应代码和接口，不表示模型已能判断决策是否正确。
 
 ## 已执行的验证
 
-v0.4 首轮 CI 已通过 66 项 Python 功能测试（新增 19 项数据管线回归），另有 10 项学习生成器与 6 项 JS 测试通过。首轮暴露格式问题，交付前继续以开发分支最终 CI 为准；真实 demo 语义验收未完成。
+v0.4 首轮 CI 已通过 66 项 Python 功能测试（新增 19 项数据管线回归），另有 10 项学习生成器与 6 项 JS 测试通过。2026-10-06 增加真实数据审计回归、购买投影与英雄别名测试；当前验证链接和逐场结果见[真实验收](real-data-acceptance.md)。机械验证已经执行，不能替代完整的游戏语义验证。
 
 
 代码基线提交：[364d9ad](https://github.com/xrfc/dota2-item-timing/commit/364d9adf07373e925c9d420b5804403f866c432e)。

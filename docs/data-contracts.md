@@ -71,7 +71,7 @@
 | economy_log.time / source_tick | 此经济采样的时间与 tick |
 | gold / net_worth | 未花费金钱 / 净资产；不是同一个量 |
 | last_hits / denies | 原始补刀 / 反补采样 |
-| xp_progress | 当前等级内经验进度，不是累计经验 |
+| xp_progress | 历史字段名，保存 Gem xp_t 原值；等级内进度的上游说明与真实样本冲突，语义待核验 |
 | economy_log.source_refs | 每个非空经济字段到 raw 数值的引用 |
 
 Gem 用暂停感知的 `game_clock.game_seconds_at(tick)` 转换时间，位置/经济只导出 `0 <= time <= duration` 的有效采样。无时钟时这些通道为空；缺失或非法经济值为 null，不补零、不插值。位置和经济分别排序，没有统一重采样时间轴。
