@@ -55,6 +55,9 @@ def install_fake_gem(monkeypatch, calls):
             ),
         ),
     )
+    monkeypatch.setattr(
+        "dota_items.sources.gem_capture.parse_with_state", lambda path: (parse(path), [])
+    )
 
 
 @pytest.mark.parametrize(

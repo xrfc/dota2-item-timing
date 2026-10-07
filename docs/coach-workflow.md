@@ -117,7 +117,7 @@ datasets/<dataset-id>/
 `coach-match/1` 是数据集声明的观测契约名称，目前没有完整的 Pydantic Match 类或独立 Schema。
 比赛必须包含 `match_id`、`duration`、`players`；玩家需要有效 `player_slot`、`hero_id`。
 `purchase_log` 缺失会记录警告并阻止该玩家成为训练参考；位置/经济通道可缺失。
-Gem 的导出版本为 `gem-adapter/2.2`。
+Gem 的导出版本为 `gem-adapter/3.0`；新增上下文与玩家视角见[接入说明](observer-context.md)。
 
 | 通道 | 字段 | 语义 |
 |---|---|---|
@@ -130,7 +130,7 @@ Gem 的导出版本为 `gem-adapter/2.2`。
 没有可用时钟或有效坐标的采样不导出。`gold` 是未花费金钱；`xp_progress` 是保留 Gem
 `xp_t` 原值的历史字段名，其等级内/累计语义存在文档与实测冲突，核验前不作该含义的训练解释。
 位置和经济各保留自己的时间轴，不在此层插值或未来填充。
-购买记录不代表完成合成、库存或装备送达；当前没有库存可用性、存活状态、敌方可见性契约。
+购买记录不代表完成合成、库存或装备送达。新增 context 保存库存、存活和可见性证据，observer 按玩家视角输出；装备可用性、精确送达与新通道语义仍待核验。
 
 观察数据集保留整场数据和其他玩家；`build-samples` 遵守 `player_slots`，生成白名单历史特征、未来标签及仅用 train 拟合的预处理。下一阶段训练器优先读取 `coach-samples/1` 的数组并使用任务 mask，详细格式见[数据管线](data-pipeline.md)。
 验证集用于调参，测试集只作最后评估；框架不能阻止任意用户模型自行读取额外未来数据。

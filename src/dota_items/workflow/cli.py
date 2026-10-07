@@ -106,6 +106,10 @@ def main(argv: list[str] | None = None) -> int:
     )
     samples.add_argument("dataset_id")
     samples.add_argument("--config", type=Path)
+    observe = commands.add_parser("observe", help="Inspect observer context from a preparation")
+    observe.add_argument("preparation_id")
+    observe.add_argument("--player-slot", type=int, required=True)
+    observe.add_argument("--time", type=int, required=True, dest="cutoff")
     label = commands.add_parser("annotate", help="Record expert provenance and selected players")
     label.add_argument("match_id", type=int)
     label.add_argument(
@@ -181,6 +185,23 @@ def main(argv: list[str] | None = None) -> int:
                     player_slots=args.player_slots,
                     label_source=args.label_source,
                 ),
+            )
+        elif args.command == "observe":
+            from ..data.observer import ObserverIndex
+
+            manifest, folder = workspace.preparation(args.preparation_id)
+            match = read_json(folder / "cleaned.json")
+            if args.player_slot not in {p["player_slot"] for p in match["players"]}:
+                raise ValueError("Observer player slot is absent")
+            if not 0 <= args.cutoff <= match["duration"]:
+                raise ValueError("Observation time is outside the match")
+            if match.get("context") is None:
+                raise ValueError("Legacy preparation has no context; reparse in a new workspace")
+            result = ObserverIndex(match).sample(
+                args.player_slot,
+                args.cutoff,
+                manifest["config"]["max_observation_age_seconds"],
+                manifest["config"]["history_seconds"],
             )
         elif args.command == "build-dataset":
             result = build_dataset(

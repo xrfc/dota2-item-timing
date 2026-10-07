@@ -1,6 +1,6 @@
 # Demo 到训练样本的数据管线
 
-更新：**2026-10-06 / 0.4 开发分支**，清洗版本 `coach-preparation/2`。本页描述已实现的数据准备；[8 场真实验收](real-data-acceptance.md)已完成机械检查，游戏语义仍有未解决项。入口是本地文件/目录，网页上传尚未实现。
+更新：**2026-10-07 / 0.4 开发分支**，清洗版本 `coach-preparation/3`。新增 context 与 observer JSONL，使用方法和边界见[上下文接入](observer-context.md)；原 X 数组保持原定义。本页描述已实现的数据准备；[8 场真实验收](real-data-acceptance.md)已完成机械检查，游戏语义仍有未解决项。入口是本地文件/目录，网页上传尚未实现。
 
 ## 最短使用路径
 
@@ -37,7 +37,7 @@ python coach.py --workspace coach-workspace/practice build-samples OBSERVATION_D
 
 ## 输入与配置契约
 
-Gem 协议解析仍由 `gem-dota` 完成。JSON 输入必须是本项目的规范比赛格式或兼容的 OpenDota 形状，不能直接把 Gem 原始导出交给 prepare。支持无 `schema_version` 的历史输入，以及 `gem-adapter/2.0`、`gem-adapter/2.1`、`gem-adapter/2.2`；未知版本拒绝。最小可检查示例：
+Gem 协议解析仍由 `gem-dota` 完成。JSON 输入必须是本项目的规范比赛格式或兼容的 OpenDota 形状，不能直接把 Gem 原始导出交给 prepare。支持无 `schema_version` 的历史输入，以及 `gem-adapter/2.0`、`gem-adapter/2.1`、`gem-adapter/2.2`、`gem-adapter/3.0`；未知版本拒绝。最小可检查示例：
 
 ```json
 {

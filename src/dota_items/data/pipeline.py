@@ -13,6 +13,7 @@ from ..workflow.validation import validate_match
 from .cleaning import clean_match
 from .contracts import FEATURE_SCHEMA, PIPELINE_VERSION, PreparationConfig
 from .features import extract_samples
+from .observer import OBSERVER_SCHEMA, observer_samples
 from .preprocessing import fit_preprocessor, save_arrays
 
 MAX_JSON_BYTES = 256 * 1024**2
@@ -46,10 +47,13 @@ def write_samples(folder, match, quality, config, slots=None):
     features, labels, traces = extract_samples(match, quality, config, slots)
     for name, rows in (("features", features), ("labels", labels), ("trace", traces)):
         write_rows(folder / f"{name}.jsonl", rows)
+    context_rows = observer_samples(match, config, slots)
+    write_rows(folder / "observer.jsonl", context_rows)
     counts = {
         "samples": len(features),
         "item_supervised": sum(r["item_mask"] for r in labels),
         "route_supervised": sum(r["route_mask"] for r in labels),
+        "observer_samples": len(context_rows),
     }
     write_json(folder / "quality.json", {**quality, **counts})
     return features, labels, counts
@@ -95,6 +99,7 @@ def prepare_one(workspace, path: Path, config: PreparationConfig, *, force=False
         identity = {
             "schema_version": PIPELINE_VERSION,
             "feature_schema": FEATURE_SCHEMA,
+            "observer_schema": OBSERVER_SCHEMA,
             "source_sha256": source_sha,
             "match_id": cleaned["match_id"],
             "config": config.model_dump(),
@@ -178,7 +183,7 @@ def build_samples(workspace, dataset_id: str, config: PreparationConfig):
             staging.mkdir()
             split_rows, summaries = {}, {}
             for split, matches in grouped.items():
-                features, labels, traces, qualities = [], [], [], []
+                features, labels, traces, qualities, observations = [], [], [], [], []
                 for row in matches:
                     raw = read_input(inside(source, row["path"]))
                     cleaned, quality = clean_match(raw, config)
@@ -186,17 +191,20 @@ def build_samples(workspace, dataset_id: str, config: PreparationConfig):
                     features.extend(x)
                     labels.extend(y)
                     traces.extend(trace)
+                    observations.extend(observer_samples(cleaned, config, row["player_slots"]))
                     qualities.append({"match_id": row["match_id"], **quality})
                 if not features:
                     raise ValueError(f"No samples in {split}")
                 split_rows[split] = (features, labels)
                 for kind, rows in (("features", features), ("labels", labels), ("trace", traces)):
                     write_rows(staging / f"{split}.{kind}.jsonl", rows)
+                write_rows(staging / f"{split}.observer.jsonl", observations)
                 summaries[split] = {
                     "matches": len(matches),
                     "samples": len(features),
                     "item_supervised": sum(r["item_mask"] for r in labels),
                     "route_supervised": sum(r["route_mask"] for r in labels),
+                    "observer_samples": len(observations),
                 }
                 write_json(staging / f"{split}.quality.json", qualities)
             if not any(summaries["train"][k] for k in ("item_supervised", "route_supervised")):
@@ -208,6 +216,7 @@ def build_samples(workspace, dataset_id: str, config: PreparationConfig):
             identity = {
                 "schema_version": "coach-samples/1",
                 "feature_schema": FEATURE_SCHEMA,
+                "observer_schema": OBSERVER_SCHEMA,
                 "source_dataset_id": dataset_id,
                 "source_manifest_sha256": file_hash(source / "manifest.json"),
                 "preparation_version": PIPELINE_VERSION,
@@ -228,7 +237,8 @@ def build_samples(workspace, dataset_id: str, config: PreparationConfig):
                     "Imitation labels describe observed behavior, not causal decision quality.",
                     "Purchase records are not completed builds or usable inventory.",
                     "Route target is endpoint displacement; route quality is not evaluated.",
-                    "No enemy visibility, life state, inventory or teammate context is modeled.",
+                    "Legacy X excludes observer context; observer JSONL is separately versioned.",
+                    "Observer channels need semantic review; gank/counterplay labels are absent.",
                     "Honor task masks; unknown/censored labels are not negative examples.",
                     "Split is grouped by match; temporal/patch holdouts remain separate.",
                 ],

@@ -8,6 +8,7 @@ from pathlib import Path
 import gem
 
 from dota_items.data.acceptance import audit_prepared, compare_api_observations
+from dota_items.data.context import export_context
 from dota_items.data.contracts import PreparationConfig
 from dota_items.data.pipeline import prepare_one
 from dota_items.sources.gem_replay import ADAPTER_VERSION, canonicalize_match
@@ -43,7 +44,11 @@ def main():
         if file_hash(raw_path) != original_normalized["evidence_sha256"]:
             raise ValueError(f"Raw Gem fingerprint mismatch for {match_id}")
         # Reuse Gem's saved typed data and catalog, preserving the original parse evidence.
-        canonical, _ = canonicalize_match(gem.load_json(raw_path))
+        parsed = gem.load_json(raw_path)
+        canonical, _ = canonicalize_match(parsed)
+        canonical["context"] = export_context(
+            read_json(raw_path), parsed.game_clock, parsed.duration
+        )
         canonical.update(evidence_source="raw.json", evidence_sha256=file_hash(raw_path))
         recanonicalized = args.output / "normalized" / str(match_id)
         recanonicalized.mkdir(parents=True, exist_ok=True)
@@ -109,6 +114,7 @@ def main():
             "features.jsonl",
             "labels.jsonl",
             "trace.jsonl",
+            "observer.jsonl",
         ):
             shutil.copyfile(folder / name, exports / name)
         write_json(

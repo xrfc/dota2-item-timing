@@ -8,7 +8,7 @@
 
 | 对象 | 当前版本 | 校验位置 |
 |---|---|---|
-| Gem 规范导出 | gem-adapter/2.2 | Gem 适配器与比赛校验器 |
+| Gem 规范导出 | gem-adapter/3.0 | Gem 适配器与比赛校验器；兼容读取 2.0–2.2 |
 | 导入缓存清单 | demo-import/1.0 | 旧导入流程 |
 | 工作区配置 | coach-workspace/1 | WorkspaceConfig；导出 workspace.schema.json |
 | catalog | coach-catalog/1 | Workspace 程序检查 |
@@ -16,7 +16,9 @@
 | 数据集 | coach-dataset/1 | 清单身份和文件指纹校验 |
 | 数据集观测契约名称 | coach-match/1 | 清单中的 observation_schema；没有完整 Pydantic 模型或导出 Schema |
 | 数据准备配置 | coach-preparation-config/1 | 严格 PreparationConfig；导出 preparation.schema.json |
-| 单文件准备 | coach-preparation/2 | 清单身份、输入/清洗/样本文件哈希；仍可检查历史 /1 |
+| 单文件准备 | coach-preparation/3 | 清单身份、文件哈希；仍可检查历史 /1、/2 |
+| 规范化上下文 | coach-context/1 | 七类通道，payload/引用/时钟校验，缺失为 null |
+| 玩家视角表 | coach-observer/1 | observer JSONL 与 observe 查询；新通道语义待验收，不改原 X |
 | 特征 | coach-features/1 | data/features.py 白名单与时间规则 |
 | 样本数据集 | coach-samples/1 | 来源、split、配置、环境、源码与产物哈希 |
 | 预处理 | coach-preprocessor/1 | JSON 参数、固定列序、train-only 拟合 |

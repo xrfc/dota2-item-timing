@@ -21,7 +21,18 @@ MAX_DEMO_BYTES = 2 * 1024**3
 CHUNK_BYTES = 1024**2
 DEMO_MAGIC = b"PBDEMS2"
 ZSTD_MAGIC = b"\x28\xb5\x2f\xfd"
-ADAPTER_VERSION = "gem-adapter/2.2"
+ADAPTER_VERSION = "gem-adapter/3.0"
+
+
+def adapter_fingerprint():
+    root = Path(__file__).resolve().parents[1]
+    paths = (
+        "sources/gem_replay.py",
+        "sources/gem_capture.py",
+        "sources/gem_observations.py",
+        "data/context.py",
+    )
+    return hashlib.sha256("".join(file_hash(root / name) for name in paths).encode()).hexdigest()
 
 
 def _copy_bounded(source: Any, target: Any) -> None:
@@ -238,9 +249,11 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
         if existing and Path(existing[2]).is_file() and Path(existing[3]).is_file() and not force:
             try:
                 cached = json.loads(Path(existing[2]).read_text(encoding="utf-8"))
-                cache_valid = cached.get("schema_version") == ADAPTER_VERSION and cached.get(
-                    "evidence_sha256"
-                ) == file_hash(Path(existing[3]))
+                cache_valid = (
+                    cached.get("schema_version") == ADAPTER_VERSION
+                    and cached.get("adapter_fingerprint") == adapter_fingerprint()
+                    and cached.get("evidence_sha256") == file_hash(Path(existing[3]))
+                )
             except (ValueError, OSError, AttributeError):
                 cache_valid = False
         if cache_valid:
@@ -257,7 +270,9 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
         raise ValueError("Gem is not installed; run pip install -e '.[replay]'") from error
     with prepared_demo(source, data_dir / ".tmp") as replay:
         replay_sha = file_hash(replay)
-        match = gem.parse(replay)
+        from .gem_capture import CAPTURE_VERSION, parse_with_state
+
+        match, states = parse_with_state(replay)
     canonical, issues = canonicalize_match(match)
     for player in canonical["players"]:
         validated = normalize_match(
@@ -277,7 +292,15 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
     raw_path = folder / "raw-gem.json"
     normalized_path = folder / "normalized.json"
     manifest_path = folder / "manifest.json"
-    raw = gem.to_json(match)
+    from ..data.context import export_context
+
+    payload = json.loads(gem.to_json(match))
+    payload["coach_state_snapshots"] = states
+    payload["coach_capture_version"] = CAPTURE_VERSION
+    canonical["adapter_fingerprint"] = adapter_fingerprint()
+    canonical["capture_version"] = CAPTURE_VERSION
+    canonical["context"] = export_context(payload, match.game_clock, match.duration)
+    raw = json.dumps(payload, ensure_ascii=False, allow_nan=False)
     # Fail before indexing if serialization is not valid JSON.
     json.loads(raw)
     canonical["evidence_source"] = raw_path.name
@@ -295,6 +318,8 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
         "raw_json_sha256": canonical["evidence_sha256"],
         "parser": "gem-dota",
         "parser_version": parser_version,
+        "capture_version": CAPTURE_VERSION,
+        "adapter_fingerprint": canonical["adapter_fingerprint"],
         "imported_at": datetime.now(UTC).isoformat(),
         "issues": issues,
         "raw_json": str(raw_path.resolve()),

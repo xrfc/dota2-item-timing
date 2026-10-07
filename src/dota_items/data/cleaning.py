@@ -5,6 +5,7 @@ import re
 from typing import Any
 
 from ..sources.gem_observations import number
+from .context import clean_context
 from .contracts import ECONOMY, SLOTS, Coverage, PreparationConfig
 
 
@@ -16,6 +17,7 @@ def clean_match(raw: Any, config: PreparationConfig) -> tuple[dict, dict]:
         "gem-adapter/2.0",
         "gem-adapter/2.1",
         "gem-adapter/2.2",
+        "gem-adapter/3.0",
     ):
         raise ValueError("Unsupported normalized input schema; raw Gem exports need the adapter")
     for name in ("match_id", "duration"):
@@ -142,5 +144,6 @@ def clean_match(raw: Any, config: PreparationConfig) -> tuple[dict, dict]:
             coverage = None
         player["purchase_coverage"] = coverage
         quality["channels"][str(slot)] = stats
+    quality["context_channels"] = clean_context(cleaned, config, issue)
     quality["quarantined"] = sum(x["action"] == "quarantine" for x in quality["issues"])
     return cleaned, quality

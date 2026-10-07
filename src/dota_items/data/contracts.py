@@ -5,7 +5,7 @@ from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 FEATURE_SCHEMA = "coach-features/1"
-PIPELINE_VERSION = "coach-preparation/2"
+PIPELINE_VERSION = "coach-preparation/3"
 ECONOMY = ("gold", "net_worth", "last_hits", "denies", "xp_progress")
 NUMERIC = (
     "time_seconds",

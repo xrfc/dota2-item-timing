@@ -1,0 +1,555 @@
+{
+  "all_state_fields_nonnull": true,
+  "binary_reparsed": true,
+  "channel_totals": {
+    "coach_state_snapshots": 63020,
+    "combat_log": 196816,
+    "entity_visibility_events": 98457,
+    "hero_visibility_events": 9472,
+    "smoke_events": 20,
+    "vision_modifiers": 112,
+    "wards": 222
+  },
+  "inventory_complete_snapshots": 63020,
+  "recorded_at": "2026-10-07T10:13:33.918303+00:00",
+  "results": [
+    {
+      "adapter": "gem-adapter/3.0",
+      "adapter_fingerprint": "d7e98607c27a169fc51bd93ccb19e19eff90d2a67ef790457003ae2fd5eba11b",
+      "archive_sha256": "a337dfa5a0438d6ab57628f391ee5c582b6604df5ba16229cfc7b017f18b17b5",
+      "capture": "gem-state-capture/2",
+      "channel_rows": {
+        "coach_state_snapshots": 18540,
+        "combat_log": 42556,
+        "entity_visibility_events": 26573,
+        "hero_visibility_events": 3037,
+        "smoke_events": 2,
+        "vision_modifiers": 31,
+        "wards": 64
+      },
+      "code": {
+        "__init__.py": "fd3b93565d47aa9638c92f5967e7e8a43aa3d1299e9d14419114c66325a514b5",
+        "analysis.py": "2881f3f51664cd788a961b13a4c20afcbe0377daefc3278f10f090a958e81d56",
+        "cli.py": "321a9bf5833efc034b4aa5fa22f069f4e618c315394137e887c5dda64422b655",
+        "data/__init__.py": "5ac30966b00761d6de7363dfabad4b1afa8e2aadfadbf2d5765f70b79d798471",
+        "data/acceptance.py": "5465d1b2bb3da621c7c9687047133134143c6ebc2479464b44b442cff599eb1c",
+        "data/cleaning.py": "27678fb3c7ac1d4541dbd098e3dffb3cd484b8fac7a2b5147fecb88169b5e4d7",
+        "data/context.py": "45e74b0115a167a116ad7791f4ff55ccac1c051e2a31d6e650446ad1bf682006",
+        "data/contracts.py": "698065954afa3b4df31db241642b4e37400038880509b47cdcd7d010f7d54269",
+        "data/features.py": "2d9b87e04a155f2539df25420b5a4cc14b1f8d59eea9d1dc66e3f0ac4bd3e97d",
+        "data/observer.py": "f1a51919847f4cf7718e55521a28c665b8fb83987542ac55a5e299e48fc09878",
+        "data/pipeline.py": "ea7a70a800caba5edb21d75cdf5115772425691bfc66efd7f723895373107e36",
+        "data/preprocessing.py": "8bf5d41bffce04232b331fc23ca56ef5802ad764b9cd988a89fa76eb17380ad9",
+        "domain.py": "4a78c82bbba7933b8dbb99090ef5e11a8b2d132bdb6b06590d4fbe084a8ce0d0",
+        "normalize.py": "607eb2978fc284434c275b190b44c36c82337f96e04036508892dd8dd48e3213",
+        "report.py": "d888239a8b135f4f54a3064d8966e34c8799b91907fafb5533504643e8bd82e3",
+        "sources/__init__.py": "4c4d43b480408ad68f0aa9e02da52a056c5c8d05a792757c8a6f9503a896e67d",
+        "sources/gem_capture.py": "2d82ff3fed8cea669a384678f4e32fbab36b6dc4a8f671bfb05efae568e94f50",
+        "sources/gem_observations.py": "60ccf5a93d9573708f13c7cb89973cccd29f5d20bf795c13aaaf3358f45205a7",
+        "sources/gem_replay.py": "45269ef83f7b0919fbb757137247d94d0f716ee4155ad9866a2a818fffc4ad99",
+        "sources/opendota.py": "7ec036a6b22a09f7853455d6ae9b6f5f5931093455af6cc074807c0f5d781012",
+        "storage.py": "bafb163eae7a2a9bcfc7a606cb54ffdc339b5f7e32bbe0f8d89b2bf9cb58fe45",
+        "workflow/__init__.py": "3cb5810edf107d58fbd2f7dae79521140da2803af63f0a20ef36ddea5ae249d7",
+        "workflow/cli.py": "78f9b8063143ce54e36aa26b4e55b0b98a462a5e636e55e590a5b54b1bc9ec3e",
+        "workflow/contracts.py": "cfd655c59842a8725f8fc1c3a406d098df55a15d02a7504e62d3facb9232b35a",
+        "workflow/datasets.py": "23bb5d5dcb1d5651d3669decd992a391de207e871a4199c25bb9fd1d27146760",
+        "workflow/demo.py": "b1110230ea477c1ea8a905ec07faf4421fba11a71a7c7f1f9c0026f979b7ca01",
+        "workflow/jobs.py": "0ddd102970520dcabd8a747a20552c34a15355116375df3545a98ce786db577d",
+        "workflow/reviews.py": "5776eac7f413340b4234f1850e3a86658d3d1f1f3b0344f07e78c994c1e4af1b",
+        "workflow/templates.py": "73a01dc998a40f4e759731ee413af04176de38586cb98f73645d034932e614c1",
+        "workflow/validation.py": "97494066efc6fff1cbb41117e35ada089dd3d628d4d958dab3575e9e93e46d21",
+        "workflow/workspace.py": "ed413759141d40f86b2b9faad51e18f68c55ff8334d7a2bef1412915e087dc57"
+      },
+      "combat_types": {
+        "ABILITY": 1214,
+        "BUYBACK": 1,
+        "DAMAGE": 17846,
+        "DEATH": 2431,
+        "HEAL": 4154,
+        "ITEM": 1211,
+        "MODIFIER_ADD": 7872,
+        "MODIFIER_REMOVE": 7827
+      },
+      "combat_visibility": {
+        "dire": {
+          "None": 3704,
+          "True": 38852
+        },
+        "radiant": {
+          "None": 8401,
+          "True": 34155
+        }
+      },
+      "counts": {
+        "item_supervised": 264,
+        "observer_samples": 620,
+        "route_supervised": 600,
+        "samples": 620
+      },
+      "dependencies": {
+        "gem-dota": "0.10.0",
+        "numpy": "2.5.3",
+        "pandas": "2.3.3",
+        "pydantic": "2.13.4",
+        "scikit-learn": "1.9.1"
+      },
+      "enemy_visibility": {
+        "hidden": 1680,
+        "visible": 1420
+      },
+      "inventory_complete": 18540,
+      "inventory_unknown_slots": {},
+      "known_last_seen": 3045,
+      "manifest_sha256": "e23e513d9659846299a2053fc4836e19e05c9a9b477c0cbcdba1a9274960cf02",
+      "match_id": 9031383523,
+      "observer_sha256": "64674d16a3a817991b5e62613ca25c991e095c3279f23c7d2734baf0ed65f46f",
+      "preparation_id": "de10cd7542a3ff01e3a75b25",
+      "quality": 0,
+      "raw_sha256": "c2cb661244c6f552b9dc33e9f2a036bef8b78670f779b1e3fa0b8a9a661d5b43",
+      "real_hidden_position_perturbation_passed": true,
+      "sample_identity_alignment_passed": true,
+      "self_state_status": {
+        "sampled": 610,
+        "unavailable": 10
+      },
+      "state_example": {
+        "ability_levels": {
+          "keeper_of_the_light_bright_speed": 1,
+          "keeper_of_the_light_illuminate": 1,
+          "keeper_of_the_light_illuminate_end": 1
+        },
+        "entity_index": 1331,
+        "entity_serial": 203,
+        "hp": 604,
+        "inventory_complete": true,
+        "inventory_empty_handle": 16777215,
+        "inventory_handles": {
+          "0": 2949408,
+          "1": 12632344,
+          "10": 16777215,
+          "11": 16777215,
+          "12": 16777215,
+          "13": 16777215,
+          "14": 16777215,
+          "15": 6717718,
+          "16": 16777215,
+          "2": 16777215,
+          "3": 8175898,
+          "4": 8569115,
+          "5": 15401244,
+          "6": 16777215,
+          "7": 16777215,
+          "8": 16777215,
+          "9": 16777215
+        },
+        "inventory_slots": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "inventory_unknown_slots": [],
+        "items": {
+          "0": "item_tango",
+          "1": "item_circlet",
+          "15": "item_tpscroll",
+          "3": "item_faerie_fire",
+          "4": "item_branches",
+          "5": "item_branches"
+        },
+        "level": 1,
+        "life_state": 0,
+        "mana": 51.37504899506473,
+        "max_hp": 604,
+        "max_mana": 51.37504899506473,
+        "player_id": 0,
+        "tick": 6216
+      },
+      "state_nulls": {
+        "hp": 0,
+        "level": 0,
+        "life_state": 0,
+        "mana": 0,
+        "max_hp": 0,
+        "max_mana": 0
+      },
+      "status": "prepared_and_audited",
+      "training_admission": "held_semantic_review_required",
+      "wall_seconds": 122.921
+    },
+    {
+      "adapter": "gem-adapter/3.0",
+      "adapter_fingerprint": "d7e98607c27a169fc51bd93ccb19e19eff90d2a67ef790457003ae2fd5eba11b",
+      "archive_sha256": "50a8167ea2b4fbeadfd6ce6b0ffbe7a3648dd4fc5914aff85fbca3ef469af962",
+      "capture": "gem-state-capture/2",
+      "channel_rows": {
+        "coach_state_snapshots": 21080,
+        "combat_log": 57688,
+        "entity_visibility_events": 34846,
+        "hero_visibility_events": 2869,
+        "smoke_events": 9,
+        "vision_modifiers": 4,
+        "wards": 72
+      },
+      "code": {
+        "__init__.py": "fd3b93565d47aa9638c92f5967e7e8a43aa3d1299e9d14419114c66325a514b5",
+        "analysis.py": "2881f3f51664cd788a961b13a4c20afcbe0377daefc3278f10f090a958e81d56",
+        "cli.py": "321a9bf5833efc034b4aa5fa22f069f4e618c315394137e887c5dda64422b655",
+        "data/__init__.py": "5ac30966b00761d6de7363dfabad4b1afa8e2aadfadbf2d5765f70b79d798471",
+        "data/acceptance.py": "5465d1b2bb3da621c7c9687047133134143c6ebc2479464b44b442cff599eb1c",
+        "data/cleaning.py": "27678fb3c7ac1d4541dbd098e3dffb3cd484b8fac7a2b5147fecb88169b5e4d7",
+        "data/context.py": "45e74b0115a167a116ad7791f4ff55ccac1c051e2a31d6e650446ad1bf682006",
+        "data/contracts.py": "698065954afa3b4df31db241642b4e37400038880509b47cdcd7d010f7d54269",
+        "data/features.py": "2d9b87e04a155f2539df25420b5a4cc14b1f8d59eea9d1dc66e3f0ac4bd3e97d",
+        "data/observer.py": "f1a51919847f4cf7718e55521a28c665b8fb83987542ac55a5e299e48fc09878",
+        "data/pipeline.py": "ea7a70a800caba5edb21d75cdf5115772425691bfc66efd7f723895373107e36",
+        "data/preprocessing.py": "8bf5d41bffce04232b331fc23ca56ef5802ad764b9cd988a89fa76eb17380ad9",
+        "domain.py": "4a78c82bbba7933b8dbb99090ef5e11a8b2d132bdb6b06590d4fbe084a8ce0d0",
+        "normalize.py": "607eb2978fc284434c275b190b44c36c82337f96e04036508892dd8dd48e3213",
+        "report.py": "d888239a8b135f4f54a3064d8966e34c8799b91907fafb5533504643e8bd82e3",
+        "sources/__init__.py": "4c4d43b480408ad68f0aa9e02da52a056c5c8d05a792757c8a6f9503a896e67d",
+        "sources/gem_capture.py": "2d82ff3fed8cea669a384678f4e32fbab36b6dc4a8f671bfb05efae568e94f50",
+        "sources/gem_observations.py": "60ccf5a93d9573708f13c7cb89973cccd29f5d20bf795c13aaaf3358f45205a7",
+        "sources/gem_replay.py": "45269ef83f7b0919fbb757137247d94d0f716ee4155ad9866a2a818fffc4ad99",
+        "sources/opendota.py": "7ec036a6b22a09f7853455d6ae9b6f5f5931093455af6cc074807c0f5d781012",
+        "storage.py": "bafb163eae7a2a9bcfc7a606cb54ffdc339b5f7e32bbe0f8d89b2bf9cb58fe45",
+        "workflow/__init__.py": "3cb5810edf107d58fbd2f7dae79521140da2803af63f0a20ef36ddea5ae249d7",
+        "workflow/cli.py": "78f9b8063143ce54e36aa26b4e55b0b98a462a5e636e55e590a5b54b1bc9ec3e",
+        "workflow/contracts.py": "cfd655c59842a8725f8fc1c3a406d098df55a15d02a7504e62d3facb9232b35a",
+        "workflow/datasets.py": "23bb5d5dcb1d5651d3669decd992a391de207e871a4199c25bb9fd1d27146760",
+        "workflow/demo.py": "b1110230ea477c1ea8a905ec07faf4421fba11a71a7c7f1f9c0026f979b7ca01",
+        "workflow/jobs.py": "0ddd102970520dcabd8a747a20552c34a15355116375df3545a98ce786db577d",
+        "workflow/reviews.py": "5776eac7f413340b4234f1850e3a86658d3d1f1f3b0344f07e78c994c1e4af1b",
+        "workflow/templates.py": "73a01dc998a40f4e759731ee413af04176de38586cb98f73645d034932e614c1",
+        "workflow/validation.py": "97494066efc6fff1cbb41117e35ada089dd3d628d4d958dab3575e9e93e46d21",
+        "workflow/workspace.py": "ed413759141d40f86b2b9faad51e18f68c55ff8334d7a2bef1412915e087dc57"
+      },
+      "combat_types": {
+        "ABILITY": 1579,
+        "BUYBACK": 4,
+        "DAMAGE": 30203,
+        "DEATH": 3238,
+        "HEAL": 4018,
+        "ITEM": 1337,
+        "MODIFIER_ADD": 8679,
+        "MODIFIER_REMOVE": 8630
+      },
+      "combat_visibility": {
+        "dire": {
+          "None": 12783,
+          "True": 44905
+        },
+        "radiant": {
+          "None": 7568,
+          "True": 50120
+        }
+      },
+      "counts": {
+        "item_supervised": 347,
+        "observer_samples": 710,
+        "route_supervised": 690,
+        "samples": 710
+      },
+      "dependencies": {
+        "gem-dota": "0.10.0",
+        "numpy": "2.5.3",
+        "pandas": "2.3.3",
+        "pydantic": "2.13.4",
+        "scikit-learn": "1.9.1"
+      },
+      "enemy_visibility": {
+        "hidden": 1975,
+        "visible": 1575
+      },
+      "inventory_complete": 21080,
+      "inventory_unknown_slots": {},
+      "known_last_seen": 3480,
+      "manifest_sha256": "9b9b03ec315271a99c836b6f7c2276400b7e34d00e2670acae635d9bcb098e32",
+      "match_id": 9031384340,
+      "observer_sha256": "6942143e6b7546ea337d1bd6756e4db2d780298100d674d2b1c218c184fa4576",
+      "preparation_id": "05bfcac82c461f090d402984",
+      "quality": 0,
+      "raw_sha256": "e65c47a4674a608bd10c3a6e6128f943986b69ae68008e280ccd8bdea2398d14",
+      "real_hidden_position_perturbation_passed": true,
+      "sample_identity_alignment_passed": true,
+      "self_state_status": {
+        "sampled": 700,
+        "unavailable": 10
+      },
+      "state_example": {
+        "ability_levels": {
+          "windrunner_tailwind": 1
+        },
+        "entity_index": 1310,
+        "entity_serial": 851,
+        "hp": 626,
+        "inventory_complete": true,
+        "inventory_empty_handle": 16777215,
+        "inventory_handles": {
+          "0": 1327327,
+          "1": 4997344,
+          "10": 16777215,
+          "11": 16777215,
+          "12": 16777215,
+          "13": 16777215,
+          "14": 16777215,
+          "15": 9535710,
+          "16": 16777215,
+          "2": 3392383,
+          "3": 4031358,
+          "4": 623489,
+          "5": 11649924,
+          "6": 16777215,
+          "7": 16777215,
+          "8": 16777215,
+          "9": 16777215
+        },
+        "inventory_slots": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "inventory_unknown_slots": [],
+        "items": {
+          "0": "item_magic_stick",
+          "1": "item_branches",
+          "15": "item_tpscroll",
+          "2": "item_branches",
+          "3": "item_circlet",
+          "4": "item_branches",
+          "5": "item_faerie_fire"
+        },
+        "level": 1,
+        "life_state": 0,
+        "mana": 43.875041842500536,
+        "max_hp": 626,
+        "max_mana": 43.875041842500536,
+        "player_id": 0,
+        "tick": 8163
+      },
+      "state_nulls": {
+        "hp": 0,
+        "level": 0,
+        "life_state": 0,
+        "mana": 0,
+        "max_hp": 0,
+        "max_mana": 0
+      },
+      "status": "prepared_and_audited",
+      "training_admission": "held_semantic_review_required",
+      "wall_seconds": 165.323
+    },
+    {
+      "adapter": "gem-adapter/3.0",
+      "adapter_fingerprint": "d7e98607c27a169fc51bd93ccb19e19eff90d2a67ef790457003ae2fd5eba11b",
+      "archive_sha256": "476dfa6a7b7328121c17103ab6fd2ea0ea72424162742d1608eeb16bb4296ede",
+      "capture": "gem-state-capture/2",
+      "channel_rows": {
+        "coach_state_snapshots": 23400,
+        "combat_log": 96572,
+        "entity_visibility_events": 37038,
+        "hero_visibility_events": 3566,
+        "smoke_events": 9,
+        "vision_modifiers": 77,
+        "wards": 86
+      },
+      "code": {
+        "__init__.py": "fd3b93565d47aa9638c92f5967e7e8a43aa3d1299e9d14419114c66325a514b5",
+        "analysis.py": "2881f3f51664cd788a961b13a4c20afcbe0377daefc3278f10f090a958e81d56",
+        "cli.py": "321a9bf5833efc034b4aa5fa22f069f4e618c315394137e887c5dda64422b655",
+        "data/__init__.py": "5ac30966b00761d6de7363dfabad4b1afa8e2aadfadbf2d5765f70b79d798471",
+        "data/acceptance.py": "5465d1b2bb3da621c7c9687047133134143c6ebc2479464b44b442cff599eb1c",
+        "data/cleaning.py": "27678fb3c7ac1d4541dbd098e3dffb3cd484b8fac7a2b5147fecb88169b5e4d7",
+        "data/context.py": "45e74b0115a167a116ad7791f4ff55ccac1c051e2a31d6e650446ad1bf682006",
+        "data/contracts.py": "698065954afa3b4df31db241642b4e37400038880509b47cdcd7d010f7d54269",
+        "data/features.py": "2d9b87e04a155f2539df25420b5a4cc14b1f8d59eea9d1dc66e3f0ac4bd3e97d",
+        "data/observer.py": "f1a51919847f4cf7718e55521a28c665b8fb83987542ac55a5e299e48fc09878",
+        "data/pipeline.py": "ea7a70a800caba5edb21d75cdf5115772425691bfc66efd7f723895373107e36",
+        "data/preprocessing.py": "8bf5d41bffce04232b331fc23ca56ef5802ad764b9cd988a89fa76eb17380ad9",
+        "domain.py": "4a78c82bbba7933b8dbb99090ef5e11a8b2d132bdb6b06590d4fbe084a8ce0d0",
+        "normalize.py": "607eb2978fc284434c275b190b44c36c82337f96e04036508892dd8dd48e3213",
+        "report.py": "d888239a8b135f4f54a3064d8966e34c8799b91907fafb5533504643e8bd82e3",
+        "sources/__init__.py": "4c4d43b480408ad68f0aa9e02da52a056c5c8d05a792757c8a6f9503a896e67d",
+        "sources/gem_capture.py": "2d82ff3fed8cea669a384678f4e32fbab36b6dc4a8f671bfb05efae568e94f50",
+        "sources/gem_observations.py": "60ccf5a93d9573708f13c7cb89973cccd29f5d20bf795c13aaaf3358f45205a7",
+        "sources/gem_replay.py": "45269ef83f7b0919fbb757137247d94d0f716ee4155ad9866a2a818fffc4ad99",
+        "sources/opendota.py": "7ec036a6b22a09f7853455d6ae9b6f5f5931093455af6cc074807c0f5d781012",
+        "storage.py": "bafb163eae7a2a9bcfc7a606cb54ffdc339b5f7e32bbe0f8d89b2bf9cb58fe45",
+        "workflow/__init__.py": "3cb5810edf107d58fbd2f7dae79521140da2803af63f0a20ef36ddea5ae249d7",
+        "workflow/cli.py": "78f9b8063143ce54e36aa26b4e55b0b98a462a5e636e55e590a5b54b1bc9ec3e",
+        "workflow/contracts.py": "cfd655c59842a8725f8fc1c3a406d098df55a15d02a7504e62d3facb9232b35a",
+        "workflow/datasets.py": "23bb5d5dcb1d5651d3669decd992a391de207e871a4199c25bb9fd1d27146760",
+        "workflow/demo.py": "b1110230ea477c1ea8a905ec07faf4421fba11a71a7c7f1f9c0026f979b7ca01",
+        "workflow/jobs.py": "0ddd102970520dcabd8a747a20552c34a15355116375df3545a98ce786db577d",
+        "workflow/reviews.py": "5776eac7f413340b4234f1850e3a86658d3d1f1f3b0344f07e78c994c1e4af1b",
+        "workflow/templates.py": "73a01dc998a40f4e759731ee413af04176de38586cb98f73645d034932e614c1",
+        "workflow/validation.py": "97494066efc6fff1cbb41117e35ada089dd3d628d4d958dab3575e9e93e46d21",
+        "workflow/workspace.py": "ed413759141d40f86b2b9faad51e18f68c55ff8334d7a2bef1412915e087dc57"
+      },
+      "combat_types": {
+        "ABILITY": 5437,
+        "DAMAGE": 53652,
+        "DEATH": 3779,
+        "HEAL": 5106,
+        "ITEM": 1263,
+        "MODIFIER_ADD": 13689,
+        "MODIFIER_REMOVE": 13646
+      },
+      "combat_visibility": {
+        "dire": {
+          "None": 19479,
+          "True": 77093
+        },
+        "radiant": {
+          "None": 17784,
+          "True": 78788
+        }
+      },
+      "counts": {
+        "item_supervised": 395,
+        "observer_samples": 780,
+        "route_supervised": 760,
+        "samples": 780
+      },
+      "dependencies": {
+        "gem-dota": "0.10.0",
+        "numpy": "2.5.3",
+        "pandas": "2.3.3",
+        "pydantic": "2.13.4",
+        "scikit-learn": "1.9.1"
+      },
+      "enemy_visibility": {
+        "hidden": 2275,
+        "visible": 1625
+      },
+      "inventory_complete": 23400,
+      "inventory_unknown_slots": {},
+      "known_last_seen": 3825,
+      "manifest_sha256": "3ad65c82187a813e026e06985e0a1af2fbef714d8b9531d0ebe24e0cdf24d99b",
+      "match_id": 9031371970,
+      "observer_sha256": "013f28abb5000b5414cc3b1c391a331989e962e738c726efa29e34aafb72866a",
+      "preparation_id": "dba9364c7a33330600638060",
+      "quality": 0,
+      "raw_sha256": "2e4e8c4afe10d2106e9c82eab4bdb86adb090fc80bed0c27211a47d5bdc55172",
+      "real_hidden_position_perturbation_passed": true,
+      "sample_identity_alignment_passed": true,
+      "self_state_status": {
+        "sampled": 770,
+        "unavailable": 10
+      },
+      "state_example": {
+        "ability_levels": {
+          "ember_spirit_immolation": 1
+        },
+        "entity_index": 1312,
+        "entity_serial": 955,
+        "hp": 648,
+        "inventory_complete": true,
+        "inventory_empty_handle": 16777215,
+        "inventory_handles": {
+          "0": 9175271,
+          "1": 9879784,
+          "10": 16777215,
+          "11": 16777215,
+          "12": 16777215,
+          "13": 16777215,
+          "14": 16777215,
+          "15": 15548643,
+          "16": 16777215,
+          "2": 3932393,
+          "3": 14057706,
+          "4": 6635758,
+          "5": 1982706,
+          "6": 16777215,
+          "7": 16777215,
+          "8": 16777215,
+          "9": 16777215
+        },
+        "inventory_slots": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "inventory_unknown_slots": [],
+        "items": {
+          "0": "item_tango",
+          "1": "item_faerie_fire",
+          "15": "item_tpscroll",
+          "2": "item_branches",
+          "3": "item_branches",
+          "4": "item_branches",
+          "5": "item_quelling_blade"
+        },
+        "level": 1,
+        "life_state": 0,
+        "mana": 43.875041842500536,
+        "max_hp": 648,
+        "max_mana": 43.875041842500536,
+        "player_id": 0,
+        "tick": 5522
+      },
+      "state_nulls": {
+        "hp": 0,
+        "level": 0,
+        "life_state": 0,
+        "mana": 0,
+        "max_hp": 0,
+        "max_mana": 0
+      },
+      "status": "prepared_and_audited",
+      "training_admission": "held_semantic_review_required",
+      "wall_seconds": 209.843
+    }
+  ],
+  "schema_version": "context-replay-audit/1",
+  "scope": "Three previously mechanically passed matches; binary reparse and structural/leakage checks, not gameplay semantic approval.",
+  "source_cohort_sha256": "9bc81688e3eef68b3a7f4436661fd29debb3b7340d8654be268118c74dcfd5e4",
+  "source_report_sha256": "29ad3afb05862641741200143c104c862dd197eec8b61579c0b93d71c8238a36",
+  "totals": {
+    "item_supervised": 1006,
+    "observer_samples": 2110,
+    "route_supervised": 2050,
+    "samples": 2110
+  }
+}

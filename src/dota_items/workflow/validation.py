@@ -4,6 +4,7 @@ import re
 from pathlib import Path
 from typing import Any
 
+from ..data.context import validate_context
 from ..normalize import normalize_match
 from ..sources.gem_observations import number
 from ..storage import file_hash, inside, read_json
@@ -117,6 +118,7 @@ def validate_match(path: Path) -> dict[str, Any]:
                 for row in player.get("economy_log", [])
             ),
         }
+    validate_context(raw, evidence, bool(external), resolve_ref)
     return {
         "match_id": match_id,
         "synthetic": bool(raw.get("_fixture")),
