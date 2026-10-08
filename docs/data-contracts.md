@@ -154,6 +154,8 @@ manifest 包含 schema_version、observation_schema、config、filters、matches
 
 ## 6. 训练器协议和模型描述
 
+2026-10-08：真实训练新增必需的 `--admission`，契约 `coach-training-admission/1`，详见[训练准入](training-admission.md)。记录精确绑定 `coach-samples/1` 的 ID、manifest 哈希、特征版本、比赛/玩家及任务；不更改旧快照。旧真实观察快照仅可读取/准备，不能直接 train。运行新增 admission.json、admission-evidence/ 及 run.json 的 admission_sha256；synthetic-only 接口测试仍可运行。适配器的 model.json 必须在审查的 feature_schema/tasks 范围内；此检查不能证明模型内部没有使用其他字段。
+
 调用形式：
 
 ```text
