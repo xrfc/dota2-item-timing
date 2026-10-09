@@ -1,5 +1,6 @@
 """Protect the boundary between source-extraction candidates and recommendation labels."""
 
+import hashlib
 import json
 import shutil
 import tempfile
@@ -10,6 +11,11 @@ from export_cold_start import ROOT, build_candidates
 
 
 class ColdStartTests(unittest.TestCase):
+    def test_frozen_candidate_bytes_match_manifest(self):
+        manifest = json.loads((ROOT / "cold-start/manifest.json").read_text(encoding="utf-8"))
+        payload = (ROOT / "cold-start" / manifest["file"]).read_bytes()
+        self.assertEqual(hashlib.sha256(payload).hexdigest(), manifest["sha256"])
+
     def test_outputs_are_exact_source_excerpts_and_all_held(self):
         rows = build_candidates()
         self.assertEqual(len(rows), 734)

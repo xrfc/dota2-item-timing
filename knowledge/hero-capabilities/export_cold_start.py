@@ -82,7 +82,7 @@ def main():
     output = ROOT / "cold-start"
     output.mkdir(exist_ok=True)
     payload = "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in candidates)
-    (output / "candidates.jsonl").write_text(payload, encoding="utf-8")
+    (output / "candidates.jsonl").write_text(payload, encoding="utf-8", newline="\n")
     manifest = {
         "schema": "hero-knowledge-cold-start/1",
         "task": "official_ability_source_extraction",
