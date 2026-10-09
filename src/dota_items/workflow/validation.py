@@ -11,7 +11,9 @@ from ..storage import file_hash, inside, read_json
 
 
 def resolve_ref(value: Any, reference: str) -> Any:
-    if not re.fullmatch(r"[A-Za-z_]\w*(?:\[\d+\]|\.[A-Za-z_]\w*)*", reference):
+    if not isinstance(reference, str) or not re.fullmatch(
+        r"[A-Za-z_]\w*(?:\[\d+\]|\.[A-Za-z_]\w*)*", reference
+    ):
         raise ValueError(f"Invalid evidence reference: {reference}")
     try:
         for name, index in re.findall(r"([A-Za-z_]\w*)|\[(\d+)\]", reference):
@@ -19,6 +21,61 @@ def resolve_ref(value: Any, reference: str) -> Any:
         return value
     except (KeyError, IndexError, TypeError) as error:
         raise ValueError(f"Unresolved evidence reference: {reference}") from error
+
+
+def _raw_players(evidence: dict) -> dict[int, tuple[int, dict]]:
+    """Gem IDs, not array positions, bind normalized slots to raw players."""
+    players = evidence.get("players")
+    if not isinstance(players, list):
+        raise ValueError("Raw player identity requires a players array")
+    result = {}
+    for index, player in enumerate(players):
+        player_id = player.get("player_id") if isinstance(player, dict) else None
+        if type(player_id) is not int or player_id not in range(10):
+            raise ValueError("Invalid raw player identity")
+        slot = player_id if player_id < 5 else 128 + player_id - 5
+        if slot in result:
+            raise ValueError("Duplicate raw player identity")
+        result[slot] = (index, player)
+    return result
+
+
+def _player_identity(player: dict, raw_players: dict) -> str:
+    slot = player["player_slot"]
+    if slot not in raw_players:
+        raise ValueError(f"Missing raw player identity for slot {slot}")
+    index, original = raw_players[slot]
+    prefix = f"players[{index}]."
+    hero_id = original.get("hero_id")
+    if type(hero_id) is int and hero_id == 0:
+        name = original.get("hero_name")
+        if not isinstance(name, str):
+            raise ValueError("Missing raw hero identity")
+        try:
+            from gem.catalog.heroes import hero_meta, hero_npc_name
+        except ImportError as error:
+            raise ValueError("Gem catalog is required to validate hero alias identity") from error
+        canonical = hero_npc_name(name.removeprefix("npc_dota_hero_"))
+        identity = {
+            "method": "gem_catalog_alias",
+            "source_ref": prefix + "hero_name",
+            "source_name": name,
+            "canonical_name": canonical,
+        }
+        if not canonical or player.get("hero_identity") != identity:
+            raise ValueError("Hero alias identity evidence mismatch")
+        hero_id = hero_meta(canonical).get("id")
+    elif player.get("hero_identity") is not None:
+        raise ValueError("Unexpected hero alias identity for raw hero_id")
+    if type(hero_id) is not int or hero_id != player["hero_id"]:
+        raise ValueError(f"Hero identity mismatch for player {slot}")
+    return prefix
+
+
+def _player_ref(reference: str, prefix: str) -> str:
+    if not isinstance(reference, str) or not reference.startswith(prefix):
+        raise ValueError(f"Evidence reference belongs to another player: {reference}")
+    return reference
 
 
 def validate_match(path: Path) -> dict[str, Any]:
@@ -41,6 +98,7 @@ def validate_match(path: Path) -> dict[str, Any]:
         if evidence.get("match_id") != match_id:
             raise ValueError("Raw evidence belongs to another match")
     warnings = []
+    raw_players = _raw_players(evidence) if external else {}
     slots = set()
     channels = {}
     for index, player in enumerate(raw["players"]):
@@ -56,6 +114,7 @@ def validate_match(path: Path) -> dict[str, Any]:
         ):
             raise ValueError("Player slot and hero_id must be valid integers")
         slots.add(slot)
+        prefix = _player_identity(player, raw_players) if external else ""
         timeline = normalize_match(raw, slot, source=path.name, fingerprint=file_hash(path))
         if timeline.purchase_log_status == "invalid" or any(
             flag.startswith("invalid_event:") for flag in timeline.quality_flags
@@ -64,6 +123,8 @@ def validate_match(path: Path) -> dict[str, Any]:
         warnings.extend(timeline.quality_flags)
         for ordinal, event in enumerate(player.get("purchase_log") or []):
             ref = event.get("source_ref", f"players[{index}].purchase_log[{ordinal}]")
+            if external:
+                _player_ref(ref, prefix)
             original = resolve_ref(evidence, ref)
             if not isinstance(original, dict):
                 raise ValueError(f"Purchase evidence is not an object: {ref}")
@@ -91,7 +152,7 @@ def validate_match(path: Path) -> dict[str, Any]:
                     if not number(row.get("x")) or not number(row.get("y")):
                         raise ValueError("Position coordinates must be finite")
                     if external:
-                        source = resolve_ref(evidence, row["source_ref"])
+                        source = resolve_ref(evidence, _player_ref(row.get("source_ref"), prefix))
                         if list(source) != [row.get("source_tick"), row["x"], row["y"]]:
                             raise ValueError("Position evidence mismatch")
                 else:
@@ -101,7 +162,10 @@ def validate_match(path: Path) -> dict[str, Any]:
                             raise ValueError(f"Invalid economy value: {name}")
                         if external and value is not None:
                             if (
-                                resolve_ref(evidence, row.get("source_refs", {}).get(name, ""))
+                                resolve_ref(
+                                    evidence,
+                                    _player_ref(row.get("source_refs", {}).get(name, ""), prefix),
+                                )
                                 != value
                             ):
                                 raise ValueError(f"Economy evidence mismatch: {name}")

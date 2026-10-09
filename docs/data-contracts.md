@@ -9,7 +9,7 @@
 | 对象 | 当前版本 | 校验位置 |
 |---|---|---|
 | Gem 规范导出 | gem-adapter/3.0 | Gem 适配器与比赛校验器；兼容读取 2.0–2.2 |
-| 导入缓存清单 | demo-import/1.0 | 旧导入流程 |
+| 导入缓存清单 | demo-import/1.1 | raw/normalized 双哈希及解析来源校验；旧 /1.0 缓存重解析 |
 | 工作区配置 | coach-workspace/1 | WorkspaceConfig；导出 workspace.schema.json |
 | catalog | coach-catalog/1 | Workspace 程序检查 |
 | 标签 | 无独立版本字段 | Labels；导出 labels.schema.json |
@@ -154,6 +154,8 @@ manifest 包含 schema_version、observation_schema、config、filters、matches
 
 ## 6. 训练器协议和模型描述
 
+2026-10-08：真实训练新增必需的 `--admission`，契约 `coach-training-admission/1`，详见[训练准入](training-admission.md)。记录精确绑定 `coach-samples/1` 的 ID、manifest 哈希、特征版本、比赛/玩家及任务；不更改旧快照。旧真实观察快照仅可读取/准备，不能直接 train。运行新增 admission.json、admission-evidence/ 及 run.json 的 admission_sha256；synthetic-only 接口测试仍可运行。适配器的 model.json 必须在审查的 feature_schema/tasks 范围内；此检查不能证明模型内部没有使用其他字段。
+
 调用形式：
 
 ```text
@@ -217,6 +219,12 @@ register-model 只接受 succeeded run，复验数据集和输出。registry 包
 review.json 包含 review_id、match_id、player_slot、model_id、bundle_id、mode、状态与时间；成功时有 report 路径。facts 模式也输出 facts.json/facts.html/report.html；模型模式另有 predictions.json 与执行日志。
 
 ## 8. 兼容和待设计接口
+
+Gem 导入缓存使用 `demo-import/1.1`：清单保存 `source_sha256`（输入压缩包或 demo）、`demo_sha256`（解压后 demo）、`raw_json_sha256` 和 `normalized_json_sha256`。命中要求文件哈希、比赛 ID、适配器指纹、采集版本及已安装 Gem 版本一致；清单缺失、旧 /1.0 或输出损坏时从原输入重解析。缓存命中和首次解析返回同一组字段，仅 `status` 不同。SHA-256 用于完整性检查，不是签名或防篡改凭据。
+
+外部 Gem 证据校验按 raw `player_id` 映射规范槽位，而不是假设两份数组顺序一致。英雄 ID 必须匹配 raw；raw ID 为 0 时要求完整 `hero_identity`，并独立通过 Gem 目录核验别名。玩家购买、位置和经济引用不得越过其 raw 玩家边界。无外部证据的规范 JSON 仍只能做自包含检查，不因此获得真实来源证明。
+
+本次修复不自动补写历史 catalog 中缺失的 `demo_sha256`，也不修改冻结快照；需要恢复来源时，从保存的 demo 导入新工作区。旧缓存会重解析，但旧比赛包仍遵守内容冲突规则。
 
 当前不会自动迁移 schema 或合并同比赛的多个解析修订。升级导致内容变化时，新建工作区重导入并保留旧数据集。旧缓存版本、绝对路径和 OpenDota 缓存策略见[操作指南](workflow.md)。
 

@@ -72,6 +72,7 @@ python coach.py --workspace coach-workspace/real prepare /path/to/replays
 
 - [文档索引](docs/README.md)：各文档职责与建议阅读顺序。
 - [项目完成度](docs/project-status.md)：已实现、已验证、待补足。
+- [训练准入与桌面核验](docs/training-admission.md)：真实训练默认 held，两个账号的工程/客户端分工及交接契约。
 - [架构](docs/engineering-design.md)与[数据契约](docs/data-contracts.md)：代码边界和真实接口。
 - [日常操作与恢复](docs/workflow.md)、[验证与交付](docs/validation-and-delivery.md)。
 - [任务清单](docs/roadmap.md)、[风险复核](docs/project-review.md)。

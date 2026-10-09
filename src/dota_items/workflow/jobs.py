@@ -20,6 +20,7 @@ from ..storage import (
     verify_files,
     write_json,
 )
+from .admission import check_admission
 from .contracts import ModelOutput
 from .workspace import Workspace
 
@@ -92,8 +93,10 @@ def train(
     *,
     parameters: Path | None = None,
     timeout: float = 86400,
+    admission: Path | None = None,
 ) -> dict[str, Any]:
     _, dataset_dir = workspace.dataset(dataset_id)
+    approved = check_admission(workspace, dataset_id, admission)
     trainer = trainer.resolve()
     if not trainer.is_file():
         raise ValueError(f"Trainer does not exist: {trainer}")
@@ -104,6 +107,13 @@ def train(
     folder = workspace.root / "runs" / run_id
     output = folder / "output"
     output.mkdir(parents=True)
+    write_json(folder / "admission.json", approved)
+    if approved["status"] != "synthetic_only":
+        for relative in approved["evidence_files"]:
+            destination = inside(folder / "admission-evidence", relative)
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(inside(admission.parent, relative), destination)
+        verify_files(folder / "admission-evidence", approved["evidence_files"])
     write_json(folder / "config.json", config)
     state = {
         "schema_version": "coach-run/1",
@@ -115,6 +125,7 @@ def train(
         "trainer_sha256": file_hash(trainer),
         "environment": environment_info(),
         "config": config,
+        "admission_sha256": file_hash(folder / "admission.json"),
     }
     write_json(folder / "run.json", state)
     try:
@@ -132,7 +143,16 @@ def train(
             timeout,
         )
         result, fingerprints = model_output(output)
+        if approved["status"] != "synthetic_only" and (
+            result.feature_schema != approved["feature_schema"]
+            or not set(result.tasks) <= set(approved["tasks"])
+        ):
+            raise ValueError("Model output exceeds reviewed feature/task scope")
         workspace.dataset(dataset_id)  # Adapters must not mutate dataset snapshots.
+        if file_hash(folder / "admission.json") != state["admission_sha256"]:
+            raise ValueError("Adapter mutated admission record")
+        if approved["status"] != "synthetic_only":
+            verify_files(folder / "admission-evidence", approved["evidence_files"])
         state.update(status="succeeded", model=result.model_dump(), files=fingerprints)
     except BaseException as error:
         state.update(

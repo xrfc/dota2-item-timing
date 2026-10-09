@@ -10,6 +10,7 @@ from pathlib import Path
 from ..data.contracts import PreparationConfig
 from ..sources.gem_replay import ingest_demo
 from ..storage import now, read_json, write_json
+from .admission import Admission, admission_template, check_admission
 from .contracts import Labels, ModelOutput, Predictions, WorkspaceConfig
 from .datasets import build_dataset
 from .demo import demo
@@ -27,6 +28,7 @@ def initialize(workspace: Workspace) -> dict:
         ("labels", Labels),
         ("workspace", WorkspaceConfig),
         ("preparation", PreparationConfig),
+        ("admission", Admission),
     ):
         write_json(workspace.root / "contracts" / f"{name}.schema.json", model.model_json_schema())
     config = workspace.root / "preparation.json"
@@ -106,6 +108,11 @@ def main(argv: list[str] | None = None) -> int:
     )
     samples.add_argument("dataset_id")
     samples.add_argument("--config", type=Path)
+    template = commands.add_parser("admission-template", help="Print a held review template")
+    template.add_argument("dataset_id")
+    preflight = commands.add_parser("check-admission", help="Validate training admission evidence")
+    preflight.add_argument("dataset_id")
+    preflight.add_argument("--admission", type=Path, required=True)
     observe = commands.add_parser("observe", help="Inspect observer context from a preparation")
     observe.add_argument("preparation_id")
     observe.add_argument("--player-slot", type=int, required=True)
@@ -136,6 +143,7 @@ def main(argv: list[str] | None = None) -> int:
     trainer.add_argument("--trainer", type=Path)
     trainer.add_argument("--config", type=Path)
     trainer.add_argument("--timeout", type=float, default=86400)
+    trainer.add_argument("--admission", type=Path, help="Required semantic review for real samples")
     register = commands.add_parser("register-model", help="Freeze artifacts from a succeeded run")
     register.add_argument("run_id")
     report = commands.add_parser("review", help="Generate facts or invoke your model predictor")
@@ -156,6 +164,10 @@ def main(argv: list[str] | None = None) -> int:
             result = workspace.doctor()
         elif args.command == "status":
             result = workspace.status()
+        elif args.command == "admission-template":
+            result = admission_template(workspace, args.dataset_id)
+        elif args.command == "check-admission":
+            result = check_admission(workspace, args.dataset_id, args.admission)
         elif args.command == "ingest":
             result = ingest(
                 workspace, args.input, force=args.force, recursive=not args.no_recursive
@@ -219,6 +231,7 @@ def main(argv: list[str] | None = None) -> int:
                 args.trainer or workspace.root / "adapters/train.py",
                 parameters=args.config,
                 timeout=args.timeout,
+                admission=args.admission,
             )
         elif args.command == "register-model":
             result = register_model(workspace, args.run_id)
