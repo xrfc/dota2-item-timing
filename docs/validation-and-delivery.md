@@ -1,8 +1,21 @@
 # 验证与交付
 
-> 2026-10-06 更新：已完成 8 场 7.41f 真实解析及修正后的原始导出回归，3 场通过机械审计、5 场隔离；75 项工程测试和跨平台 CI 通过。逐场清单、下载链接、购买对照及未解决语义见[真实数据验收](real-data-acceptance.md)。实际模型尚未训练，机械审计不能替代完整训练准入。
+## 当前主干验证（2026-10-09）
 
-以下旧基线记录为 v0.3、2026-10-02；最新结果以上方真实验收报告为准。验证分为工程运行、真实回放语义和模型效果三层，不能相互替代。
+代码基线：[main / 725f35c](https://github.com/xrfc/dota2-timing/commit/725f35c25d74243a8ca52b17e7956107fd9dfa40)。PR #2 → #1 → [#3](https://github.com/xrfc/dota2-timing/pull/3) 依次合并，主干文件树与已验证的修复提交 `942ebfd` 一致；包版本仍为 0.4.0。
+
+| 验证 | 结果与证据 | 边界 |
+|---|---|---|
+| 本地完整检查 | `python scripts/check.py`：122 项 pytest、10 项学习 Python、6 项 JS 全通过，Ruff 检查/格式通过 | 测试中的训练器是协议桩，不是实际模型 |
+| 本地工作区 | doctor 检查 6 场 synthetic 比赛通过；4/1/1 观察快照，无模型或训练运行 | 合成闭环，不证明真实语义 |
+| main 工程 CI | [37926671655](https://github.com/xrfc/dota2-timing/actions/runs/37926671655)：Linux Python 3.11/3.12、Chromium 浏览器检查、Windows portable 全通过 | Windows 不含真实 Gem 解析 |
+| main 保存回放回归 | [37926671611](https://github.com/xrfc/dota2-timing/actions/runs/37926671611) 成功并保存回归制品 | 复用原 raw 导出，不是二进制重解析；绿色不解除训练 held |
+| 固定证据留存 | 4 个原始制品 SHA-256/大小/ZIP CRC，8 场 demo 与 raw 哈希核验通过；8 场保存结果通过新身份校验 | 本地副本，不是异机备份；[留存清单](acceptance/7.41f-2026-10-06-preservation.json) |
+| 合并触发的新比赛采集 | [37926671670](https://github.com/xrfc/dota2-timing/actions/runs/37926671670) 已主动取消 | 不属于本次分支整合验收，不用其结果代替固定样本 |
+
+缓存修复先增加回归用例，最初 12 项中的 10 项在修复前失败；最终新增 18 项检查，覆盖 normalized 改动、清单缺失/旧版本、来源返回、跨玩家引用及合法/伪造英雄别名。更广的来源合并、迁移、资源管理并未因此完成。
+
+真实数据仍为原固定批次 3 场机械审计通过、5 场隔离，完整训练准入保持 held；游戏画面对照和实际模型未完成。下一步是当前 main 对八场原 demo 在新工作区重解析并比较，再进行人工语义核验。以下 47、66、75、87 等数量及旧环境描述仅属于其注明日期的历史验证，不能当作当前结果。
 
 ## 1. 历史基线证据
 
@@ -21,7 +34,7 @@
 
 2026-10-02 文档核验：14 份 Markdown、99 个仓库相对链接、7 个 JSON 契约示例通过检查；24 次 CLI 调用通过，覆盖帮助、重复 demo、doctor/status、数据集构建、JSON 导入/去重/标注/事实复盘和旧报告入口。检查在临时工作区使用现有 Python 依赖执行，没有重新安装 Gem 或解析真实 demo。当时运行代码与上述基线一致。
 
-2026-10-03 仓库整理核验：共享存储模块迁移后，工程 47 项测试及 Ruff 检查通过；学习生成器 10 项标准库测试和教学/个人记录规则 6 项 JavaScript 测试通过。所有当前 Markdown 相对链接与组件源码路径存在，正式包不包含学习代码。学习测试详见 [learning/](../learning/README.md)；当前云端环境禁止浏览器所需的进程通信，本地未完成真实浏览器核验；独立 Chromium 检查由 Ubuntu CI 执行，其结果以当次工作流为准。
+2026-10-03 仓库整理核验：共享存储模块迁移后，工程 47 项测试及 Ruff 检查通过；学习生成器 10 项标准库测试和教学/个人记录规则 6 项 JavaScript 测试通过。所有当前 Markdown 相对链接与组件源码路径存在，正式包不包含学习代码。学习测试详见 [learning/](../learning/README.md)；该次云端环境禁止浏览器所需的进程通信，本地未完成真实浏览器核验；独立 Chromium 检查由 Ubuntu CI 执行，其结果以当次工作流为准。
 
 ## 2. 开发者复现命令
 
@@ -49,6 +62,14 @@ Windows 的解释器路径为 `.venv/Scripts/python.exe`。只核对 JSON 工作
 | [test_replay_ingestion.py](../tests/test_replay_ingestion.py) | 压缩/头部/zip、购买适配、索引、缓存、批次继续 | 全补丁的真实 Gem 语义与解析性能 |
 | [test_coach_workflow.py](../tests/test_coach_workflow.py) | 合成闭环、标签/筛选/比赛划分、去重冲突、搬迁/损坏、写锁、时序与证据、训练/登记/预测协议、超时/失败、未来引用拒绝 | 真正训练、全流程故障恢复、模型内部无未来泄漏 |
 
+新增工程测试范围：
+
+- [缓存与身份](../tests/test_cache_identity.py)：双输出完整性、热缓存来源、新 catalog 追踪、raw 玩家与别名绑定。
+- [数据准备](../tests/test_data_preparation.py)：清洗、缺失与任务 mask、样本快照和 train-only 预处理。
+- [真实验收](../tests/test_real_acceptance.py)：采集/审计规则与隔离；不能替代独立游戏画面对照。
+- [观察上下文](../tests/test_observer_context.py)：上下文引用、可见性与截止时间边界。
+- [训练准入](../tests/test_training_admission.py)：默认 held、样本/玩家/特征/任务绑定及拒绝路径。
+
 模型测试通过临时脚本生成受控产物和预测，仅用于验证协议。没有深度学习训练，也不能把接口桩指标用于报告效果。当前自动测试不能替代真实 demo 的固定回归集。
 
 ## 4. 真实回放验收矩阵
@@ -70,7 +91,7 @@ Windows 的解释器路径为 `.venv/Scripts/python.exe`。只核对 JSON 工作
 
 ## 5. 交付验收
 
-2026-10-03 新增的数据准备学习任务见 [L01–L12](../learning/docs/roadmap.md)，逐场/逐样本的正反例要求见[开发流程验收矩阵](../learning/docs/development-workflow.md)。这些是后续任务的完成条件，不包含在当前 47 项测试已通过的声明中；填写模板也不代表执行了验收。
+2026-10-03 新增的数据准备学习任务见 [L01–L12](../learning/docs/roadmap.md)，逐场/逐样本的正反例要求见[开发流程验收矩阵](../learning/docs/development-workflow.md)。这些是学习任务的完成条件，不包含在历史 47 项或当前 122 项工程测试通过的声明中；填写模板也不代表执行了验收。
 
 ### 当前基础设施交付
 

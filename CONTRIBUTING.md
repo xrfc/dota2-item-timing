@@ -9,7 +9,7 @@
 Python 3.11+。在仓库根目录执行：
 
 ```bash
-python scripts/bootstrap.py --replay --dev
+python scripts/bootstrap.py --replay --data --dev
 python scripts/check.py
 python coach.py --workspace coach-workspace/dev-check demo
 python coach.py --workspace coach-workspace/dev-check doctor
