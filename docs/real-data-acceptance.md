@@ -99,3 +99,13 @@ Windows 将解释器换成 `.venv/Scripts/python.exe`。在仓库根目录运行
 发现样本用于规则校准和后续回归，不作为最终模型测试集。重跑发现命令会得到新比赛，固定回归应保留已下载的 demo、SHA-256、元数据、精确依赖版本与源码提交。
 
 Actions 产物有保留期限，不是永久对象存储。下载 artifact 后应保留到自己的数据目录并备份；回放 CDN 链接也可能过期。自动流程没有游戏客户端，尚未完成人工游戏画面对照、完整事件漏检率或正确决策判断。
+
+## 固定证据留存与缓存修复（2026-10-09）
+
+四份固定制品已下载到本地持久数据目录（不在 Git 仓库内）：原始八场回放/工作区、采集元数据与审计、原始工具链、最终审计与样本。整包 SHA-256 和字节数与 GitHub 制品记录一致，全部 ZIP CRC 检查通过；逐场 demo 压缩包和 raw Gem JSON 哈希与固定 cohort 对照一致。八个原始回放另行解包保存，归档原字节未修改。
+
+留存清单见 [preservation receipt](acceptance/7.41f-2026-10-06-preservation.json)。数据位于 OpenClaw 工作区的 `artifacts/dota2-timing-evidence/7.41f-2026-10-06/`，含 `download-manifest.json`、`verification-receipt.json`、`cohort.json`、四个 ZIP 和 `replays/`。这是本地磁盘留存，不是异机备份，也没有延长 GitHub 制品的在线有效期。
+
+恢复时先核对清单中的 ZIP SHA-256，再将回放/工作区归档解压到新的目录；旧 SQLite 含历史绝对路径，不应直接当作可移植缓存使用。复用已保存导出可走 `audit_saved_replays.py`；需要新解析时，用 `replays/` 中原 demo 导入新工作区。不要覆盖历史冻结快照。
+
+新增的缓存双输出哈希、完整来源返回和 raw 玩家身份绑定，见[数据契约](data-contracts.md#8-兼容和待设计接口)。修复后的 `validate_match` 已对八场保存的最终清洗结果和对应 raw Gem JSON 复核通过（仅在临时副本中重定位 `evidence_source`）。这不是本次重新解析二进制，也不是训练语义准入；3 场机械通过、5 场隔离及整体训练 held 的历史结论保持不变。

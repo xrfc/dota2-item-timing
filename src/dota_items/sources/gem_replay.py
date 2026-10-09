@@ -3,6 +3,7 @@
 import bz2
 import hashlib
 import json
+import re
 import sqlite3
 import tempfile
 import zipfile
@@ -238,6 +239,12 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
     if not source.is_file():
         raise ValueError(f"Replay file does not exist: {source}")
     source_sha = file_hash(source)
+    from .gem_capture import CAPTURE_VERSION
+
+    try:
+        parser_version = version("gem-dota")
+    except PackageNotFoundError:
+        parser_version = "unknown"
     database = data_dir / "index.sqlite"
     with closing(_initialize_index(database)) as index:
         existing = index.execute(
@@ -249,10 +256,27 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
         if existing and Path(existing[2]).is_file() and Path(existing[3]).is_file() and not force:
             try:
                 cached = json.loads(Path(existing[2]).read_text(encoding="utf-8"))
+                manifest_path = Path(existing[2]).parent / "manifest.json"
+                manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+                raw_sha = file_hash(Path(existing[3]))
                 cache_valid = (
                     cached.get("schema_version") == ADAPTER_VERSION
                     and cached.get("adapter_fingerprint") == adapter_fingerprint()
-                    and cached.get("evidence_sha256") == file_hash(Path(existing[3]))
+                    and cached.get("evidence_sha256") == raw_sha
+                    and manifest.get("schema_version") == "demo-import/1.1"
+                    and manifest.get("source_sha256") == source_sha
+                    and manifest.get("match_id") == cached.get("match_id") == existing[1]
+                    and manifest.get("raw_json_sha256") == raw_sha
+                    and manifest.get("normalized_json_sha256") == file_hash(Path(existing[2]))
+                    and manifest.get("adapter_fingerprint") == cached["adapter_fingerprint"]
+                    and manifest.get("capture_version")
+                    == cached.get("capture_version")
+                    == CAPTURE_VERSION
+                    and manifest.get("parser") == "gem-dota"
+                    and manifest.get("parser_version") == parser_version
+                    and isinstance(manifest.get("issues"), list)
+                    and isinstance(manifest.get("demo_sha256"), str)
+                    and re.fullmatch(r"[0-9a-f]{64}", manifest["demo_sha256"]) is not None
                 )
             except (ValueError, OSError, AttributeError):
                 cache_valid = False
@@ -260,8 +284,13 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
             return {
                 "status": "cached",
                 "source_sha256": source_sha,
+                "demo_sha256": manifest["demo_sha256"],
                 "match_id": existing[1],
                 "normalized_json": existing[2],
+                "manifest": str(manifest_path.resolve()),
+                "players": len(cached["players"]),
+                "item_events": sum(len(p["purchase_log"]) for p in cached["players"]),
+                "issues": manifest["issues"],
             }
 
     try:
@@ -270,7 +299,7 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
         raise ValueError("Gem is not installed; run pip install -e '.[replay]'") from error
     with prepared_demo(source, data_dir / ".tmp") as replay:
         replay_sha = file_hash(replay)
-        from .gem_capture import CAPTURE_VERSION, parse_with_state
+        from .gem_capture import parse_with_state
 
         match, states = parse_with_state(replay)
     canonical, issues = canonicalize_match(match)
@@ -283,10 +312,6 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
         )
         if any(flag.startswith("invalid_event:") for flag in validated.quality_flags):
             raise ValueError("Gem adapter produced an invalid purchase event")
-    try:
-        parser_version = version("gem-dota")
-    except PackageNotFoundError:
-        parser_version = "unknown"
     folder = data_dir / "matches" / source_sha
     folder.mkdir(parents=True, exist_ok=True)
     raw_path = folder / "raw-gem.json"
@@ -310,12 +335,13 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
     temporary.replace(raw_path)
     _write_json(normalized_path, canonical)
     manifest = {
-        "schema_version": "demo-import/1.0",
+        "schema_version": "demo-import/1.1",
         "match_id": canonical["match_id"],
         "source_name": source.name,
         "source_sha256": source_sha,
         "demo_sha256": replay_sha,
         "raw_json_sha256": canonical["evidence_sha256"],
+        "normalized_json_sha256": file_hash(normalized_path),
         "parser": "gem-dota",
         "parser_version": parser_version,
         "capture_version": CAPTURE_VERSION,
