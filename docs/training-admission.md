@@ -1,6 +1,6 @@
 # 训练准入与桌面核验交接
 
-更新：2026-10-08。基线为 `da10471`，本轮实现训练入口的保守门禁，不代表真实数据已通过核验。
+更新：2026-10-09。当前代码基线为 `main / 725f35c`；训练门禁首次实现于 `5ac0566`，现已合入主干，不代表真实数据已通过核验。
 
 ## 本轮边界
 
@@ -50,12 +50,12 @@ python coach.py --workspace coach-workspace/real train SAMPLE_DATASET_ID --train
 | 当前账号 A | 桌面账号 B |
 |---|---|
 | 准入契约、CLI、训练入口检查、回归测试、工程文档 | 游戏画面对照、固定回放恢复、Windows 复现、核验记录 |
-| 分支 `feat/training-admission-gate` | 从 A 的提交新建 `audit/desktop-semantic-review` |
+| 统一基线 `main`（本次核对 `725f35c`） | 从核对后的 main 新建 `audit/desktop-semantic-review`；该名称是建议，不代表远端已有此分支 |
 | 不宣称已做客户端核验 | 不修改 A 的 admission.py、jobs.py、cli.py 或测试来绕过门禁 |
 
 B 先读取 README、project-status、observer-context、real-data-acceptance 及本文件，确认 Git 提交与工作区是否有未提交改动。
 先复现 demo/doctor/status；需要解析时安装 replay/data/dev 依赖。
-优先寻找并校验固定三场 `9031383523`、`9031384340`、`9031371970` 的原始回放，哈希依据 `docs/acceptance/7.41f-2026-10-06.json`。
+固定八场已在当前 OpenClaw 工作区本地留存，位置、清单及恢复限制见[证据留存](real-data-acceptance.md#固定证据留存与缓存修复2026-10-09)；桌面端不自动共享这些文件。优先恢复并校验固定三场 `9031383523`、`9031384340`、`9031371970` 的原始回放，哈希依据 `docs/acceptance/7.41f-2026-10-06.json`。
 旧比赛回放可能已不可下载；找不到时如实列出缺失及来源，不用新比赛冒充固定样本。
 
 核验记录至少包括：比赛、补丁、slot、游戏时间、解析 tick/source_ref、导出值、客户端值、证据相对路径和哈希、结果及原因。
