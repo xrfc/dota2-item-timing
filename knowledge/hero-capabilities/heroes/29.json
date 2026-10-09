@@ -1,0 +1,2220 @@
+{
+  "hero_id": 29,
+  "npc_name": "npc_dota_hero_tidehunter",
+  "name_zh": "潮汐猎人",
+  "name_en": "Tidehunter",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Initiator",
+    "Durable",
+    "Disabler",
+    "Nuker",
+    "Carry"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    1,
+    0,
+    1,
+    2,
+    0,
+    3,
+    0,
+    0,
+    3
+  ],
+  "hero_summary_zh": "潮汐猎人昂首阔步地走在队伍的前面，他总是在留意出手的时机。时机来临时，他会释放毁灭性的终极技能，为盟友留下一堆头晕目眩的敌人任他们宰割。",
+  "hero_summary_en": "Stalking ahead of his team, Tidehunter is always on the lookout for the right time to strike. When the moment comes, he unleashes his massive and devastating ultimate, paving the way for his allies to slay their stunned enemies.",
+  "base_stats": {
+    "attack_range": 150,
+    "damage_min": 50,
+    "damage_max": 56,
+    "attack_rate": 1.7,
+    "movement_speed": 300,
+    "armor": 2.5,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "tidehunter_gush",
+      "id": 5118,
+      "name_zh": "巨浪",
+      "name_en": "Gush",
+      "description_zh": "召唤一股巨浪攻击一个敌方单位，减速并削弱护甲。",
+      "description_en": "Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Gush becomes a ground targeted wave ability that affects enemy units in a line.  Decreases cooldown.",
+          "zh": "巨浪变成点地施放的波形技能，可以作用于直线上的单位。降低冷却时间。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        700
+      ],
+      "cooldowns": [
+        12
+      ],
+      "mana_costs": [
+        100
+      ],
+      "cast_points": [
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "gush_damage",
+          "values_float": [
+            100,
+            160,
+            220,
+            280
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_tidehunter_2",
+              "value": 90,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "projectile_speed",
+          "values_float": [
+            2500
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "movement_speed",
+          "values_float": [
+            -40
+          ],
+          "is_percentage": true,
+          "heading_loc": "SLOW:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_tidehunter_5",
+              "value": 20,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "negative_armor",
+          "values_float": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "is_percentage": false,
+          "heading_loc": "ARMOR REDUCTION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_tidehunter",
+              "value": 4,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "speed_scepter",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            1500
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "aoe_scepter",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            260
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cooldown_scepter",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "COOLDOWN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            7
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cast_range_scepter",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "RANGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            2200
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityDuration",
+          "values_float": [
+            4.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "DEBUFF DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "tidehunter_kraken_shell",
+      "id": 5119,
+      "name_zh": "海妖外壳",
+      "name_en": "Kraken Shell",
+      "description_zh": "加厚潮汐猎人的外皮，可以被动格挡物理伤害。对非英雄单位的格挡伤害有所减少。潮汐猎人的外皮在他受到的伤害超过临界值后还将移除负面的状态效果。\n\n可以主动开启，以%active_move_speed_penalty_pct%%%移动速度的代价使伤害格挡量加倍。持续%active_duration%秒。\n\n驱散类型：强驱散",
+      "description_en": "Thickens Tidehunter's hide to passively block a portion of any incoming physical attack damage. Reduced block amount versus creeps. The hide also removes negative status effects if the damage taken crosses a threshold.\n\nCan be activated to double the block amount at the cost of %active_move_speed_penalty_pct%%% movement speed. Lasts %active_duration%s.\n\nDISPEL TYPE: Strong Dispel",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "Kraken Shell gains permanent Damage Block when an enemy hero dies under the effects of Anchor Smash.",
+        ""
+      ],
+      "facet_text_zh": [
+        "锚击效果下的敌方英雄阵亡会使海妖外壳获得永久伤害格挡。",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        30
+      ],
+      "mana_costs": [
+        45
+      ],
+      "cast_points": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "damage_reduction",
+          "values_float": [
+            15,
+            35,
+            55,
+            75
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE BLOCK:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_reduction_per_kill",
+          "values_float": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE BLOCK PER KILL:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "tidehunter_kraken_swell",
+            "values": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "operation": 0
+          },
+          "required_facet": "tidehunter_kraken_swell"
+        },
+        {
+          "name": "creep_reduction_penalty_pct",
+          "values_float": [
+            50
+          ],
+          "is_percentage": true,
+          "heading_loc": "CREEP PENALTY:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "active_pct_effectiveness",
+          "values_float": [
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "active_move_speed_penalty_pct",
+          "values_float": [
+            40
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "active_duration",
+          "values_float": [
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_cleanse",
+          "values_float": [
+            600,
+            550,
+            500,
+            450
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE CLEANSE THRESHOLD:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_reset_interval",
+          "values_float": [
+            7
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE RESET INTERVAL:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "smash_on_purge",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_tidehunter_smash_on_blubber",
+              "value": 50,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            45
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            30
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2052",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 3,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "tidehunter_anchor_smash",
+      "id": 5120,
+      "name_zh": "锚击",
+      "name_en": "Anchor Smash",
+      "description_zh": "潮汐猎人挥动他巨大的锚攻击附近的敌人，攻击时获得攻击力加成，同时降低敌人的攻击力。锚击的作用范围为潮汐猎人的攻击距离 + %additional_range%。",
+      "description_en": "Tidehunter swings his mighty anchor to attack and deal bonus damage to nearby enemies and reduce their attack damage. The radius of Anchor Smash is Tidehunter's attack range plus %additional_range% units.",
+      "notes_zh": [
+        "锚击对远古生物同样有效，不过对肉山无效。",
+        "海妖外壳净化触发的锚击造成的伤害被视为反弹伤害。反弹伤害不提供任何吸血，而且无法反弹。"
+      ],
+      "notes_en": [
+        "Anchor Smash works on all Ancient creeps except for Roshan.",
+        "Damage done by Anchor Smashes triggered by Kraken Shell Cleanse is considered reflected damage. Reflected damage does not provide any lifesteal and cannot be reflected."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "mana_costs": [
+        40,
+        45,
+        50,
+        55
+      ],
+      "cast_points": [
+        0.4
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "attack_damage",
+          "values_float": [
+            50,
+            100,
+            150,
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "ATTACK BONUS DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_reduction",
+          "values_float": [
+            -25,
+            -30,
+            -35,
+            -40
+          ],
+          "is_percentage": true,
+          "heading_loc": "DAMAGE REDUCTION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_tidehunter_3",
+              "value": 10,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "reduction_duration",
+          "values_float": [
+            6
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "targets_buildings",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_tidehunter_10",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "building_pct_damage",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_tidehunter_10",
+              "value": 50,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "smash_on_attack",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_tidehunter_8",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "additional_range",
+          "values_float": [
+            225
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            40,
+            45,
+            50,
+            55
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            7,
+            6,
+            5,
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "4",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 1,
+        "immunity": 4,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "tidehunter_dead_in_the_water",
+      "id": 5407,
+      "name_zh": "重如铁锚",
+      "name_en": "Dead in the Water",
+      "description_zh": "潮汐猎人将一只重锚栓到一名敌方英雄身上。被栓到锚上的英雄处于被束缚状态。尝试移动到距离巨锚%chain_length%距离外会导致英雄的移动速度降低至%max_movement_speed%，而且会一直拽着长锚。巨锚承受%attacks_to_destroy%次英雄攻击后会被摧毁。",
+      "description_en": "Tidehunter attaches a heavy anchor to an enemy hero. The hero is leashed while attached to the anchor. Attempting to move more than %chain_length% units away from the anchor forces the hero to %max_movement_speed% move speed, dragging the anchor behind them. The anchor can be destroyed with %attacks_to_destroy% hero attacks.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": true,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        350
+      ],
+      "cooldowns": [
+        35
+      ],
+      "mana_costs": [
+        110
+      ],
+      "cast_points": [
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "attacks_to_destroy",
+          "values_float": [
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "ATTACKS TO DESTROY:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "max_movement_speed",
+          "values_float": [
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "ANCHOR DRAG SPEED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "chain_length",
+          "values_float": [
+            350
+          ],
+          "is_percentage": false,
+          "heading_loc": "CHAIN LENGTH:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            10
+          ],
+          "is_percentage": false,
+          "heading_loc": "ANCHOR DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "projectile_speed",
+          "values_float": [
+            1000
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            350
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            110
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            35
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8589934601",
+        "target_team": 2,
+        "target_type": 1,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 3,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "tidehunter_ravage",
+      "id": 5121,
+      "name_zh": "毁灭",
+      "name_en": "Ravage",
+      "description_zh": "猛击地面，触手向各个方向穿出，伤害并眩晕附近所有敌方单位。",
+      "description_en": "Slams the ground, causing tentacles to erupt in all directions, damaging and stunning all nearby enemy units.",
+      "notes_zh": [
+        "毁灭能伤害隐身单位。",
+        "毁灭以%speed%的速度向外扩散。"
+      ],
+      "notes_en": [
+        "Ravage will hit invisible units.",
+        "Ravage waves move outwards at a speed of %speed%."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        150,
+        145,
+        140
+      ],
+      "mana_costs": [
+        125,
+        225,
+        325
+      ],
+      "cast_points": [
+        0.3,
+        0.3,
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "radius",
+          "values_float": [
+            1250
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "speed",
+          "values_float": [
+            725
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            2,
+            2.2,
+            2.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_tidehunter_7",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityDamage",
+          "values_float": [
+            275,
+            375,
+            475
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            125,
+            225,
+            325
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            150,
+            145,
+            140
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_tidehunter_ravage_cooldown",
+              "value": 15,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "4",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 1,
+        "max_level": 3
+      }
+    },
+    {
+      "name": "tidehunter_leviathans_catch",
+      "id": 1746,
+      "name_zh": "利维坦的渔获",
+      "name_en": "Leviathan's Catch",
+      "description_zh": "每当敌方英雄被潮汐猎人击杀，或者阵亡时带着他的负面状态，他们原地都会出现一条鱼；潮汐猎人可以吃掉鱼，永久获得%fish_health_bonus%点最大生命值，%fish_attack_range%攻击距离和%fish_damage_block%额外伤害格挡。潮汐猎人每次升到偶数等级都会自动吃下一条鱼。",
+      "description_en": "Whenever an enemy hero is killed by Tidehunter or dies under his debuffs, a fish appears in their place; Tidehunter can eat the fish to permanently gain %fish_health_bonus% Health, %fish_attack_range% Attack Range, and %fish_damage_block% Bonus Damage Block.Tidehunter eats a free fish every time he reaches an even hero level.",
+      "notes_zh": [
+        "敌人可以摧毁鱼。",
+        "额外伤害格挡只会在有伤害格挡来源施加给即将受到的物理攻击时才会施加"
+      ],
+      "notes_en": [
+        "Enemies can destroy the fish.",
+        "Bonus Damage Block only applies if another source of Damage Block will be affecting the incoming physical attack."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/5",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "fish_duration",
+          "values_float": [
+            30
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "fish_attack_range",
+          "values_float": [
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "fish_damage_block",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "fish_health_bonus",
+          "values_float": [
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "fish_model_scale",
+          "values_float": [
+            1.1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "max_fish_spawn_distance",
+          "values_float": [
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "health_bar_offset_base",
+          "values_float": [
+            160
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "health_bar_offset_per_level",
+          "values_float": [
+            5
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "permanent_health_gain",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "HEALTH GAINED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "permanent_attack_range_gain",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "ATTACK RANGE GAINED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "permanent_damage_block_gain",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS DAMAGE BLOCK GAINED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "562949953421315",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 3,
+        "max_level": 1
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 6946,
+      "name": "special_bonus_unique_tidehunter_3",
+      "name_loc": "+{s:bonus_damage_reduction}% Anchor Smash Damage Reduction",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 754,
+      "name": "special_bonus_unique_tidehunter_5",
+      "name_loc": "+{s:bonus_movement_speed}% Gush Slow",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6945,
+      "name": "special_bonus_unique_tidehunter_2",
+      "name_loc": "+{s:bonus_gush_damage} Gush Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1700,
+      "name": "special_bonus_unique_tidehunter_ravage_cooldown",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Ravage Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1701,
+      "name": "special_bonus_unique_tidehunter_smash_on_blubber",
+      "name_loc": "Kraken Shell Cleanse triggers Anchor Smash",
+      "desc_loc": "Triggered attack has {s:bonus_smash_on_purge}% damage and is reflected damage.",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6151,
+      "name": "special_bonus_unique_tidehunter",
+      "name_loc": "-{s:bonus_negative_armor} Gush Armor",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7978,
+      "name": "special_bonus_unique_tidehunter_7",
+      "name_loc": "+{s:bonus_duration}s Ravage Stun Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 964,
+      "name": "special_bonus_unique_tidehunter_10",
+      "name_loc": "Anchor Smash affects buildings",
+      "desc_loc": "Deals {s:bonus_building_pct_damage}% damage to buildings.",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "armor_interaction",
+      "dimension_zh": "护甲机制",
+      "ability": "tidehunter_gush",
+      "matched_text": "armor",
+      "evidence_description_en": "Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.",
+      "source_file": "sources/hero-29-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "tidehunter_gush",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.",
+      "source_file": "sources/hero-29-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "tidehunter_gush",
+      "matched_text": "Summons",
+      "evidence_description_en": "Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.",
+      "source_file": "sources/hero-29-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "tidehunter_kraken_shell",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Thickens Tidehunter's hide to passively block a portion of any incoming physical attack damage. Reduced block amount versus creeps. The hide also removes negative status effects if the damage taken crosses a threshold.\n\nCan be activated to double the block amount at the cost of %active_move_speed_penalty_pct%%% movement speed. Lasts %active_duration%s.\n\nDISPEL TYPE: Strong Dispel",
+      "source_file": "sources/hero-29-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "dispel",
+      "dimension_zh": "驱散",
+      "ability": "tidehunter_kraken_shell",
+      "matched_text": "DISPEL",
+      "evidence_description_en": "Thickens Tidehunter's hide to passively block a portion of any incoming physical attack damage. Reduced block amount versus creeps. The hide also removes negative status effects if the damage taken crosses a threshold.\n\nCan be activated to double the block amount at the cost of %active_move_speed_penalty_pct%%% movement speed. Lasts %active_duration%s.\n\nDISPEL TYPE: Strong Dispel",
+      "source_file": "sources/hero-29-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "root",
+      "dimension_zh": "缠绕／定身",
+      "ability": "tidehunter_anchor_smash",
+      "matched_text": "anchor",
+      "evidence_description_en": "Tidehunter swings his mighty anchor to attack and deal bonus damage to nearby enemies and reduce their attack damage. The radius of Anchor Smash is Tidehunter's attack range plus %additional_range% units.",
+      "source_file": "sources/hero-29-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "tidehunter_anchor_smash",
+      "matched_text": "nearby",
+      "evidence_description_en": "Tidehunter swings his mighty anchor to attack and deal bonus damage to nearby enemies and reduce their attack damage. The radius of Anchor Smash is Tidehunter's attack range plus %additional_range% units.",
+      "source_file": "sources/hero-29-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "root",
+      "dimension_zh": "缠绕／定身",
+      "ability": "tidehunter_dead_in_the_water",
+      "matched_text": "anchor",
+      "evidence_description_en": "Tidehunter attaches a heavy anchor to an enemy hero. The hero is leashed while attached to the anchor. Attempting to move more than %chain_length% units away from the anchor forces the hero to %max_movement_speed% move speed, dragging the anchor behind them. The anchor can be destroyed with %attacks_to_destroy% hero attacks.",
+      "source_file": "sources/hero-29-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": true
+    },
+    {
+      "dimension": "stun",
+      "dimension_zh": "眩晕",
+      "ability": "tidehunter_ravage",
+      "matched_text": "stunning",
+      "evidence_description_en": "Slams the ground, causing tentacles to erupt in all directions, damaging and stunning all nearby enemy units.",
+      "source_file": "sources/hero-29-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "tidehunter_ravage",
+      "matched_text": "nearby",
+      "evidence_description_en": "Slams the ground, causing tentacles to erupt in all directions, damaging and stunning all nearby enemy units.",
+      "source_file": "sources/hero-29-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-29-english.json",
+    "sources/hero-29-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

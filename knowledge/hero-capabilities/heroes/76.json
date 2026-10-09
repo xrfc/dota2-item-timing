@@ -1,0 +1,1809 @@
+{
+  "hero_id": 76,
+  "npc_name": "npc_dota_hero_obsidian_destroyer",
+  "name_zh": "殁境神蚀者",
+  "name_en": "Outworld Destroyer",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Carry",
+    "Nuker",
+    "Disabler"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    2,
+    0,
+    2,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "hero_summary_zh": "殁境神蚀者禁锢敌人后窃取其神智，将生人的智力转化为毁灭的力量。他运用奥术能量发动猛攻，他的终极冲击能粉碎敌人的心智，即使侥幸逃生也将被消去魔法。",
+  "hero_summary_en": "Stealing from the minds of those he imprisons, Outworld Destroyer turns raw intelligence into destructive power. Weakening enemies with a barrage of arcane energy, he shatters their sanity with his ultimate blast, often erasing mana from those that survive.",
+  "base_stats": {
+    "attack_range": 450,
+    "damage_min": 53,
+    "damage_max": 62,
+    "attack_rate": 1.9,
+    "movement_speed": 315,
+    "armor": 2.8333335,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "obsidian_destroyer_arcane_orb",
+      "id": 5391,
+      "name_zh": "奥术天球",
+      "name_en": "Arcane Orb",
+      "description_zh": "殁境神蚀者的攻击附带基于剩余魔法值的额外纯粹伤害。",
+      "description_en": "Adds extra pure damage to Outworld Destroyer's attacks, based on his remaining mana pool.",
+      "notes_zh": [
+        "根据使用此技能后的魔法值计算附加伤害。"
+      ],
+      "notes_en": [
+        "The damage is calculated after the mana cost is spent."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Arcane Orb bounces to an additional target for %bounce_damage_reduction%%% less damage.",
+          "zh": "奥术天球额外弹跳至一个目标，造成的伤害降低%bounce_damage_reduction%%%。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        450
+      ],
+      "cooldowns": [
+        4.5,
+        3,
+        1.5,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "mana_pool_damage_pct",
+          "values_float": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "is_percentage": true,
+          "heading_loc": "MANA POOL TO DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_outworld_devourer",
+              "value": 1.5,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "mana_cost_percentage",
+          "values_float": [
+            20
+          ],
+          "is_percentage": true,
+          "heading_loc": "CURRENT MANA COST:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            450
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            4.5,
+            3,
+            1.5,
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "135176",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 4,
+        "immunity": 4,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "obsidian_destroyer_astral_imprisonment",
+      "id": 5392,
+      "name_zh": "星体禁锢",
+      "name_en": "Astral Imprisonment",
+      "description_zh": "窃取目标最大魔法值的一定百分比，将其禁锢在星体中。被隐藏的英雄处于无敌和无法行动状态。禁锢结束时，对目标造成伤害。",
+      "description_en": "Steals a percentage of the target's max mana and places them into an astral prison. The hidden unit is invulnerable and disabled. When the astral prison implodes, it deals damage to the target.",
+      "notes_zh": [
+        "被禁锢的单位依然能受到神智之蚀的作用。",
+        "最大魔法值窃取效果不会提升殁境神蚀者的当前魔法值，也不会直接减少目标的当前魔法值。"
+      ],
+      "notes_en": [
+        "Imprisoned units can still be hit by Sanity's Eclipse.",
+        "Max mana steal does not increase Outworld Destroyer's current mana values or directly reduce the victim's mana values."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Astral Imprisonment now deals damage in an area. Also allows allies to move at %allied_movement_speed_pct%%% movement speed during Astral Imprisonment (they are visible, but untargettable and can't perform any other actions).",
+          "zh": "星体禁锢现在会造成范围伤害。另外友军在星体禁锢期间能以%allied_movement_speed_pct%%%移动速度进行移动（他们为可见状态，但无法成为目标，也不能执行其他任何动作）。"
+        }
+      },
+      "facet_text_en": [
+        "",
+        "Affected Heroes gain a Mana Allergy Debuff for %debuff_duration% seconds, healing Outworld Destroyer every time they cast a spell."
+      ],
+      "facet_text_zh": [
+        "",
+        "受到作用的英雄会获得一个魔力邪印的负面效果，持续%debuff_duration%秒，每次施放技能都会治疗殁境神蚀者。"
+      ],
+      "cast_ranges": [
+        650
+      ],
+      "cooldowns": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "mana_costs": [
+        150
+      ],
+      "cast_points": [
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "prison_duration",
+          "values_float": [
+            1.75,
+            2.5,
+            3.25,
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage",
+          "values_float": [
+            90,
+            180,
+            270,
+            360
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "has_mana_steal",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "mana_capacity_steal",
+          "values_float": [
+            16,
+            19,
+            22,
+            25
+          ],
+          "is_percentage": true,
+          "heading_loc": "MANA CAPACITY STEAL:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_outworld_devourer_4",
+              "value": 12,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "mana_capacity_duration",
+          "values_float": [
+            30,
+            40,
+            50,
+            60
+          ],
+          "is_percentage": false,
+          "heading_loc": "STEAL DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "allied_movement_speed_pct",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            70
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_radius",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE RADIUS:",
+          "bonuses": [],
+          "values_shard": [
+            300
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "debuff_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "obsidian_destroyer_overwhelming_devourer",
+            "values": [
+              5
+            ],
+            "operation": 0
+          },
+          "required_facet": "obsidian_destroyer_overwhelming_devourer"
+        },
+        {
+          "name": "percentage_damage",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "obsidian_destroyer_overwhelming_devourer",
+            "values": [
+              0
+            ],
+            "operation": 0
+          },
+          "required_facet": "obsidian_destroyer_overwhelming_devourer"
+        },
+        {
+          "name": "percentage_heal",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "obsidian_destroyer_overwhelming_devourer",
+            "values": [
+              100
+            ],
+            "operation": 0
+          },
+          "required_facet": "obsidian_destroyer_overwhelming_devourer"
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            650
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_outworld_devourer_astral_castrange",
+              "value": 100,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            150
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            18,
+            16,
+            14,
+            12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "33554472",
+        "target_team": 3,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 3,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "obsidian_destroyer_objurgation",
+      "id": 1760,
+      "name_zh": "责难",
+      "name_en": "Objurgation",
+      "description_zh": "提升殁境神蚀者的最大魔法值。施放后，殁境神蚀者获得全伤害护盾，数值为固定值 + 最大魔法值的一定百分比。",
+      "description_en": "Increases Outworld Destroyer's maximum mana. When cast, protects Outworld Destroyer with an all damage barrier equal to a flat amount and a percentage of his maximum mana.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Increases max mana to barrier. Damage that would bring Outworld Destroyer below %automatic_trigger_threshold%%% health is prevented. When that happens, Outworld Destroyer receives a strong dispel and gains an undispellable instance of Objurgation. This effect cannot occur more than once every %automatic_trigger_cd% seconds.",
+          "zh": "提升最大魔法值转为护盾的比例。阻止让殁境神蚀者的血量低于%automatic_trigger_threshold%%%的伤害。阻止生效时，殁境神蚀者获得一次强驱散，和不可驱散的责难效果。这个效果每%automatic_trigger_cd%秒只能触发一次。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        36,
+        33,
+        30,
+        27
+      ],
+      "mana_costs": [
+        175
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "barrier_flat",
+          "values_float": [
+            150,
+            200,
+            250,
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "BARRIER:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "mana_to_barrier",
+          "values_float": [
+            12
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX MANA BARRIER:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            4
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_mana",
+          "values_float": [
+            80,
+            160,
+            240,
+            320
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS MANA:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "barrier_duration",
+          "values_float": [
+            10
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "automatic_trigger_threshold",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            20
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "automatic_trigger_cd",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            80
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            175
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            36,
+            33,
+            30,
+            27
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_outworld_devourer_barrier",
+              "value": 10,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2052",
+        "target_team": 1,
+        "target_type": 1,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "obsidian_destroyer_equilibrium",
+      "id": 5684,
+      "name_zh": "精华变迁",
+      "name_en": "Essence Flux",
+      "description_zh": "被动拥有一定几率在施放技能时回复最大魔法值的一定百分比。通过攻击特效的技能回复的魔法会减少。",
+      "description_en": "Passively grants a chance to restore a percentage of your max mana each time you cast an ability. Restores less mana from spells that modify attacks.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "When Essence Flux restores mana, it also temporarily increases maximum mana.",
+        ""
+      ],
+      "facet_text_zh": [
+        "精华变迁回复魔法时，还会暂时增加最大魔法值。",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0.75
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "proc_chance",
+          "values_float": [
+            30
+          ],
+          "is_percentage": true,
+          "heading_loc": "CHANCE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "mana_restore",
+          "values_float": [
+            40
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX MANA RESTORE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_outworld_devourer_flux_restore",
+              "value": 5,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "mana_restore_attack",
+          "values_float": [
+            25
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX MANA RESTORE (ATTACKS):",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_outworld_devourer_flux_restore",
+              "value": 5,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "mana_as_ms",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_outworld_devourer_3",
+              "value": 0.8,
+              "operation": 5
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.75
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "562949953421315",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "obsidian_destroyer_sanity_eclipse",
+      "id": 5394,
+      "name_zh": "神智之蚀",
+      "name_en": "Sanity's Eclipse",
+      "description_zh": "释放出一道神智冲击波，伤害数值基于自身与目标的最大魔法值之差。神智之蚀可以作用于星体禁锢中的单位。",
+      "description_en": "Unleashes a psychic blast that deals damage to enemies based on the difference between your max mana and the target's max mana. Sanity's Eclipse can hit units trapped by Astral Imprisonment.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "Affected Heroes gain a Mana Allergy Debuff for %debuff_duration% seconds, healing Outworld Destroyer every time they cast a spell."
+      ],
+      "facet_text_zh": [
+        "",
+        "受到作用的英雄会获得一个魔力邪印的负面效果，持续%debuff_duration%秒，每次施放技能都会治疗殁境神蚀者。"
+      ],
+      "cast_ranges": [
+        700
+      ],
+      "cooldowns": [
+        140,
+        130,
+        120
+      ],
+      "mana_costs": [
+        200,
+        300,
+        400
+      ],
+      "cast_points": [
+        0.25,
+        0.25,
+        0.25
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "base_damage",
+          "values_float": [
+            200,
+            300,
+            400
+          ],
+          "is_percentage": false,
+          "heading_loc": "BASE DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "radius",
+          "values_float": [
+            500,
+            525,
+            550
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cast_range",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "CAST RANGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_multiplier",
+          "values_float": [
+            0.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "MAX MANA DIFFERENCE MULTIPLIER:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "debuff_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "obsidian_destroyer_overwhelming_devourer",
+            "values": [
+              7
+            ],
+            "operation": 0
+          },
+          "required_facet": "obsidian_destroyer_overwhelming_devourer"
+        },
+        {
+          "name": "percentage_damage",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "obsidian_destroyer_overwhelming_devourer",
+            "values": [
+              0
+            ],
+            "operation": 0
+          },
+          "required_facet": "obsidian_destroyer_overwhelming_devourer"
+        },
+        {
+          "name": "percentage_heal",
+          "values_float": [
+            0
+          ],
+          "is_percentage": true,
+          "heading_loc": "MANA AS HEAL:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "obsidian_destroyer_overwhelming_devourer",
+            "values": [
+              100
+            ],
+            "operation": 0
+          },
+          "required_facet": "obsidian_destroyer_overwhelming_devourer"
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.25
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            200,
+            300,
+            400
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            140,
+            130,
+            120
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_outworld_devourer_5",
+              "value": 60,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "48",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 0,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 957,
+      "name": "special_bonus_unique_outworld_devourer_astral_castrange",
+      "name_loc": "+{s:bonus_AbilityCastRange} Astral Imprisonment Cast Range",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6094,
+      "name": "special_bonus_mp_200",
+      "name_loc": "+{s:value} Mana",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1826,
+      "name": "special_bonus_unique_outworld_devourer_flux_restore",
+      "name_loc": "+{s:bonus_mana_restore}% Essence Flux Mana Restored",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6712,
+      "name": "special_bonus_unique_outworld_devourer_3",
+      "name_loc": "+{s:bonus_mana_as_ms}% of Current Mana as Movement Speed",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1827,
+      "name": "special_bonus_unique_outworld_devourer_barrier",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Objurgation Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7375,
+      "name": "special_bonus_unique_outworld_devourer_4",
+      "name_loc": "+{s:bonus_mana_capacity_steal}% Astral Imprisonment Mana Capacity Steal",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6241,
+      "name": "special_bonus_unique_outworld_devourer",
+      "name_loc": "+{s:bonus_mana_pool_damage_pct}% Arcane Orb Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 750,
+      "name": "special_bonus_unique_outworld_devourer_5",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Sanity's Eclipse Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "mana_interaction",
+      "dimension_zh": "魔法值机制",
+      "ability": "obsidian_destroyer_arcane_orb",
+      "matched_text": "mana",
+      "evidence_description_en": "Adds extra pure damage to Outworld Destroyer's attacks, based on his remaining mana pool.",
+      "source_file": "sources/hero-76-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mana_interaction",
+      "dimension_zh": "魔法值机制",
+      "ability": "obsidian_destroyer_astral_imprisonment",
+      "matched_text": "mana",
+      "evidence_description_en": "Steals a percentage of the target's max mana and places them into an astral prison. The hidden unit is invulnerable and disabled. When the astral prison implodes, it deals damage to the target.",
+      "source_file": "sources/hero-76-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_restriction",
+      "dimension_zh": "区域限制",
+      "ability": "obsidian_destroyer_objurgation",
+      "matched_text": "barrier",
+      "evidence_description_en": "Increases Outworld Destroyer's maximum mana. When cast, protects Outworld Destroyer with an all damage barrier equal to a flat amount and a percentage of his maximum mana.",
+      "source_file": "sources/hero-76-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mana_interaction",
+      "dimension_zh": "魔法值机制",
+      "ability": "obsidian_destroyer_objurgation",
+      "matched_text": "mana",
+      "evidence_description_en": "Increases Outworld Destroyer's maximum mana. When cast, protects Outworld Destroyer with an all damage barrier equal to a flat amount and a percentage of his maximum mana.",
+      "source_file": "sources/hero-76-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "shield",
+      "dimension_zh": "护盾／伤害吸收",
+      "ability": "obsidian_destroyer_objurgation",
+      "matched_text": "barrier",
+      "evidence_description_en": "Increases Outworld Destroyer's maximum mana. When cast, protects Outworld Destroyer with an all damage barrier equal to a flat amount and a percentage of his maximum mana.",
+      "source_file": "sources/hero-76-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mana_interaction",
+      "dimension_zh": "魔法值机制",
+      "ability": "obsidian_destroyer_equilibrium",
+      "matched_text": "mana",
+      "evidence_description_en": "Passively grants a chance to restore a percentage of your max mana each time you cast an ability. Restores less mana from spells that modify attacks.",
+      "source_file": "sources/hero-76-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mana_interaction",
+      "dimension_zh": "魔法值机制",
+      "ability": "obsidian_destroyer_sanity_eclipse",
+      "matched_text": "mana",
+      "evidence_description_en": "Unleashes a psychic blast that deals damage to enemies based on the difference between your max mana and the target's max mana. Sanity's Eclipse can hit units trapped by Astral Imprisonment.",
+      "source_file": "sources/hero-76-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-76-english.json",
+    "sources/hero-76-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

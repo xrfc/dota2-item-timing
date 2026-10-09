@@ -1,1 +1,3 @@
 * text=auto eol=lf
+knowledge/hero-capabilities/sources/*.json -text
+knowledge/hero-capabilities/cold-start/candidates.jsonl -text

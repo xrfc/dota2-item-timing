@@ -1,0 +1,2195 @@
+{
+  "hero_id": 71,
+  "npc_name": "npc_dota_hero_spirit_breaker",
+  "name_zh": "裂魂人",
+  "name_en": "Spirit Breaker",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Carry",
+    "Initiator",
+    "Disabler",
+    "Durable",
+    "Escape"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    1,
+    0,
+    0,
+    2,
+    0,
+    2,
+    1,
+    0,
+    2
+  ],
+  "hero_summary_zh": "兼具极高的机动性和攻击性，裂魂人可以跨越整个地图发动冲刺，使敌人陷入战斗。手中沉重的灯笼痛击着敌人，每次敲出的重击让他们意识模糊。他的敌人可以逃，但是他们无处可藏。",
+  "hero_summary_en": "Highly mobile and always aggressive, Spirit Breaker charges across the map to bring the fight to his enemies. With each bash of his heavy lantern, he knocks his foes senseless. His enemies may run, but with the help of a few wards, they cannot hide.",
+  "base_stats": {
+    "attack_range": 170,
+    "damage_min": 62,
+    "damage_max": 72,
+    "attack_rate": 1.9,
+    "movement_speed": 295,
+    "armor": 3.8333335,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "spirit_breaker_charge_of_darkness",
+      "id": 5353,
+      "name_zh": "暗影冲刺",
+      "name_en": "Charge of Darkness",
+      "description_zh": "裂魂人盯紧一个敌方单位，开始无视一切物体的冲刺，起始为%min_movespeed_bonus_pct%%%额外移速，%windup_time%秒后达到最大速度。途中经过的所有敌方单位和目标单位都将受到巨力重击。如果目标单位在到达前阵亡，裂魂人将他的目标改为原路径上最近的一个敌方单位。",
+      "description_en": "Spirit Breaker fixes his sight on an enemy unit and starts charging through all objects, starting at %min_movespeed_bonus_pct%%% of the bonus speed and reaching his max speed after %windup_time%s.All enemy units passed through and the targeted unit will be hit by a Greater Bash.  If the targeted unit dies, Spirit Breaker will change his target to the nearest enemy unit to that location.",
+      "notes_zh": [
+        "裂魂人在冲刺过程中能穿过树木，悬崖和任何单位。",
+        "冲刺指示特效仅对队友可见。",
+        "裂魂人将获得并共享目标的视野。"
+      ],
+      "notes_en": [
+        "Spirit Breaker passes through trees, cliffs, and units.",
+        "The charge indicator is visible only to allies.",
+        "Spirit Breaker gains shared vision of the target."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Increases Charge of Darkness Bonus Speed by %bonus_movement_speed%.",
+          "zh": "暗影冲刺的移动速度加成提升%bonus_movement_speed%。"
+        }
+      },
+      "facet_text_en": [
+        "Charge of Darkness bonus movement speed lingers after charge ends.",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "暗影冲刺的移动速度加成会在冲刺结束后逐渐消失。",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        22,
+        19,
+        16,
+        13
+      ],
+      "mana_costs": [
+        80,
+        90,
+        100,
+        110
+      ],
+      "cast_points": [
+        0.1
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "movement_speed",
+          "values_float": [
+            275,
+            325,
+            375,
+            425
+          ],
+          "is_percentage": false,
+          "heading_loc": "CHARGE BONUS SPEED:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spirit_breaker_increased_charge_speed",
+              "value": 60,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "stun_duration",
+          "values_float": [
+            1.3,
+            1.6,
+            1.9,
+            2.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "STUN DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bash_radius",
+          "values_float": [
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "vision_radius",
+          "values_float": [
+            400
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "vision_duration",
+          "values_float": [
+            0.94
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "windup_time",
+          "values_float": [
+            1.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "min_movespeed_bonus_pct",
+          "values_float": [
+            25
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            22,
+            19,
+            16,
+            13
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spirit_breaker_4",
+              "value": 4,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "17301512",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 0,
+        "immunity": 4,
+        "dispellable": 3,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "spirit_breaker_bulldoze",
+      "id": 7301,
+      "name_zh": "威吓",
+      "name_en": "Bulldoze",
+      "description_zh": "裂魂人获得移动速度和状态抗性加成，在敌人之间横冲直撞。可以在冲刺期间使用。",
+      "description_en": "Spirit Breaker gains movement speed and status resistance to ram through enemies. Can be used while charging.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        22,
+        20,
+        18,
+        16
+      ],
+      "mana_costs": [
+        30,
+        40,
+        50,
+        60
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "movement_speed",
+          "values_float": [
+            8,
+            12,
+            16,
+            20
+          ],
+          "is_percentage": true,
+          "heading_loc": "MOVEMENT SPEED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "status_resistance",
+          "values_float": [
+            40,
+            50,
+            60,
+            70
+          ],
+          "is_percentage": true,
+          "heading_loc": "STATUS RESISTANCE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            8
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_barrier",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spirit_breaker_shield",
+              "value": 375,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            30,
+            40,
+            50,
+            60
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            22,
+            20,
+            18,
+            16
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spirit_breaker_2",
+              "value": 3,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2052",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "spirit_breaker_greater_bash",
+      "id": 5355,
+      "name_zh": "巨力重击",
+      "name_en": "Greater Bash",
+      "description_zh": "攻击时有一定概率眩晕并击退敌方单位。重击的伤害值为移动速度的一定百分比。",
+      "description_en": "Gives a chance to stun and knockback an enemy unit on an attack. Deals a percentage of movement speed as damage.",
+      "notes_zh": [
+        "不与碎颅锤叠加。",
+        "破坏会使攻击触发巨力重击失效。暗影冲刺或幽冥一击还是会施加巨力重击。"
+      ],
+      "notes_en": [
+        "Does not stack with Skull Basher.",
+        "Break disables the passive percent Chance to Bash. Does not disable Greater Bash application from Charge of Darkness or Nether Strike."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive %cascading_bashes_creep_penalty%%% damage), and the original target takes %cascading_bashes_damage_multiplier%%% of Greater Bash's damage again.",
+          "zh": "击退效果提升。如果击退的敌人又撞到了一个敌人，这个敌人也会被重击（非英雄单位只受到%cascading_bashes_creep_penalty%%%伤害），并且原目标再次受到%cascading_bashes_damage_multiplier%%%的巨力重击伤害。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "Greater Bash chance is increased if you've bashed more than one hero within the last %bonus_chance_duration%s. Each additional hero past the first increases Greater Bash chance by %bonus_chance_pct%%%."
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "过去%bonus_chance_duration%秒内对不止一名英雄触发了巨力重击就会使重击的概率提升。第一个英雄之后每个英雄都会使巨力重击的概率提升%bonus_chance_pct%%%。"
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        1.2
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "chance_pct",
+          "values_float": [
+            17
+          ],
+          "is_percentage": true,
+          "heading_loc": "CHANCE TO BASH:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_chance_pct",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "spirit_breaker_bulls_hit",
+            "values": [
+              17
+            ],
+            "operation": 0
+          },
+          "required_facet": "spirit_breaker_bulls_hit"
+        },
+        {
+          "name": "bonus_chance_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "spirit_breaker_bulls_hit",
+            "values": [
+              10
+            ],
+            "operation": 0
+          },
+          "required_facet": "spirit_breaker_bulls_hit"
+        },
+        {
+          "name": "damage",
+          "values_float": [
+            25,
+            30,
+            35,
+            40
+          ],
+          "is_percentage": true,
+          "heading_loc": "MOVEMENT SPEED AS DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spirit_breaker_3",
+              "value": 20,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            0.9,
+            1.1,
+            1.3,
+            1.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "STUN DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "knockback_duration",
+          "values_float": [
+            0.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "KNOCKBACK DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cascading_bash_cooldown",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            0.6
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cascading_bashes_damage_multiplier",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            25
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cascading_bashes_creep_penalty",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            20
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cascading_bashes_nether_strike_additional_cooldown",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            0.6
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cascading_bashes_hero_hitbox",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            185
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cascading_bashes_creep_hitbox",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            100
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "knockback_distance",
+          "values_float": [
+            143,
+            152,
+            158,
+            162
+          ],
+          "is_percentage": false,
+          "heading_loc": "KNOCKBACK DISTANCE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            50
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "knockback_height",
+          "values_float": [
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            30
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_knockback_multiplier",
+          "values_float": [
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            1
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_movespeed_pct",
+          "values_float": [
+            17
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "movespeed_duration",
+          "values_float": [
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "creep_multiplier",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            1.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spirit_breaker_1",
+              "value": 0.3,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 2,
+        "immunity": 3,
+        "dispellable": 1,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "spirit_breaker_planar_pocket",
+      "id": 987,
+      "name_zh": "位面空洞",
+      "name_en": "Planar Pocket",
+      "description_zh": "巴拉森获得魔法抗性，并扭曲选定英雄附近的现实，使敌方英雄施放的任意指向性技能转向裂魂人。可以对友方和敌方英雄施放，但是只有裂魂人的敌人施放的技能才会转向。",
+      "description_en": "Barathrum gains magic resistance and distorts reality around the selected hero, making any unit-targeted spells cast by enemy heroes get redirected towards Spirit Breaker. Can be cast on both allied and enemy heroes, but only spells cast by enemies of Spirit Breaker will be redirected.",
+      "notes_zh": [
+        "如果裂魂人和目标之间的距离超过%break_distance%，位面空洞效果会停止。"
+      ],
+      "notes_en": [
+        "Planar Pocket's effect stops if Barathrum moves %break_distance% units away from the target."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": true,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        700
+      ],
+      "cooldowns": [
+        30
+      ],
+      "mana_costs": [
+        100
+      ],
+      "cast_points": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "radius",
+          "values_float": [
+            900
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            6
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "magic_resistance",
+          "values_float": [
+            40
+          ],
+          "is_percentage": true,
+          "heading_loc": "SELF MAGIC RESISTANCE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "break_distance",
+          "values_float": [
+            900
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            30
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8589936649",
+        "target_team": 3,
+        "target_type": 1,
+        "damage": 0,
+        "immunity": 4,
+        "dispellable": 1,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "spirit_breaker_bull_rush",
+      "id": 1757,
+      "name_zh": "神行太保",
+      "name_en": "Empowering Haste",
+      "description_zh": "裂魂人只要眩晕敌人就会获得移动速度加成。来自多个眩晕的效果会叠加，并且拥有独立的持续时间。暗影冲刺期间持续时间会暂停。",
+      "description_en": "Spirit Breaker gains bonus Movement Speed for a duration whenever he stuns an enemy. Effects from multiple stuns stack and have independent durations. Duration pauses during Charge of Darkness.",
+      "notes_zh": [
+        "神行太保的加成状态使裂魂人能够突破移动速度上限。"
+      ],
+      "notes_en": [
+        "Empowering Haste buff allows Spirit Breaker to go over the max movement speed limit."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "hero_duration",
+          "values_float": [
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "HERO DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "creep_duration",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "CREEP DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "hero_movespeed_percent",
+          "values_float": [
+            8
+          ],
+          "is_percentage": true,
+          "heading_loc": "HERO MOVESPEED:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_bull_rush_movement_increase",
+              "value": 8,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "creep_movespeed_percent",
+          "values_float": [
+            2
+          ],
+          "is_percentage": true,
+          "heading_loc": "CREEP MOVESPEED:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_bull_rush_movement_increase",
+              "value": 2,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "562949953421315",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 3,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "spirit_breaker_nether_strike",
+      "id": 5356,
+      "name_zh": "幽冥一击",
+      "name_en": "Nether Strike",
+      "description_zh": "裂魂人遁入幽冥领域，从不幸的目标身旁再次出现，发动当前等级的巨力重击并造成额外伤害。击退距离为平常的两倍。",
+      "description_en": "Spirit Breaker slips into the nether realm, reappearing next to his hapless victim. Upon reappearing, a Greater Bash of the current level occurs and deals bonus damage. Knocks back for double the normal distance.",
+      "notes_zh": [
+        "裂魂人将在目标身后出现并发动巨力重击。"
+      ],
+      "notes_en": [
+        "Spirit Breaker appears behind the target to deliver the bash."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/5",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Greatly increases knockback.",
+          "zh": "大幅提升击退效果。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "Enemy targets hit by Nether Strike will be moved further by allied knockback effects.",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "被幽冥一击击中的敌方目标受到友方的击退效果的移动距离更远。",
+        ""
+      ],
+      "cast_ranges": [
+        700
+      ],
+      "cooldowns": [
+        75,
+        55,
+        35
+      ],
+      "mana_costs": [
+        125,
+        150,
+        175
+      ],
+      "cast_points": [
+        1
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "damage",
+          "values_float": [
+            150,
+            250,
+            350
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "fade_time",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "shard_bonus_damage",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            0
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "shard_break_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            0
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "shard_spell_immune_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            0
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "knockback_amp",
+          "values_float": [
+            0
+          ],
+          "is_percentage": true,
+          "heading_loc": "KNOCKBACK AMPLIFICATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "spirit_breaker_imbalanced",
+            "values": [
+              100
+            ],
+            "operation": 0
+          },
+          "required_facet": "spirit_breaker_imbalanced"
+        },
+        {
+          "name": "knockback_amp_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "KNOCKBACK AMPLIFICATION DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "spirit_breaker_imbalanced",
+            "values": [
+              6
+            ],
+            "operation": 0
+          },
+          "required_facet": "spirit_breaker_imbalanced"
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            125,
+            150,
+            175
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            75,
+            55,
+            35
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "134742024",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 3,
+        "dispellable": 1,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 7022,
+      "name": "special_bonus_night_vision_500",
+      "name_loc": "+{s:value} Night Vision",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            500
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 5931,
+      "name": "special_bonus_armor_4",
+      "name_loc": "+{s:value} Armor",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6296,
+      "name": "special_bonus_unique_spirit_breaker_2",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Bulldoze Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1821,
+      "name": "special_bonus_unique_spirit_breaker_increased_charge_speed",
+      "name_loc": "+{s:bonus_movement_speed} Charge of Darkness Bonus Speed",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1822,
+      "name": "special_bonus_unique_bull_rush_movement_increase",
+      "name_loc": "+{s:bonus_hero_movespeed_percent}%/+{s:bonus_creep_movespeed_percent}% Empowering Haste Movespeed Bonus",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 8254,
+      "name": "special_bonus_unique_spirit_breaker_shield",
+      "name_loc": "Bulldoze {s:bonus_damage_barrier} All Damage Barrier",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6543,
+      "name": "special_bonus_unique_spirit_breaker_3",
+      "name_loc": "+{s:bonus_damage}% Greater Bash Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 830,
+      "name": "special_bonus_unique_spirit_breaker_4",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Charge of Darkness Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "spirit_breaker_bulldoze",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Spirit Breaker gains movement speed and status resistance to ram through enemies. Can be used while charging.",
+      "source_file": "sources/hero-71-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "stun",
+      "dimension_zh": "眩晕",
+      "ability": "spirit_breaker_greater_bash",
+      "matched_text": "stun",
+      "evidence_description_en": "Gives a chance to stun and knockback an enemy unit on an attack. Deals a percentage of movement speed as damage.",
+      "source_file": "sources/hero-71-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "forced_movement",
+      "dimension_zh": "强制位移",
+      "ability": "spirit_breaker_greater_bash",
+      "matched_text": "knockback",
+      "evidence_description_en": "Gives a chance to stun and knockback an enemy unit on an attack. Deals a percentage of movement speed as damage.",
+      "source_file": "sources/hero-71-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "spirit_breaker_greater_bash",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Gives a chance to stun and knockback an enemy unit on an attack. Deals a percentage of movement speed as damage.",
+      "source_file": "sources/hero-71-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "stun",
+      "dimension_zh": "眩晕",
+      "ability": "spirit_breaker_bull_rush",
+      "matched_text": "stuns",
+      "evidence_description_en": "Spirit Breaker gains bonus Movement Speed for a duration whenever he stuns an enemy. Effects from multiple stuns stack and have independent durations. Duration pauses during Charge of Darkness.",
+      "source_file": "sources/hero-71-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "spirit_breaker_bull_rush",
+      "matched_text": "Movement Speed",
+      "evidence_description_en": "Spirit Breaker gains bonus Movement Speed for a duration whenever he stuns an enemy. Effects from multiple stuns stack and have independent durations. Duration pauses during Charge of Darkness.",
+      "source_file": "sources/hero-71-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "forced_movement",
+      "dimension_zh": "强制位移",
+      "ability": "spirit_breaker_nether_strike",
+      "matched_text": "Knocks back",
+      "evidence_description_en": "Spirit Breaker slips into the nether realm, reappearing next to his hapless victim. Upon reappearing, a Greater Bash of the current level occurs and deals bonus damage. Knocks back for double the normal distance.",
+      "source_file": "sources/hero-71-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/5/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-71-english.json",
+    "sources/hero-71-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

@@ -1,0 +1,1714 @@
+{
+  "hero_id": 57,
+  "npc_name": "npc_dota_hero_omniknight",
+  "name_zh": "全能骑士",
+  "name_en": "Omniknight",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Support",
+    "Durable",
+    "Nuker"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    0,
+    2,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+  ],
+  "hero_summary_zh": "作为战场前线的卫士，全能骑士总是渴望加入团队的战斗。不论是使用伤敌的魔法治疗队友，还是手握强大的战锤敲打敌人，他总是能帮助盟友免受伤害。",
+  "hero_summary_en": "A guardian at the front lines of battle, Omniknight is always eager to join his team in battle. Whether healing an ally with a spell that also harms nearby foes, or battering an enemy with his mighty hammer, he protects his allies from harm.",
+  "base_stats": {
+    "attack_range": 150,
+    "damage_min": 53,
+    "damage_max": 63,
+    "attack_rate": 1.7,
+    "movement_speed": 310,
+    "armor": 4.5,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "omniknight_purification",
+      "id": 5263,
+      "name_zh": "洗礼",
+      "name_en": "Purification",
+      "description_zh": "立即治疗一个友方单位，并对周围的敌军造成伤害。",
+      "description_en": "Instantly heals a friendly unit and damages all nearby enemy units.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "After a %recast_delay%s delay, the target is Purified again with %recast_effectiveness_pct%%% effectiveness.",
+          "zh": "%recast_delay%秒延迟后目标会再次受到%recast_effectiveness_pct%%%威力的洗礼。"
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        700
+      ],
+      "cooldowns": [
+        15,
+        14,
+        13,
+        12
+      ],
+      "mana_costs": [
+        90,
+        105,
+        120,
+        135
+      ],
+      "cast_points": [
+        0.2
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "heal",
+          "values_float": [
+            90,
+            160,
+            230,
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "HEAL/DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_omniknight_1",
+              "value": 160,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "radius",
+          "values_float": [
+            260
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "recast_delay",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            3
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "recast_effectiveness_pct",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            65
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            90,
+            105,
+            120,
+            135
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            15,
+            14,
+            13,
+            12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_omniknight_6",
+              "value": 3,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "40",
+        "target_team": 1,
+        "target_type": 19,
+        "damage": 4,
+        "immunity": 3,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "omniknight_martyr",
+      "id": 895,
+      "name_zh": "驱逐",
+      "name_en": "Repel",
+      "description_zh": "提供减益免疫状态和%magic_resist%%%魔法抗性，以及额外生命恢复。",
+      "description_en": "Grants Debuff Immunity with %magic_resist%%% magic resistance, as well as bonus HP Regen.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        700
+      ],
+      "cooldowns": [
+        40,
+        35,
+        30,
+        25
+      ],
+      "mana_costs": [
+        90,
+        105,
+        120,
+        135
+      ],
+      "cast_points": [
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "base_hpregen",
+          "values_float": [
+            8,
+            12,
+            16,
+            20
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS HP REGEN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            5
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_omniknight_5",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "magic_resist",
+          "values_float": [
+            60
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAGIC RESISTANCE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_omniknight_2",
+              "value": 200,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            90,
+            105,
+            120,
+            135
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            40,
+            35,
+            30,
+            25
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8",
+        "target_team": 1,
+        "target_type": 1,
+        "damage": 0,
+        "immunity": 1,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "omniknight_hammer_of_purity",
+      "id": 656,
+      "name_zh": "纯洁之锤",
+      "name_en": "Hammer of Purity",
+      "description_zh": "全能骑士将神圣之力注入他的战锤，使他的攻击距离提升，会根据基础攻击力的一定百分比造成纯粹伤害，并且使目标短时间内被减速。全能骑士会在%heal_duration%秒内回复%heal_pct%%%造成的伤害。",
+      "description_en": "Omniknight imbues his hammer with holy power, causing his attack to have increased range, deal pure damage based on a percentage of his base damage and slow his target for a short duration. Omniknight heals for %heal_pct%%% of the damage dealt over %heal_duration%s.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        150
+      ],
+      "cooldowns": [
+        13,
+        10,
+        7,
+        4
+      ],
+      "mana_costs": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "base_damage",
+          "values_float": [
+            30,
+            50,
+            70,
+            90
+          ],
+          "is_percentage": true,
+          "heading_loc": "BONUS BASE DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_omniknight_4",
+              "value": 75,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_damage",
+          "values_float": [
+            25,
+            45,
+            65,
+            85
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "heal_pct",
+          "values_float": [
+            40
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "heal_duration",
+          "values_float": [
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "total_ticks",
+          "values_float": [
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "attack_cooldown",
+          "values_float": [
+            -1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "attack_range_bonus",
+          "values_float": [
+            75
+          ],
+          "is_percentage": false,
+          "heading_loc": "RANGE BONUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            0.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "SLOW DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "movement_slow",
+          "values_float": [
+            75
+          ],
+          "is_percentage": true,
+          "heading_loc": "SLOW:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            150
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            13,
+            10,
+            7,
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_omniknight_3",
+              "value": 0.5,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "137439088648",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 4,
+        "immunity": 3,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "omniknight_degen_aura",
+      "id": 5265,
+      "name_zh": "退化光环",
+      "name_en": "Degen Aura",
+      "description_zh": "削弱过于靠近的敌方单位的移动能力，降低其移动速度。",
+      "description_en": "Degenerates the movement capabilities of enemy units that stray too near, slowing their movement speed.",
+      "notes_zh": [
+        "对减益免疫单位无效。"
+      ],
+      "notes_en": [
+        "Does not affect Debuff Immune units."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "Omniknight's damage to a target is increased by %bonus_damage_per_stack%%% for every %stack_interval%s they spend affected by the aura.",
+        ""
+      ],
+      "facet_text_zh": [
+        "目标受到光环作用的时间每达到%stack_interval%秒，全能骑士对该目标的伤害都会增加%bonus_damage_per_stack%%%。",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "speed_bonus",
+          "values_float": [
+            11
+          ],
+          "is_percentage": true,
+          "heading_loc": "MOVEMENT SLOW:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "radius",
+          "values_float": [
+            325
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_omniknight_degen_aura_radius",
+              "value": 150,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "linger_duration",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "562949953486915",
+        "target_team": 2,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 4,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "omniknight_guardian_angel",
+      "id": 5266,
+      "name_zh": "守护天使",
+      "name_en": "Guardian Angel",
+      "description_zh": "全能骑士召唤出守护天使，使全能骑士附近的所有友方单位对物理伤害免疫。",
+      "description_en": "Omniknight calls upon a Guardian Angel that grants immunity from physical damage to all allied units near Omniknight.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Guardian Angel has global radius, affects buildings, and amplifies health restoration.",
+          "zh": "守护天使的作用范围为全地图，影响建筑并增强生命回复。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        100,
+        90,
+        80
+      ],
+      "mana_costs": [
+        125,
+        175,
+        225
+      ],
+      "cast_points": [
+        0.4
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "duration",
+          "values_float": [
+            4,
+            4.75,
+            5.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "radius",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "is_global",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            1
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "affects_buildings",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            1
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "heal_and_regen_amp",
+          "values_float": [
+            0
+          ],
+          "is_percentage": true,
+          "heading_loc": "BONUS HEALTH RESTORATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            50
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "model_scale",
+          "values_float": [
+            15
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            125,
+            175,
+            225
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            100,
+            90,
+            80
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_omniknight_7",
+              "value": 20,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "4",
+        "target_team": 1,
+        "target_type": 19,
+        "damage": 0,
+        "immunity": 1,
+        "dispellable": 3,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 6300,
+      "name": "special_bonus_unique_omniknight_2",
+      "name_loc": "+{s:bonus_AbilityCastRange} Repel Cast Range",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7372,
+      "name": "special_bonus_attack_base_damage_30",
+      "name_loc": "+{s:value} Base Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            30
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6709,
+      "name": "special_bonus_unique_omniknight_3",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Hammer of Purity Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 501,
+      "name": "special_bonus_unique_omniknight_7",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Guardian Angel Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1815,
+      "name": "special_bonus_unique_omniknight_degen_aura_radius",
+      "name_loc": "+{s:bonus_radius} Degen Aura Radius",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 472,
+      "name": "special_bonus_unique_omniknight_6",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Purification Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 5981,
+      "name": "special_bonus_unique_omniknight_1",
+      "name_loc": "+{s:bonus_heal} Purification Damage/Heal",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7010,
+      "name": "special_bonus_unique_omniknight_4",
+      "name_loc": "+{s:bonus_base_damage}% Hammer of Purity Bonus Base Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "omniknight_purification",
+      "matched_text": "nearby",
+      "evidence_description_en": "Instantly heals a friendly unit and damages all nearby enemy units.",
+      "source_file": "sources/hero-57-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "healing",
+      "dimension_zh": "治疗／恢复",
+      "ability": "omniknight_purification",
+      "matched_text": "heals",
+      "evidence_description_en": "Instantly heals a friendly unit and damages all nearby enemy units.",
+      "source_file": "sources/hero-57-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "omniknight_hammer_of_purity",
+      "matched_text": "slow",
+      "evidence_description_en": "Omniknight imbues his hammer with holy power, causing his attack to have increased range, deal pure damage based on a percentage of his base damage and slow his target for a short duration. Omniknight heals for %heal_pct%%% of the damage dealt over %heal_duration%s.",
+      "source_file": "sources/hero-57-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "healing",
+      "dimension_zh": "治疗／恢复",
+      "ability": "omniknight_hammer_of_purity",
+      "matched_text": "heals",
+      "evidence_description_en": "Omniknight imbues his hammer with holy power, causing his attack to have increased range, deal pure damage based on a percentage of his base damage and slow his target for a short duration. Omniknight heals for %heal_pct%%% of the damage dealt over %heal_duration%s.",
+      "source_file": "sources/hero-57-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "omniknight_degen_aura",
+      "matched_text": "slowing",
+      "evidence_description_en": "Degenerates the movement capabilities of enemy units that stray too near, slowing their movement speed.",
+      "source_file": "sources/hero-57-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "omniknight_degen_aura",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Degenerates the movement capabilities of enemy units that stray too near, slowing their movement speed.",
+      "source_file": "sources/hero-57-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-57-english.json",
+    "sources/hero-57-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

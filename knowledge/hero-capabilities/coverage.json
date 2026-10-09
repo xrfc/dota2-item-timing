@@ -1,0 +1,903 @@
+{
+  "schema": "hero-capability-coverage/1",
+  "heroes_expected": 127,
+  "heroes_built": 127,
+  "source_detail_files": 254,
+  "abilities_built": 734,
+  "catalog_identity_agreements": 127,
+  "missing_english_descriptions": [],
+  "missing_chinese_ability_links": [],
+  "mechanism_assessments_approved": 0,
+  "patch_verified": false,
+  "heroes": [
+    {
+      "hero_id": 1,
+      "name_zh": "敌法师",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 2,
+      "name_zh": "斧王",
+      "abilities": 5,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 3,
+      "name_zh": "祸乱之源",
+      "abilities": 5,
+      "text_signals": 4,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 4,
+      "name_zh": "血魔",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 5,
+      "name_zh": "水晶室女",
+      "abilities": 6,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 6,
+      "name_zh": "卓尔游侠",
+      "abilities": 6,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 7,
+      "name_zh": "撼地者",
+      "abilities": 5,
+      "text_signals": 4,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 8,
+      "name_zh": "主宰",
+      "abilities": 6,
+      "text_signals": 12,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 9,
+      "name_zh": "米拉娜",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 11,
+      "name_zh": "影魔",
+      "abilities": 5,
+      "text_signals": 5,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 10,
+      "name_zh": "变体精灵",
+      "abilities": 6,
+      "text_signals": 4,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 12,
+      "name_zh": "幻影长矛手",
+      "abilities": 5,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 13,
+      "name_zh": "帕克",
+      "abilities": 5,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 14,
+      "name_zh": "帕吉",
+      "abilities": 5,
+      "text_signals": 3,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 15,
+      "name_zh": "雷泽",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 16,
+      "name_zh": "沙王",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 17,
+      "name_zh": "风暴之灵",
+      "abilities": 5,
+      "text_signals": 4,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 18,
+      "name_zh": "斯温",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 19,
+      "name_zh": "小小",
+      "abilities": 7,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 20,
+      "name_zh": "复仇之魂",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 21,
+      "name_zh": "风行者",
+      "abilities": 6,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 22,
+      "name_zh": "宙斯",
+      "abilities": 7,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 23,
+      "name_zh": "昆卡",
+      "abilities": 6,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 25,
+      "name_zh": "莉娜",
+      "abilities": 6,
+      "text_signals": 3,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 31,
+      "name_zh": "巫妖",
+      "abilities": 6,
+      "text_signals": 12,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 26,
+      "name_zh": "莱恩",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 27,
+      "name_zh": "暗影萨满",
+      "abilities": 6,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 28,
+      "name_zh": "斯拉达",
+      "abilities": 5,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 29,
+      "name_zh": "潮汐猎人",
+      "abilities": 6,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 30,
+      "name_zh": "巫医",
+      "abilities": 6,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 32,
+      "name_zh": "力丸",
+      "abilities": 5,
+      "text_signals": 5,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 33,
+      "name_zh": "谜团",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 34,
+      "name_zh": "修补匠",
+      "abilities": 6,
+      "text_signals": 3,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 35,
+      "name_zh": "狙击手",
+      "abilities": 6,
+      "text_signals": 12,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 36,
+      "name_zh": "瘟疫法师",
+      "abilities": 6,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 37,
+      "name_zh": "术士",
+      "abilities": 5,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 38,
+      "name_zh": "兽王",
+      "abilities": 6,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 39,
+      "name_zh": "痛苦女王",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 40,
+      "name_zh": "剧毒术士",
+      "abilities": 5,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 41,
+      "name_zh": "虚空假面",
+      "abilities": 6,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 42,
+      "name_zh": "冥魂大帝",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 43,
+      "name_zh": "死亡先知",
+      "abilities": 5,
+      "text_signals": 5,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 44,
+      "name_zh": "幻影刺客",
+      "abilities": 6,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 45,
+      "name_zh": "帕格纳",
+      "abilities": 5,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 46,
+      "name_zh": "圣堂刺客",
+      "abilities": 6,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 47,
+      "name_zh": "冥界亚龙",
+      "abilities": 6,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 48,
+      "name_zh": "露娜",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 49,
+      "name_zh": "龙骑士",
+      "abilities": 6,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 50,
+      "name_zh": "戴泽",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 51,
+      "name_zh": "发条技师",
+      "abilities": 7,
+      "text_signals": 16,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 52,
+      "name_zh": "拉席克",
+      "abilities": 6,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 53,
+      "name_zh": "自然先知",
+      "abilities": 6,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 54,
+      "name_zh": "噬魂鬼",
+      "abilities": 5,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 55,
+      "name_zh": "黑暗贤者",
+      "abilities": 6,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 56,
+      "name_zh": "克林克兹",
+      "abilities": 7,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 57,
+      "name_zh": "全能骑士",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 58,
+      "name_zh": "魅惑魔女",
+      "abilities": 7,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 59,
+      "name_zh": "哈斯卡",
+      "abilities": 5,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 60,
+      "name_zh": "暗夜魔王",
+      "abilities": 5,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 61,
+      "name_zh": "育母蜘蛛",
+      "abilities": 6,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 62,
+      "name_zh": "赏金猎人",
+      "abilities": 6,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 63,
+      "name_zh": "编织者",
+      "abilities": 5,
+      "text_signals": 5,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 64,
+      "name_zh": "杰奇洛",
+      "abilities": 6,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 65,
+      "name_zh": "蝙蝠骑士",
+      "abilities": 5,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 66,
+      "name_zh": "陈",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 67,
+      "name_zh": "幽鬼",
+      "abilities": 5,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 69,
+      "name_zh": "末日使者",
+      "abilities": 5,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 68,
+      "name_zh": "远古冰魄",
+      "abilities": 5,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 70,
+      "name_zh": "熊战士",
+      "abilities": 5,
+      "text_signals": 5,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 71,
+      "name_zh": "裂魂人",
+      "abilities": 6,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 72,
+      "name_zh": "矮人直升机",
+      "abilities": 6,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 73,
+      "name_zh": "炼金术士",
+      "abilities": 6,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 74,
+      "name_zh": "祈求者",
+      "abilities": 14,
+      "text_signals": 17,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 75,
+      "name_zh": "沉默术士",
+      "abilities": 5,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 76,
+      "name_zh": "殁境神蚀者",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 77,
+      "name_zh": "狼人",
+      "abilities": 6,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 78,
+      "name_zh": "酒仙",
+      "abilities": 5,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 79,
+      "name_zh": "暗影恶魔",
+      "abilities": 6,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 80,
+      "name_zh": "独行德鲁伊",
+      "abilities": 5,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 81,
+      "name_zh": "混沌骑士",
+      "abilities": 5,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 82,
+      "name_zh": "米波",
+      "abilities": 8,
+      "text_signals": 14,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 83,
+      "name_zh": "树精卫士",
+      "abilities": 6,
+      "text_signals": 14,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 84,
+      "name_zh": "食人魔魔法师",
+      "abilities": 7,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 85,
+      "name_zh": "不朽尸王",
+      "abilities": 5,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 86,
+      "name_zh": "拉比克",
+      "abilities": 5,
+      "text_signals": 2,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 87,
+      "name_zh": "干扰者",
+      "abilities": 6,
+      "text_signals": 13,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 88,
+      "name_zh": "司夜刺客",
+      "abilities": 6,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 89,
+      "name_zh": "娜迦海妖",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 90,
+      "name_zh": "光之守卫",
+      "abilities": 7,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 91,
+      "name_zh": "艾欧",
+      "abilities": 7,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 92,
+      "name_zh": "维萨吉",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 93,
+      "name_zh": "斯拉克",
+      "abilities": 6,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 94,
+      "name_zh": "美杜莎",
+      "abilities": 6,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 95,
+      "name_zh": "巨魔战将",
+      "abilities": 6,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 96,
+      "name_zh": "半人马战行者",
+      "abilities": 6,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 97,
+      "name_zh": "马格纳斯",
+      "abilities": 6,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 98,
+      "name_zh": "伐木机",
+      "abilities": 6,
+      "text_signals": 12,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 99,
+      "name_zh": "钢背兽",
+      "abilities": 6,
+      "text_signals": 4,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 100,
+      "name_zh": "巨牙海民",
+      "abilities": 7,
+      "text_signals": 14,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 101,
+      "name_zh": "天怒法师",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 102,
+      "name_zh": "亚巴顿",
+      "abilities": 5,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 103,
+      "name_zh": "上古巨神",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 104,
+      "name_zh": "军团指挥官",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 106,
+      "name_zh": "灰烬之灵",
+      "abilities": 6,
+      "text_signals": 12,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 107,
+      "name_zh": "大地之灵",
+      "abilities": 6,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 109,
+      "name_zh": "恐怖利刃",
+      "abilities": 7,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 110,
+      "name_zh": "凤凰",
+      "abilities": 5,
+      "text_signals": 14,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 111,
+      "name_zh": "神谕者",
+      "abilities": 6,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 105,
+      "name_zh": "工程师",
+      "abilities": 6,
+      "text_signals": 17,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 112,
+      "name_zh": "寒冬飞龙",
+      "abilities": 5,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 113,
+      "name_zh": "天穹守望者",
+      "abilities": 5,
+      "text_signals": 5,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 108,
+      "name_zh": "孽主",
+      "abilities": 5,
+      "text_signals": 6,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 114,
+      "name_zh": "齐天大圣",
+      "abilities": 6,
+      "text_signals": 7,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 120,
+      "name_zh": "石鳞剑士",
+      "abilities": 6,
+      "text_signals": 13,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 119,
+      "name_zh": "邪影芳灵",
+      "abilities": 6,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 121,
+      "name_zh": "天涯墨客",
+      "abilities": 6,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 129,
+      "name_zh": "玛尔斯",
+      "abilities": 5,
+      "text_signals": 11,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 126,
+      "name_zh": "虚无之灵",
+      "abilities": 5,
+      "text_signals": 5,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 128,
+      "name_zh": "电炎绝手",
+      "abilities": 7,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 123,
+      "name_zh": "森海飞霞",
+      "abilities": 7,
+      "text_signals": 15,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 135,
+      "name_zh": "破晓辰星",
+      "abilities": 5,
+      "text_signals": 8,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 136,
+      "name_zh": "玛西",
+      "abilities": 5,
+      "text_signals": 12,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 137,
+      "name_zh": "獸",
+      "abilities": 6,
+      "text_signals": 10,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 138,
+      "name_zh": "琼英碧灵",
+      "abilities": 6,
+      "text_signals": 9,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 131,
+      "name_zh": "百戏大王",
+      "abilities": 10,
+      "text_signals": 21,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 145,
+      "name_zh": "凯",
+      "abilities": 9,
+      "text_signals": 18,
+      "catalog_identity_agreement": true
+    },
+    {
+      "hero_id": 155,
+      "name_zh": "朗戈",
+      "abilities": 8,
+      "text_signals": 14,
+      "catalog_identity_agreement": true
+    }
+  ]
+}

@@ -1,0 +1,1685 @@
+{
+  "hero_id": 18,
+  "npc_name": "npc_dota_hero_sven",
+  "name_zh": "斯温",
+  "name_en": "Sven",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Carry",
+    "Disabler",
+    "Initiator",
+    "Durable",
+    "Nuker"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    2,
+    0,
+    1,
+    2,
+    0,
+    2,
+    0,
+    0,
+    2
+  ],
+  "hero_summary_zh": "斯温总是渴望投入战斗。他在作战中击晕聚拢的敌人，而他一旦激发了终极技能就会大幅提升攻击力，挥舞几下手中的巨剑就能将敌人一一斩落。",
+  "hero_summary_en": "Sven is always eager to charge into a fight. He stuns grouped enemies as he wades into battle, and once he ignites his damage-boosting ultimate, a few swings of his massive sword are often more than enough to slay his foes.",
+  "base_stats": {
+    "attack_range": 150,
+    "damage_min": 61,
+    "damage_max": 63,
+    "attack_rate": 1.9,
+    "movement_speed": 325,
+    "armor": 3,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "sven_storm_bolt",
+      "id": 5094,
+      "name_zh": "风暴之拳",
+      "name_en": "Storm Hammer",
+      "description_zh": "斯温用他充满魔力的手套对目标周围内所有敌人造成伤害和眩晕。",
+      "description_en": "Sven unleashes his magical gauntlet that deals damage and stuns enemy units in a small area around the target.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Increases cast range and applies a basic dispel on the target. Affects invulnerable units. If alt-cast, it deals an additional %scepter_bonus_damage% damage and Sven travels with the Storm Hammer.",
+          "zh": "提升施法距离，并且对目标施加弱驱散效果。可以影响无敌目标。设为多样施法（右键点击技能栏图标）后，额外造成%scepter_bonus_damage%点伤害并且斯温会跟随风暴之拳行进。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        600
+      ],
+      "cooldowns": [
+        21,
+        18,
+        15,
+        12
+      ],
+      "mana_costs": [
+        110
+      ],
+      "cast_points": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "bolt_speed",
+          "values_float": [
+            1000
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            25
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bolt_stun_duration",
+          "values_float": [
+            1,
+            1.25,
+            1.5,
+            1.75
+          ],
+          "is_percentage": false,
+          "heading_loc": "STUN DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_sven_4",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bolt_aoe",
+          "values_float": [
+            250,
+            270,
+            290,
+            310
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "vision_radius",
+          "values_float": [
+            225
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_bonus_damage",
+          "values_float": [
+            180
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_damage_pct",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_sven",
+              "value": 20,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityDamage",
+          "values_float": [
+            80,
+            160,
+            240,
+            320
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            600
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            25
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            110
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_sven_stormhammer_cooldown",
+              "value": 25,
+              "operation": 4
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            21,
+            18,
+            15,
+            12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_sven_stormhammer_cooldown",
+              "value": 25,
+              "operation": 4
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "134217768",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 1,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "sven_great_cleave",
+      "id": 5095,
+      "name_zh": "巨力挥舞",
+      "name_en": "Great Cleave",
+      "description_zh": "斯温以巨力攻击，并对所有附近的敌方单位造成分裂攻击伤害。",
+      "description_en": "Sven strikes with great force, cleaving all nearby enemy units with his attack.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "cleave_starting_width",
+          "values_float": [
+            150
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cleave_ending_width",
+          "values_float": [
+            270,
+            300,
+            330,
+            360
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cleave_distance",
+          "values_float": [
+            400,
+            500,
+            600,
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "CLEAVE DISTANCE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "great_cleave_damage",
+          "values_float": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "is_percentage": true,
+          "heading_loc": "CLEAVE DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_sven_8",
+              "value": 25,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 3,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "sven_warcry",
+      "id": 5096,
+      "name_zh": "战吼",
+      "name_en": "Warcry",
+      "description_zh": "斯温的战吼激励着同伴作战，提升他们的护甲和移动速度。持续%duration%秒。",
+      "description_en": "Sven's Warcry heartens his allied heroes for battle, increasing their armor and movement speed. Lasts %duration% seconds.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Increases radius and bonus movement speed. Warcry is now undispellable and provides a %base_barrier_amount% physical damage barrier.",
+          "zh": "提升作用范围和移动速度加成。现在战吼不可驱散，并提供%base_barrier_amount%点物理伤害护盾。"
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        36,
+        32,
+        28,
+        24
+      ],
+      "mana_costs": [
+        30,
+        35,
+        40,
+        45
+      ],
+      "cast_points": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "movespeed",
+          "values_float": [
+            6,
+            9,
+            12,
+            15
+          ],
+          "is_percentage": true,
+          "heading_loc": "BONUS SPEED:",
+          "bonuses": [],
+          "values_shard": [
+            3
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_armor",
+          "values_float": [
+            5,
+            8,
+            11,
+            14
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS ARMOR:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_sven_7",
+              "value": 8,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "radius",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [
+            200
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            8
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_sven_5",
+              "value": 5,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "shard_passive_armor",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "PASSIVE BONUS ARMOR:",
+          "bonuses": [],
+          "values_shard": [
+            0
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "shard_passive_movespeed",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            0
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "undispellable",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            1
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "shard_radius",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "PASSIVE RADIUS:",
+          "bonuses": [],
+          "values_shard": [
+            0
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "base_barrier_amount",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "PHYSICAL BARRIER AMOUNT:",
+          "bonuses": [],
+          "values_shard": [
+            300
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "barrier_per_strength",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            0
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            30,
+            35,
+            40,
+            45
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            36,
+            32,
+            28,
+            24
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2052",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 1,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "sven_gods_strength",
+      "id": 5097,
+      "name_zh": "神之力量",
+      "name_en": "God's Strength",
+      "description_zh": "斯温爆发出他流浪剑客的力量，获得攻击力加成和减速抗性，持续%abilityduration%秒。",
+      "description_en": "Sven channels his rogue strength, granting bonus damage and slow resistance for %abilityduration% seconds.",
+      "notes_zh": [
+        "额外攻击力是基于斯温的基础攻击力和主属性数值。"
+      ],
+      "notes_en": [
+        "The bonus damage is based on base damage and the primary attribute of Sven."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        110,
+        105,
+        100
+      ],
+      "mana_costs": [
+        100,
+        125,
+        150
+      ],
+      "cast_points": [
+        0.3,
+        0.3,
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "gods_strength_damage",
+          "values_float": [
+            110,
+            150,
+            190
+          ],
+          "is_percentage": true,
+          "heading_loc": "BONUS DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_sven_2",
+              "value": 50,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_slow_resistance",
+          "values_float": [
+            40
+          ],
+          "is_percentage": true,
+          "heading_loc": "SLOW RESISTANCE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_sven_gods_strength_slow_resist",
+              "value": 20,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityDuration",
+          "values_float": [
+            30
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            100,
+            125,
+            150
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            110,
+            105,
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_sven_3",
+              "value": 12,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "134217732",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 3,
+        "max_level": 3
+      }
+    },
+    {
+      "name": "sven_wrath_of_god",
+      "id": 1234,
+      "name_zh": "神之愤怒",
+      "name_en": "Wrath of God",
+      "description_zh": "斯温从力量中获得额外攻击力。",
+      "description_en": "Sven gains additional attack damage from Strength.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "bonus_damage_per_str",
+          "values_float": [
+            0.08
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE PER STRENGTH:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "current_bonus_damage_tooltip",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "CURRENT DAMAGE BONUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "562949953421315",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 1
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 673,
+      "name": "special_bonus_unique_sven_5",
+      "name_loc": "+{s:bonus_duration}s Warcry Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1188,
+      "name": "special_bonus_unique_sven_gods_strength_slow_resist",
+      "name_loc": "+{s:bonus_bonus_slow_resistance}% God's Strength Slow Resistance",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6911,
+      "name": "special_bonus_unique_sven_3",
+      "name_loc": "-{s:bonus_AbilityCooldown}s God's Strength Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 763,
+      "name": "special_bonus_unique_sven_8",
+      "name_loc": "+{s:bonus_great_cleave_damage}% Great Cleave Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1790,
+      "name": "special_bonus_unique_sven_stormhammer_cooldown",
+      "name_loc": "-{s:bonus_AbilityCooldown}% Storm Hammer Cooldown and Mana Cost",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 716,
+      "name": "special_bonus_unique_sven_7",
+      "name_loc": "+{s:bonus_bonus_armor} Warcry Armor",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6910,
+      "name": "special_bonus_unique_sven_2",
+      "name_loc": "+{s:bonus_gods_strength_damage}% God's Strength Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7112,
+      "name": "special_bonus_unique_sven_4",
+      "name_loc": "+{s:bonus_bolt_stun_duration}s Storm Hammer Stun Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "stun",
+      "dimension_zh": "眩晕",
+      "ability": "sven_storm_bolt",
+      "matched_text": "stuns",
+      "evidence_description_en": "Sven unleashes his magical gauntlet that deals damage and stuns enemy units in a small area around the target.",
+      "source_file": "sources/hero-18-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "sven_storm_bolt",
+      "matched_text": "area",
+      "evidence_description_en": "Sven unleashes his magical gauntlet that deals damage and stuns enemy units in a small area around the target.",
+      "source_file": "sources/hero-18-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "attack_interaction",
+      "dimension_zh": "攻击机制",
+      "ability": "sven_great_cleave",
+      "matched_text": "cleaving",
+      "evidence_description_en": "Sven strikes with great force, cleaving all nearby enemy units with his attack.",
+      "source_file": "sources/hero-18-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "sven_great_cleave",
+      "matched_text": "nearby",
+      "evidence_description_en": "Sven strikes with great force, cleaving all nearby enemy units with his attack.",
+      "source_file": "sources/hero-18-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "armor_interaction",
+      "dimension_zh": "护甲机制",
+      "ability": "sven_warcry",
+      "matched_text": "armor",
+      "evidence_description_en": "Sven's Warcry heartens his allied heroes for battle, increasing their armor and movement speed. Lasts %duration% seconds.",
+      "source_file": "sources/hero-18-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "sven_warcry",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Sven's Warcry heartens his allied heroes for battle, increasing their armor and movement speed. Lasts %duration% seconds.",
+      "source_file": "sources/hero-18-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "sven_gods_strength",
+      "matched_text": "slow",
+      "evidence_description_en": "Sven channels his rogue strength, granting bonus damage and slow resistance for %abilityduration% seconds.",
+      "source_file": "sources/hero-18-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-18-english.json",
+    "sources/hero-18-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-10",
+  "reviewed_base_commit": "d0be28252e16d67b2ba7e18252825b5a02ea955f",
+  "scope": "Local repository migration checks, not remote CI or semantic admission",
+  "engineering_tests_passed": 122,
+  "learning_tests_passed": 10,
+  "knowledge_tests_passed": 12,
+  "javascript_tests_passed": 6,
+  "lint_and_format": "passed",
+  "source_snapshots_unchanged": "passed",
+  "heroes": 127,
+  "skills": 734,
+  "cold_start_candidates": 734,
+  "training_allowed": false,
+  "event_lineage_checks_passed": 18,
+  "event_lineage_scope": "Saved Gem JSON recanonicalization, cleaning and exact sample reproduction; no binary reparse or client semantic check",
+  "relative_links_checked": 1961,
+  "broken_relative_links": [],
+  "doctor_scope": "Initialized empty disposable workspace; 0 matches validated",
+  "external_links_and_anchors": "not checked in this local relative-path scan",
+  "frozen_candidate_bytes": "SHA-256 matches manifest; raw sources and frozen candidates disable Git newline conversion"
+}

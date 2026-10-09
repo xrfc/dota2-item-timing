@@ -1,0 +1,1948 @@
+{
+  "hero_id": 88,
+  "npc_name": "npc_dota_hero_nyx_assassin",
+  "name_zh": "司夜刺客",
+  "name_en": "Nyx Assassin",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Disabler",
+    "Nuker",
+    "Initiator",
+    "Escape"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    1,
+    0,
+    2
+  ],
+  "hero_summary_zh": "司夜刺客永远都在猎杀脆弱的目标。他无形地潜行在丛林中，寻找着他的猎物，他运用致命的利爪偷袭他们，刺人的尖刺让他们动弹不得，反弹的外壳还可以逆转一切反击。",
+  "hero_summary_en": "Nyx Assassin is always hunting for fragile targets. Sneaking invisibly through the forest, when he spots his prey, he swipes them with his deadly claws and impales them on stunning spikes, then reverses any counterattack with his reflecting carapace.",
+  "base_stats": {
+    "attack_range": 150,
+    "damage_min": 26,
+    "damage_max": 30,
+    "attack_rate": 1.7,
+    "movement_speed": 310,
+    "armor": 4,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "nyx_assassin_impale",
+      "id": 5462,
+      "name_zh": "穿刺",
+      "name_en": "Impale",
+      "description_zh": "岩石尖刺在地上沿一条直线穿刺而出。敌方单位受到伤害，然后被抛向空中，落地时被眩晕。",
+      "description_en": "Rock spikes burst from the earth along a straight path. Enemy units take damage, then are hurled into the air and stunned.",
+      "notes_zh": [
+        "尖刺的移动速度是每秒%speed%，最远作用距离为%length%。",
+        "穿刺不会被林肯法球格挡。"
+      ],
+      "notes_en": [
+        "The spikes move at %speed% units per second, over %length% range.",
+        "Impale cannot be blocked by Linken's Sphere."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        750
+      ],
+      "cooldowns": [
+        17,
+        15,
+        13,
+        11
+      ],
+      "mana_costs": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "cast_points": [
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "width",
+          "values_float": [
+            140
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            1.1,
+            1.4,
+            1.7,
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "STUN DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_nyx_3",
+              "value": 0.2,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "length",
+          "values_float": [
+            750
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "speed",
+          "values_float": [
+            1600
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "impale_damage",
+          "values_float": [
+            100,
+            160,
+            220,
+            280
+          ],
+          "is_percentage": false,
+          "heading_loc": "IMPALE DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_nyx_2",
+              "value": 140,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            750
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            90,
+            100,
+            110,
+            120
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            17,
+            15,
+            13,
+            11
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "134217744",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 1,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "nyx_assassin_jolt",
+      "id": 1104,
+      "name_zh": "神智爆裂",
+      "name_en": "Mind Flare",
+      "description_zh": "造成等同于目标最大魔法值一定百分比的伤害，并燃烧部分魔法。另外还会根据过去%damage_echo_duration%秒内目标受到来自司夜刺客的伤害再造成一定百分比的伤害。施加伤害前会重置累计伤害。",
+      "description_en": "Deals damage equal to a percentage of the target's Max Mana and burns part of it away. Deals additional damage equal to a percentage of the damage the target has taken from Nyx Assassin in the last %damage_echo_duration%s. Resets accumulated damage before applying damage.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "Mind Flare burns mana equal to a percentage of the target's max mana.",
+        ""
+      ],
+      "facet_text_zh": [
+        "神智爆裂会燃烧相当于目标最大魔法值一定百分比的魔法。",
+        ""
+      ],
+      "cast_ranges": [
+        800
+      ],
+      "cooldowns": [
+        11,
+        9.5,
+        8,
+        6.5
+      ],
+      "mana_costs": [
+        100,
+        105,
+        110,
+        115
+      ],
+      "cast_points": [
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "max_mana_as_damage_pct",
+          "values_float": [
+            25,
+            30,
+            35,
+            40
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX MANA AS DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "mana_burn_pct",
+          "values_float": [
+            9,
+            12,
+            15,
+            18
+          ],
+          "is_percentage": true,
+          "heading_loc": "MANA BURNT:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "aoe",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_nyx",
+              "value": 600,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_echo_duration",
+          "values_float": [
+            15
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_echo_pct",
+          "values_float": [
+            15
+          ],
+          "is_percentage": true,
+          "heading_loc": "BONUS DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            800
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            100,
+            105,
+            110,
+            115
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            11,
+            9.5,
+            8,
+            6.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_nyx_jolt_cooldown",
+              "value": 3,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "134217768",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "nyx_assassin_spiked_carapace",
+      "id": 5464,
+      "name_zh": "尖刺外壳",
+      "name_en": "Spiked Carapace",
+      "description_zh": "激活状态下，尖刺外壳可以反弹并无效化司夜刺客受到的伤害（每个攻击者最多作用一次），同时眩晕攻击者。激活尖刺外壳不会打破复仇的隐身状态。\n\n钻地状态下尖刺外壳施放后将立刻眩晕周围的敌人。",
+      "description_en": "When activated while above ground, Spiked Carapace reflects and negates damage dealt to Nyx Assassin (max once from each source), as well as stunning the source of the damage. Activating Spiked Carapace will not break Vendetta invisibility.\n\nWhile Burrowed, Spiked Carapace instantly stuns nearby enemies when cast.",
+      "notes_zh": [
+        "反弹的伤害与司夜刺客本应受到的实际伤害相同。",
+        "尖刺外壳只有在受到玩家控制来源的伤害后会反弹。",
+        "反弹的伤害与司夜刺客受到的伤害类型相同。",
+        "这个技能造成的伤害被视为反弹伤害。反弹伤害不提供任何吸血，而且无法反弹。"
+      ],
+      "notes_en": [
+        "The damage is calculated after all reductions.",
+        "Spiked Carapace will only trigger on damage from other player controlled sources.",
+        "The damage reflected will have the same damage type as it had when it was dealt to Nyx Assassin.",
+        "Damage done by this ability is considered reflected damage. Reflected damage does not provide any lifesteal and cannot be reflected."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        20,
+        16,
+        12,
+        8
+      ],
+      "mana_costs": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "cast_points": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "reflect_duration",
+          "values_float": [
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "REFLECT DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "stun_duration",
+          "values_float": [
+            0.7,
+            1,
+            1.3,
+            1.6
+          ],
+          "is_percentage": false,
+          "heading_loc": "STUN DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_nyx_6",
+              "value": 0.6,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_reflect_pct",
+          "values_float": [
+            140
+          ],
+          "is_percentage": true,
+          "heading_loc": "DAMAGE REFLECTED:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_nyx_4",
+              "value": 25,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            40
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            20,
+            16,
+            12,
+            8
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2052",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 4,
+        "dispellable": 3,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "nyx_assassin_burrow",
+      "id": 5666,
+      "name_zh": "钻地",
+      "name_en": "Burrow",
+      "description_zh": "司夜刺客经过短时间的掘地后钻入地下。钻地后尖刺外壳一施放就会直接眩晕附近所有敌人，神智爆裂和穿刺的施法距离提升，穿刺的冷却时间减少。钻地后司夜刺客固定在原地，无法攻击，并且是隐身状态。同时司夜刺客受到的所有伤害都会降低。",
+      "description_en": "Nyx Assassin buries himself beneath the battlefield over a short duration. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mind Flare and Impale is increased, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. Nyx Assassin gains damage reduction from all damage sources.",
+      "notes_zh": [
+        "施放复仇将取消钻地状态。"
+      ],
+      "notes_en": [
+        "Casting Vendetta will cancel burrow."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": false,
+      "granted_by_scepter": true,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        1.5
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "health_regen_rate",
+          "values_float": [
+            1
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX HP REGEN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "mana_regen_rate",
+          "values_float": [
+            1
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX MANA REGEN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_reduction",
+          "values_float": [
+            40
+          ],
+          "is_percentage": true,
+          "heading_loc": "BURROW DAMAGE REDUCTION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cast_range",
+          "values_float": [
+            500
+          ],
+          "is_percentage": false,
+          "heading_loc": "BURROW BONUS CAST RANGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cooldown_reduction",
+          "values_float": [
+            25
+          ],
+          "is_percentage": true,
+          "heading_loc": "BURROW BONUS COOLDOWN REDUCTION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "carapace_radius",
+          "values_float": [
+            400
+          ],
+          "is_percentage": false,
+          "heading_loc": "BURROW SPIKED CARAPACE RANGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            1.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8589934597",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 3,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "nyx_assassin_neuro_sting",
+      "id": 1767,
+      "name_zh": "法力燃烧",
+      "name_en": "Mana Burn",
+      "description_zh": "司夜刺客对敌人造成伤害还会燃烧造成伤害一定百分比的魔法。",
+      "description_en": "Nyx Assassin's damage on enemies also burns mana as a percentage of the damage dealt.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "mana_burn_pct",
+          "values_float": [
+            12
+          ],
+          "is_percentage": true,
+          "heading_loc": "MANA BURN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "562949953421315",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 3,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "nyx_assassin_vendetta",
+      "id": 5465,
+      "name_zh": "复仇",
+      "name_en": "Vendetta",
+      "description_zh": "司夜刺客进入隐身状态并获得移动速度加成。如果司夜刺客以攻击打破隐身，当次攻击将造成超高额外伤害，并对目标施加破坏效果。司夜刺客当次攻击具有%attack_range_bonus%额外攻击距离，并且攻击动作加快%attack_animation_bonus%%%。",
+      "description_en": "Nyx Assassin becomes invisible and gains a speed bonus. If Nyx Assassin attacks to break the invisibility, massive bonus damage is dealt with the attack that applies a break to the target. Nyx Assassin has %attack_range_bonus% additional attack range and a %attack_animation_bonus%%% faster attack animation for this attack.",
+      "notes_zh": [
+        "如果在隐身期间使用了技能，或者隐身时间结束，额外伤害的效果将会消失。",
+        "会在造成额外伤害前施加破坏效果。"
+      ],
+      "notes_en": [
+        "If a spell is used to break the invisibility, or the invisibility expires, the bonus damage is lost.",
+        "With Aghanim's Shard, the Break is applied before the bonus damage."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/5",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Decreases cooldown by %bonus_AbilityCooldown%s. For the first %free_pathing_duration%s of Vendetta, Nyx is hasted and has unobstructed pathing.",
+          "zh": "冷却时间减少%bonus_AbilityCooldown%秒。在复仇的最初%free_pathing_duration%秒内，司夜刺客为极速状态，并且移动无视地形。"
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        80,
+        70,
+        60
+      ],
+      "mana_costs": [
+        180,
+        240,
+        300
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "duration",
+          "values_float": [
+            45,
+            50,
+            55
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "movement_speed",
+          "values_float": [
+            16,
+            18,
+            20
+          ],
+          "is_percentage": true,
+          "heading_loc": "MOVEMENT SPEED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_damage",
+          "values_float": [
+            300,
+            400,
+            500
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_nyx_vendetta_damage",
+              "value": 50,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "health_regen_rate_scepter",
+          "values_float": [
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "mana_regen_rate_scepter",
+          "values_float": [
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "break_duration",
+          "values_float": [
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "BREAK DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "free_pathing_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            15
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "free_pathing_movement_speed_bonus",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            200
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "attack_animation_bonus",
+          "values_float": [
+            70
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "attack_range_bonus",
+          "values_float": [
+            75
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            180,
+            240,
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            80,
+            70,
+            60
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            10
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "4196356",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 4,
+        "immunity": 3,
+        "dispellable": 3,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 402,
+      "name": "special_bonus_unique_nyx_4",
+      "name_loc": "+{s:bonus_damage_reflect_pct}% Spiked Carapace Damage Reflect",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6814,
+      "name": "special_bonus_unique_nyx_3",
+      "name_loc": "+{s:bonus_duration}s Impale Stun Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1171,
+      "name": "special_bonus_unique_nyx_vendetta_damage",
+      "name_loc": "+{s:bonus_bonus_damage} Vendetta Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1368,
+      "name": "special_bonus_unique_nyx_jolt_cooldown",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Mind Flare Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 891,
+      "name": "special_bonus_unique_nyx_6",
+      "name_loc": "+{s:bonus_stun_duration}s Spiked Carapace Stun Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6399,
+      "name": "special_bonus_unique_nyx_2",
+      "name_loc": "+{s:bonus_impale_damage} Impale Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6130,
+      "name": "special_bonus_unique_nyx",
+      "name_loc": "{s:bonus_aoe} Mind Flare Radius",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 435,
+      "name": "special_bonus_agility_80",
+      "name_loc": "+{s:value} Agility",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            80
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "stun",
+      "dimension_zh": "眩晕",
+      "ability": "nyx_assassin_impale",
+      "matched_text": "stunned",
+      "evidence_description_en": "Rock spikes burst from the earth along a straight path. Enemy units take damage, then are hurled into the air and stunned.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mana_interaction",
+      "dimension_zh": "魔法值机制",
+      "ability": "nyx_assassin_jolt",
+      "matched_text": "Mana",
+      "evidence_description_en": "Deals damage equal to a percentage of the target's Max Mana and burns part of it away. Deals additional damage equal to a percentage of the damage the target has taken from Nyx Assassin in the last %damage_echo_duration%s. Resets accumulated damage before applying damage.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "stun",
+      "dimension_zh": "眩晕",
+      "ability": "nyx_assassin_spiked_carapace",
+      "matched_text": "stunning",
+      "evidence_description_en": "When activated while above ground, Spiked Carapace reflects and negates damage dealt to Nyx Assassin (max once from each source), as well as stunning the source of the damage. Activating Spiked Carapace will not break Vendetta invisibility.\n\nWhile Burrowed, Spiked Carapace instantly stuns nearby enemies when cast.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "nyx_assassin_spiked_carapace",
+      "matched_text": "nearby",
+      "evidence_description_en": "When activated while above ground, Spiked Carapace reflects and negates damage dealt to Nyx Assassin (max once from each source), as well as stunning the source of the damage. Activating Spiked Carapace will not break Vendetta invisibility.\n\nWhile Burrowed, Spiked Carapace instantly stuns nearby enemies when cast.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "invisibility",
+      "dimension_zh": "隐身相关",
+      "ability": "nyx_assassin_spiked_carapace",
+      "matched_text": "invisibility",
+      "evidence_description_en": "When activated while above ground, Spiked Carapace reflects and negates damage dealt to Nyx Assassin (max once from each source), as well as stunning the source of the damage. Activating Spiked Carapace will not break Vendetta invisibility.\n\nWhile Burrowed, Spiked Carapace instantly stuns nearby enemies when cast.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "stun",
+      "dimension_zh": "眩晕",
+      "ability": "nyx_assassin_burrow",
+      "matched_text": "stuns",
+      "evidence_description_en": "Nyx Assassin buries himself beneath the battlefield over a short duration. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mind Flare and Impale is increased, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. Nyx Assassin gains damage reduction from all damage sources.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": true,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "disarm",
+      "dimension_zh": "缴械",
+      "ability": "nyx_assassin_burrow",
+      "matched_text": "unable to attack",
+      "evidence_description_en": "Nyx Assassin buries himself beneath the battlefield over a short duration. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mind Flare and Impale is increased, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. Nyx Assassin gains damage reduction from all damage sources.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": true,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "nyx_assassin_burrow",
+      "matched_text": "nearby",
+      "evidence_description_en": "Nyx Assassin buries himself beneath the battlefield over a short duration. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mind Flare and Impale is increased, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. Nyx Assassin gains damage reduction from all damage sources.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": true,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "invisibility",
+      "dimension_zh": "隐身相关",
+      "ability": "nyx_assassin_burrow",
+      "matched_text": "invisible",
+      "evidence_description_en": "Nyx Assassin buries himself beneath the battlefield over a short duration. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mind Flare and Impale is increased, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. Nyx Assassin gains damage reduction from all damage sources.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": true,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mana_interaction",
+      "dimension_zh": "魔法值机制",
+      "ability": "nyx_assassin_neuro_sting",
+      "matched_text": "mana",
+      "evidence_description_en": "Nyx Assassin's damage on enemies also burns mana as a percentage of the damage dealt.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "invisibility",
+      "dimension_zh": "隐身相关",
+      "ability": "nyx_assassin_vendetta",
+      "matched_text": "invisible",
+      "evidence_description_en": "Nyx Assassin becomes invisible and gains a speed bonus. If Nyx Assassin attacks to break the invisibility, massive bonus damage is dealt with the attack that applies a break to the target. Nyx Assassin has %attack_range_bonus% additional attack range and a %attack_animation_bonus%%% faster attack animation for this attack.",
+      "source_file": "sources/hero-88-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/5/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-88-english.json",
+    "sources/hero-88-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

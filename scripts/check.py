@@ -27,6 +27,9 @@ def main() -> int:
         )
     if args.scope in ("all", "learning"):
         commands.append([python, "-m", "unittest", "discover", "-s", "learning/tests", "-q"])
+        commands.append(
+            [python, "-m", "unittest", "discover", "-s", "knowledge/hero-capabilities", "-q"]
+        )
         node = shutil.which("node")
         if node:
             commands.extend(

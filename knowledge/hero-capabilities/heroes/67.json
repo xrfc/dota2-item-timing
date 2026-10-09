@@ -1,0 +1,1938 @@
+{
+  "hero_id": 67,
+  "npc_name": "npc_dota_hero_spectre",
+  "name_zh": "幽鬼",
+  "name_en": "Spectre",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Carry",
+    "Durable",
+    "Escape"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0
+  ],
+  "hero_summary_zh": "与幽鬼为敌就休想摆脱她的鬼影。她的存在可以笼罩整片战场，轻松毁灭落单的猎物。一旦让她完成力量的积聚，谁也逃不过她可怕的惩罚。",
+  "hero_summary_en": "Spectre haunts her enemies wherever they may be. Able to destroy lone prey with ease, she spreads her presence throughout the battlefield to choose her target. Once she has gathered her strength, none can escape her terrible wrath.",
+  "base_stats": {
+    "attack_range": 150,
+    "damage_min": 52,
+    "damage_max": 56,
+    "attack_rate": 1.8,
+    "movement_speed": 295,
+    "armor": 4.8333335,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "spectre_spectral_dagger",
+      "id": 5334,
+      "name_zh": "幽鬼之刃",
+      "name_en": "Spectral Dagger",
+      "description_zh": "幽鬼掷出一把匕首，留下一条暗影之径，对路径上的敌人造成伤害并减缓其移动速度。被匕首击中的单位移动时也会留下暗影之径。幽鬼在暗影之径上移速提升，并且可以无视地形移动。",
+      "description_en": "Spectre flings a dagger to draw a Shadow Path, dealing damage and slowing the movement speed of any enemies along the trail. Units hit by the dagger also trail a Shadow Path. While treading the path, Spectre moves faster and phases through otherwise impassable terrain.",
+      "notes_zh": [
+        "在离开暗影之径后%dagger_grace_period%秒内碰撞体积依然为0，作为缓冲时间。",
+        "不会触发法术抵抗或法术反弹。"
+      ],
+      "notes_en": [
+        "There is a %dagger_grace_period% second grace period after leaving the path where no collision is preserved.",
+        "Does not trigger spell block or spell reflect."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        1800
+      ],
+      "cooldowns": [
+        22,
+        20,
+        18,
+        16
+      ],
+      "mana_costs": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "cast_points": [
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "damage",
+          "values_float": [
+            80,
+            120,
+            160,
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spectre_6",
+              "value": 80,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_movespeed",
+          "values_float": [
+            14,
+            16,
+            18,
+            20
+          ],
+          "is_percentage": true,
+          "heading_loc": "MOVEMENT SPEED CHANGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spectre_3",
+              "value": 15,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "dagger_path_duration",
+          "values_float": [
+            12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "hero_path_duration",
+          "values_float": [
+            7
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "buff_persistence",
+          "values_float": [
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "dagger_radius",
+          "values_float": [
+            125
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "path_radius",
+          "values_float": [
+            175
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "vision_radius",
+          "values_float": [
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "speed",
+          "values_float": [
+            800
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "dagger_grace_period",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            1800
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            22,
+            20,
+            18,
+            16
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spectre",
+              "value": 3,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "24",
+        "target_team": 2,
+        "target_type": 1,
+        "damage": 2,
+        "immunity": 0,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "spectre_shadow_step",
+      "id": 1679,
+      "name_zh": "如影随形",
+      "name_en": "Shadow Step",
+      "description_zh": "对目标制造一个无法控制的幻象，对其进行攻击。子技能空降可以将本体传送至幻象，并将其摧毁。",
+      "description_en": "Sends an uncontrollable illusion at a target that follows and attacks the target.The Reality sub-ability may be used to teleport to the illusion, destroying it.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        1000
+      ],
+      "cooldowns": [
+        24,
+        21,
+        18,
+        15
+      ],
+      "mana_costs": [
+        60,
+        65,
+        70,
+        75
+      ],
+      "cast_points": [
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "duration",
+          "values_float": [
+            3.5,
+            4,
+            4.5,
+            5
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spectre_shadow_step_duration",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_damage_incoming",
+          "values_float": [
+            75
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "tooltip_illusion_total_damage_incoming",
+          "values_float": [
+            175
+          ],
+          "is_percentage": true,
+          "heading_loc": "ILLUSION DAMAGE TAKEN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_outgoing_damage",
+          "values_float": [
+            35,
+            40,
+            45,
+            50
+          ],
+          "is_percentage": true,
+          "heading_loc": "ILLUSION DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "move_speed",
+          "values_float": [
+            900
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_move_speed_illusion_pct",
+          "values_float": [
+            35
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            1000
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            60,
+            65,
+            70,
+            75
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            24,
+            21,
+            18,
+            15
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "40",
+        "target_team": 2,
+        "target_type": 1,
+        "damage": 0,
+        "immunity": 3,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "spectre_dispersion",
+      "id": 5336,
+      "name_zh": "折射",
+      "name_en": "Dispersion",
+      "description_zh": "幽灵会分散对她造成的部分伤害，将其反弹给附近的所有敌人。敌人离她越远，受到的伤害越低。",
+      "description_en": "Spectre disperses part of the damage dealt to her, reflecting it to all nearby enemies. The effect lessens with distance.",
+      "notes_zh": [
+        "幽鬼本身不承受被折射的伤害。",
+        "幻象并不继承此技能。",
+        "伤害在减免前折射，并且折射的伤害与原伤害类型相同。",
+        "这个技能造成的伤害被视为反弹伤害。反弹伤害不提供任何吸血，而且无法反弹。"
+      ],
+      "notes_en": [
+        "The reflected damage is not dealt to Spectre.",
+        "Illusions don't get this ability.",
+        "Damage is reflected before reductions, and is returned as the same damage type.",
+        "Damage done by this ability is considered reflected damage. Reflected damage does not provide any lifesteal and cannot be reflected."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Dispersion can be activated to increase the amount absorbed and reflected by Dispersion by %activation_bonus_pct%%% of its base values for %activation_duration%s. Cooldown %activation_cooldown%. Manacost %activation_manacost%.",
+          "zh": "折射可以主动施放，吸收和反弹的伤害比例提升%activation_bonus_pct%%%，持续%activation_duration%秒。冷却时间为%activation_cooldown%秒。魔法消耗为%activation_manacost%点。"
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "damage_reflection_pct",
+          "values_float": [
+            9,
+            12,
+            15,
+            18
+          ],
+          "is_percentage": true,
+          "heading_loc": "DAMAGE REFLECTED:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spectre_5",
+              "value": 4,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "min_radius",
+          "values_float": [
+            350
+          ],
+          "is_percentage": false,
+          "heading_loc": "MIN RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "max_radius",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "MAX RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "activation_cooldown",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            25
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "activation_manacost",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            50
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "activation_bonus_pct",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            50
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "activation_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            5
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 3,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "spectre_desolate",
+      "id": 5335,
+      "name_zh": "荒芜",
+      "name_en": "Desolate",
+      "description_zh": "当敌人附近%radius%范围内没有他们的友军时，幽鬼和她的幻象的攻击对他们造成额外纯粹伤害。",
+      "description_en": "Spectre and her illusions deal bonus Pure damage if attacking an enemy that does not have any allied units within a %radius% radius around them.",
+      "notes_zh": [
+        "伤害在幽鬼攻击前产生。",
+        "幽鬼的幻象继承荒芜。"
+      ],
+      "notes_en": [
+        "Damage is dealt before Spectre's attack.",
+        "Spectre's illusions also have Desolate."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "Spectre deals %bonus_damage_multiplier_tooltip%x damage with Desolate. Spectre's illusions no longer have Desolate.",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "幽鬼自身的荒芜造成%bonus_damage_multiplier_tooltip%倍伤害，但是幽鬼的幻象不再触发荒芜。",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "bonus_damage",
+          "values_float": [
+            23.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spectre_2",
+              "value": 12,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "radius",
+          "values_float": [
+            350
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_damage_outgoing",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_spectre_4",
+              "value": 12,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "562949953421315",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 4,
+        "immunity": 3,
+        "dispellable": 0,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "spectre_haunt",
+      "id": 5337,
+      "name_zh": "鬼影重重",
+      "name_en": "Haunt",
+      "description_zh": "创造一个复仇鬼影分别攻击每个敌方英雄。鬼影无法控制，受到额外伤害，造成的伤害低于幽鬼本体。鬼影移动无视地形。子技能空降可以将本体传送至幻象，并将其摧毁。",
+      "description_en": "Creates a spectral nemesis to haunt all enemy Heroes.Haunt illusions are uncontrollable, take extra damage, and deal less damage than Spectre herself.  They ignore terrain.The Reality sub-ability may be used to teleport to the illusion, destroying it.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "The first time Spectre uses Reality on a Haunt illusion, enemies in a %fear_aoe% area around the target are Feared away from Spectre for %fear_duration%s and have their movement speed slowed by %fear_movespeed_slow%%%.Reduces cooldown by %scepter_cooldown_reduction_tooltip%s.",
+          "zh": "幽鬼第一次对鬼影重重的幻象使用空降时，目标附近%fear_aoe%范围内的敌人会被恐惧，朝远离幽鬼的方向奔跑%fear_duration%秒，并且移动速度降低%fear_movespeed_slow%%%。冷却时间减少%scepter_cooldown_reduction_tooltip%秒。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        160,
+        150,
+        140
+      ],
+      "mana_costs": [
+        125,
+        175,
+        225
+      ],
+      "cast_points": [
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "scepter_cooldown_reduction_tooltip",
+          "values_float": [
+            20
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            6
+          ],
+          "is_percentage": false,
+          "heading_loc": "HAUNT DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_damage_outgoing",
+          "values_float": [
+            -65,
+            -50,
+            -35
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "tooltip_outgoing",
+          "values_float": [
+            35,
+            50,
+            65
+          ],
+          "is_percentage": true,
+          "heading_loc": "HAUNT DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_damage_incoming",
+          "values_float": [
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "tooltip_illusion_total_damage_incoming",
+          "values_float": [
+            200
+          ],
+          "is_percentage": true,
+          "heading_loc": "HAUNT DAMAGE TAKEN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "destroy_if_target_is_dead",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "spectre_twist_the_knife",
+            "values": [
+              0
+            ],
+            "operation": 5
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "fear_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            2
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "fear_aoe",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            400
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "fear_movespeed_slow",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            50
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            125,
+            175,
+            225
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            160,
+            150,
+            140
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            20
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "4",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 3,
+        "dispellable": 0,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 6148,
+      "name": "special_bonus_unique_spectre",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Spectral Dagger Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6900,
+      "name": "special_bonus_unique_spectre_2",
+      "name_loc": "+{s:bonus_bonus_damage} Desolate Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1705,
+      "name": "special_bonus_unique_spectre_shadow_step_duration",
+      "name_loc": "+{s:bonus_duration}s Shadow Step Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 8040,
+      "name": "special_bonus_unique_spectre_6",
+      "name_loc": "+{s:bonus_damage} Spectral Dagger Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 5993,
+      "name": "special_bonus_hp_300",
+      "name_loc": "+{s:value} Health",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6901,
+      "name": "special_bonus_unique_spectre_3",
+      "name_loc": "+{s:bonus_bonus_movespeed}% Spectral Dagger Slow/Bonus",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6902,
+      "name": "special_bonus_unique_spectre_4",
+      "name_loc": "+{s:bonus_illusion_damage_outgoing}% All Spectre Illusion Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6903,
+      "name": "special_bonus_unique_spectre_5",
+      "name_loc": "+{s:bonus_damage_reflection_pct}% Dispersion",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "spectre_spectral_dagger",
+      "matched_text": "slowing",
+      "evidence_description_en": "Spectre flings a dagger to draw a Shadow Path, dealing damage and slowing the movement speed of any enemies along the trail. Units hit by the dagger also trail a Shadow Path. While treading the path, Spectre moves faster and phases through otherwise impassable terrain.",
+      "source_file": "sources/hero-67-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "spectre_spectral_dagger",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Spectre flings a dagger to draw a Shadow Path, dealing damage and slowing the movement speed of any enemies along the trail. Units hit by the dagger also trail a Shadow Path. While treading the path, Spectre moves faster and phases through otherwise impassable terrain.",
+      "source_file": "sources/hero-67-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "spectre_shadow_step",
+      "matched_text": "teleport",
+      "evidence_description_en": "Sends an uncontrollable illusion at a target that follows and attacks the target.The Reality sub-ability may be used to teleport to the illusion, destroying it.",
+      "source_file": "sources/hero-67-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "spectre_shadow_step",
+      "matched_text": "illusion",
+      "evidence_description_en": "Sends an uncontrollable illusion at a target that follows and attacks the target.The Reality sub-ability may be used to teleport to the illusion, destroying it.",
+      "source_file": "sources/hero-67-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "spectre_dispersion",
+      "matched_text": "nearby",
+      "evidence_description_en": "Spectre disperses part of the damage dealt to her, reflecting it to all nearby enemies. The effect lessens with distance.",
+      "source_file": "sources/hero-67-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "spectre_desolate",
+      "matched_text": "radius",
+      "evidence_description_en": "Spectre and her illusions deal bonus Pure damage if attacking an enemy that does not have any allied units within a %radius% radius around them.",
+      "source_file": "sources/hero-67-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "spectre_desolate",
+      "matched_text": "illusions",
+      "evidence_description_en": "Spectre and her illusions deal bonus Pure damage if attacking an enemy that does not have any allied units within a %radius% radius around them.",
+      "source_file": "sources/hero-67-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "spectre_haunt",
+      "matched_text": "teleport",
+      "evidence_description_en": "Creates a spectral nemesis to haunt all enemy Heroes.Haunt illusions are uncontrollable, take extra damage, and deal less damage than Spectre herself.  They ignore terrain.The Reality sub-ability may be used to teleport to the illusion, destroying it.",
+      "source_file": "sources/hero-67-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "spectre_haunt",
+      "matched_text": "illusions",
+      "evidence_description_en": "Creates a spectral nemesis to haunt all enemy Heroes.Haunt illusions are uncontrollable, take extra damage, and deal less damage than Spectre herself.  They ignore terrain.The Reality sub-ability may be used to teleport to the illusion, destroying it.",
+      "source_file": "sources/hero-67-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-67-english.json",
+    "sources/hero-67-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

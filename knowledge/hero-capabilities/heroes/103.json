@@ -1,0 +1,1936 @@
+{
+  "hero_id": 103,
+  "npc_name": "npc_dota_hero_elder_titan",
+  "name_zh": "上古巨神",
+  "name_en": "Elder Titan",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Initiator",
+    "Disabler",
+    "Nuker",
+    "Durable"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    2
+  ],
+  "hero_summary_zh": "用灵体游魂探明敌情后，上古巨神从任意方向发动突袭。他巨蹄的重踏可以让敌人停下，他的存在则蚕食敌人的防御，而他还能撕裂大地本身，使敌人一一倒下。",
+  "hero_summary_en": "Scouting the way with his astral spirit, Elder Titan can strike from any direction. Halting foes with a stomp of his hoof while his presence eats away at their defenses, he splits the earth itself to bring his enemies low.",
+  "base_stats": {
+    "attack_range": 150,
+    "damage_min": 49,
+    "damage_max": 59,
+    "attack_rate": 1.7,
+    "movement_speed": 305,
+    "armor": 2.6666667,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "elder_titan_echo_stomp",
+      "id": 5589,
+      "name_zh": "回音重踏",
+      "name_en": "Echo Stomp",
+      "description_zh": "持续施法 - 上古巨神与他的灵体游魂一起践踏地面，对敌方单位造成伤害并使他们在原地昏迷。上古巨神造成物理伤害，灵体游魂造成魔法伤害。",
+      "description_en": "CHANNELED - Elder Titan and his Astral Spirit both stomp the ground, damaging and knocking nearby enemy units unconscious around their locations.  The Elder Titan stomp deals physical damage, while the Spirit stomp deals magical damage.",
+      "notes_zh": [
+        "若同时处于灵体游魂和上古巨神的回音重踏作用范围内将受到两次伤害。"
+      ],
+      "notes_en": [
+        "If a unit is hit by Astral Spirit and Elder Titan, they will take both instances of damage."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Lowers Cooldown. Echo Stomp may be placed on alt-cast to allow Elder Titan to take the place of the Astral Spirit as it completes its stomp.",
+          "zh": "减少冷却时间。回音重踏可以设为多样施法（右键点击技能栏图标）状态，使上古巨神完成重踏后会取代灵体游魂。"
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        500
+      ],
+      "cooldowns": [
+        14,
+        13,
+        12,
+        11
+      ],
+      "mana_costs": [
+        100
+      ],
+      "cast_points": [
+        0.4
+      ],
+      "channel_times": [
+        1.3
+      ],
+      "special_values": [
+        {
+          "name": "cast_time",
+          "values_float": [
+            1.7
+          ],
+          "is_percentage": false,
+          "heading_loc": "CAST TIME:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "radius",
+          "values_float": [
+            475
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "sleep_duration",
+          "values_float": [
+            2,
+            2.8,
+            3.6,
+            4.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "SLEEP DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "stomp_damage",
+          "values_float": [
+            65,
+            110,
+            155,
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "STOMP DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_elder_titan_2",
+              "value": 75,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "initial_stun_duration",
+          "values_float": [
+            0.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "wake_damage_limit",
+          "values_float": [
+            100,
+            150,
+            200,
+            250
+          ],
+          "is_percentage": false,
+          "heading_loc": "WAKEUP DAMAGE THRESHOLD:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_elder_titan_4",
+              "value": 150,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "can_swap_places",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            1
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            500
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityChannelTime",
+          "values_float": [
+            1.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            14,
+            13,
+            12,
+            11
+          ],
+          "is_percentage": false,
+          "heading_loc": "COOLDOWN:",
+          "bonuses": [],
+          "values_shard": [
+            2
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "132",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 1,
+        "immunity": 4,
+        "dispellable": 1,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "elder_titan_ancestral_spirit",
+      "id": 1392,
+      "name_zh": "灵体游魂",
+      "name_en": "Astral Spirit",
+      "description_zh": "上古巨神放出他的灵体游魂，灵魂对任何经过的单位都会造成伤害。当它与巨神合体时，它每伤害过一个单位都会给予若干攻击力和移动速度加成。\n\n灵体游魂拥有回音重踏，回归和自然秩序三个技能。",
+      "description_en": "Elder Titan sends forth his Astral Spirit, damaging any units it passes through.  When the spirit rejoins the Titan, it grants bonus damage and movement speed for each unit it passed through.\n\nThe Astral Spirit possesses the Echo Stomp, Return Spirit, and Natural Order abilities.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Causes Elder Titan to become debuff immune and gain %immunity_resist%%% magic resistance for %scepter_magic_immune_per_hero% seconds per affected enemy Hero when the spirit returns.",
+          "zh": "游魂每碰到一名英雄就能使上古巨神在游魂回归后获得%scepter_magic_immune_per_hero%秒减益免疫状态和%immunity_resist%%%魔法抗性提升。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        1200
+      ],
+      "cooldowns": [
+        23,
+        21,
+        19,
+        17
+      ],
+      "mana_costs": [
+        80,
+        90,
+        100,
+        110
+      ],
+      "cast_points": [
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "radius",
+          "values_float": [
+            275
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "pass_damage",
+          "values_float": [
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "spirit_duration",
+          "values_float": [
+            10
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "buff_duration",
+          "values_float": [
+            10
+          ],
+          "is_percentage": false,
+          "heading_loc": "BUFF DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "speed",
+          "values_float": [
+            900
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "controllable",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "move_pct_creeps",
+          "values_float": [
+            1.5
+          ],
+          "is_percentage": true,
+          "heading_loc": "BONUS SPEED (CREEPS):",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "move_pct_heroes",
+          "values_float": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "is_percentage": true,
+          "heading_loc": "BONUS SPEED (HEROES):",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_elder_titan_bonus_spirit_speed",
+              "value": 2.5,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_creeps",
+          "values_float": [
+            3,
+            7,
+            11,
+            15
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS DAMAGE (CREEPS):",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_heroes",
+          "values_float": [
+            17,
+            38,
+            59,
+            80
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS DAMAGE (HEROES):",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_elder_titan",
+              "value": 30,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "move_pct_cap",
+          "values_float": [
+            40
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_magic_immune_per_hero",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            2
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "immunity_resist",
+          "values_float": [
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            1200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            23,
+            21,
+            19,
+            17
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "134217776",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 2,
+        "immunity": 3,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "elder_titan_natural_order",
+      "id": 5593,
+      "name_zh": "自然秩序",
+      "name_en": "Natural Order",
+      "description_zh": "使所有元素降低至基础水平，移除附近敌方单位的基础物理护甲和魔法抗性。护甲降低效果以英雄为中心，魔法抗性降低效果以灵体游魂为中心。",
+      "description_en": "Reduces all elements to their basic levels, removing base armor and magic damage resistance from nearby enemy units. The armor reduction is centered around the hero, while the magic armor reduction is centered around Astral Spirit.",
+      "notes_zh": [
+        "没有施放灵体游魂时，护甲和魔法抗性降低效果均以上古巨神为中心。"
+      ],
+      "notes_en": [
+        "When the Astral Spirit isn't present, both the armor and magic armor reduction is centered around Elder Titan."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Every %tick_rate%s that enemy heroes stay under the effect of Natural Order, their armor is reduced by %armor_per_tick%, and magic resistance is reduced by %magic_resistance_per_tick%%%. Stacks up to %max_stacks% times.",
+          "zh": "敌方英雄在自然秩序效果下每停留%tick_rate%秒，他们的护甲就会降低%armor_per_tick%点，魔法抗性降低%magic_resistance_per_tick%%%。叠加效果最多可叠加%max_stacks%次。"
+        }
+      },
+      "facet_text_en": [
+        "Every %tick_rate%s that enemy heroes stay under the effect of Natural Order, their armor is reduced by %armor_per_tick%, and magic resistance is reduced by %magic_resistance_per_tick%%%. Stacks up to %max_stacks% times.",
+        ""
+      ],
+      "facet_text_zh": [
+        "敌方英雄在自然秩序效果下每停留%tick_rate%秒，他们的护甲就会降低%armor_per_tick%点，魔法抗性降低%magic_resistance_per_tick%%%。叠加效果最多可叠加%max_stacks%次。",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "radius",
+          "values_float": [
+            375
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_elder_titan_5",
+              "value": 150,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "armor_reduction_pct",
+          "values_float": [
+            40,
+            60,
+            80,
+            100
+          ],
+          "is_percentage": true,
+          "heading_loc": "BASE ARMOR REDUCTION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "magic_resistance_pct",
+          "values_float": [
+            40,
+            60,
+            80,
+            100
+          ],
+          "is_percentage": true,
+          "heading_loc": "BASE RESIST REDUCTION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "65538",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 0,
+        "immunity": 4,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "elder_titan_momentum",
+      "id": 1393,
+      "name_zh": "动量",
+      "name_en": "Momentum",
+      "description_zh": "上古巨神获得额外护甲，数值为移动速度加成的一定百分比。",
+      "description_en": "Elder Titan gains armor equal to a percentage of his bonus movement speed.",
+      "notes_zh": [
+        "移动速度加成是指高于基础移动速度的部分。",
+        "上古巨神被减速到低于基础移动速度时动量不会降低上古巨神的护甲。"
+      ],
+      "notes_en": [
+        "Bonus movement speed is any movement speed above his base movement speed.",
+        "Momentum does not reduce Elder Titan's Armor if he is slowed below his base movement speed."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "armor_from_movespeed",
+          "values_float": [
+            7
+          ],
+          "is_percentage": true,
+          "heading_loc": "BONUS SPEED TO ARMOR:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "attack_speed_from_movespeed",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_elder_titan_momentum_attack_speed",
+              "value": 20,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8796093022274",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 4,
+        "dispellable": 0,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "elder_titan_earth_splitter",
+      "id": 5594,
+      "name_zh": "裂地沟壑",
+      "name_en": "Earth Splitter",
+      "description_zh": "上古巨神向前方放出一道不平坦的裂纹。3秒后裂纹塌陷，范围内的单位将被减速，并受到基于他们自身生命最大值的伤害。其中一半伤害为魔法伤害，另一半为物理伤害。",
+      "description_en": "Sends forth a jagged crack in front of Elder Titan. After 3 seconds, the crack implodes, slowing movement while dealing damage to each enemy based on their maximum life. Half of the damage dealt is Magical damage, while the other half is Physical damage.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        2400
+      ],
+      "cooldowns": [
+        100,
+        95,
+        90
+      ],
+      "mana_costs": [
+        125,
+        175,
+        225
+      ],
+      "cast_points": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "crack_time",
+          "values_float": [
+            2.7182
+          ],
+          "is_percentage": false,
+          "heading_loc": "IMPLODE DELAY:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "crack_width",
+          "values_float": [
+            315
+          ],
+          "is_percentage": false,
+          "heading_loc": "CRACK WIDTH:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "crack_distance",
+          "values_float": [
+            2400
+          ],
+          "is_percentage": false,
+          "heading_loc": "CRACK LENGTH:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "slow_pct",
+          "values_float": [
+            40,
+            45,
+            50
+          ],
+          "is_percentage": true,
+          "heading_loc": "MOVEMENT SLOW:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "slow_duration",
+          "values_float": [
+            3,
+            4,
+            5
+          ],
+          "is_percentage": false,
+          "heading_loc": "SLOW DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "speed",
+          "values_float": [
+            1100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_pct",
+          "values_float": [
+            34,
+            42,
+            50
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX HP AS DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "vision_width",
+          "values_float": [
+            500
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "vision_interval",
+          "values_float": [
+            0.22
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "vision_duration",
+          "values_float": [
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "vision_step",
+          "values_float": [
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "total_steps",
+          "values_float": [
+            12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            2400
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            125,
+            175,
+            225
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            100,
+            95,
+            90
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_elder_titan_3",
+              "value": 60,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "16",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 3,
+        "dispellable": 2,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 917,
+      "name": "special_bonus_unique_elder_titan_bonus_spirit_speed",
+      "name_loc": "+{s:bonus_move_pct_heroes}% Astral Spirit Bonus Move Speed Per Hero",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7350,
+      "name": "special_bonus_unique_elder_titan_4",
+      "name_loc": "+{s:bonus_wake_damage_limit} Echo Stomp Wake Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6378,
+      "name": "special_bonus_unique_elder_titan_2",
+      "name_loc": "+{s:bonus_stomp_damage} Echo Stomp Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1836,
+      "name": "special_bonus_unique_elder_titan_momentum_attack_speed",
+      "name_loc": "{s:bonus_attack_speed_from_movespeed}% of Bonus Movement Speed as Attack Speed",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6171,
+      "name": "special_bonus_unique_elder_titan",
+      "name_loc": "+{s:bonus_damage_heroes} Astral Spirit Bonus Damage per Hero",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1016,
+      "name": "special_bonus_unique_elder_titan_5",
+      "name_loc": "+{s:bonus_radius} Natural Order Radius",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6720,
+      "name": "special_bonus_unique_elder_titan_3",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Earth Splitter Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6827,
+      "name": "special_bonus_cleave_100",
+      "name_loc": "+{s:value}% Cleave",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "elder_titan_echo_stomp",
+      "matched_text": "nearby",
+      "evidence_description_en": "CHANNELED - Elder Titan and his Astral Spirit both stomp the ground, damaging and knocking nearby enemy units unconscious around their locations.  The Elder Titan stomp deals physical damage, while the Spirit stomp deals magical damage.",
+      "source_file": "sources/hero-103-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "elder_titan_ancestral_spirit",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Elder Titan sends forth his Astral Spirit, damaging any units it passes through.  When the spirit rejoins the Titan, it grants bonus damage and movement speed for each unit it passed through.\n\nThe Astral Spirit possesses the Echo Stomp, Return Spirit, and Natural Order abilities.",
+      "source_file": "sources/hero-103-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "elder_titan_natural_order",
+      "matched_text": "nearby",
+      "evidence_description_en": "Reduces all elements to their basic levels, removing base armor and magic damage resistance from nearby enemy units. The armor reduction is centered around the hero, while the magic armor reduction is centered around Astral Spirit.",
+      "source_file": "sources/hero-103-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "armor_interaction",
+      "dimension_zh": "护甲机制",
+      "ability": "elder_titan_natural_order",
+      "matched_text": "armor",
+      "evidence_description_en": "Reduces all elements to their basic levels, removing base armor and magic damage resistance from nearby enemy units. The armor reduction is centered around the hero, while the magic armor reduction is centered around Astral Spirit.",
+      "source_file": "sources/hero-103-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "armor_interaction",
+      "dimension_zh": "护甲机制",
+      "ability": "elder_titan_momentum",
+      "matched_text": "armor",
+      "evidence_description_en": "Elder Titan gains armor equal to a percentage of his bonus movement speed.",
+      "source_file": "sources/hero-103-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "elder_titan_momentum",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Elder Titan gains armor equal to a percentage of his bonus movement speed.",
+      "source_file": "sources/hero-103-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "elder_titan_earth_splitter",
+      "matched_text": "slowing",
+      "evidence_description_en": "Sends forth a jagged crack in front of Elder Titan. After 3 seconds, the crack implodes, slowing movement while dealing damage to each enemy based on their maximum life. Half of the damage dealt is Magical damage, while the other half is Physical damage.",
+      "source_file": "sources/hero-103-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-103-english.json",
+    "sources/hero-103-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

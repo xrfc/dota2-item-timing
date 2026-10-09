@@ -1,0 +1,2098 @@
+{
+  "hero_id": 49,
+  "npc_name": "npc_dota_hero_dragon_knight",
+  "name_zh": "龙骑士",
+  "name_en": "Dragon Knight",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Carry",
+    "Pusher",
+    "Durable",
+    "Disabler",
+    "Initiator",
+    "Nuker"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    2,
+    0,
+    1,
+    2,
+    0,
+    2,
+    0,
+    3,
+    1
+  ],
+  "hero_summary_zh": "当龙骑士化身为可怕的古龙形态，他面前的敌人都会不禁感到害怕。身坚甲厚又能随机应变，眩晕他的敌人并使他们烈焰焚身，他让他的盟友获得凌驾对手的胜势。",
+  "hero_summary_en": "When he takes on his terrifying dragon form, Dragon Knight strikes fear into any who face him. Strong and adaptable, he can stun his enemies and burn all in front of him, often providing his allies the momentum they need to carry them to victory.",
+  "base_stats": {
+    "attack_range": 150,
+    "damage_min": 55,
+    "damage_max": 61,
+    "attack_rate": 1.6,
+    "movement_speed": 310,
+    "armor": 2.3333335,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "dragon_knight_breathe_fire",
+      "id": 5226,
+      "name_zh": "火焰气息",
+      "name_en": "Breathe Fire",
+      "description_zh": "向龙骑士的前方喷射出一团火焰，烧灼碰到的敌人，并使其攻击力降低。",
+      "description_en": "Unleashes a breath of fire in front of Dragon Knight that burns enemies and reduces the damage their attacks deal.",
+      "notes_zh": [
+        "不会触发法术抵抗或法术反弹。"
+      ],
+      "notes_en": [
+        "Does not trigger spell block or spell reflect."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "Damage type changed to Physical.",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "伤害类型改为物理。",
+        ""
+      ],
+      "cast_ranges": [
+        1000
+      ],
+      "cooldowns": [
+        14,
+        13,
+        12,
+        11
+      ],
+      "mana_costs": [
+        90,
+        95,
+        100,
+        105
+      ],
+      "cast_points": [
+        0.2
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "start_radius",
+          "values_float": [
+            150
+          ],
+          "is_percentage": false,
+          "heading_loc": "START RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "end_radius",
+          "values_float": [
+            250
+          ],
+          "is_percentage": false,
+          "heading_loc": "END RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "range",
+          "values_float": [
+            750
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "speed",
+          "values_float": [
+            1050
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage",
+          "values_float": [
+            80,
+            160,
+            240,
+            320
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dragon_knight_9",
+              "value": 220,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "reduction",
+          "values_float": [
+            20,
+            24,
+            28,
+            32
+          ],
+          "is_percentage": true,
+          "heading_loc": "DAMAGE REDUCTION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            11
+          ],
+          "is_percentage": false,
+          "heading_loc": "REDUCTION DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            1000
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            90,
+            95,
+            100,
+            105
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            14,
+            13,
+            12,
+            11
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dragon_knight_3",
+              "value": 2,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "1048",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "dragon_knight_dragon_tail",
+      "id": 5227,
+      "name_zh": "神龙摆尾",
+      "name_en": "Dragon Tail",
+      "description_zh": "龙骑士用盾对身边的一个敌方单位进行打击，对它和它身边的目标造成眩晕和伤害。",
+      "description_en": "Dragon Knight smites an enemy unit with his shield, stunning and damaging it and units close to it.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "Damage type changed to Physical.",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "伤害类型改为物理。",
+        ""
+      ],
+      "cast_ranges": [
+        150
+      ],
+      "cooldowns": [
+        16,
+        14,
+        12,
+        10
+      ],
+      "mana_costs": [
+        70,
+        80,
+        90,
+        100
+      ],
+      "cast_points": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "stun_duration",
+          "values_float": [
+            1.8,
+            2,
+            2.2,
+            2.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "STUN DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dragon_knight_2",
+              "value": 0.4,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage",
+          "values_float": [
+            60,
+            90,
+            120,
+            150
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "dragon_cast_range",
+          "values_float": [
+            150
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "projectile_speed",
+          "values_float": [
+            1600
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "aoe",
+          "values_float": [
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "AOE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            150
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            16,
+            14,
+            12,
+            10
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 1,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "dragon_knight_wyrms_wrath",
+      "id": 1752,
+      "name_zh": "飞龙之怒",
+      "name_en": "Wyrm's Wrath",
+      "description_zh": "神龙的生命之血提升了龙骑士的技能和物品，使其拥有作用范围加成，并且攻击会对敌方单位造成额外魔法伤害。",
+      "description_en": "The life blood of the Dragon improves Dragon Knight's abilities and items to have increased AoE and causes his attacks to deal additional magic damage to enemy units.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "magic_damage",
+          "values_float": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "is_percentage": false,
+          "heading_loc": "MAGIC DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dragon_knight_wyrms_wrath_damage",
+              "value": 50,
+              "operation": 3
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_aoe",
+          "values_float": [
+            30,
+            60,
+            90,
+            120
+          ],
+          "is_percentage": false,
+          "heading_loc": "AOE BONUS:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dragon_knight_wyrms_wrath_damage",
+              "value": 50,
+              "operation": 3
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 2,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "dragon_knight_fireball",
+      "id": 660,
+      "name_zh": "龙炎火球",
+      "name_en": "Fireball",
+      "description_zh": "点燃一片区域，对其中的敌人持续造成伤害，伤害效果还会粘滞。近战形态下施放距离较近。",
+      "description_en": "Ignites an area, dealing damage over time that lingers on enemies in it. Has reduced cast range when melee.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": true,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "Damage type changed to Physical.",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "伤害类型改为物理。",
+        ""
+      ],
+      "cast_ranges": [
+        600
+      ],
+      "cooldowns": [
+        20
+      ],
+      "mana_costs": [
+        80
+      ],
+      "cast_points": [
+        0.2
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "radius",
+          "values_float": [
+            275
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage",
+          "values_float": [
+            85
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE PER SECOND:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            6
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "burn_interval",
+          "values_float": [
+            0.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "linger_duration",
+          "values_float": [
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "LINGER DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            600
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            80
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            20
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8589934641",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 0,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "dragon_knight_dragon_blood",
+      "id": 5228,
+      "name_zh": "龙族血统",
+      "name_en": "Dragon Blood",
+      "description_zh": "神龙的生命之血提升了龙骑士的生命恢复和护甲。在古龙形态下生命恢复和护甲均提升%regen_and_armor_multiplier_during_dragon_form%%%。",
+      "description_en": "The life blood of the Dragon improves Dragon Knight's health regeneration and armor.  Regen and armor are increased by %regen_and_armor_multiplier_during_dragon_form%%% during Elder Dragon Form.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "Attacks deal additional magic damage to enemy units. Spells and items have increased AoE.",
+        "Attacks are filled with lethal poison that affects enemy units and structures, reducing armor and dealing physical damage over time.",
+        "Attacks are filled with frost that affects enemy units, slowing movement speed, attack speed, and reducing health restoration."
+      ],
+      "facet_text_zh": [
+        "攻击会对敌方单位造成额外魔法伤害，并且技能和物品的作用范围提升。",
+        "攻击附带致命的毒素，可作用于敌方单位和建筑，降低护甲并持续造成物理伤害。",
+        "攻击带有冰霜，会作用于敌方单位，降低移动速度和攻击速度，同时降低生命回复。"
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "health_regen",
+          "values_float": [
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS HP REGEN:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dragon_knight",
+              "value": 12,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "armor",
+          "values_float": [
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS ARMOR:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dragon_knight",
+              "value": 12,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "regen_and_armor_multiplier_during_dragon_form",
+          "values_float": [
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8589934658",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "dragon_knight_elder_dragon_form",
+      "id": 5229,
+      "name_zh": "古龙形态",
+      "name_en": "Elder Dragon Form",
+      "description_zh": "龙骑士化身为古龙，提升了技能的施法距离，获得移动速度加成，和拥有各种特性的远程攻击。古龙每级都会进化。加成效果会累加。1级碧龙：攻击获得持续的腐蚀伤害，也能作用于建筑。2级赤龙：攻击获得溅射伤害。3级苍龙：攻击获得无视减益免疫的移动速度和攻击速度降低效果。",
+      "description_en": "Dragon Knight assumes the form of the Elder Dragon, increasing the range of his abilities, gaining bonus movement speed, and a ranged attack with various properties.  The Dragon evolves per level. The bonuses are cumulative. Level 1 Green: Grants a corrosive damage over time that can also damage buildings.Level 2 Red: Grants splash damage to the dragon's attacks.Level 3 Blue: Grants a debuff immunity piercing movement and attack frost slow on attack.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/5",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Increases the current level of Dragon Form by one. Adds a Level 4 Black Dragon that has free pathing, bonus magic resistance, and increased other bonuses.",
+          "zh": "使古龙形态的当前等级提升1级。增加的4级黑龙拥有自由移动，魔法抗性加成和其他更高的加成效果。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        100
+      ],
+      "mana_costs": [
+        50
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "duration",
+          "values_float": [
+            60
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_movement_speed",
+          "values_float": [
+            25,
+            30,
+            35,
+            40
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS MOVE SPEED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_attack_range",
+          "values_float": [
+            350
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS ATTACK RANGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dragon_knight_7",
+              "value": 150,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_ability_cast_range",
+          "values_float": [
+            350
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS ABILITY RANGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "model_scale",
+          "values_float": [
+            10,
+            15,
+            20,
+            30
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "corrosive_duration",
+          "values_float": [
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "<font color=\"#9acd32\">CORROSIVE DURATION:</font>",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "corrosive_damage_per_second",
+          "values_float": [
+            25,
+            25,
+            25,
+            35
+          ],
+          "is_percentage": false,
+          "heading_loc": "<font color=\"#9acd32\">CORROSIVE DAMAGE:</font>",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "ranged_splash_damage_pct",
+          "values_float": [
+            0,
+            75,
+            75,
+            100
+          ],
+          "is_percentage": true,
+          "heading_loc": "<font color=\"#FF0000\">SPLASH DAMAGE:</font>",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "ranged_splash_radius",
+          "values_float": [
+            0,
+            275,
+            275,
+            350
+          ],
+          "is_percentage": false,
+          "heading_loc": "<font color=\"#FF0000\">SPLASH RADIUS:</font>",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "health_bar_offset",
+          "values_float": [
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "magic_resistance",
+          "values_float": [
+            0,
+            0,
+            0,
+            20
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "flying_movement",
+          "values_float": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "frost_duration",
+          "values_float": [
+            0,
+            0,
+            3,
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "<font color=\"#87ceeb\">FROST DURATION:</font>",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "frost_bonus_movement_speed",
+          "values_float": [
+            0,
+            0,
+            30,
+            45
+          ],
+          "is_percentage": true,
+          "heading_loc": "<font color=\"#87ceeb\">FROST MOVEMENT SLOW:</font>",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "frost_bonus_attack_speed",
+          "values_float": [
+            0,
+            0,
+            50,
+            65
+          ],
+          "is_percentage": false,
+          "heading_loc": "<font color=\"#87ceeb\">FROST ATTACK SLOW:</font>",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_bonus_levels",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "4",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 2,
+        "immunity": 3,
+        "dispellable": 3,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 5938,
+      "name": "special_bonus_attack_damage_15",
+      "name_loc": "+{s:value} Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            15
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7113,
+      "name": "special_bonus_unique_dragon_knight_3",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Breathe Fire Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6635,
+      "name": "special_bonus_unique_dragon_knight_2",
+      "name_loc": "+{s:bonus_stun_duration}s Dragon Tail Stun",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 5993,
+      "name": "special_bonus_hp_300",
+      "name_loc": "+{s:value} Health",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 740,
+      "name": "special_bonus_unique_dragon_knight_7",
+      "name_loc": "+{s:bonus_bonus_attack_range} Elder Dragon Form Attack Range",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1043,
+      "name": "special_bonus_unique_dragon_knight_9",
+      "name_loc": "+{s:bonus_damage} Breathe Fire Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6090,
+      "name": "special_bonus_unique_dragon_knight",
+      "name_loc": "+{s:bonus_health_regen} Dragon Blood HP Regen/Armor",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1813,
+      "name": "special_bonus_unique_dragon_knight_wyrms_wrath_damage",
+      "name_loc": "+{s:bonus_magic_damage}% Wyrm's Wrath Bonuses",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "stun",
+      "dimension_zh": "眩晕",
+      "ability": "dragon_knight_dragon_tail",
+      "matched_text": "stunning",
+      "evidence_description_en": "Dragon Knight smites an enemy unit with his shield, stunning and damaging it and units close to it.",
+      "source_file": "sources/hero-49-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "shield",
+      "dimension_zh": "护盾／伤害吸收",
+      "ability": "dragon_knight_dragon_tail",
+      "matched_text": "shield",
+      "evidence_description_en": "Dragon Knight smites an enemy unit with his shield, stunning and damaging it and units close to it.",
+      "source_file": "sources/hero-49-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "dragon_knight_fireball",
+      "matched_text": "area",
+      "evidence_description_en": "Ignites an area, dealing damage over time that lingers on enemies in it. Has reduced cast range when melee.",
+      "source_file": "sources/hero-49-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": true
+    },
+    {
+      "dimension": "damage_over_time",
+      "dimension_zh": "持续伤害",
+      "ability": "dragon_knight_fireball",
+      "matched_text": "damage over time",
+      "evidence_description_en": "Ignites an area, dealing damage over time that lingers on enemies in it. Has reduced cast range when melee.",
+      "source_file": "sources/hero-49-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": true
+    },
+    {
+      "dimension": "armor_interaction",
+      "dimension_zh": "护甲机制",
+      "ability": "dragon_knight_dragon_blood",
+      "matched_text": "armor",
+      "evidence_description_en": "The life blood of the Dragon improves Dragon Knight's health regeneration and armor.  Regen and armor are increased by %regen_and_armor_multiplier_during_dragon_form%%% during Elder Dragon Form.",
+      "source_file": "sources/hero-49-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "healing",
+      "dimension_zh": "治疗／恢复",
+      "ability": "dragon_knight_dragon_blood",
+      "matched_text": "health regen",
+      "evidence_description_en": "The life blood of the Dragon improves Dragon Knight's health regeneration and armor.  Regen and armor are increased by %regen_and_armor_multiplier_during_dragon_form%%% during Elder Dragon Form.",
+      "source_file": "sources/hero-49-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "dragon_knight_elder_dragon_form",
+      "matched_text": "slow",
+      "evidence_description_en": "Dragon Knight assumes the form of the Elder Dragon, increasing the range of his abilities, gaining bonus movement speed, and a ranged attack with various properties.  The Dragon evolves per level. The bonuses are cumulative. Level 1 Green: Grants a corrosive damage over time that can also damage buildings.Level 2 Red: Grants splash damage to the dragon's attacks.Level 3 Blue: Grants a debuff immunity piercing movement and attack frost slow on attack.",
+      "source_file": "sources/hero-49-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/5/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "damage_over_time",
+      "dimension_zh": "持续伤害",
+      "ability": "dragon_knight_elder_dragon_form",
+      "matched_text": "damage over time",
+      "evidence_description_en": "Dragon Knight assumes the form of the Elder Dragon, increasing the range of his abilities, gaining bonus movement speed, and a ranged attack with various properties.  The Dragon evolves per level. The bonuses are cumulative. Level 1 Green: Grants a corrosive damage over time that can also damage buildings.Level 2 Red: Grants splash damage to the dragon's attacks.Level 3 Blue: Grants a debuff immunity piercing movement and attack frost slow on attack.",
+      "source_file": "sources/hero-49-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/5/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "dragon_knight_elder_dragon_form",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Dragon Knight assumes the form of the Elder Dragon, increasing the range of his abilities, gaining bonus movement speed, and a ranged attack with various properties.  The Dragon evolves per level. The bonuses are cumulative. Level 1 Green: Grants a corrosive damage over time that can also damage buildings.Level 2 Red: Grants splash damage to the dragon's attacks.Level 3 Blue: Grants a debuff immunity piercing movement and attack frost slow on attack.",
+      "source_file": "sources/hero-49-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/5/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "building_interaction",
+      "dimension_zh": "建筑作用",
+      "ability": "dragon_knight_elder_dragon_form",
+      "matched_text": "buildings",
+      "evidence_description_en": "Dragon Knight assumes the form of the Elder Dragon, increasing the range of his abilities, gaining bonus movement speed, and a ranged attack with various properties.  The Dragon evolves per level. The bonuses are cumulative. Level 1 Green: Grants a corrosive damage over time that can also damage buildings.Level 2 Red: Grants splash damage to the dragon's attacks.Level 3 Blue: Grants a debuff immunity piercing movement and attack frost slow on attack.",
+      "source_file": "sources/hero-49-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/5/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-49-english.json",
+    "sources/hero-49-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

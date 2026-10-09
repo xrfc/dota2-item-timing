@@ -1,0 +1,2137 @@
+{
+  "hero_id": 12,
+  "npc_name": "npc_dota_hero_phantom_lancer",
+  "name_zh": "幻影长矛手",
+  "name_en": "Phantom Lancer",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Carry",
+    "Escape",
+    "Pusher",
+    "Nuker"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    2,
+    0,
+    1,
+    0,
+    0,
+    0,
+    2,
+    1,
+    0
+  ],
+  "hero_summary_zh": "幻影长矛手操控源源不断的复制体展开攻势，让敌人应接不暇。带领着他的幻象大军，密集的攻击将撕裂敌阵，使对手喘不过气来，还能派出分身向敌方推进，一旦局势不妙就运用神形百变迷惑对手，逃之夭夭。",
+  "hero_summary_en": "Phantom Lancer storms enemy forces with an endless supply of clones. Leading his illusory army, he can cut foes apart in a breathtaking flurry of attacks, send clones to push into enemy territory, or use his doppelgangers to mislead and elude foes if cornered.",
+  "base_stats": {
+    "attack_range": 225,
+    "damage_min": 52,
+    "damage_max": 62,
+    "attack_rate": 1.7,
+    "movement_speed": 285,
+    "armor": 4.3333335,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "phantom_lancer_spirit_lance",
+      "id": 5065,
+      "name_zh": "灵魂之矛",
+      "name_en": "Spirit Lance",
+      "description_zh": "对敌方目标单位投出一支有魔力的灵魂之矛，造成伤害并减速，同时召唤一个幻象攻击该单位。",
+      "description_en": "Sends a magical spirit lance to a target enemy unit that damages and slows, while summoning an illusory phantom to attack the unit.",
+      "notes_zh": [
+        "幻影长矛手附近%fake_lance_distance%范围内的幻象也会模仿施法动作。"
+      ],
+      "notes_en": [
+        "Illusions within %fake_lance_distance% range of Phantom Lancer will mimic the cast animation."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Spirit Lance bounces once on enemies, prioritizing Heroes. Increases Spirit Lance illusion damage.",
+          "zh": "灵魂之矛可以向范围内敌人弹射一次，以英雄优先。提升灵魂之矛的幻象继承攻击力。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "Spirit Lances from Phantom Lancer's illusions deal %illusion_lance_damage_pct%%% Lance Damage.",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "幻影长矛手幻象放出的灵魂之矛会造成%illusion_lance_damage_pct%%%长矛伤害。",
+        ""
+      ],
+      "cast_ranges": [
+        600,
+        650,
+        700,
+        750
+      ],
+      "cooldowns": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "mana_costs": [
+        120
+      ],
+      "cast_points": [
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "lance_damage",
+          "values_float": [
+            100,
+            160,
+            220,
+            280
+          ],
+          "is_percentage": false,
+          "heading_loc": "LANCE DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_lance_damage",
+              "value": 100,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "lance_speed",
+          "values_float": [
+            1000
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "SLOW DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_lance_slow_duration",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "movement_speed_pct",
+          "values_float": [
+            -14,
+            -21,
+            -28,
+            -35
+          ],
+          "is_percentage": true,
+          "heading_loc": "MOVEMENT SLOW:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_duration",
+          "values_float": [
+            3.5,
+            5,
+            6.5,
+            8
+          ],
+          "is_percentage": false,
+          "heading_loc": "ILLUSION DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_damage_out_pct",
+          "values_float": [
+            -85
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "tooltip_illusion_damage",
+          "values_float": [
+            15
+          ],
+          "is_percentage": true,
+          "heading_loc": "ILLUSION DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_damage_in_pct",
+          "values_float": [
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "tooltip_illusion_total_damage_in_pct",
+          "values_float": [
+            400
+          ],
+          "is_percentage": true,
+          "heading_loc": "ILLUSION DAMAGE TAKEN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "fake_lance_distance",
+          "values_float": [
+            675
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_bounce_radius",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "BOUNCE RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            0
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_bonus_illusion_damage",
+          "values_float": [
+            0
+          ],
+          "is_percentage": true,
+          "heading_loc": "BONUS ILLUSION DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            0
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_total_hits",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            0
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_lance_damage_pct",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_illusion_lances",
+              "value": 50,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            600,
+            650,
+            700,
+            750
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            120
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            10,
+            9,
+            8,
+            7
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_5",
+              "value": 1,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "phantom_lancer_doppelwalk",
+      "id": 5066,
+      "name_zh": "神行百变",
+      "name_en": "Doppelganger",
+      "description_zh": "幻影长矛手暂时从战场上消失。经过%delay%秒，幻影长矛手和附近的所有幻象都会出现在目标地点的随机位置，并产生两个新的幻象。施放技能后延长所有幻象的持续时间。新加的两个幻象拥有不同的特性：一个承受正常百分比的伤害，不具有攻击力，另一个额外承受%illusion_2_damage_in_pct%%%伤害，继承的攻击力相比本体减少%illusion_2_damage_out_pct%%%。\n\n驱散类型：弱驱散",
+      "description_en": "Phantom Lancer briefly vanishes from the battlefield. After %delay% second, Phantom Lancer and any of his nearby illusions reappear at a random position within the targeted location, along with two additional doppelgangers. Extends duration of all illusions. The two added doppelgangers have different properties: one takes normal damage and deals none, while the other takes %illusion_2_damage_in_pct%%% bonus damage and deals %illusion_2_damage_out_pct%%% less damage.\n\nDISPEL TYPE: Basic Dispel",
+      "notes_zh": [
+        "这个技能可以躲避攻击和技能弹道，并且驱散负面效果。",
+        "重新现身的单位附近的树木将会被摧毁。",
+        "幻影长矛手和他的队友可以分辨出哪个幻象承受100%伤害。"
+      ],
+      "notes_en": [
+        "This ability can be used to dodge projectiles, and dispel debuffs.",
+        "Trees near a reappearing unit will be destroyed.",
+        "Phantom Lancer and his allies can see which illusion is the 100% damage illusion."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "Spawns an additional illusion per %hp_missing_per_extra_illusion_pct%%% of health that Phantom Lancer is missing.",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "幻影长矛手每缺失%hp_missing_per_extra_illusion_pct%%%生命都会额外产生一个幻象。",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        575
+      ],
+      "cooldowns": [
+        22,
+        18,
+        14,
+        10
+      ],
+      "mana_costs": [
+        70
+      ],
+      "cast_points": [
+        0.1
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "illusion_1_damage_out_pct",
+          "values_float": [
+            -100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_2_damage_out_pct",
+          "values_float": [
+            -80
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_2_damage_in_pct",
+          "values_float": [
+            500
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "target_aoe",
+          "values_float": [
+            325
+          ],
+          "is_percentage": false,
+          "heading_loc": "TARGET AREA SIZE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "search_radius",
+          "values_float": [
+            900
+          ],
+          "is_percentage": false,
+          "heading_loc": "ILLUSION GATHER RANGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "delay",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "REAPPEAR DELAY:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_duration",
+          "values_float": [
+            8
+          ],
+          "is_percentage": false,
+          "heading_loc": "DOPPELGANGER DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_extended_duration",
+          "values_float": [
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "ILLUSION DURATION EXTENSION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_2_amount",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "hp_missing_per_extra_illusion_pct",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "phantom_lancer_convergence",
+            "values": [
+              25
+            ],
+            "operation": 0
+          },
+          "required_facet": "phantom_lancer_convergence"
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            575
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_doppelwalk_cast_range",
+              "value": 125,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            70
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            22,
+            18,
+            14,
+            10
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_4",
+              "value": 4,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "524336",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "phantom_lancer_phantom_edge",
+      "id": 1221,
+      "name_zh": "幻影冲锋",
+      "name_en": "Phantom Rush",
+      "description_zh": "对目标发动攻击后，幻影长矛手将快速向其冲去，获得移动速度和闪避提升。",
+      "description_en": "When targeting an enemy for an attack, Phantom Lancer quickly charges into range, gaining increased movement speed and evasion.",
+      "notes_zh": [
+        "如果冲锋中途取消攻击指令，那么移动速度加成就会消失。",
+        "冲锋过程中移动速度为%bonus_speed%。"
+      ],
+      "notes_en": [
+        "If the attack order is cancelled, the movement speed bonus is lost.",
+        "Rush movement speed is %bonus_speed%."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Increases Range. Whenever Phantom Lancer Rushes through enemies, he creates Juxtapose illusions that attack them. Additionally, every %illusion_spawn_travel_distance% units rushed creates a Juxtapose illusion that rushes to the target alongside Phantom Lancer.",
+          "zh": "提升距离。每当幻影长矛手冲锋时穿过敌人，他就会制造并列幻象攻击他们。另外，每冲锋%illusion_spawn_travel_distance%距离还会在幻影长矛手身旁制造一个并列幻象，向目标冲去。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        15,
+        11,
+        7,
+        3
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "min_distance",
+          "values_float": [
+            275
+          ],
+          "is_percentage": false,
+          "heading_loc": "MIN RUSH DISTANCE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "max_distance",
+          "values_float": [
+            600,
+            675,
+            750,
+            825
+          ],
+          "is_percentage": false,
+          "heading_loc": "MAX RUSH DISTANCE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            575
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_speed",
+          "values_float": [
+            800
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_spawn_radius",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "COLLISION RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            125
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_spawn_travel_distance",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            600
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "evasion",
+          "values_float": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "is_percentage": true,
+          "heading_loc": "EVASION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            15,
+            11,
+            7,
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_phantom_rush_cooldown",
+              "value": 2,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "137438956036",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 1,
+        "immunity": 0,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "phantom_lancer_illusory_armaments",
+      "id": 1449,
+      "name_zh": "灵幻兵械",
+      "name_en": "Illusory Armaments",
+      "description_zh": "幻影长矛手只要制造出幻象，该幻象的继承攻击力不会低于一定值，持续%duration%秒。",
+      "description_en": "Whenever an illusion of Phantom Lancer is created, its outgoing damage cannot go below a fixed value for %duration% seconds.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "outgoing_floor",
+          "values_float": [
+            17
+          ],
+          "is_percentage": true,
+          "heading_loc": "MIN DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_illusory_armaments_duration",
+              "value": 2,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "562949953421315",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "phantom_lancer_juxtapose",
+      "id": 5067,
+      "name_zh": "并列",
+      "name_en": "Juxtapose",
+      "description_zh": "幻影长矛手的攻击有一定几率使自己的存在破碎，产生自身的幻象。幻象也有几率进一步破碎，再产生幻象。幻影长矛手产生的幻象持续%illusion_duration%秒，幻象产生的幻象则持续%illusion_from_illusion_duration%秒。",
+      "description_en": "Phantom Lancer has a chance to fracture his presence on an attack, creating an illusion of himself. Illusions also have a chance to fracture further. Illusions created from Phantom Lancer last for %illusion_duration% seconds, while illusions created from other illusions last %illusion_from_illusion_duration% seconds.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Adds an active ability to Juxtapose. Renders Phantom Lancer invisible for up to %invis_duration% seconds while generating a duplicate image to confuse enemies. His movement speed is increased by %invis_movespeed%%% during this invisibility.",
+          "zh": "并列增加主动技能。使幻影长矛手进入隐身，最多持续%invis_duration%秒，同时产生一个复制幻象来迷惑敌人。隐身期间自身移动速度提升%invis_movespeed%%%。"
+        }
+      },
+      "facet_text_en": [
+        "",
+        "Juxtapose Illusions spawn on random nearby units and deal more damage but can't be controlled.",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "并列的幻象会在附近随机单位身旁产生，继承更高的攻击力，但是无法控制。",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "max_illusions",
+          "values_float": [
+            6,
+            8,
+            10
+          ],
+          "is_percentage": false,
+          "heading_loc": "MAX ILLUSIONS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "proc_chance_pct",
+          "values_float": [
+            40,
+            45,
+            50
+          ],
+          "is_percentage": true,
+          "heading_loc": "HERO TRIGGER CHANCE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_proc_chance_pct",
+          "values_float": [
+            9
+          ],
+          "is_percentage": true,
+          "heading_loc": "ILLUSION TRIGGER CHANCE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_juxtapose_illusio_proc_chance",
+              "value": 3,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_duration",
+          "values_float": [
+            8
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_juxtapose_duration",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_from_illusion_duration",
+          "values_float": [
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_juxtapose_duration",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_damage_out_pct",
+          "values_float": [
+            -85
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "phantom_lancer_divergence",
+            "values": [
+              2
+            ],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "tooltip_illusion_damage",
+          "values_float": [
+            15
+          ],
+          "is_percentage": true,
+          "heading_loc": "ILLUSION DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "phantom_lancer_divergence",
+            "values": [
+              2
+            ],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_damage_in_pct",
+          "values_float": [
+            500
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_juxtapose_damage_in",
+              "value": 70,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "tooltip_total_illusion_damage_in_pct",
+          "values_float": [
+            600
+          ],
+          "is_percentage": true,
+          "heading_loc": "ILLUSION DAMAGE TAKEN:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_phantom_lancer_juxtapose_damage_in",
+              "value": 70,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "shard_bonus_illusions",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            0
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "invis_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            8
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "invis_movespeed",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            15
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "uncontrollable_illusions",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "phantom_lancer_divergence",
+            "values": [
+              1
+            ],
+            "operation": 0
+          },
+          "required_facet": "phantom_lancer_divergence"
+        },
+        {
+          "name": "new_target_radius",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "SEARCH RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "phantom_lancer_divergence",
+            "values": [
+              700
+            ],
+            "operation": 0
+          },
+          "required_facet": "phantom_lancer_divergence"
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            75
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            18
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "2",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 1536,
+      "name": "special_bonus_unique_phantom_lancer_lance_slow_duration",
+      "name_loc": "+{s:bonus_duration}s Spirit Lance Slow Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1695,
+      "name": "special_bonus_unique_phantom_lancer_juxtapose_illusio_proc_chance",
+      "name_loc": "+{s:bonus_illusion_proc_chance_pct}% Juxtapose Illusion Trigger Chance",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1696,
+      "name": "special_bonus_unique_phantom_lancer_illusion_lances",
+      "name_loc": "{s:bonus_illusion_lance_damage_pct}% Illusion Spirit Lance Damage",
+      "desc_loc": "Spirit Lances from illusions hit for a percentage of the normal damage amount",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1697,
+      "name": "special_bonus_unique_phantom_lancer_doppelwalk_cast_range",
+      "name_loc": "+{s:bonus_AbilityCastRange} Doppelganger Cast Range",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1056,
+      "name": "special_bonus_unique_phantom_lancer_lance_damage",
+      "name_loc": "+{s:bonus_lance_damage} Spirit Lance Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1698,
+      "name": "special_bonus_unique_phantom_lancer_juxtapose_damage_in",
+      "name_loc": "-{s:bonus_illusion_damage_in_pct}% Juxtapose Illusion Damage Taken",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6850,
+      "name": "special_bonus_unique_phantom_lancer_4",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Doppelganger Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1699,
+      "name": "special_bonus_unique_phantom_lancer_illusory_armaments_duration",
+      "name_loc": "+{s:bonus_duration}s Illusory Armaments Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "phantom_lancer_spirit_lance",
+      "matched_text": "slows",
+      "evidence_description_en": "Sends a magical spirit lance to a target enemy unit that damages and slows, while summoning an illusory phantom to attack the unit.",
+      "source_file": "sources/hero-12-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "phantom_lancer_spirit_lance",
+      "matched_text": "summoning",
+      "evidence_description_en": "Sends a magical spirit lance to a target enemy unit that damages and slows, while summoning an illusory phantom to attack the unit.",
+      "source_file": "sources/hero-12-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "phantom_lancer_doppelwalk",
+      "matched_text": "nearby",
+      "evidence_description_en": "Phantom Lancer briefly vanishes from the battlefield. After %delay% second, Phantom Lancer and any of his nearby illusions reappear at a random position within the targeted location, along with two additional doppelgangers. Extends duration of all illusions. The two added doppelgangers have different properties: one takes normal damage and deals none, while the other takes %illusion_2_damage_in_pct%%% bonus damage and deals %illusion_2_damage_out_pct%%% less damage.\n\nDISPEL TYPE: Basic Dispel",
+      "source_file": "sources/hero-12-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "dispel",
+      "dimension_zh": "驱散",
+      "ability": "phantom_lancer_doppelwalk",
+      "matched_text": "DISPEL",
+      "evidence_description_en": "Phantom Lancer briefly vanishes from the battlefield. After %delay% second, Phantom Lancer and any of his nearby illusions reappear at a random position within the targeted location, along with two additional doppelgangers. Extends duration of all illusions. The two added doppelgangers have different properties: one takes normal damage and deals none, while the other takes %illusion_2_damage_in_pct%%% bonus damage and deals %illusion_2_damage_out_pct%%% less damage.\n\nDISPEL TYPE: Basic Dispel",
+      "source_file": "sources/hero-12-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "phantom_lancer_doppelwalk",
+      "matched_text": "illusions",
+      "evidence_description_en": "Phantom Lancer briefly vanishes from the battlefield. After %delay% second, Phantom Lancer and any of his nearby illusions reappear at a random position within the targeted location, along with two additional doppelgangers. Extends duration of all illusions. The two added doppelgangers have different properties: one takes normal damage and deals none, while the other takes %illusion_2_damage_in_pct%%% bonus damage and deals %illusion_2_damage_out_pct%%% less damage.\n\nDISPEL TYPE: Basic Dispel",
+      "source_file": "sources/hero-12-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "phantom_lancer_phantom_edge",
+      "matched_text": "movement speed",
+      "evidence_description_en": "When targeting an enemy for an attack, Phantom Lancer quickly charges into range, gaining increased movement speed and evasion.",
+      "source_file": "sources/hero-12-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "phantom_lancer_illusory_armaments",
+      "matched_text": "illusion",
+      "evidence_description_en": "Whenever an illusion of Phantom Lancer is created, its outgoing damage cannot go below a fixed value for %duration% seconds.",
+      "source_file": "sources/hero-12-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "phantom_lancer_juxtapose",
+      "matched_text": "illusion",
+      "evidence_description_en": "Phantom Lancer has a chance to fracture his presence on an attack, creating an illusion of himself. Illusions also have a chance to fracture further. Illusions created from Phantom Lancer last for %illusion_duration% seconds, while illusions created from other illusions last %illusion_from_illusion_duration% seconds.",
+      "source_file": "sources/hero-12-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-12-english.json",
+    "sources/hero-12-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

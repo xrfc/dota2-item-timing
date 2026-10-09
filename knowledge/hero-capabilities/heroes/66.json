@@ -1,0 +1,2073 @@
+{
+  "hero_id": 66,
+  "npc_name": "npc_dota_hero_chen",
+  "name_zh": "陈",
+  "name_en": "Chen",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Support",
+    "Pusher"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+  ],
+  "hero_summary_zh": "每逢战斗就去丛林中劝化生物，陈率领着他的权宜之军援助战场上的队伍。让盟友远离危险的同时控制野兽袭击敌人。万念俱灰之际，无处不在的圣光还将带来一线生机。",
+  "hero_summary_en": "Converting the creatures of the forest to his cause, Chen leads his makeshift armies to aid his team in battle. He assaults enemies with beasts while sending friends to safety. Then, when things seem darkest, he heals his allies wherever they may be.",
+  "base_stats": {
+    "attack_range": 650,
+    "damage_min": 48,
+    "damage_max": 58,
+    "attack_rate": 1.7,
+    "movement_speed": 305,
+    "armor": 1.5,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "chen_penitence",
+      "id": 5328,
+      "name_zh": "赎罪",
+      "name_en": "Penitence",
+      "description_zh": "对敌方单位造成伤害，并使其移动变慢，友军攻击他时攻速提升。",
+      "description_en": "Damages enemy unit, forces it to move slower and lets allies attack it more quickly.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        800
+      ],
+      "cooldowns": [
+        20,
+        17,
+        14,
+        11
+      ],
+      "mana_costs": [
+        80,
+        90,
+        100,
+        110
+      ],
+      "cast_points": [
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "duration",
+          "values_float": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "speed",
+          "values_float": [
+            1400
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_movement_speed",
+          "values_float": [
+            -12,
+            -18,
+            -24,
+            -30
+          ],
+          "is_percentage": true,
+          "heading_loc": "MOVEMENT SLOW:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_chen_8",
+              "value": 15,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_attack_speed",
+          "values_float": [
+            20,
+            40,
+            60,
+            80
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS ATTACK SPEED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage",
+          "values_float": [
+            50,
+            100,
+            150,
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_chen_11",
+              "value": 75,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            800
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            20,
+            17,
+            14,
+            11
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 4,
+        "immunity": 4,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "chen_holy_persuasion",
+      "id": 5330,
+      "name_zh": "神圣劝化",
+      "name_en": "Holy Persuasion",
+      "description_zh": "陈控制住敌方小兵或者中立生物，并获得击杀金钱一定百分比的金钱。被劝化目标的最大生命值会被设为%health_min%。被劝化的单位将提升移动速度和伤害输出。陈自己的单位如果在%unsummon_time%秒内未受到伤害可以在全地图范围内成为技能的目标，施放后取消劝化。",
+      "description_en": "Chen takes control of an enemy or neutral creep and receives a percentage of its bounty. Its maximum health is set to %health_min%. Converted creeps will have increased movement speed and bonus damage. Chen may globally target his own creep if it has not taken damage in the last %unsummon_time% seconds to unsummon it.",
+      "notes_zh": [
+        "如果达到劝化生物的数量上限后再劝化生物，最早劝化的单位将立即死亡。",
+        "拥有阿哈利姆魔晶后可以对远古中立生物施放本技能。",
+        "升级此技能后在升级前劝化的单位并不会增加生命值。",
+        "劝化时单位的魔法恢复至满魔。"
+      ],
+      "notes_en": [
+        "Persuading a new creep above max unit count causes the oldest persuaded creep to die.",
+        "Can target Ancient creeps when Chen has Aghanim's Shard.",
+        "The health of creeps already under Chen's control does not update to the new level upon leveling Holy Persuasion further.",
+        "Fully restores the creep's mana upon converting."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Allows Holy Persuasion to target Ancient creeps. Can control up to 1/2/3 Ancient creeps based on Hand of God's level. Additionally levels up some abilities of creeps by 1 level.",
+          "zh": "神圣劝化可以对远古中立生物施放。根据上帝之手等级可以控制最多1/2/3个远古生物。使中立生物的部分技能额外升1级。"
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        600
+      ],
+      "cooldowns": [
+        15
+      ],
+      "mana_costs": [
+        110,
+        130,
+        150,
+        170
+      ],
+      "cast_points": [
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "max_units",
+          "values_float": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "MAX UNITS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "level_req",
+          "values_float": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "is_percentage": false,
+          "heading_loc": "CREEP MAX LEVEL:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "health_min",
+          "values_float": [
+            400
+          ],
+          "is_percentage": false,
+          "heading_loc": "HEALTH MINIMUM:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_chen_4",
+              "value": 1300,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "gold_pct",
+          "values_float": [
+            25,
+            50,
+            75,
+            100
+          ],
+          "is_percentage": true,
+          "heading_loc": "PERCENTAGE OF BOUNTY:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "movement_speed_bonus",
+          "values_float": [
+            5,
+            10,
+            20,
+            30
+          ],
+          "is_percentage": false,
+          "heading_loc": "MOVE SPEED BONUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage_bonus",
+          "values_float": [
+            5,
+            10,
+            15,
+            20
+          ],
+          "is_percentage": true,
+          "heading_loc": "BONUS DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_chen_5",
+              "value": 12,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "creep_ability_level",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            2
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "unsummon_time",
+          "values_float": [
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "unsummon_cooldown_reduction",
+          "values_float": [
+            12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            600
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            110,
+            130,
+            150,
+            170
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            15
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "33554440",
+        "target_team": 3,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 3,
+        "dispellable": 3,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "chen_divine_favor",
+      "id": 7306,
+      "name_zh": "神力恩泽",
+      "name_en": "Divine Favor",
+      "description_zh": "被动提供光环，提供生命恢复加成。可以主动对友军施放，提供护甲加成，以及治疗和生命恢复增强。\n\n对陈施放后，陈控制的所有单位都会获得增益效果。",
+      "description_en": "Passively provides an aura that grants increased health regeneration. Can be cast on allies to provide them with bonus armor and increasing the healing and health regeneration they receive.\n\nIf cast on Chen, all units controlled by Chen receive the buff.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        1200
+      ],
+      "cooldowns": [
+        20,
+        18,
+        16,
+        14
+      ],
+      "mana_costs": [
+        75
+      ],
+      "cast_points": [
+        0.2
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "heal_rate",
+          "values_float": [
+            1.5,
+            3,
+            4.5,
+            6
+          ],
+          "is_percentage": false,
+          "heading_loc": "REGEN PER SEC:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "aura_radius",
+          "values_float": [
+            1200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            6
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_armor",
+          "values_float": [
+            5,
+            10,
+            15,
+            20
+          ],
+          "is_percentage": false,
+          "heading_loc": "ARMOR:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "heal_amp",
+          "values_float": [
+            5,
+            10,
+            15,
+            20
+          ],
+          "is_percentage": true,
+          "heading_loc": "HEAL AMPLIFICATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_chen_divine_favor_healing",
+              "value": 15,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "creep_bonus",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            1200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            75
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            20,
+            18,
+            16,
+            14
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8",
+        "target_team": 1,
+        "target_type": 19,
+        "damage": 0,
+        "immunity": 1,
+        "dispellable": 3,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "chen_zealot",
+      "id": 1755,
+      "name_zh": "狂热者",
+      "name_en": "Zealot",
+      "description_zh": "陈复活时都会带着一个狂热者加入战斗，这是近战小兵战士，可以牺牲自己治疗友军，或者对敌人造成伤害。狂热者会获得神圣劝化的加成效果，并且和其他线上近战小兵一样随着游戏时间的增加提升属性，获得额外基础攻击力。狂热者会在陈身边复活。狂热者技能可以主动使用，在%teleport_delay%秒延迟后把控制下的目标单位传送到陈的身边。如果陈是技能的目标，将传送控制的所有单位。受到来自敌方英雄及其单位的伤害会中止传送过程。",
+      "description_en": "Whenever Chen respawns, he is joined by a Zealot, a melee warrior creep with the ability to sacrifice itself to heal or deal damage to an enemy.  The Zealot receives Holy Persuasion's benefits and scales up with other lane melee creeps as game time increases and gains extra base damage.  The Zealot respawns next to Chen.Zealot may be activated to teleport a unit under your control to Chen after a %teleport_delay% second delay.  If Chen is targeted, it will teleport all units you control. Taking damage from enemy heroes or their units will cancel the teleport.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        10
+      ],
+      "mana_costs": [
+        50
+      ],
+      "cast_points": [
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "zealots",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "zealot_respawn_time",
+          "values_float": [
+            60
+          ],
+          "is_percentage": false,
+          "heading_loc": "ZEALOT RESPAWN TIME:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS BASE DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_chen_zealot",
+              "value": 25,
+              "operation": 3
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_hp",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_chen_zealot",
+              "value": 25,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "teleport_delay",
+          "values_float": [
+            6
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            10
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8",
+        "target_team": 1,
+        "target_type": 3,
+        "damage": 0,
+        "immunity": 2,
+        "dispellable": 2,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "chen_hand_of_god",
+      "id": 5331,
+      "name_zh": "上帝之手",
+      "name_en": "Hand of God",
+      "description_zh": "治疗地图上的所有友军英雄以及陈控制的所有单位。一开始先施加高额治疗，在之后%hot_duration%秒内持续进行小额治疗。",
+      "description_en": "Heals all allied heroes on the map as well as all units under Chen's control. A large heal is applied at first and a slow heal over time is applied for %hot_duration% seconds afterwards.",
+      "notes_zh": [
+        "可以治疗无敌和被隐藏/放逐友军。"
+      ],
+      "notes_en": [
+        "Can heal invulnerable and hidden/banished allies."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Decreases the cooldown of Hand of God to %AbilityCooldown%s and it becomes a channelled spell that lasts for up to %AbilityChannelTime% seconds. The initial heal happens at the start of the channel, and while channeling other nearby allied units become debuff immune with %debuff_immune_resist%%% magic resistance and the power of the heal over time is increased by %nearby_hot_boost%%%.",
+          "zh": "上帝之手的冷却时间降低至%AbilityCooldown%秒，并且变为持续施法型技能，持续最多%AbilityChannelTime%秒。初始治疗会在持续施法起始时发生，持续施法期间其他附近友方单位变为减益免疫状态，拥有%debuff_immune_resist%%%魔法抗性，而且持续治疗的威力提升%nearby_hot_boost%%%。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        150,
+        130,
+        110
+      ],
+      "mana_costs": [
+        200,
+        300,
+        400
+      ],
+      "cast_points": [
+        0.3,
+        0.3,
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "heal_amount",
+          "values_float": [
+            200,
+            300,
+            400
+          ],
+          "is_percentage": false,
+          "heading_loc": "INITIAL HEAL:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "hot_duration",
+          "values_float": [
+            10
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "heal_per_second",
+          "values_float": [
+            20,
+            30,
+            40
+          ],
+          "is_percentage": false,
+          "heading_loc": "HEAL PER SECOND:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "ancient_creeps_scepter",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "SHARD HOLY PERSUASION ANCIENTS:",
+          "bonuses": [],
+          "values_shard": [
+            1,
+            2,
+            3
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "does_purge",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_chen_12",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "full_heal_on_chen_and_creeps",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_chen_2",
+              "value": 1,
+              "operation": 5
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "debuff_immune_radius",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "CHANNEL RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            800
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "debuff_immune_resist",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            60
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "nearby_hot_boost",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            200
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityChannelTime",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            6
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            200,
+            300,
+            400
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            150,
+            130,
+            110
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            40
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "4",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 1,
+        "dispellable": 2,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 841,
+      "name": "special_bonus_unique_chen_11",
+      "name_loc": "+{s:bonus_damage} Penitence Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1818,
+      "name": "special_bonus_unique_chen_zealot",
+      "name_loc": "+{s:bonus_damage}% Zealot Health/Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7869,
+      "name": "special_bonus_unique_chen_5",
+      "name_loc": "+{s:bonus_damage_bonus}% Holy Persuasion Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 529,
+      "name": "special_bonus_unique_chen_8",
+      "name_loc": "+{s:bonus_bonus_movement_speed}% Penitence Slow",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1653,
+      "name": "special_bonus_unique_chen_divine_favor_healing",
+      "name_loc": "+{s:bonus_heal_amp}% Divine Favor Heal Amplification",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6535,
+      "name": "special_bonus_unique_chen_4",
+      "name_loc": "+{s:bonus_health_min} Holy Persuasion Minimum Health",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 952,
+      "name": "special_bonus_unique_chen_12",
+      "name_loc": "Hand of God applies a Strong Dispel",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6260,
+      "name": "special_bonus_unique_chen_2",
+      "name_loc": "Hand of God Fully Heals Chen and His Creeps",
+      "desc_loc": "Initial Heal fully heals. Heal over time is still applied.",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "chen_holy_persuasion",
+      "matched_text": "movement speed",
+      "evidence_description_en": "Chen takes control of an enemy or neutral creep and receives a percentage of its bounty. Its maximum health is set to %health_min%. Converted creeps will have increased movement speed and bonus damage. Chen may globally target his own creep if it has not taken damage in the last %unsummon_time% seconds to unsummon it.",
+      "source_file": "sources/hero-66-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "armor_interaction",
+      "dimension_zh": "护甲机制",
+      "ability": "chen_divine_favor",
+      "matched_text": "armor",
+      "evidence_description_en": "Passively provides an aura that grants increased health regeneration. Can be cast on allies to provide them with bonus armor and increasing the healing and health regeneration they receive.\n\nIf cast on Chen, all units controlled by Chen receive the buff.",
+      "source_file": "sources/hero-66-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "healing",
+      "dimension_zh": "治疗／恢复",
+      "ability": "chen_divine_favor",
+      "matched_text": "health regen",
+      "evidence_description_en": "Passively provides an aura that grants increased health regeneration. Can be cast on allies to provide them with bonus armor and increasing the healing and health regeneration they receive.\n\nIf cast on Chen, all units controlled by Chen receive the buff.",
+      "source_file": "sources/hero-66-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mobility",
+      "dimension_zh": "位移／机动",
+      "ability": "chen_zealot",
+      "matched_text": "teleport",
+      "evidence_description_en": "Whenever Chen respawns, he is joined by a Zealot, a melee warrior creep with the ability to sacrifice itself to heal or deal damage to an enemy.  The Zealot receives Holy Persuasion's benefits and scales up with other lane melee creeps as game time increases and gains extra base damage.  The Zealot respawns next to Chen.Zealot may be activated to teleport a unit under your control to Chen after a %teleport_delay% second delay.  If Chen is targeted, it will teleport all units you control. Taking damage from enemy heroes or their units will cancel the teleport.",
+      "source_file": "sources/hero-66-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "healing",
+      "dimension_zh": "治疗／恢复",
+      "ability": "chen_zealot",
+      "matched_text": "heal",
+      "evidence_description_en": "Whenever Chen respawns, he is joined by a Zealot, a melee warrior creep with the ability to sacrifice itself to heal or deal damage to an enemy.  The Zealot receives Holy Persuasion's benefits and scales up with other lane melee creeps as game time increases and gains extra base damage.  The Zealot respawns next to Chen.Zealot may be activated to teleport a unit under your control to Chen after a %teleport_delay% second delay.  If Chen is targeted, it will teleport all units you control. Taking damage from enemy heroes or their units will cancel the teleport.",
+      "source_file": "sources/hero-66-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "chen_hand_of_god",
+      "matched_text": "slow",
+      "evidence_description_en": "Heals all allied heroes on the map as well as all units under Chen's control. A large heal is applied at first and a slow heal over time is applied for %hot_duration% seconds afterwards.",
+      "source_file": "sources/hero-66-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "healing",
+      "dimension_zh": "治疗／恢复",
+      "ability": "chen_hand_of_god",
+      "matched_text": "Heals",
+      "evidence_description_en": "Heals all allied heroes on the map as well as all units under Chen's control. A large heal is applied at first and a slow heal over time is applied for %hot_duration% seconds afterwards.",
+      "source_file": "sources/hero-66-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-66-english.json",
+    "sources/hero-66-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

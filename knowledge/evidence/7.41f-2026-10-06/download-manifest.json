@@ -1,0 +1,116 @@
+{
+  "schema": "local-evidence-backup/1",
+  "repository": "xrfc/dota2-timing",
+  "saved_at": "2026-10-09T05:33:34.607231+00:00",
+  "artifacts": [
+    {
+      "artifact_id": 11382665563,
+      "label": "original-replays-and-workspaces",
+      "file": "11382665563-original-replays-and-workspaces.zip",
+      "sha256": "cfc9a55e953e3e55866cb1abc567d661aa6a952f17c27b728632a076079a424d",
+      "bytes": 482450729,
+      "github_metadata": {
+        "id": 11382665563,
+        "node_id": "MDg6QXJ0aWZhY3QxMTM4MjY2NTU2Mw==",
+        "name": "acceptance-replays-and-workspaces",
+        "size_in_bytes": 482450729,
+        "url": "https://api.github.com/repos/xrfc/dota2-timing/actions/artifacts/11382665563",
+        "archive_download_url": "https://api.github.com/repos/xrfc/dota2-timing/actions/artifacts/11382665563/zip",
+        "expired": false,
+        "digest": "sha256:cfc9a55e953e3e55866cb1abc567d661aa6a952f17c27b728632a076079a424d",
+        "created_at": "2026-10-06T00:25:31Z",
+        "updated_at": "2026-10-06T00:25:31Z",
+        "expires_at": "2026-10-13T00:25:17Z",
+        "workflow_run": {
+          "id": 37393085454,
+          "repository_id": 1390108504,
+          "head_repository_id": 1390108504,
+          "head_branch": "feat/coach-workflow-infrastructure",
+          "head_sha": "fc13280e8d836c3e5418e941fc023f349d11d658"
+        }
+      }
+    },
+    {
+      "artifact_id": 11381584813,
+      "label": "original-acquisition-evidence",
+      "file": "11381584813-original-acquisition-evidence.zip",
+      "sha256": "23de10962c2aaa525d7e1765c7aa5b26a98618c1daee21ce074937d406d14b75",
+      "bytes": 8603500,
+      "github_metadata": {
+        "id": 11381584813,
+        "node_id": "MDg6QXJ0aWZhY3QxMTM4MTU4NDgxMw==",
+        "name": "acceptance-evidence",
+        "size_in_bytes": 8603500,
+        "url": "https://api.github.com/repos/xrfc/dota2-timing/actions/artifacts/11381584813",
+        "archive_download_url": "https://api.github.com/repos/xrfc/dota2-timing/actions/artifacts/11381584813/zip",
+        "expired": false,
+        "digest": "sha256:23de10962c2aaa525d7e1765c7aa5b26a98618c1daee21ce074937d406d14b75",
+        "created_at": "2026-10-06T00:25:16Z",
+        "updated_at": "2026-10-06T00:25:16Z",
+        "expires_at": "2026-11-05T00:25:14Z",
+        "workflow_run": {
+          "id": 37393085454,
+          "repository_id": 1390108504,
+          "head_repository_id": 1390108504,
+          "head_branch": "feat/coach-workflow-infrastructure",
+          "head_sha": "fc13280e8d836c3e5418e941fc023f349d11d658"
+        }
+      }
+    },
+    {
+      "artifact_id": 11381872976,
+      "label": "original-toolchain",
+      "file": "11381872976-original-toolchain.zip",
+      "sha256": "d978674e6affd657eaf2aedac847db8e1a2154ced2da68738c9574555388a50a",
+      "bytes": 12110719,
+      "github_metadata": {
+        "id": 11381872976,
+        "node_id": "MDg6QXJ0aWZhY3QxMTM4MTg3Mjk3Ng==",
+        "name": "acceptance-toolchain",
+        "size_in_bytes": 12110719,
+        "url": "https://api.github.com/repos/xrfc/dota2-timing/actions/artifacts/11381872976",
+        "archive_download_url": "https://api.github.com/repos/xrfc/dota2-timing/actions/artifacts/11381872976/zip",
+        "expired": false,
+        "digest": "sha256:d978674e6affd657eaf2aedac847db8e1a2154ced2da68738c9574555388a50a",
+        "created_at": "2026-10-06T00:16:36Z",
+        "updated_at": "2026-10-06T00:16:36Z",
+        "expires_at": "2026-10-13T00:16:34Z",
+        "workflow_run": {
+          "id": 37393085454,
+          "repository_id": 1390108504,
+          "head_repository_id": 1390108504,
+          "head_branch": "feat/coach-workflow-infrastructure",
+          "head_sha": "fc13280e8d836c3e5418e941fc023f349d11d658"
+        }
+      }
+    },
+    {
+      "artifact_id": 11406303075,
+      "label": "final-audit-and-samples",
+      "file": "11406303075-final-audit-and-samples.zip",
+      "sha256": "723927ee42b97a26e43a29983722674a3f60dea7bf8b30cbc071e3edd06d44c5",
+      "bytes": 8877782,
+      "github_metadata": {
+        "id": 11406303075,
+        "node_id": "MDg6QXJ0aWZhY3QxMTQwNjMwMzA3NQ==",
+        "name": "saved-replay-audit",
+        "size_in_bytes": 8877782,
+        "url": "https://api.github.com/repos/xrfc/dota2-timing/actions/artifacts/11406303075",
+        "archive_download_url": "https://api.github.com/repos/xrfc/dota2-timing/actions/artifacts/11406303075/zip",
+        "expired": false,
+        "digest": "sha256:723927ee42b97a26e43a29983722674a3f60dea7bf8b30cbc071e3edd06d44c5",
+        "created_at": "2026-10-06T10:40:18Z",
+        "updated_at": "2026-10-06T10:40:18Z",
+        "expires_at": "2026-11-05T10:40:16Z",
+        "workflow_run": {
+          "id": 37451030026,
+          "repository_id": 1390108504,
+          "head_repository_id": 1390108504,
+          "head_branch": "feat/coach-workflow-infrastructure",
+          "head_sha": "a82f2a2ad802dbd15c08924e91ee7fc17fa39cfb"
+        }
+      }
+    }
+  ],
+  "note": "Local durable copy, not an independent off-host backup; no semantic admission granted."
+}

@@ -1,0 +1,2237 @@
+{
+  "hero_id": 109,
+  "npc_name": "npc_dota_hero_terrorblade",
+  "name_zh": "恐怖利刃",
+  "name_en": "Terrorblade",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Carry",
+    "Pusher",
+    "Nuker"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    3,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+  ],
+  "hero_summary_zh": "恐怖利刃的存在将使战局无法估量。他召唤的强大幻象可以迷惑敌人，撕扯他们的防线。恶魔掠夺者还可以与敌友交换血量，轻松地避开死亡或削弱敌人的力量。",
+  "hero_summary_en": "With Terrorblade, nothing is as it seems. Conjuring powerful illusions to confuse enemies and break their defenses, the demon marauder can exchange health with foes and friends to stave off death or weaken his enemies.",
+  "base_stats": {
+    "attack_range": 150,
+    "damage_min": 49,
+    "damage_max": 55,
+    "attack_rate": 1.5,
+    "movement_speed": 315,
+    "armor": 9.833334,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "terrorblade_reflection",
+      "id": 5619,
+      "name_zh": "倒影",
+      "name_en": "Reflection",
+      "description_zh": "恐怖利刃映出目标区域内所有敌方英雄的黑暗倒影对其进行反制，目标在短时间内将被自身倒影攻击，移动速度和攻击速度都会降低。倒影为无敌状态。",
+      "description_en": "Terrorblade brings forth an invulnerable dark reflection of all enemy heroes in a target area. Affected enemy heroes have movement and attack speeds slowed and attacked by their reflection.",
+      "notes_zh": [
+        "无法以倒影的幻象为目标，并且幻象为无敌，减速效果被移除后幻象将被摧毁。",
+        "倒影只会攻击该技能指定的目标。"
+      ],
+      "notes_en": [
+        "Reflections are untargetable, invulnerable illusions, that will be destroyed if the slow debuff is removed.",
+        "Reflections can only attack their source."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        700
+      ],
+      "cooldowns": [
+        23,
+        20,
+        17,
+        14
+      ],
+      "mana_costs": [
+        60,
+        65,
+        70,
+        75
+      ],
+      "cast_points": [
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "illusion_duration",
+          "values_float": [
+            5
+          ],
+          "is_percentage": false,
+          "heading_loc": "REFLECTION DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade_2",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_outgoing_damage",
+          "values_float": [
+            -70,
+            -55,
+            -40,
+            -25
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade_6",
+              "value": 15,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_outgoing_tooltip",
+          "values_float": [
+            30,
+            45,
+            60,
+            75
+          ],
+          "is_percentage": true,
+          "heading_loc": "REFLECTION DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade_6",
+              "value": 15,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "move_slow",
+          "values_float": [
+            15,
+            20,
+            25,
+            30
+          ],
+          "is_percentage": true,
+          "heading_loc": "MOVEMENT SLOW:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade_6",
+              "value": 15,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "attack_slow",
+          "values_float": [
+            15,
+            20,
+            25,
+            30
+          ],
+          "is_percentage": false,
+          "heading_loc": "ATTACK SPEED SLOW:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade_6",
+              "value": 15,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "range",
+          "values_float": [
+            400
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            700
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            60,
+            65,
+            70,
+            75
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            23,
+            20,
+            17,
+            14
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "48",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 4,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "terrorblade_conjure_image",
+      "id": 5620,
+      "name_zh": "惑幻",
+      "name_en": "Conjure Image",
+      "description_zh": "创造一个恐怖利刃的幻象，可以攻击敌人造成伤害。",
+      "description_en": "Creates an illusion of Terrorblade that deals damage.",
+      "notes_zh": [
+        "惑幻产生的幻象在外观上与普通幻象不同。"
+      ],
+      "notes_en": [
+        "Illusions created by Conjure Image are visually different for enemies."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "Conjure Image illusions always spawn at full health and cost health instead of mana."
+      ],
+      "facet_text_zh": [
+        "",
+        "惑幻的幻象总是满血，但施放时消耗生命，而不是魔法。"
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        16
+      ],
+      "mana_costs": [
+        50,
+        60,
+        70,
+        80
+      ],
+      "cast_points": [
+        0.15
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "illusion_duration",
+          "values_float": [
+            34
+          ],
+          "is_percentage": false,
+          "heading_loc": "ILLUSION DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade_5",
+              "value": 8,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_outgoing_damage",
+          "values_float": [
+            -75,
+            -70,
+            -65,
+            -60
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_outgoing_tooltip",
+          "values_float": [
+            25,
+            30,
+            35,
+            40
+          ],
+          "is_percentage": true,
+          "heading_loc": "ILLUSION DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_incoming_damage",
+          "values_float": [
+            150
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "illusion_incoming_damage_total_tooltip",
+          "values_float": [
+            250
+          ],
+          "is_percentage": true,
+          "heading_loc": "ILLUSION DAMAGE TAKEN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "show_particle_effect",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "appear_as_illusion",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "hp_cost_perc",
+          "values_float": [
+            0
+          ],
+          "is_percentage": true,
+          "heading_loc": "CURRENT HP COST:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "terrorblade_soul_fragment",
+            "values": [
+              15
+            ],
+            "operation": 5
+          },
+          "required_facet": "terrorblade_soul_fragment"
+        },
+        {
+          "name": "illusions_spawn_with_full_hp",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "terrorblade_soul_fragment",
+            "values": [
+              1
+            ],
+            "operation": 0
+          },
+          "required_facet": "terrorblade_soul_fragment"
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.15
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            50,
+            60,
+            70,
+            80
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "terrorblade_soul_fragment",
+            "values": [
+              100
+            ],
+            "operation": 4
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            16
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade_4",
+              "value": 2,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "4",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "terrorblade_metamorphosis",
+      "id": 5621,
+      "name_zh": "魔化",
+      "name_en": "Metamorphosis",
+      "description_zh": "恐怖利刃变换形态，化身成可怕的恶魔并具备远程攻击能力。任何恐怖利刃的幻象在%metamorph_aura_tooltip%范围内也将魔化。",
+      "description_en": "Terrorblade transforms into a powerful demon with a ranged attack. Any of Terrorblade's illusions that are within %metamorph_aura_tooltip% range will also be transformed by Metamorphosis.",
+      "notes_zh": [
+        "近战或远程物品的冷却时间不同时将根据恐怖利刃在使用物品时处于远程或近战形态而定。"
+      ],
+      "notes_en": [
+        "Cooldowns of items that are different for ranged and melee units will be based on which form Terrorblade was in when the item was used."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        145,
+        140,
+        135,
+        130
+      ],
+      "mana_costs": [
+        100
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "duration",
+          "values_float": [
+            35,
+            40,
+            45,
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade_3",
+              "value": 30,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "transformation_time",
+          "values_float": [
+            0.35
+          ],
+          "is_percentage": false,
+          "heading_loc": "TRANSFORMATION TIME:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "base_attack_time",
+          "values_float": [
+            1.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "BASE ATTACK TIME:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_range",
+          "values_float": [
+            300,
+            350,
+            400,
+            450
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "tooltip_attack_range",
+          "values_float": [
+            450,
+            500,
+            550,
+            600
+          ],
+          "is_percentage": false,
+          "heading_loc": "ATTACK RANGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_damage",
+          "values_float": [
+            20,
+            40,
+            60,
+            80
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "metamorph_aura_tooltip",
+          "values_float": [
+            1200
+          ],
+          "is_percentage": false,
+          "heading_loc": "ILLUSION AURA RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            145,
+            140,
+            135,
+            130
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade_metamorphosis_cooldown",
+              "value": 10,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2052",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 1,
+        "immunity": 0,
+        "dispellable": 3,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "terrorblade_demon_zeal",
+      "id": 699,
+      "name_zh": "狂魔",
+      "name_en": "Demon Zeal",
+      "description_zh": "施放需消耗恐怖利刃当前生命值的一部分，为恐怖利刃和他附近的幻象提供生命恢复、移动和攻击速度加成。不会影响倒影的幻象。魔化状态下无法施放，而且施放魔化会移除狂魔效果。",
+      "description_en": "Costs part of Terrorblade's current HP to cast, providing Terrorblade and nearby illusions bonus movement, HP Regen and attack speed. Does not affect Reflection illusions. Can't be cast while in Metamorphosis and Metamorphosis will remove Demon Zeal.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": true,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        45
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0.2
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "berserk_bonus_attack_speed",
+          "values_float": [
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS ATTACK SPEED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "berserk_bonus_movement_speed",
+          "values_float": [
+            60
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS MOVEMENT SPEED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            25
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "hp_regen",
+          "values_float": [
+            20
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS HEALTH REGEN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "radius",
+          "values_float": [
+            1200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "health_cost_pct",
+          "values_float": [
+            20
+          ],
+          "is_percentage": true,
+          "heading_loc": "CURRENT HEALTH COST:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            45
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8589934597",
+        "target_team": 0,
+        "target_type": 19,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 3,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "terrorblade_terror_wave",
+      "id": 425,
+      "name_zh": "怵潮",
+      "name_en": "Terror Wave",
+      "description_zh": "放出一道能量波，朝所有方向向外行进，击中敌方英雄将使其恐惧并造成伤害，同时恐怖利刃短时间内获得魔化状态。",
+      "description_en": "Causes a wave to travel outwards in all directions forcing enemy heroes to become Feared upon impact and dealing damage, and grants Terrorblade Metamorphosis for a short time.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": false,
+      "granted_by_scepter": true,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        90
+      ],
+      "mana_costs": [
+        75
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "fear_duration",
+          "values_float": [
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "FEAR DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_radius",
+          "values_float": [
+            1600
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage",
+          "values_float": [
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_speed",
+          "values_float": [
+            1000
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_spawn_delay",
+          "values_float": [
+            0.6
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_meta_duration",
+          "values_float": [
+            15
+          ],
+          "is_percentage": false,
+          "heading_loc": "METAMORPHOSIS DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            75
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            90
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8589936645",
+        "target_team": 0,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 0,
+        "dispellable": 2,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "terrorblade_sunder",
+      "id": 5622,
+      "name_zh": "魂断",
+      "name_en": "Sunder",
+      "description_zh": "隔断恐怖利刃以及目标英雄的灵魂并将双方的当前血量百分比进行互换。交换后双方英雄的生命值必定在一定百分比以上。",
+      "description_en": "Severs the life from both Terrorblade and a target hero, exchanging a percentage of both units' current health. Some health points must remain.",
+      "notes_zh": [
+        "减益免疫的敌人不会被影响生命值。"
+      ],
+      "notes_en": [
+        "Debuff Immune enemies don't get their HP modified."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/5",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "There is no minimum health threshold for Sundered enemies.",
+        ""
+      ],
+      "facet_text_zh": [
+        "魂断对敌人施放时没有最低生命值限制。",
+        ""
+      ],
+      "cast_ranges": [
+        475
+      ],
+      "cooldowns": [
+        110,
+        75,
+        40
+      ],
+      "mana_costs": [
+        100,
+        75,
+        50
+      ],
+      "cast_points": [
+        0.35
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "hit_point_minimum_pct",
+          "values_float": [
+            35,
+            30,
+            25
+          ],
+          "is_percentage": true,
+          "heading_loc": "MINIMUM HP SWAP:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade_sunder_hp_threshold",
+              "value": 25,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "ignore_minimum_pct_for_enemies",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "terrorblade_condemned",
+            "values": [
+              1
+            ],
+            "operation": 0
+          },
+          "required_facet": "terrorblade_condemned"
+        },
+        {
+          "name": "ignore_minimum_pct_for_enemies_tooltip",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "terrorblade_condemned",
+            "values": [
+              0
+            ],
+            "operation": 5
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            475
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.35
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            100,
+            75,
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            110,
+            75,
+            40
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_terrorblade",
+              "value": 30,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "33554440",
+        "target_team": 3,
+        "target_type": 128,
+        "damage": 0,
+        "immunity": 4,
+        "dispellable": 0,
+        "max_level": 3
+      }
+    },
+    {
+      "name": "terrorblade_dark_unity",
+      "id": 1396,
+      "name_zh": "暗黑团结",
+      "name_en": "Dark Unity",
+      "description_zh": "恐怖之刃控制的附近幻象拥有额外攻击伤害。",
+      "description_en": "Nearby Illusions created by Terrorblade have bonus attack damage.",
+      "notes_zh": [
+        "倒影的幻象也会受到作用。"
+      ],
+      "notes_en": [
+        "Reflection Illusions are also affected."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/6",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "radius",
+          "values_float": [
+            1200
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "inside_radius_bonus_damage_pct",
+          "values_float": [
+            60
+          ],
+          "is_percentage": true,
+          "heading_loc": "DAMAGE BONUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "4398046511106",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 1
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 6942,
+      "name": "special_bonus_unique_terrorblade_2",
+      "name_loc": "+{s:bonus_illusion_duration}s Reflection Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7861,
+      "name": "special_bonus_unique_terrorblade_4",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Conjure Image Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1186,
+      "name": "special_bonus_unique_terrorblade_metamorphosis_cooldown",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Metamorphosis Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1840,
+      "name": "special_bonus_unique_terrorblade_sunder_hp_threshold",
+      "name_loc": "-{s:bonus_hit_point_minimum_pct}% Sunder Minimum HP Swap",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6168,
+      "name": "special_bonus_all_stats_10",
+      "name_loc": "+{s:value} All Attributes",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            10
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 479,
+      "name": "special_bonus_unique_terrorblade_5",
+      "name_loc": "+{s:bonus_illusion_duration}s Conjure Image Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6107,
+      "name": "special_bonus_unique_terrorblade",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Sunder Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6943,
+      "name": "special_bonus_unique_terrorblade_3",
+      "name_loc": "+{s:bonus_duration}s Metamorphosis Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "terrorblade_reflection",
+      "matched_text": "slowed",
+      "evidence_description_en": "Terrorblade brings forth an invulnerable dark reflection of all enemy heroes in a target area. Affected enemy heroes have movement and attack speeds slowed and attacked by their reflection.",
+      "source_file": "sources/hero-109-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "terrorblade_reflection",
+      "matched_text": "area",
+      "evidence_description_en": "Terrorblade brings forth an invulnerable dark reflection of all enemy heroes in a target area. Affected enemy heroes have movement and attack speeds slowed and attacked by their reflection.",
+      "source_file": "sources/hero-109-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "terrorblade_conjure_image",
+      "matched_text": "illusion",
+      "evidence_description_en": "Creates an illusion of Terrorblade that deals damage.",
+      "source_file": "sources/hero-109-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "terrorblade_metamorphosis",
+      "matched_text": "illusions",
+      "evidence_description_en": "Terrorblade transforms into a powerful demon with a ranged attack. Any of Terrorblade's illusions that are within %metamorph_aura_tooltip% range will also be transformed by Metamorphosis.",
+      "source_file": "sources/hero-109-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "terrorblade_demon_zeal",
+      "matched_text": "nearby",
+      "evidence_description_en": "Costs part of Terrorblade's current HP to cast, providing Terrorblade and nearby illusions bonus movement, HP Regen and attack speed. Does not affect Reflection illusions. Can't be cast while in Metamorphosis and Metamorphosis will remove Demon Zeal.",
+      "source_file": "sources/hero-109-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": true
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "terrorblade_demon_zeal",
+      "matched_text": "illusions",
+      "evidence_description_en": "Costs part of Terrorblade's current HP to cast, providing Terrorblade and nearby illusions bonus movement, HP Regen and attack speed. Does not affect Reflection illusions. Can't be cast while in Metamorphosis and Metamorphosis will remove Demon Zeal.",
+      "source_file": "sources/hero-109-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": true
+    },
+    {
+      "dimension": "health_scaling",
+      "dimension_zh": "生命值相关伤害",
+      "ability": "terrorblade_sunder",
+      "matched_text": "percentage of both units' current health",
+      "evidence_description_en": "Severs the life from both Terrorblade and a target hero, exchanging a percentage of both units' current health. Some health points must remain.",
+      "source_file": "sources/hero-109-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/5/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "attack_interaction",
+      "dimension_zh": "攻击机制",
+      "ability": "terrorblade_dark_unity",
+      "matched_text": "bonus attack damage",
+      "evidence_description_en": "Nearby Illusions created by Terrorblade have bonus attack damage.",
+      "source_file": "sources/hero-109-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/6/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "terrorblade_dark_unity",
+      "matched_text": "Nearby",
+      "evidence_description_en": "Nearby Illusions created by Terrorblade have bonus attack damage.",
+      "source_file": "sources/hero-109-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/6/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "summons",
+      "dimension_zh": "召唤物相关",
+      "ability": "terrorblade_dark_unity",
+      "matched_text": "Illusions",
+      "evidence_description_en": "Nearby Illusions created by Terrorblade have bonus attack damage.",
+      "source_file": "sources/hero-109-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/6/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-109-english.json",
+    "sources/hero-109-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

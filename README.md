@@ -4,6 +4,8 @@
 
 主干状态：2026-10-09 已将全部开发分支合入 `main`（代码基线 `725f35c`），包含上下文、训练准入及缓存/身份追踪修复；包版本仍为 0.4.0，未创建新发布。最新验证与剩余任务见[项目状态](docs/project-status.md)。
 
+2026-10-10 新增[全英雄能力知识](knowledge/README.md)、[单事件追踪课程](learning/exercises/event-lineage/9031371970/README.md)与[冷启动候选](docs/knowledge-cold-start.md)。先学习当前官网快照，再补历史版本；资料覆盖和训练候选不等于最佳出装监督或训练准入。规范路径与后续维护约定见[路径清单](docs/knowledge-maintenance.md)。
+
 ## 当前能做什么
 
 - 批量导入 `.dem`、压缩回放或比赛 JSON，记录购买、位置和自身经济时序。

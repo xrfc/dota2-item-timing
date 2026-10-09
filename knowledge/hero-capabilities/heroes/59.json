@@ -1,0 +1,1851 @@
+{
+  "hero_id": 59,
+  "npc_name": "npc_dota_hero_huskar",
+  "name_zh": "哈斯卡",
+  "name_en": "Huskar",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Carry",
+    "Durable",
+    "Initiator"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    1
+  ],
+  "hero_summary_zh": "随着生命的不断流失，哈斯卡的杀敌能力大幅上升。他的终极技能可以瞬间移除自己和敌人的部分生命，而在濒死时他炽热的长矛已经掷得毁天灭地。",
+  "hero_summary_en": "As his health lowers, Huskar's ability to slay enemies grows considerably. Able to instantly remove a portion of both his and an enemy's health with his ultimate, when near death he is able to throw his burning spears with devastating speed.",
+  "base_stats": {
+    "attack_range": 400,
+    "damage_min": 43,
+    "damage_max": 48,
+    "attack_rate": 1.6,
+    "movement_speed": 290,
+    "armor": 2.6666667,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "huskar_inner_fire",
+      "id": 7300,
+      "name_zh": "心炎",
+      "name_en": "Inner Fire",
+      "description_zh": "在炽烈的狂暴下将附近所有敌人击退至固定距离外，造成伤害和沉默。",
+      "description_en": "In a fiery rage, knocks all nearby enemies away from you to a fixed distance, dealing damage and silencing them.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        500
+      ],
+      "cooldowns": [
+        17,
+        15,
+        13,
+        11
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0.35
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "health_cost",
+          "values_float": [
+            75,
+            100,
+            125,
+            150
+          ],
+          "is_percentage": false,
+          "heading_loc": "HEALTH COST:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "damage",
+          "values_float": [
+            110,
+            180,
+            250,
+            320
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "radius",
+          "values_float": [
+            500
+          ],
+          "is_percentage": false,
+          "heading_loc": "RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "disarm_duration",
+          "values_float": [
+            1.5,
+            2,
+            2.5,
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_huskar_3",
+              "value": 0.75,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "knockback_distance",
+          "values_float": [
+            400
+          ],
+          "is_percentage": false,
+          "heading_loc": "KNOCKBACK TO:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "min_knockback_distance",
+          "values_float": [
+            25
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "knockback_duration",
+          "values_float": [
+            1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "min_knockback_duration",
+          "values_float": [
+            0.4
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            500
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.35
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            17,
+            15,
+            13,
+            11
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "4",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "huskar_burning_spear",
+      "id": 5272,
+      "name_zh": "沸血之矛",
+      "name_en": "Burning Spear",
+      "description_zh": "哈斯卡将其长矛点燃，在普通攻击的同时对敌方单位造成持续伤害。多次攻击会造成持续伤害叠加。每次攻击都将牺牲哈斯卡部分生命值。",
+      "description_en": "Huskar sets his spears aflame, dealing damage over time with his regular attack.  Multiple attacks will stack additional damage.  Each attack drains some of Huskar's health.",
+      "notes_zh": [
+        "沸血之矛在多次施放到目标身上效果可以叠加。没有叠加上限。",
+        "哈斯卡不能使用此技能自杀。",
+        "炙矛可热不会对肉山造成额外的最大生命值烧灼伤害。"
+      ],
+      "notes_en": [
+        "Burning Spear stacks additively when used multiple times on one target.  There is no cap.",
+        "Huskar cannot kill himself with this skill.",
+        "Incendiary does not deal extra Max Health Burn Damage to Roshan."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Burning Spears launches an additional %multishot_targets% spears onto random enemies within Huskar's attack range.",
+          "zh": "沸血之矛会对哈斯卡攻击距离内随机敌人额外发射%multishot_targets%支长矛。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        "Burning Spears also burns enemies for a percentage of their max health. Costs Max Health instead of Current Health."
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        "沸血之矛还会燃烧敌人一定百分比的最大生命值。会消耗最大生命值，而不是当前生命值。"
+      ],
+      "cast_ranges": [
+        450
+      ],
+      "cooldowns": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "cast_points": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "max_health_cost",
+          "values_float": [
+            2
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX HEALTH COST:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "burn_damage",
+          "values_float": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "is_percentage": false,
+          "heading_loc": "BURN DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_huskar_2",
+              "value": 5,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "burn_damage_max_pct",
+          "values_float": [
+            0.5
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX HEALTH BURN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "duration",
+          "values_float": [
+            9
+          ],
+          "is_percentage": false,
+          "heading_loc": "DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_huskar_5",
+              "value": 6,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            450
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "135176",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 3,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "huskar_berserkers_blood",
+      "id": 5273,
+      "name_zh": "狂战士之血",
+      "name_en": "Berserker's Blood",
+      "description_zh": "哈斯卡的伤痛赐予他力量，根据他损失的生命值将获得攻击速度、魔法抗性和生命恢复加成。生命恢复为力量的一定百分比。",
+      "description_en": "Huskar's injuries feed his power, giving increased attack speed, magic resistance and health regen based on missing health. Health regen is a percentage of your strength.",
+      "notes_zh": [
+        "加成效果为线性增加，满血时没有加成，%hp_threshold_max%%%生命时达到最大加成。"
+      ],
+      "notes_en": [
+        "Bonuses are provided linearly, no bonus at Full HP and full bonus at strictly less than %hp_threshold_max%%% HP."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Huskar can activate Berserker's Blood for a health cost to cauterize himself. Dispels Huskar, then after a delay, heals for the amount of health consumed plus an additional bonus per debuff dispelled.DISPEL TYPE: Basic Dispel",
+          "zh": "哈斯卡可以消耗一定生命来主动开启狂战士之血，炙疗哈斯卡。进行驱散，然后在一定延迟后回复消耗的生命，并且每驱散一个负面状态，他就会额外回复生命。\n\n驱散类型：弱驱散"
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "Berserker's Blood can be activated for a health cost. Dispels Huskar, then after a delay, heals for the amount of health consumed plus an additional bonus per debuff dispelled.\n\nDISPEL TYPE: Basic Dispel",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "狂战士之血可以消耗一定生命来主动开启。驱散哈斯卡，然后在一定延迟后回复消耗的生命，并且每驱散一个负面状态，他就会额外回复生命。\n\n驱散类型：弱驱散",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "maximum_attack_speed",
+          "values_float": [
+            170,
+            220,
+            270,
+            320
+          ],
+          "is_percentage": false,
+          "heading_loc": "MAX ATTACK SPEED:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "maximum_health_regen",
+          "values_float": [
+            25,
+            40,
+            55,
+            70
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX STR REGEN:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_huskar_6",
+              "value": 30,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "maximum_magic_resist",
+          "values_float": [
+            15,
+            20,
+            25,
+            30
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX MAGIC RESIST:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "hp_threshold_max",
+          "values_float": [
+            10
+          ],
+          "is_percentage": true,
+          "heading_loc": "HP FOR MAX BONUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "activatable",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            1
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "activation_healthcost_pct",
+          "values_float": [
+            0
+          ],
+          "is_percentage": true,
+          "heading_loc": "CURRENT HP COST:",
+          "bonuses": [],
+          "values_shard": [
+            30
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "activation_cooldown",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "COOLDOWN:",
+          "bonuses": [],
+          "values_shard": [
+            20
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "activation_delay",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "CAUTERIZE DELAY:",
+          "bonuses": [],
+          "values_shard": [
+            3
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "activation_heal_pct_per_debuff",
+          "values_float": [
+            0
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX HP HEAL PER DEBUFF:",
+          "bonuses": [],
+          "values_shard": [
+            3
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2",
+        "target_team": 1,
+        "target_type": 1,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "huskar_blood_magic",
+      "id": 1309,
+      "name_zh": "血魔法",
+      "name_en": "Blood Magic",
+      "description_zh": "哈斯卡没有魔法值。物品的魔法消耗会转换为生命消耗。哈斯卡的生命消耗为魔法伤害，可以被魔法抗性减少。",
+      "description_en": "Huskar does not have mana. Mana costs of items are converted into health costs.Huskar's Health Costs are Magical Damage and can be reduced by Magic Resist.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "4406636445698",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "huskar_life_break",
+      "id": 5274,
+      "name_zh": "牺牲",
+      "name_en": "Life Break",
+      "description_zh": "哈斯卡牺牲自己的生命来摧毁敌人的生命，他跃向一个目标，造成目标当前生命值一定百分比的伤害，并且降低目标的移动和攻击速度。哈斯卡在跳跃过程中为减益免疫，并且魔法抗性提升%immunity_resist%%%。\n\n驱散类型：弱驱散",
+      "description_en": "Huskar draws upon his health to break an enemy's life, leaping at a target to shatter a percentage of that hero's current health and slow both their movement and attack speed.  While leaping, Huskar is Debuff Immune with %immunity_resist%%% magic resistance.\n\nDISPEL TYPE: Basic Dispel",
+      "notes_zh": [
+        "如果哈斯卡在跳跃时受到控制技能，或目标在0.015秒内移动1400码以上，跳跃就会停止。",
+        "减速效果无视减益免疫。",
+        "牺牲无法被躲避。"
+      ],
+      "notes_en": [
+        "If Huskar is disabled during the charge or the target moves more than 1400 units in 0.015 seconds, the charge stops.",
+        "Slow works on Spell Immune units.",
+        "Life Break cannot be disjointed."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Forces the enemy target to attack Huskar and increases cast range.",
+          "zh": "强迫敌方目标攻击哈斯卡，并提升施法距离。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "Life Break also slows enemies in a radius around the target.",
+        "Life Break also heals friendly units in a radius around the target.",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "牺牲还会使目标附近的敌人减速。",
+        "牺牲还会治疗目标附近的友方单位。",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        550
+      ],
+      "cooldowns": [
+        16,
+        14,
+        12
+      ],
+      "mana_costs": [
+        0,
+        0,
+        0
+      ],
+      "cast_points": [
+        0.3,
+        0.3,
+        0.3
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "health_cost_percent",
+          "values_float": [
+            0.32,
+            0.38,
+            0.44
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "health_damage",
+          "values_float": [
+            0.32,
+            0.38,
+            0.44
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_huskar",
+              "value": 0.22,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "charge_speed",
+          "values_float": [
+            1200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "tooltip_health_damage",
+          "values_float": [
+            32,
+            38,
+            44
+          ],
+          "is_percentage": true,
+          "heading_loc": "DAMAGE DEALT:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_huskar",
+              "value": 22,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "tooltip_health_cost_percent",
+          "values_float": [
+            32,
+            38,
+            44
+          ],
+          "is_percentage": true,
+          "heading_loc": "DAMAGE TAKEN:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "movespeed",
+          "values_float": [
+            -60
+          ],
+          "is_percentage": true,
+          "heading_loc": "MOVEMENT SLOW:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "attack_speed",
+          "values_float": [
+            60,
+            100,
+            140
+          ],
+          "is_percentage": false,
+          "heading_loc": "ATTACK SPEED SLOW:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "slow_duration_tooltip",
+          "values_float": [
+            3,
+            4,
+            5
+          ],
+          "is_percentage": false,
+          "heading_loc": "SLOW DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_huskar_4",
+              "value": 2,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "taunt_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "TAUNT DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            3
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cast_range_bonus",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "CAST RANGE BONUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            250
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "immunity_resist",
+          "values_float": [
+            60
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastRange",
+          "values_float": [
+            550
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityDuration",
+          "values_float": [
+            3,
+            4,
+            5
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_huskar_4",
+              "value": 2,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            16,
+            14,
+            12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_huskar_7",
+              "value": 5,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "8",
+        "target_team": 2,
+        "target_type": 3,
+        "damage": 2,
+        "immunity": 3,
+        "dispellable": 2,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 6655,
+      "name": "special_bonus_unique_huskar_3",
+      "name_loc": "+{s:bonus_disarm_duration}s Inner Fire Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7140,
+      "name": "special_bonus_unique_huskar_4",
+      "name_loc": "+{s:bonus_slow_duration_tooltip}s Life Break Slow Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6380,
+      "name": "special_bonus_unique_huskar_2",
+      "name_loc": "+{s:bonus_burn_damage} Burning Spear Burn Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 433,
+      "name": "special_bonus_lifesteal_12",
+      "name_loc": "+{s:value}% Lifesteal",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [
+        {
+          "name": "value",
+          "values_float": [
+            12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 462,
+      "name": "special_bonus_unique_huskar_6",
+      "name_loc": "+{s:bonus_maximum_health_regen}% Berserker's Blood Regen",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 688,
+      "name": "special_bonus_unique_huskar_7",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Life Break Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7143,
+      "name": "special_bonus_unique_huskar_5",
+      "name_loc": "+{s:bonus_duration}s Burning Spear Duration",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 6204,
+      "name": "special_bonus_unique_huskar",
+      "name_loc": "+{s:bonus_tooltip_health_damage}% Life Break Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "silence",
+      "dimension_zh": "沉默",
+      "ability": "huskar_inner_fire",
+      "matched_text": "silencing",
+      "evidence_description_en": "In a fiery rage, knocks all nearby enemies away from you to a fixed distance, dealing damage and silencing them.",
+      "source_file": "sources/hero-59-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "area_effect",
+      "dimension_zh": "范围作用",
+      "ability": "huskar_inner_fire",
+      "matched_text": "nearby",
+      "evidence_description_en": "In a fiery rage, knocks all nearby enemies away from you to a fixed distance, dealing damage and silencing them.",
+      "source_file": "sources/hero-59-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "damage_over_time",
+      "dimension_zh": "持续伤害",
+      "ability": "huskar_burning_spear",
+      "matched_text": "damage over time",
+      "evidence_description_en": "Huskar sets his spears aflame, dealing damage over time with his regular attack.  Multiple attacks will stack additional damage.  Each attack drains some of Huskar's health.",
+      "source_file": "sources/hero-59-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "health_scaling",
+      "dimension_zh": "生命值相关伤害",
+      "ability": "huskar_berserkers_blood",
+      "matched_text": "missing health",
+      "evidence_description_en": "Huskar's injuries feed his power, giving increased attack speed, magic resistance and health regen based on missing health. Health regen is a percentage of your strength.",
+      "source_file": "sources/hero-59-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "healing",
+      "dimension_zh": "治疗／恢复",
+      "ability": "huskar_berserkers_blood",
+      "matched_text": "health regen",
+      "evidence_description_en": "Huskar's injuries feed his power, giving increased attack speed, magic resistance and health regen based on missing health. Health regen is a percentage of your strength.",
+      "source_file": "sources/hero-59-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "mana_interaction",
+      "dimension_zh": "魔法值机制",
+      "ability": "huskar_blood_magic",
+      "matched_text": "mana",
+      "evidence_description_en": "Huskar does not have mana. Mana costs of items are converted into health costs.Huskar's Health Costs are Magical Damage and can be reduced by Magic Resist.",
+      "source_file": "sources/hero-59-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "huskar_life_break",
+      "matched_text": "slow",
+      "evidence_description_en": "Huskar draws upon his health to break an enemy's life, leaping at a target to shatter a percentage of that hero's current health and slow both their movement and attack speed.  While leaping, Huskar is Debuff Immune with %immunity_resist%%% magic resistance.\n\nDISPEL TYPE: Basic Dispel",
+      "source_file": "sources/hero-59-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "health_scaling",
+      "dimension_zh": "生命值相关伤害",
+      "ability": "huskar_life_break",
+      "matched_text": "percentage of that hero's current health",
+      "evidence_description_en": "Huskar draws upon his health to break an enemy's life, leaping at a target to shatter a percentage of that hero's current health and slow both their movement and attack speed.  While leaping, Huskar is Debuff Immune with %immunity_resist%%% magic resistance.\n\nDISPEL TYPE: Basic Dispel",
+      "source_file": "sources/hero-59-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "dispel",
+      "dimension_zh": "驱散",
+      "ability": "huskar_life_break",
+      "matched_text": "DISPEL",
+      "evidence_description_en": "Huskar draws upon his health to break an enemy's life, leaping at a target to shatter a percentage of that hero's current health and slow both their movement and attack speed.  While leaping, Huskar is Debuff Immune with %immunity_resist%%% magic resistance.\n\nDISPEL TYPE: Basic Dispel",
+      "source_file": "sources/hero-59-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-59-english.json",
+    "sources/hero-59-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}

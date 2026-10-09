@@ -1,0 +1,2314 @@
+{
+  "schema": "hero-source-manifest/1",
+  "target_patch": null,
+  "source_patch": null,
+  "patch_verified": false,
+  "note": "Current official website snapshot; no patch identifier supplied by these endpoints. Not admitted for historical replay conclusions.",
+  "expected_heroes": 127,
+  "expected_detail_files": 254,
+  "records": [
+    {
+      "hero_id": 1,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=1",
+      "file": "sources/hero-1-english.json",
+      "sha256": "bd110e5daa54998cb29975abe4b689e0d3673fb75b8293c00c112efc77aff9ae",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:22.054939+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 1,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=1",
+      "file": "sources/hero-1-schinese.json",
+      "sha256": "9ccb06e0a592278fc064ef3a652fa2175f54f39f56c9a40e2d6d19d39a51dbbb",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:21.920640+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 2,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=2",
+      "file": "sources/hero-2-english.json",
+      "sha256": "47f5fa1582c0ca8249449c9bc36cecee039dc6cc16fdc096d23fef64328134bb",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:22.516487+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 2,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=2",
+      "file": "sources/hero-2-schinese.json",
+      "sha256": "a21ff8f85a503dcaaf616173738e680832829ba21aa360a515dd1436e90aef35",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:22.062934+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 3,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=3",
+      "file": "sources/hero-3-english.json",
+      "sha256": "424f22f65a9b6954cbcb70975b35c2f6a302c8afac34a4b790b3f2d3bd3872c6",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:22.062039+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 3,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=3",
+      "file": "sources/hero-3-schinese.json",
+      "sha256": "c9d2507859da8b2be91f36719876371d2b2293dadd7e5e42f5bef0ea518d7dbb",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:22.020335+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 4,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=4",
+      "file": "sources/hero-4-english.json",
+      "sha256": "4723ca7f1b6452d8ccfd672dc75ee28eeb0f648c76d1f0f28787e44459abe220",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:23.289132+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 4,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=4",
+      "file": "sources/hero-4-schinese.json",
+      "sha256": "b640754b518981684771c8e0a7d59202cc48a2660c78651d010d52cdb85e6238",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:23.234643+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 5,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=5",
+      "file": "sources/hero-5-english.json",
+      "sha256": "0e76a4701afbab6b34a34b809cd969aeedf87bf663c3e6f156f6e344398f15f0",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:23.175619+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 5,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=5",
+      "file": "sources/hero-5-schinese.json",
+      "sha256": "9574e0e27b0052e8c27d277340f9594f163f36acbccf95e19e0a37ba62482eca",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:23.329802+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 6,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=6",
+      "file": "sources/hero-6-english.json",
+      "sha256": "73204dd32fc78fa741e23c5205859dc9bb0b314cd87ddd16c1db05743ab448eb",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:23.217676+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 6,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=6",
+      "file": "sources/hero-6-schinese.json",
+      "sha256": "f5ac03a2e89919b19892cb8a99df8fa71f849cf2926214b7febadcc0ae0f8c5b",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:23.668443+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 7,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=7",
+      "file": "sources/hero-7-english.json",
+      "sha256": "09e1e1b63293391b30880b15bfb9f48e801253cc45725adf16a04befb226a41b",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:24.323925+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 7,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=7",
+      "file": "sources/hero-7-schinese.json",
+      "sha256": "394df4858a4790d5e0a3efbb49a946d75d1aa368a7239ec2ea823bc64b54bbdc",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:24.297435+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 8,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=8",
+      "file": "sources/hero-8-english.json",
+      "sha256": "a1d7fa42b8d02fd1ba35e1f76d4e220d1f409bb4963a9b712b1b3cb971d9878c",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:24.333577+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 8,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=8",
+      "file": "sources/hero-8-schinese.json",
+      "sha256": "d6fa7ec90e1fa547c32c653c4d3d4c510f1aa2c2205a995aca4e81b3e58b2a76",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:24.470677+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 9,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=9",
+      "file": "sources/hero-9-english.json",
+      "sha256": "b555bb7ec8e6157f4dbaf591bd92424f0ae77911301b167324d4f63a683c2480",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:24.354007+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 9,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=9",
+      "file": "sources/hero-9-schinese.json",
+      "sha256": "9033d19fb0211a31e27d05ba0551c6a64f41b8fff1b424a3be5ab02cd9f9aab6",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:24.817854+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 10,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=10",
+      "file": "sources/hero-10-english.json",
+      "sha256": "1a5ecde65e169408c3b08797b530e312b901e4c50e743641e2d098591a39069a",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:25.430258+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 10,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=10",
+      "file": "sources/hero-10-schinese.json",
+      "sha256": "624a1ba56098264ee67f975d0930a44245c0424f23ebbbcc08725d8673841e0e",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:25.380943+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 11,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=11",
+      "file": "sources/hero-11-english.json",
+      "sha256": "a64012d6b80b7a328d6c63142162a2c1c0450e4e126d23d59c13b45a7e2e3911",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:25.386389+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 11,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=11",
+      "file": "sources/hero-11-schinese.json",
+      "sha256": "9832f589d86263881c2384d0bc76f915bdbc4b0e299245d1cf7623b3cf5d5c69",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:25.417021+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 12,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=12",
+      "file": "sources/hero-12-english.json",
+      "sha256": "7052f4f9b4487fa48d7a8b066e1b520c00f0acbe042a3d8c22c1538f91ee0eeb",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:25.560277+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 12,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=12",
+      "file": "sources/hero-12-schinese.json",
+      "sha256": "7c98172a3f4b3f36db5fd27ddef10508924227453971dec1264fe7315819655e",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:26.046284+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 13,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=13",
+      "file": "sources/hero-13-english.json",
+      "sha256": "aa0cf50cb9b15452922e6118ccb6e21c003d6e57b2b59672f71c03fbc30f1d20",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:26.410272+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 13,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=13",
+      "file": "sources/hero-13-schinese.json",
+      "sha256": "1a64d4ff1734343ef93f7382e1d62ae7c96e4328171dd56f7fe24055a4eb62bf",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:26.403817+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 14,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=14",
+      "file": "sources/hero-14-english.json",
+      "sha256": "7f168db60e3be1d7b77c34a51d5b05695582ea1b773987f809fe1fd94cc0b374",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:26.395309+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 14,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=14",
+      "file": "sources/hero-14-schinese.json",
+      "sha256": "5de4b9cfb23c1a3fbb75bab93a019329176d521f5b73c0e8ab7e334cbf7237d2",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:26.405657+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 15,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=15",
+      "file": "sources/hero-15-english.json",
+      "sha256": "2737960f1a4bf7acb5e61afa8bff57f8b5ff63dc102f35e8a7117f049aac5f73",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:26.709069+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 15,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=15",
+      "file": "sources/hero-15-schinese.json",
+      "sha256": "58dc07bf65375457947ab5ca0659b80601b9a2baa42828730a5365fe71ecf039",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:27.041121+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 16,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=16",
+      "file": "sources/hero-16-english.json",
+      "sha256": "4331b1e0ec31bb1a887a880cb4e7b14e8a01778ab88377c0e52ad330fde0a7d7",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:27.531646+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 16,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=16",
+      "file": "sources/hero-16-schinese.json",
+      "sha256": "8b2b127a0f9b0e97c21a2b813d931afe2a393c4b82712f3d35aedcd50171a53c",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:27.611158+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 17,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=17",
+      "file": "sources/hero-17-english.json",
+      "sha256": "15e30184b86d331844d34143c0ba7c3cfb11f539e5f19e55e553a19822558066",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:27.389263+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 17,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=17",
+      "file": "sources/hero-17-schinese.json",
+      "sha256": "6815b637560ca1c4a2b35ea1bfacc7f5bfafc211e5e8e2556c7e583c0bd63de3",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:27.598657+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 18,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=18",
+      "file": "sources/hero-18-english.json",
+      "sha256": "0db5620e2a660cf0a4f5654085597f97fb3edab9c2e01f2f3d18d632ff888a40",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:27.845654+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 18,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=18",
+      "file": "sources/hero-18-schinese.json",
+      "sha256": "4a0a9f076dc7b775a26256584950e23d78c861df5db9faeaac1df242d29a2cd1",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:28.186631+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 19,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=19",
+      "file": "sources/hero-19-english.json",
+      "sha256": "5e1e42e5431c1130635c92486d17ccf7059cb3b122b4f6f1c9fb88a643f7a50a",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:28.372140+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 19,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=19",
+      "file": "sources/hero-19-schinese.json",
+      "sha256": "fb9f4ce032fa4c802e4be21a8477b2ec6dc2310356cf97bec6347af0122b075c",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:28.662920+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 20,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=20",
+      "file": "sources/hero-20-english.json",
+      "sha256": "0e7870e8c64c9e078cefe521c9d96553130496abc7e9c0f92d954c409f6016c5",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:28.751203+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 20,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=20",
+      "file": "sources/hero-20-schinese.json",
+      "sha256": "f0e537547accf3b55c33393d79fee53fe98708ebf25049ea155bdc9e5f828ec8",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:28.744464+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 21,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=21",
+      "file": "sources/hero-21-english.json",
+      "sha256": "a70cbf92672a6f62f806f50854bb8845b73c00280c5779269a5788c71655d341",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:29.068191+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 21,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=21",
+      "file": "sources/hero-21-schinese.json",
+      "sha256": "4adfee9fa215aff4a279fed4bae6625254352812e6d809d16dbfbc62999c59a1",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:29.428497+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 22,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=22",
+      "file": "sources/hero-22-english.json",
+      "sha256": "98db1f635f8beed0870085aa0bcd89e2c61c3085394a7f317bba1c9de68444a6",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:29.349891+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 22,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=22",
+      "file": "sources/hero-22-schinese.json",
+      "sha256": "e4a3adfab3782f83291c8d8c8081a8cdaba43b909b124553973095a738c38425",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:29.648282+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 23,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=23",
+      "file": "sources/hero-23-english.json",
+      "sha256": "822a544e7c5f4a7b8f49af98ffb5ac9ae2732aa2143550c451246ff02a9b199f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:30.140749+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 23,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=23",
+      "file": "sources/hero-23-schinese.json",
+      "sha256": "ba192a9d7b57e2ae8d3b5608b7adc5dc66a5f2c1614a21bdf420a30c00b1a6e3",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:29.854792+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 25,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=25",
+      "file": "sources/hero-25-english.json",
+      "sha256": "4f044b61a25a83718b4443849159778830223ca4f746ae5ead81dad7441c23f2",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:30.177617+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 25,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=25",
+      "file": "sources/hero-25-schinese.json",
+      "sha256": "2a9470b16a5b886953a3c47ba24e2132c6a3f5ebdbe756fca9aa7d0b8e024118",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:30.330438+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 26,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=26",
+      "file": "sources/hero-26-english.json",
+      "sha256": "0e1f7f5a241f1ca82facfc2a20cc4dce909c0b59932190f1db3b2564e8a4a384",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:30.830017+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 26,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=26",
+      "file": "sources/hero-26-schinese.json",
+      "sha256": "ce9903b0701228bf3c37508f399a3633e2830b172d942e1ee85113df363dbceb",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:31.282639+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 27,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=27",
+      "file": "sources/hero-27-english.json",
+      "sha256": "140257a291c4f0b74cbce9b3b4dff48c6986a5bc7099032d243cb8e06f39f916",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:31.283495+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 27,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=27",
+      "file": "sources/hero-27-schinese.json",
+      "sha256": "d20ce0a9f255c3a6c4e454433c535699457f915fff36f666f17c3a32e11ce4e8",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:31.548469+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 28,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=28",
+      "file": "sources/hero-28-english.json",
+      "sha256": "7a4ad024b64768a159229fb99c7fe2a831ee275e1f659c8b36419a781d4a6328",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:31.608853+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 28,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=28",
+      "file": "sources/hero-28-schinese.json",
+      "sha256": "1b8a8f9ff442f8385fe7b662ab939c9f1bae425cbfe3e3bc7f7c09c05a3c71d0",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:31.961171+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 29,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=29",
+      "file": "sources/hero-29-english.json",
+      "sha256": "41f1768a339294f46e9b7837e9341c56ce3d07f80eb095931f5c52e2a6019fd3",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:31.933850+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 29,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=29",
+      "file": "sources/hero-29-schinese.json",
+      "sha256": "5687fb9d0fc34b056ab0a1adcefd61c2ca439a200608ca3d406fa64f06d7b229",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:32.430475+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 30,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=30",
+      "file": "sources/hero-30-english.json",
+      "sha256": "54330c77dbf36e804cd6b25784b67b5a2c0c991c7bc5d91b0526b001a39350ad",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:32.346471+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 30,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=30",
+      "file": "sources/hero-30-schinese.json",
+      "sha256": "c73545b1c9d9ec8d2bdd8ef450330ad1c3b6d76e851b8073ccea661a46d3a44f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:33.029742+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 31,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=31",
+      "file": "sources/hero-31-english.json",
+      "sha256": "f43ce66c059b65380148172fc6e0db0d0155f51568f58f924969e714a9be328f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:30.509876+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 31,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=31",
+      "file": "sources/hero-31-schinese.json",
+      "sha256": "bc53deafacd5fce8d42a2f77f37aa0d9c408823b48f64ae707c8313f4fa9808b",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:30.806152+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 32,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=32",
+      "file": "sources/hero-32-english.json",
+      "sha256": "3a01e12ef08b827395ae73fc84c7cd33b40a019b9dd52a63f1d5cc8589fb68b2",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:32.578058+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 32,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=32",
+      "file": "sources/hero-32-schinese.json",
+      "sha256": "0c353dd025ee68aad0aa6a8089a787528c7049cf884735eb09a5ad400665549a",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:33.034417+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 33,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=33",
+      "file": "sources/hero-33-english.json",
+      "sha256": "6092c03c476959741aecb7509e8bb46a7b9b20823fb8917a7443ecf699d065bb",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:33.211646+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 33,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=33",
+      "file": "sources/hero-33-schinese.json",
+      "sha256": "79efec649ec489505affb7c784131a34f6ec69014906180c6b9bef6a6d4e2ace",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:33.434247+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 34,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=34",
+      "file": "sources/hero-34-english.json",
+      "sha256": "b53a8b50662ae237d01b23aad19f0d6fc707f687fe2de468b51e10de64c81e18",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:33.573881+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 34,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=34",
+      "file": "sources/hero-34-schinese.json",
+      "sha256": "f5db2d0f46d2a0742edf55b0ff1ca37d436e8a9576314e7a0c552fd57bb38548",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:33.945160+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 35,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=35",
+      "file": "sources/hero-35-english.json",
+      "sha256": "022377e09d48796db5e5cbc4a319ebc39afb9ba8533a31ffa4e389a3a8f279f5",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:34.050777+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 35,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=35",
+      "file": "sources/hero-35-schinese.json",
+      "sha256": "f88deebd3b8a474b0721f34b9410f22a8e74a75288a87f63cea2656319498beb",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:34.074741+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 36,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=36",
+      "file": "sources/hero-36-english.json",
+      "sha256": "a397399debd35abf0cafca2c052de1569c61420ab07d6e39fde2f0c93899a058",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:34.208789+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 36,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=36",
+      "file": "sources/hero-36-schinese.json",
+      "sha256": "4d0f125bc80d2b011b71141f4976da53a86cb2c472d757a80960e5556ab34756",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:34.439377+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 37,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=37",
+      "file": "sources/hero-37-english.json",
+      "sha256": "b460601a74a96a032981a1af38d797fc70dd99ee65fae8bfc9bd58266fc6a950",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:34.616100+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 37,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=37",
+      "file": "sources/hero-37-schinese.json",
+      "sha256": "3da1887bb66bfc7ac014b6656c16faa381e4a36e6e8716c5f524ff01788a7646",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:35.166489+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 38,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=38",
+      "file": "sources/hero-38-english.json",
+      "sha256": "03d5175adb067ad4ab483288711ea9917c025117a8ca6c70abaf7f404c3a2379",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:35.098438+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 38,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=38",
+      "file": "sources/hero-38-schinese.json",
+      "sha256": "803e66433aa50c028c223f328cf3065451240cf56fe68a68425c18262ff3741d",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:35.301798+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 39,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=39",
+      "file": "sources/hero-39-english.json",
+      "sha256": "9d942ec86974a0b16b0d4eeba88d3ee69a34bba4ebbbca839aef88702d105f92",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:35.333771+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 39,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=39",
+      "file": "sources/hero-39-schinese.json",
+      "sha256": "604b9b7a3f39d6522b422006d7e735fbe03ef3ac16f6f5ee19f6891ace565cfc",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:35.610857+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 40,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=40",
+      "file": "sources/hero-40-english.json",
+      "sha256": "0146b2b1cf3ac8422d9a1960246841694b178583028cb8af6a4d951f69f0cd8f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:35.599116+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 40,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=40",
+      "file": "sources/hero-40-schinese.json",
+      "sha256": "3bc474a033063dd9f1bfbf008d6ac21f5a09b336ad983fe2a5ab749e5279a99b",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:36.194354+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 41,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=41",
+      "file": "sources/hero-41-english.json",
+      "sha256": "73ee94a3fd2be1ffb6a5d5d038543c056d095200493955c2b2aca71ac6c392ba",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:36.194877+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 41,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=41",
+      "file": "sources/hero-41-schinese.json",
+      "sha256": "fb1d592fb6a248f4bbd9e0a22465d519a7badc0032d8e6119bed8fab7277f7c6",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:36.443092+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 42,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=42",
+      "file": "sources/hero-42-english.json",
+      "sha256": "3935f6b5eb5c024b55e299c888daa7bcf1d75428f4a8affd69efd390a4540e26",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:36.360125+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 42,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=42",
+      "file": "sources/hero-42-schinese.json",
+      "sha256": "5b18af9f5897adcfd3ede8167d521edf855a52a4a6549009095cedd636f6c635",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:36.620185+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 43,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=43",
+      "file": "sources/hero-43-english.json",
+      "sha256": "a570f01798798f5e718abcd0d967aeac60666f522d235a028cb047b6aa2f559b",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:36.608830+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 43,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=43",
+      "file": "sources/hero-43-schinese.json",
+      "sha256": "04c3ee78c219d6fd92e943b5047ee187337dc86f6cedf6368115aa7359307bde",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:37.208080+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 44,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=44",
+      "file": "sources/hero-44-english.json",
+      "sha256": "7ac1694bbbaaed259cf6f66436a1bc978cb60216e5f7bc3c85e1f33d09afecc9",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:37.393861+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 44,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=44",
+      "file": "sources/hero-44-schinese.json",
+      "sha256": "679199af039c178930ec6e6abd01f2073237e18e76500351fb01701e3c99fdb1",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:37.349098+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 45,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=45",
+      "file": "sources/hero-45-english.json",
+      "sha256": "8e1982eef2b60777d527526a96a4f65a3e9bd2e31a34789e53a5f4a6d2ed6290",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:37.522308+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 45,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=45",
+      "file": "sources/hero-45-schinese.json",
+      "sha256": "ec210f1590450a5fb20a828ef309e9449df212e0a7fdf6708f4de2356bf1552a",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:37.677052+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 46,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=46",
+      "file": "sources/hero-46-english.json",
+      "sha256": "91faea4138893b6514e2f333004b77aedc9c342b81fb1ab27b107321ce146c50",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:37.633478+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 46,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=46",
+      "file": "sources/hero-46-schinese.json",
+      "sha256": "bfd1effff6b2d4f7abf04e8fb020cf608f9785514a4a278400dedc0803dff64e",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:38.442075+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 47,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=47",
+      "file": "sources/hero-47-english.json",
+      "sha256": "078647f23ff65e14a7e1ee257baa64ed3fb6f5240c6e967ef46b7476458d29fd",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:38.555647+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 47,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=47",
+      "file": "sources/hero-47-schinese.json",
+      "sha256": "994e719cc898784a065443f442461e010671cc24d7bee108d1eb3b519a991994",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:38.434292+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 48,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=48",
+      "file": "sources/hero-48-english.json",
+      "sha256": "319cd3b2a790b2bc09ed36b3401be498b14be86c5915b18327182d6dd3d7c4aa",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:38.671464+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 48,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=48",
+      "file": "sources/hero-48-schinese.json",
+      "sha256": "837666cbe59aeb3c62d1476937167ac5f1750beaca2944dc7a0abe8248d124d2",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:38.681573+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 49,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=49",
+      "file": "sources/hero-49-english.json",
+      "sha256": "ffa770ae93d1268e67f4bd03ea050eb016deb1f27db2049596cb218c03889a1b",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:38.728325+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 49,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=49",
+      "file": "sources/hero-49-schinese.json",
+      "sha256": "786ff78d9cfea4c35c1c72ecada072e55739940d11113abc1d869a1da4a14c80",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:39.445209+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 50,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=50",
+      "file": "sources/hero-50-english.json",
+      "sha256": "2bd5ac58af625745a1947cd01cea64b6f47dd03bc0b3956e9ce8f806982a9c15",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:39.550775+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 50,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=50",
+      "file": "sources/hero-50-schinese.json",
+      "sha256": "3207242f0ee41091ec133045edd807d25da0eef859dc03c049c42d23b5b8196f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:39.828239+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 51,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=51",
+      "file": "sources/hero-51-english.json",
+      "sha256": "7715bcbe6b96070b58a39a822948bdf1251dfc26544062dd2d0dc304d1ab9a8f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:39.939428+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 51,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=51",
+      "file": "sources/hero-51-schinese.json",
+      "sha256": "153eb00d42a7ea2fa70c88edab46af8fbb97b80cf5d28399f10c6bd5744b6591",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:39.766318+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 52,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=52",
+      "file": "sources/hero-52-english.json",
+      "sha256": "3dba21b803ed8d423d0c8405041e2d17cf7be053dba1d0c8fc71ebec273dd2bd",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:39.762371+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 52,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=52",
+      "file": "sources/hero-52-schinese.json",
+      "sha256": "9d4a93c3b3cf70c04df1ab34e1407bf82654ade5d14cd0b122298d29d3452cc9",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:40.488327+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 53,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=53",
+      "file": "sources/hero-53-english.json",
+      "sha256": "fb8ef7935ea30c11f927b1ae1837bb5470262c27e6b55943017399535924a548",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:40.603077+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 53,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=53",
+      "file": "sources/hero-53-schinese.json",
+      "sha256": "51c7c9f36a13a9df469d6ec2d7d97dad770f02e4c1a4abdeeaaeffde0fba3677",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:40.944675+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 54,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=54",
+      "file": "sources/hero-54-english.json",
+      "sha256": "8477ea4345745c6a83f05d94911f079b172f04afd043d8b5229a137204fdfe2b",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:40.945502+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 54,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=54",
+      "file": "sources/hero-54-schinese.json",
+      "sha256": "7606554afb518d54486e3c1c285c075975436b6690bae80c0613aba3582c82e6",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:41.001823+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 55,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=55",
+      "file": "sources/hero-55-english.json",
+      "sha256": "eb12a9a9d26af89c1c036198160207e305d5e5aec5d4531b855ab618ffe5449a",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:41.028799+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 55,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=55",
+      "file": "sources/hero-55-schinese.json",
+      "sha256": "96278cb5b5bfb9a5311e48668dca9d746bf89e3a69758211cc54a098fe45c45d",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:41.530200+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 56,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=56",
+      "file": "sources/hero-56-english.json",
+      "sha256": "0b271467d5b827f14ab936b13762a2b498ebe3d21ae77efa6fd5b75a40e9743f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:41.811644+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 56,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=56",
+      "file": "sources/hero-56-schinese.json",
+      "sha256": "f03ee8a4098546b6380b46fe707cd4c434644965d99106da8a771295a4747124",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:42.191287+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 57,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=57",
+      "file": "sources/hero-57-english.json",
+      "sha256": "386266d8af51e916d43050f8ca59e917eb5b1406d885dcae24b9d0cd8d0c67d5",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:41.896235+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 57,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=57",
+      "file": "sources/hero-57-schinese.json",
+      "sha256": "3ea1d87557227fee22e10621fb3cc422bf5e16db363ad6a6f638f8b80c63f791",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:42.173970+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 58,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=58",
+      "file": "sources/hero-58-english.json",
+      "sha256": "d9c88736c13a2d7fb15cb2d9df7036f3debaf55964b07abba18311422f0b1d33",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:42.082094+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 58,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=58",
+      "file": "sources/hero-58-schinese.json",
+      "sha256": "99d63f19e920fee882c69bc5de0f6e3943d6069b80d94b20a69e1819037af037",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:42.586656+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 59,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=59",
+      "file": "sources/hero-59-english.json",
+      "sha256": "559af7b0b80ce4acaf10617aa3f93e46469ef440f7de53421d0864937e3cae4b",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:42.794742+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 59,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=59",
+      "file": "sources/hero-59-schinese.json",
+      "sha256": "f87af9c1dc6ff9dd19a0d55d050f12628e58d121acfa62c362b66aab0124cd86",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:42.876500+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 60,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=60",
+      "file": "sources/hero-60-english.json",
+      "sha256": "2a91833020ae3d8f03a7a66e93bd1f9ce840212025ce84f87f47dbb9f13bf718",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:43.343489+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 60,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=60",
+      "file": "sources/hero-60-schinese.json",
+      "sha256": "eb0dd4296de357c2ba72f4b1905d4cf97b7743f2d81b3e7c22163350bbe99cdc",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:43.204918+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 61,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=61",
+      "file": "sources/hero-61-english.json",
+      "sha256": "37bffb54d119d964df85bca5c968f0c9f6c9415cae84508d881b592ee7aa93ad",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:43.442465+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 61,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=61",
+      "file": "sources/hero-61-schinese.json",
+      "sha256": "52ec26c07ec7b42b7695480c02dc5d3c40a567e1de702e8377e163df445e2ea4",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:43.819976+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 62,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=62",
+      "file": "sources/hero-62-english.json",
+      "sha256": "51503174e7818e594cdf76b29e81fb2811d00af79f6bd8bc12a55cd26c7e9511",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:43.808038+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 62,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=62",
+      "file": "sources/hero-62-schinese.json",
+      "sha256": "9e580bda55ae2d4107fb0e68fd95cc2d238063c528486af49a3b9786f025ec1f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:44.019832+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 63,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=63",
+      "file": "sources/hero-63-english.json",
+      "sha256": "345b8612bf2229f1e958a78ae583108d422aaa1a0142d5377a6b98ad5ff3dc8c",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:44.397812+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 63,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=63",
+      "file": "sources/hero-63-schinese.json",
+      "sha256": "1fb91e64184d2ad79089e50e36e285ce8033db47ed3521ccb31ddd6e854f84a9",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:44.335395+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 64,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=64",
+      "file": "sources/hero-64-english.json",
+      "sha256": "0d064898b570ac37ba91c33067b9b45e65830348cf97a73d8aa911e15954e935",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:44.496358+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 64,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=64",
+      "file": "sources/hero-64-schinese.json",
+      "sha256": "6be781f6443f753e6dd8963c21dde50d018fc88708c905dee164bfb7ce2eb58a",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:45.051895+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 65,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=65",
+      "file": "sources/hero-65-english.json",
+      "sha256": "ce9dd60a56c89b3cf80ea6dffbb480ebbfd7dcd8b8530ce80dd594d8ed05b058",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:44.806619+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 65,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=65",
+      "file": "sources/hero-65-schinese.json",
+      "sha256": "a423405b74692c61c83ee1be47ad86e0d039d7180ccc1da369a6da713afaadf9",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:45.197164+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 66,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=66",
+      "file": "sources/hero-66-english.json",
+      "sha256": "fdce30cb6cf5b3b689e531d74c8c96f1142419365991a97e29c5278da39fa184",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:45.500857+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 66,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=66",
+      "file": "sources/hero-66-schinese.json",
+      "sha256": "c43495113442d53fadcae0e31388ebab6004e4bc6f0be2918782b7253074cf08",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:45.388762+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 67,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=67",
+      "file": "sources/hero-67-english.json",
+      "sha256": "bc85c8a414ff970c35178faea158c22d618986438231534aed545dd6eca8a338",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:45.563454+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 67,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=67",
+      "file": "sources/hero-67-schinese.json",
+      "sha256": "d168f950f6d28a2e39b64d26be1433e714911f89ea01c39bc896e32deaac09fe",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:45.820973+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 68,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=68",
+      "file": "sources/hero-68-english.json",
+      "sha256": "21e700f8f2457097f8333a07bdb12f738a1805f4a02568e6d5b503e05136c086",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:46.634266+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 68,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=68",
+      "file": "sources/hero-68-schinese.json",
+      "sha256": "7dc8b533ec7753762ca71242e4f76552891745d54f5178e6bc602508e810a713",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:46.483506+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 69,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=69",
+      "file": "sources/hero-69-english.json",
+      "sha256": "828f71b1b781daeb20a6d0fdc1b361a826c282aa95772d27f5f962a191405719",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:46.053572+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 69,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=69",
+      "file": "sources/hero-69-schinese.json",
+      "sha256": "c430c9307dc08d480cfe0d9bd3bb678a4fff004460a0badfc5900385ff01c93c",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:46.221825+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 70,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=70",
+      "file": "sources/hero-70-english.json",
+      "sha256": "f3e52ec28b422197806b6f0511fd2f79fb7de3b947b6fcf747c6a4608c8d60f1",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:46.678064+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 70,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=70",
+      "file": "sources/hero-70-schinese.json",
+      "sha256": "17234313afb2fea77360a6d63c768c827d470b8a57b35fb93b66b2a07d62dd3e",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:46.760339+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 71,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=71",
+      "file": "sources/hero-71-english.json",
+      "sha256": "f3ce0b406f7de82bac071071e1605e819dd4d77cd9f13731908dfdd92a13b248",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:47.213325+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 71,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=71",
+      "file": "sources/hero-71-schinese.json",
+      "sha256": "28fe6a35587eab2835cdff1036ee2dd24a9656835a7a8ea25dc07910cec41d5a",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:47.266181+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 72,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=72",
+      "file": "sources/hero-72-english.json",
+      "sha256": "96a21bda132a8d106a885f83f4daccf7f02ebd2be842b34023f210677ca78c75",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:47.535952+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 72,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=72",
+      "file": "sources/hero-72-schinese.json",
+      "sha256": "151bdb032501251bff20543173cb85457ad733803db340a1dce41b0f432e38c1",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:47.666537+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 73,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=73",
+      "file": "sources/hero-73-english.json",
+      "sha256": "1e869c01237a78093f39c23fd4240b477fbaf49be1ca6c25c76be11726cb2815",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:47.946902+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 73,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=73",
+      "file": "sources/hero-73-schinese.json",
+      "sha256": "2f5b9be9a9618533460c03aeb59ab355821cb96e68cdd03d6fe7ab98c9bbbdf8",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:47.747688+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 74,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=74",
+      "file": "sources/hero-74-english.json",
+      "sha256": "fdca8fcedf624aef31459e6cfb85b6a08e216f7cb5d61268d756d7dabda40ede",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:48.546806+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 74,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=74",
+      "file": "sources/hero-74-schinese.json",
+      "sha256": "baa2bec006550b091503f0dd29869c3e3034a16a2623924fe7bd92948473cff9",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:48.512026+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 75,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=75",
+      "file": "sources/hero-75-english.json",
+      "sha256": "cf4ab6bcb6b8ff508c6de608291271261e070a76ce06f74d7bfa07ab64d3e815",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:48.556020+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 75,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=75",
+      "file": "sources/hero-75-schinese.json",
+      "sha256": "4f04c2ee7741b2818d06893f33305ce44096a760cf69fe225cf22e79d25fd1e3",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:48.907186+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 76,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=76",
+      "file": "sources/hero-76-english.json",
+      "sha256": "90ec5af3d2d94f47bc529205c075684012bb9889282334eefc52bb2e5e8fbc26",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:48.842919+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 76,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=76",
+      "file": "sources/hero-76-schinese.json",
+      "sha256": "cdbc67d0569f72fb7e0f6f710bb25ef587f52849285ea0a8dbf8302c9431d2ee",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:49.022570+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 77,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=77",
+      "file": "sources/hero-77-english.json",
+      "sha256": "4e15d4e4aad61724a505c92b83a4796d486e652915613ddea8d7093ede47228f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:49.627410+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 77,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=77",
+      "file": "sources/hero-77-schinese.json",
+      "sha256": "0737cee88edcd681094cf8319bb55db77c9f5555d304416e0b989ef27e0df4c0",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:49.532757+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 78,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=78",
+      "file": "sources/hero-78-english.json",
+      "sha256": "938dc18e954fa12ee39071ba2ae3b61a0cc1df4437fc73cf57eded175e97ca35",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:49.627584+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 78,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=78",
+      "file": "sources/hero-78-schinese.json",
+      "sha256": "024f8816316962715f518737abaadb0a7067ad2e9f93b89d3333612b3d8198b6",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:49.917335+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 79,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=79",
+      "file": "sources/hero-79-english.json",
+      "sha256": "59f5ac4f4edb1708c9732f2a1fc9d388ffeb0fba57b6dd1a8806e40689610a8e",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:50.140138+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 79,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=79",
+      "file": "sources/hero-79-schinese.json",
+      "sha256": "ce46550f8857709642ab806444ae44fa1941f0061f6f06e2e9277b6867ff20a0",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:50.252747+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 80,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=80",
+      "file": "sources/hero-80-english.json",
+      "sha256": "164bb9a6b325a65be9ad615cfe0a4cb04e4c65a42b92f286774115ae0e5c32c5",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:50.786027+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 80,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=80",
+      "file": "sources/hero-80-schinese.json",
+      "sha256": "dc28de8d394a6c06f51d0b4a5baacb400dc5939547ce1b34e2b5192f88dcfc77",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:50.682197+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 81,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=81",
+      "file": "sources/hero-81-english.json",
+      "sha256": "04bfadd814b365bb93cd6d7971582c4b7b1957357a95c83be6b248103b339cbb",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:50.634004+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 81,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=81",
+      "file": "sources/hero-81-schinese.json",
+      "sha256": "0db0a7fe1f433097e9a0401ab60f3ef13137c10184f857947a40d61cdfd786f9",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:51.057838+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 82,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=82",
+      "file": "sources/hero-82-english.json",
+      "sha256": "18d1ddac6c9026e7c4c7fc88fd626865bc56e8e04d81bd50de29a5b150afc4bf",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:51.225987+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 82,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=82",
+      "file": "sources/hero-82-schinese.json",
+      "sha256": "c1bbdb2a61e313374a098482174a2b0ad9cc91a70a9c51693db9be524774cb1b",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:51.308450+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 83,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=83",
+      "file": "sources/hero-83-english.json",
+      "sha256": "b1b453bbdb429cca65abc8eb23d03dcf052160eeda0c497529db1086d3e55f9f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:51.697383+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 83,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=83",
+      "file": "sources/hero-83-schinese.json",
+      "sha256": "5e4a231588a63c7939c393dadb83bca07d808f75a21c0f09165572dbcceef253",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:51.816737+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 84,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=84",
+      "file": "sources/hero-84-english.json",
+      "sha256": "31165d69eb927113b31a1c17e11c59a94ae88f6620126d6ccd72c5ea6faab43d",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:51.852194+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 84,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=84",
+      "file": "sources/hero-84-schinese.json",
+      "sha256": "e5b018d3e8cd5289addefef15fa11250e65a01176f2006e75b12a91b42df8ea2",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:52.278231+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 85,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=85",
+      "file": "sources/hero-85-english.json",
+      "sha256": "08d9cdceeefe21029e7dd447d64db68a16c95d5cc65271bb9d2aea676914021f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:52.322319+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 85,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=85",
+      "file": "sources/hero-85-schinese.json",
+      "sha256": "d318f63f0aee26502421d25928ed083c868cc92c6fb93162e408d27082cc5535",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:52.334707+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 86,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=86",
+      "file": "sources/hero-86-english.json",
+      "sha256": "f48ede505239c531253fd18a47e23ea4673354b2068fb329004e588ebe2f587c",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:52.760422+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 86,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=86",
+      "file": "sources/hero-86-schinese.json",
+      "sha256": "57add2239fefbd3c5d2d425bf53a9d24ae9d9c93c1a54203cb27a402ce094e9c",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:52.792948+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 87,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=87",
+      "file": "sources/hero-87-english.json",
+      "sha256": "43c1c7a8b6c75e9e77f1dbf4b93b100db55affd9ad4a68653e2bc0d30b1f5b22",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:52.946966+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 87,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=87",
+      "file": "sources/hero-87-schinese.json",
+      "sha256": "63453bf19d1562606980c90387f4f6b8dff3bd67140a6d989c1353cb8a9a13b8",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:53.355620+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 88,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=88",
+      "file": "sources/hero-88-english.json",
+      "sha256": "9f105f9be1549e9d328ec8951bfcd139a450f8b2b878fa00d2445888e96884bc",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:53.461106+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 88,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=88",
+      "file": "sources/hero-88-schinese.json",
+      "sha256": "29f52a62d6baa54c1e40991b2e803c323497788e8553928437ce3a35c320a08e",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:53.309506+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 89,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=89",
+      "file": "sources/hero-89-english.json",
+      "sha256": "2cb865193dbbc22c49fa4e86f52342553134850f10a590f6defa2e248dd8c235",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:53.716273+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 89,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=89",
+      "file": "sources/hero-89-schinese.json",
+      "sha256": "fe74efc4144b4d41a9aeb0d4e4fc816f93890adfa40154cea42489035fb22c0c",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:53.953264+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 90,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=90",
+      "file": "sources/hero-90-english.json",
+      "sha256": "0be69cac3537e4387910565019e45b7d2bcc617232277ebe57a4b4be738a67de",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:54.000622+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 90,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=90",
+      "file": "sources/hero-90-schinese.json",
+      "sha256": "2a7369a27b66d17095159ff14b49450de216faa02564a3f7799e0eed4ca70fab",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:54.356205+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 91,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=91",
+      "file": "sources/hero-91-english.json",
+      "sha256": "9708f342dba9bcdff6beeed420328d10ff44f9d45521131c6924fc7ebfd60136",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:54.389960+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 91,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=91",
+      "file": "sources/hero-91-schinese.json",
+      "sha256": "c085ed0ea74aa186dd37efc51671de5913b73104b1b46eed0bec6cb05c2b68f9",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:54.511273+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 92,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=92",
+      "file": "sources/hero-92-english.json",
+      "sha256": "78591b57c037fa88bac748bb48dcc45e893f94ed551ad112ab1b4b04759dbb2e",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:54.954609+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 92,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=92",
+      "file": "sources/hero-92-schinese.json",
+      "sha256": "845935c84256a4717a79861e064f1ad8a10959ff35c229aad12a63dba20e76af",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:55.028169+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 93,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=93",
+      "file": "sources/hero-93-english.json",
+      "sha256": "9449a1c4eaa6fa29ecbf5aa3602691a29b2a42fa15756cf4462940b03df87126",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:54.985182+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 93,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=93",
+      "file": "sources/hero-93-schinese.json",
+      "sha256": "7b5e18056e0da7a93195fdd1d37f86439502d93ab5c57b0c0f6ffc97d4653bc3",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:55.515470+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 94,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=94",
+      "file": "sources/hero-94-english.json",
+      "sha256": "fa6123a0efbd3234a3173dd0748c248b92499bf876573585cf59c7c3bd568106",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:55.641817+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 94,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=94",
+      "file": "sources/hero-94-schinese.json",
+      "sha256": "e4d7b7a5134cb4f992b01e34ea336fcec24d5871848962bf131678450d42c98a",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:55.605794+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 95,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=95",
+      "file": "sources/hero-95-english.json",
+      "sha256": "e73aa7b260b064e02345cf64c45dcac7fc5edb76fc313309e484b50c080febcf",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:56.225421+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 95,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=95",
+      "file": "sources/hero-95-schinese.json",
+      "sha256": "1c54028b4ccae98f7d1057dd871be2b745d178323975c0f8092cb9e56dd680ee",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:56.038165+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 96,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=96",
+      "file": "sources/hero-96-english.json",
+      "sha256": "6a7719f31a056e4e3098ff481e6cc85249be1133c3ead4ce8057b345e6c9db65",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:56.008762+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 96,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=96",
+      "file": "sources/hero-96-schinese.json",
+      "sha256": "b2034502d3eb7960c471f15509321949efbc23fe4600fd6dfa2129f16fa6fdb9",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:56.515215+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 97,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=97",
+      "file": "sources/hero-97-english.json",
+      "sha256": "0da1d6466dda8181b358fb73a4f6ce96cd6eff591decbfe4aad455f04640656f",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:56.676248+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 97,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=97",
+      "file": "sources/hero-97-schinese.json",
+      "sha256": "df86e4c3de6b2ce949b730e52e17e80cfa87bd564ced191f87e1595ebf42f5c5",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:57.139305+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 98,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=98",
+      "file": "sources/hero-98-english.json",
+      "sha256": "c96e36b6194c05239f1ef7efd8625458cdd34670aa94d33d1a23f134c1267464",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:57.098443+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 98,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=98",
+      "file": "sources/hero-98-schinese.json",
+      "sha256": "a965c8544919fdf9145de0eadbb70622e7d50572f71cc03b9dd4d84232197834",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:57.088198+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 99,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=99",
+      "file": "sources/hero-99-english.json",
+      "sha256": "b75e66b78e9c5230ce564079c9f98d3e31ac70c8d71b365174c1f52027fc2b32",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:57.406316+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 99,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=99",
+      "file": "sources/hero-99-schinese.json",
+      "sha256": "f80b2402e1b2693869226363355e866d709ca2c19d5ae5cffeaacc6fc475a283",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:57.571300+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 100,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=100",
+      "file": "sources/hero-100-english.json",
+      "sha256": "dd800595bafbc9a4cf3d62036178d94a41697e469d55bea7e26cdaab14b91d70",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:57.716429+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 100,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=100",
+      "file": "sources/hero-100-schinese.json",
+      "sha256": "9ae2b61edbe57e94c531003cbde249bbdf51e229b3eaaec3bc6e426d8fa22853",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:58.148214+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 101,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=101",
+      "file": "sources/hero-101-english.json",
+      "sha256": "bf78f529480ca0c987f17860223f4ab7579743fd609be703062d05529a293e96",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:58.073071+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 101,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=101",
+      "file": "sources/hero-101-schinese.json",
+      "sha256": "c7d190a04a84dfc59817b85f239f6d76a1747cb86a7545df7596421207044246",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:58.152596+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 102,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=102",
+      "file": "sources/hero-102-english.json",
+      "sha256": "c2ef6e8980b6e88b14a4621eb208b3bde8d0ca81bd57bdbd833fc6afd373c370",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:58.408484+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 102,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=102",
+      "file": "sources/hero-102-schinese.json",
+      "sha256": "53cb29981a21b0ed7693f3e2a47959c2c520bc61f368f4e75651a5f64eed0f6a",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:58.592283+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 103,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=103",
+      "file": "sources/hero-103-english.json",
+      "sha256": "aea3dec6beb05c20a132598f78da04513a5d72ae9b30481c4a98eb50bf837a80",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:58.735965+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 103,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=103",
+      "file": "sources/hero-103-schinese.json",
+      "sha256": "10e64155ff15eaff4f2c9f3ce882f86d6f21843a90aefd1bf3849be463b30c4a",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:59.132016+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 104,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=104",
+      "file": "sources/hero-104-english.json",
+      "sha256": "826f0d4d95813fe2007d1216b3681f08b1b3866a73d54d895c4c9bd2cf32c1a2",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:59.158899+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 104,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=104",
+      "file": "sources/hero-104-schinese.json",
+      "sha256": "c9a7e92ea524af1d36b60bbec2c0225a1b4cac10277806f3712884de3d4eb5bd",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:59.160507+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 105,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=105",
+      "file": "sources/hero-105-english.json",
+      "sha256": "5aa688c796e04302e53f37b8b4a12ee19ee3c59c642459519bb4ce23b57bd1aa",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:01.438018+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 105,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=105",
+      "file": "sources/hero-105-schinese.json",
+      "sha256": "b8a2d17729fc09648ea19ddae1c34e90bd17b615f038f859c58a2a99d54bf18f",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:01.276366+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 106,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=106",
+      "file": "sources/hero-106-english.json",
+      "sha256": "61c659f9b21a0aaf542746c078a3aebb15d043b90f152b77a660641166ff2bfb",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:59.560600+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 106,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=106",
+      "file": "sources/hero-106-schinese.json",
+      "sha256": "b2d1836ff8dcaf6be41c1abf969409c805a90775ba60f5acfc2e7cff266f9e97",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:59.584580+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 107,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=107",
+      "file": "sources/hero-107-english.json",
+      "sha256": "97c38404824813f295c417357eb5d90889ff25dc9cd228d642d3da58257facf6",
+      "snapshot_observed_at_utc": "2026-10-09T16:33:59.963448+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 107,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=107",
+      "file": "sources/hero-107-schinese.json",
+      "sha256": "fbdbdec5a6ae053f439ce3cabd2453995fe1c7d1184fde1a4764fc0aec65b777",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:00.210246+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 108,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=108",
+      "file": "sources/hero-108-english.json",
+      "sha256": "238e31e548e335ca33429874933087740d3ba251395a5077724f7f65dfdce5eb",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:02.304444+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 108,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=108",
+      "file": "sources/hero-108-schinese.json",
+      "sha256": "86d879db0b301d9d17a05c44f84e85c9fc754767521f895b65f8cdc38aa43c10",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:02.599489+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 109,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=109",
+      "file": "sources/hero-109-english.json",
+      "sha256": "c8234ec013a8c5a6a09e1a420da128c56b9c85da3b8953744ead0c48959b05be",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:00.210069+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 109,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=109",
+      "file": "sources/hero-109-schinese.json",
+      "sha256": "a2e1df8b862fc9df6c1bd8bbf5fd16b4aab3931762a4cbf61db1383f850d5140",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:00.211255+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 110,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=110",
+      "file": "sources/hero-110-english.json",
+      "sha256": "f6d2b76bde83b64a6b80077a3a74d37498c76b896eecbffb236e5b9b01cab12a",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:00.555322+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 110,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=110",
+      "file": "sources/hero-110-schinese.json",
+      "sha256": "4addb5bdd065c0942b7452ee86d2f457fe09d0c23d8325d9a72398a54d26d1f8",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:00.745426+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 111,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=111",
+      "file": "sources/hero-111-english.json",
+      "sha256": "8ec3b143770f56d1823948fcf208896649f15f2d356b1d7371321cc5c694f7a3",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:01.122489+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 111,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=111",
+      "file": "sources/hero-111-schinese.json",
+      "sha256": "6c131aa0b3553b4710c220f19c3ecd43e6b4e88707135112d213e011363dfd0d",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:01.234206+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 112,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=112",
+      "file": "sources/hero-112-english.json",
+      "sha256": "ec36ce95648d7378ebd872f44336734ef9a44fc7607260977eded3606cbbcccb",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:01.624172+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 112,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=112",
+      "file": "sources/hero-112-schinese.json",
+      "sha256": "e119786e6bfc110d513de087376101eb2b48b5c922e64b199395f0e646c7e5c1",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:01.949287+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 113,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=113",
+      "file": "sources/hero-113-english.json",
+      "sha256": "b776596fed70e36849335ce93f80d3512834f680348047b96dd8f5cd9cde5ce0",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:02.221729+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 113,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=113",
+      "file": "sources/hero-113-schinese.json",
+      "sha256": "745bce0479ed0eb75f9e3283aa450ccf81601f623d3b3b0a92b4daffdec1ae4a",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:02.285046+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 114,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=114",
+      "file": "sources/hero-114-english.json",
+      "sha256": "d46c266715bdcd902c8e52d1c31d8181c3bef4161d19b42e0d395be02c377cfd",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:02.677911+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 114,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=114",
+      "file": "sources/hero-114-schinese.json",
+      "sha256": "0652bce2cc52c58dd2a5ae2e3148caf1b67f066d589103acef31ce25d3dcb88e",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:03.006609+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 119,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=119",
+      "file": "sources/hero-119-english.json",
+      "sha256": "8fe4966a7e228d3067af10eec9a82d15919640949102e2cd5967076cde3f5cd8",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:03.486078+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 119,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=119",
+      "file": "sources/hero-119-schinese.json",
+      "sha256": "9c08b6248f5cafffc432e94934936f4dd10794b170be5d1436ebc34f26fed85d",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:03.642671+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 120,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=120",
+      "file": "sources/hero-120-english.json",
+      "sha256": "ed68e341f9380bba94a6abad3a5ecc37b9681576aec1e374315ccab5f5ac76ff",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:03.269624+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 120,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=120",
+      "file": "sources/hero-120-schinese.json",
+      "sha256": "da87e202dcb385b297902182891a1b874d702665f28d54bba51a19974d379853",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:03.518255+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 121,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=121",
+      "file": "sources/hero-121-english.json",
+      "sha256": "b20e2f3a8dc102ae7df9558b70dca107d8e6ee5664f18bf184e9aae740eaa38e",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:03.733420+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 121,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=121",
+      "file": "sources/hero-121-schinese.json",
+      "sha256": "c1a70364158f39b3c0c8263cf92045412b65ef5f069491a040cc8c9ebcf50778",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:04.308160+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 123,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=123",
+      "file": "sources/hero-123-english.json",
+      "sha256": "35aa04dc31ba81ed8b708637b5e16f2dd977993f6cd7c71a7a1789573fed9dbe",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:05.836595+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 123,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=123",
+      "file": "sources/hero-123-schinese.json",
+      "sha256": "1ef69f3ed939f6bcc690364693dd19c5a3caef8105c6fed208eb026a83843914",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:06.147099+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 126,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=126",
+      "file": "sources/hero-126-english.json",
+      "sha256": "74384e2ea12e4de0bce79de0defca7564d28ab31b4abf012950eb28bcfe3328e",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:04.846080+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 126,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=126",
+      "file": "sources/hero-126-schinese.json",
+      "sha256": "3d0ed9494496e0f2692aec201828bf1ad4f46116bb363a374f7374fd6a67545b",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:04.908547+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 128,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=128",
+      "file": "sources/hero-128-english.json",
+      "sha256": "40106d0fd7db1a3221d5044e4191ba9402cfc54a33f9bfba67e859798ea35c2a",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:04.954222+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 128,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=128",
+      "file": "sources/hero-128-schinese.json",
+      "sha256": "c3ca398fe7df474516e4cd4aa97ba29458f564f5f98e20c991adcae1d24e4098",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:05.516572+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 129,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=129",
+      "file": "sources/hero-129-english.json",
+      "sha256": "954ecc277bb2abb5e21c1aaad4d0009e21ddaed738fae8b21ad23d2e46a03130",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:04.557077+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 129,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=129",
+      "file": "sources/hero-129-schinese.json",
+      "sha256": "b27098d29575dfbf505ef5baa7bcea6f7c4e100ba0eacc43b0003c32ee2675dc",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:04.922521+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 131,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=131",
+      "file": "sources/hero-131-english.json",
+      "sha256": "5d0bf58eaac7e5f80753d7927dc83fadda2b158202d46c85fc67e563b3cf3641",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:07.650399+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 131,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=131",
+      "file": "sources/hero-131-schinese.json",
+      "sha256": "acf8124333dfd1f1c9c585ac42d68acd546c224eba8a43cfed91e99e4e2de234",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:07.938820+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 135,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=135",
+      "file": "sources/hero-135-english.json",
+      "sha256": "8807a5a1eb265a58fb83660b7a485180d5c20731d5d1c92c7b00282fc700ed61",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:06.292118+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 135,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=135",
+      "file": "sources/hero-135-schinese.json",
+      "sha256": "678aa39d630d148ee01132b97bc8fa444a072424b197ef50678fb1278a892e9c",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:06.189607+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 136,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=136",
+      "file": "sources/hero-136-english.json",
+      "sha256": "f631da80f4e9d1b72845f9d7fcb6c5b6436b7c73469d4a7a9cae472cf2e535a0",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:06.250946+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 136,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=136",
+      "file": "sources/hero-136-schinese.json",
+      "sha256": "59a1ab88bdd7c9e06d1188f8c5948fff362743c607d046b1996c348be8fe0863",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:06.774435+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 137,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=137",
+      "file": "sources/hero-137-english.json",
+      "sha256": "4cdaff2a7415baea7dfd0fb00f1d056fa84d04f86a45016ed3a19e278bdd5e36",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:06.988471+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 137,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=137",
+      "file": "sources/hero-137-schinese.json",
+      "sha256": "6ec43a3b15d27d52f8df25270ecf90d30c816c2dc1776f64f275c266f991a9a8",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:07.236759+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 138,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=138",
+      "file": "sources/hero-138-english.json",
+      "sha256": "6fe5b5c513f109d665c8362b62365ebc4d187540302d9c5ef6bef1ee555bd9c9",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:07.372546+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 138,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=138",
+      "file": "sources/hero-138-schinese.json",
+      "sha256": "50d75826fef3498a3c5d02a52b45f5424644b8ec4278cd8d0aa5f640c59f3803",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:07.505891+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 145,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=145",
+      "file": "sources/hero-145-english.json",
+      "sha256": "bf644bbfbdca6886e7d72ef84aac4c2811ab2a1974f13a4d132d81b75353f817",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:08.108971+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 145,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=145",
+      "file": "sources/hero-145-schinese.json",
+      "sha256": "0428137916c394afb0ad8b524f08838e193c3eeafac5bcd5177ab83e3b3996c7",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:08.883908+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 155,
+      "language": "english",
+      "url": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=155",
+      "file": "sources/hero-155-english.json",
+      "sha256": "12edddd337919d76d16a30bfb4c77650bb0aee242342798337dcdd0882fe5a7a",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:08.545444+00:00",
+      "downloaded_this_run": true
+    },
+    {
+      "hero_id": 155,
+      "language": "schinese",
+      "url": "https://www.dota2.com/datafeed/herodata?language=schinese&hero_id=155",
+      "file": "sources/hero-155-schinese.json",
+      "sha256": "7f89e45b221d2f458fdc3f55fe9ac1db006eed15712870da579c71288bb1b5d8",
+      "snapshot_observed_at_utc": "2026-10-09T16:34:08.624314+00:00",
+      "downloaded_this_run": true
+    }
+  ],
+  "errors": [],
+  "catalog_files": [
+    {
+      "file": "sources/herolist-english.json",
+      "sha256": "b009c6ff9f3ef6b60cf384f68616c09b92da99f14a55d7ccacf3b7f78cb2a2a8"
+    },
+    {
+      "file": "sources/herolist-schinese.json",
+      "sha256": "c3d7e9ac5b145aa066857645dd89612f51643dd8b3354d2beccf41ddebb0f054"
+    },
+    {
+      "file": "sources/opendota-heroes.json",
+      "sha256": "520a3ae33260593f54d5d749a92022d7d5af0ed60d8bebec8e81ff7eb12104ad"
+    }
+  ],
+  "learning_scope": "current_official_snapshot",
+  "historical_adaptation": "deferred"
+}
