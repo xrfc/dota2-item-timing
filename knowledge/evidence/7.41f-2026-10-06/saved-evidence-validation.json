@@ -1,0 +1,37 @@
+{
+  "method": "Temporary copy of final cleaned JSON with only evidence_source relocated; original raw SHA verified; no reparse or semantic admission",
+  "results": [
+    {
+      "match_id": 9031369678,
+      "validation": "passed"
+    },
+    {
+      "match_id": 9031370153,
+      "validation": "passed"
+    },
+    {
+      "match_id": 9031371970,
+      "validation": "passed"
+    },
+    {
+      "match_id": 9031375030,
+      "validation": "passed"
+    },
+    {
+      "match_id": 9031377294,
+      "validation": "passed"
+    },
+    {
+      "match_id": 9031380277,
+      "validation": "passed"
+    },
+    {
+      "match_id": 9031383523,
+      "validation": "passed"
+    },
+    {
+      "match_id": 9031384340,
+      "validation": "passed"
+    }
+  ]
+}

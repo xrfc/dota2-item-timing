@@ -1,0 +1,77 @@
+{
+  "cohort_source_commit": "5ac05668f60f111996042b3f50e1ed02ca93cace",
+  "cohort_sha256": "9bc81688e3eef68b3a7f4436661fd29debb3b7340d8654be268118c74dcfd5e4",
+  "zip_integrity": [
+    {
+      "file": "11381584813-original-acquisition-evidence.zip",
+      "members": 88,
+      "crc": "passed"
+    },
+    {
+      "file": "11381872976-original-toolchain.zip",
+      "members": 6,
+      "crc": "passed"
+    },
+    {
+      "file": "11382665563-original-replays-and-workspaces.zip",
+      "members": 216,
+      "crc": "passed"
+    },
+    {
+      "file": "11406303075-final-audit-and-samples.zip",
+      "members": 49,
+      "crc": "passed"
+    }
+  ],
+  "matches": [
+    {
+      "match_id": 9031370153,
+      "archive_sha256": "2308741a2f0db2d5de13ea1434dbd1b1186909dd6798189fe1635c9e43410d09",
+      "raw_gem_sha256": "3754998a1df144cee6115ae7ea4856575478b3f0b3eb0ec49db21646f4490fe5",
+      "replay": "replays/9031370153.dem.bz2"
+    },
+    {
+      "match_id": 9031384340,
+      "archive_sha256": "50a8167ea2b4fbeadfd6ce6b0ffbe7a3648dd4fc5914aff85fbca3ef469af962",
+      "raw_gem_sha256": "38c33928f4eee5bf507a44b2a1ea88a3410ee61152a4c1d3fbf5d9f13f9cdd14",
+      "replay": "replays/9031384340.dem.bz2"
+    },
+    {
+      "match_id": 9031383523,
+      "archive_sha256": "a337dfa5a0438d6ab57628f391ee5c582b6604df5ba16229cfc7b017f18b17b5",
+      "raw_gem_sha256": "2667affd63beefadd0d210d1b392e0b2026516fa9f00a6223ed45c7730d2e57e",
+      "replay": "replays/9031383523.dem.bz2"
+    },
+    {
+      "match_id": 9031380277,
+      "archive_sha256": "0071f599dbc14f8bfb2fff81491dc8e5f9a47359c032a3510e694ec60ef98989",
+      "raw_gem_sha256": "906a51fb2805849e9697a283fd789e4f7d4062da1e615882b1a108afead2b584",
+      "replay": "replays/9031380277.dem.bz2"
+    },
+    {
+      "match_id": 9031377294,
+      "archive_sha256": "2167a2a7e37384d77e2cca1e99cb47360e9237d369f998620b052b82ed7c242e",
+      "raw_gem_sha256": "ee636713f9da341eedf29433086d8a71d9614a32e43139188dd8b05aff5ef6e2",
+      "replay": "replays/9031377294.dem.bz2"
+    },
+    {
+      "match_id": 9031375030,
+      "archive_sha256": "0429aff5b9948db157c7293bf55f96521dad4510ac6f28b228555dfcafe83345",
+      "raw_gem_sha256": "e9e2cb4fd34ee0a888042935675ed6f9bbd2e2c90d84b87d7cc188c16f85df3c",
+      "replay": "replays/9031375030.dem.bz2"
+    },
+    {
+      "match_id": 9031371970,
+      "archive_sha256": "476dfa6a7b7328121c17103ab6fd2ea0ea72424162742d1608eeb16bb4296ede",
+      "raw_gem_sha256": "0088eba8ec707aaa17e2ad537471895e786a2e4082e450f8c257df5e5491ed73",
+      "replay": "replays/9031371970.dem.bz2"
+    },
+    {
+      "match_id": 9031369678,
+      "archive_sha256": "7717e9e5e677bbe93e44f77c26fe1e50c666ebdd763dbdf7da5204899d008791",
+      "raw_gem_sha256": "8315e9fe73c942620c822a1d7aa9ea4cdd566971f022399225c9c771dd108254",
+      "replay": "replays/9031369678.dem.bz2"
+    }
+  ],
+  "semantic_admission": "unchanged; verification only, no training"
+}

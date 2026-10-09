@@ -1,0 +1,277 @@
+[
+  {
+    "hero_id": 106,
+    "hero_name": "灰烬之灵",
+    "ability": "ember_spirit_searing_chains",
+    "dimension": "root",
+    "claim_zh": "近身缠绕与持续伤害",
+    "conditions": [
+      "需要技能可用并满足目标选择条件；不是眩晕",
+      "官方说明：随机选择附近目标，不能作用于减益免疫或隐身单位"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "灰烬之灵释放出火焰绳索来缠绕附近的敌人，将他们困于原地并每秒造成一定伤害。",
+    "evidence_en": "Ember Spirit unleashes fiery bolas that wrap around nearby enemies, anchoring them in place and dealing damage each second.",
+    "notes_zh": [
+      "将随机选取炘周围的单位作为目标。",
+      "不能作用于减益免疫或隐身单位。"
+    ],
+    "source_file": "sources/hero-106-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc"
+  },
+  {
+    "hero_id": 18,
+    "hero_name": "斯温",
+    "ability": "sven_storm_bolt",
+    "dimension": "stun",
+    "claim_zh": "目标周围的范围眩晕",
+    "conditions": [
+      "需要技能可用、施放并命中；不能仅凭选人假定成功先手"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "斯温用他充满魔力的手套对目标周围内所有敌人造成伤害和眩晕。",
+    "evidence_en": "Sven unleashes his magical gauntlet that deals damage and stuns enemy units in a small area around the target.",
+    "notes_zh": [],
+    "source_file": "sources/hero-18-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc"
+  },
+  {
+    "hero_id": 18,
+    "hero_name": "斯温",
+    "ability": "sven_great_cleave",
+    "dimension": "attack_area_damage",
+    "claim_zh": "攻击造成分裂伤害",
+    "conditions": [
+      "依赖攻击发生及目标位置；不直接推出清线速度或幻象克制程度"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "斯温以巨力攻击，并对所有附近的敌方单位造成分裂攻击伤害。",
+    "evidence_en": "Sven strikes with great force, cleaving all nearby enemy units with his attack.",
+    "notes_zh": [],
+    "source_file": "sources/hero-18-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc"
+  },
+  {
+    "hero_id": 87,
+    "hero_name": "干扰者",
+    "ability": "disruptor_glimpse",
+    "dimension": "forced_reposition",
+    "claim_zh": "将目标英雄送回此前位置",
+    "conditions": [
+      "依赖历史位置、目标资格和技能可用性；不等于任意时刻都能抓住目标"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "将目标英雄传送回他%backtrack_time%秒前所在位置。瞬间消灭幻象单位。根据瞥视距离的一定百分比造成伤害，不能超过最大伤害。",
+    "evidence_en": "Teleports the target hero back to where it was %backtrack_time% seconds ago.  Instantly kills illusions. Deals damage equal to a percentage of the distance glimpsed, that cannot go over a damage maximum.",
+    "notes_zh": [
+      "飞行时间由目标的飞行距离决定。"
+    ],
+    "source_file": "sources/hero-87-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc"
+  },
+  {
+    "hero_id": 87,
+    "hero_name": "干扰者",
+    "ability": "disruptor_static_storm",
+    "dimension": "silence",
+    "claim_zh": "区域沉默与逐渐增强的伤害",
+    "conditions": [
+      "目标需要受到区域作用；基础效果不能自动写成禁用物品"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "创造一场静态风暴，在持续时间内伤害并沉默区域内的所有敌方单位。伤害刚开始时很低，但会在持续时间内逐渐增加。",
+    "evidence_en": "Creates a damaging static storm that also silences all enemy units in the area for the duration.  The damage starts off weak, but increases in power over the duration.",
+    "notes_zh": [],
+    "source_file": "sources/hero-87-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/5/desc_loc"
+  },
+  {
+    "hero_id": 87,
+    "hero_name": "干扰者",
+    "ability": "disruptor_static_storm",
+    "dimension": "mute",
+    "claim_zh": "静态风暴的神杖升级具有禁用物品效果",
+    "conditions": [
+      "必须确认已拥有相应升级；不能计入选人阶段已具备的基础能力"
+    ],
+    "requires_upgrade": "scepter",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "锁闭物品。",
+    "evidence_en": "Mutes items.",
+    "notes_zh": [],
+    "source_file": "sources/hero-87-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/5/scepter_loc"
+  },
+  {
+    "hero_id": 69,
+    "hero_name": "末日使者",
+    "ability": "doom_bringer_doom",
+    "dimension": "spell_and_healing_denial",
+    "claim_zh": "限制目标施法和接受治疗，并施加驱散与持续伤害",
+    "conditions": [
+      "需要目标受到末日作用；本条来源不支持自动追加禁用物品结论"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "对敌人施加末日诅咒，对其进行驱散，并且使其无法施放技能或获得任何治疗效果，同时造成持续伤害。\n\n驱散类型：弱驱散",
+    "evidence_en": "Inflicts a curse that dispels an enemy and prevents them from casting spells or healing in any way, while taking damage over time.\n\nDISPEL TYPE: Basic Dispel",
+    "notes_zh": [],
+    "source_file": "sources/hero-69-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc"
+  },
+  {
+    "hero_id": 74,
+    "hero_name": "祈求者",
+    "ability": "invoker_deafening_blast",
+    "dimension": "disarm_and_knockback",
+    "claim_zh": "冲击波具有击退和禁止攻击效果",
+    "conditions": [
+      "依赖技能可用、命中及元素等级；不能认为选到祈求者即拥有全部满级技能"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "祈求者在自己前方释放出超强的声波，对所有敌方单位造成伤害，伤害量取决于火元素的等级。声波的绝对冲击能够将敌方单位击退，击退时间取决于冰元素的等级，同时让他们无法进行攻击，禁止攻击时间取决于雷元素的等级。",
+    "evidence_en": "Invoker unleashes a mighty sonic wave in front of him, dealing damage to any enemy unit it collides with based on the level of Exort. The sheer impact from the blast is enough to knock those enemy units back for a duration based on the level of Quas, then disarm their attacks for a duration based on the level of Wex.",
+    "notes_zh": [],
+    "source_file": "sources/hero-74-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/13/desc_loc"
+  },
+  {
+    "hero_id": 9,
+    "hero_name": "米拉娜",
+    "ability": "mirana_arrow",
+    "dimension": "conditional_stun",
+    "claim_zh": "箭矢命中首个目标造成眩晕，时长与飞行距离相关",
+    "conditions": [
+      "必须命中，可能先碰到其他单位；不能计作无条件稳定控制"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "射出一支绝对精准的箭矢，对第一个击中的敌人造成伤害并眩晕目标。目标距离越远，眩晕时间越长，最短%arrow_min_stun%秒，最长可达%arrow_max_stun%秒。根据箭矢飞行的距离还将对目标额外造成最多%arrow_bonus_damage%点伤害。若击中的是非远古的普通单位，将直接秒杀。",
+    "evidence_en": "Fires a long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from %arrow_min_stun% to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target. Instantly kills the first non-ancient creep it hits.",
+    "notes_zh": [
+      "神箭每飞行150码，中箭后眩晕的持续时间将提高0.5秒，额外伤害增加14点。",
+      "月神之箭可以射中隐身单位。",
+      "流星赶月不会对阿哈利姆神杖升级群星风暴的第二次流星生效。"
+    ],
+    "source_file": "sources/hero-9-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc"
+  },
+  {
+    "hero_id": 9,
+    "hero_name": "米拉娜",
+    "ability": "mirana_invis",
+    "dimension": "team_invisibility",
+    "claim_zh": "给予己方英雄隐身",
+    "conditions": [
+      "隐身不等于无敌或不可侦测；不能据此保证脱离战斗"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "让米拉娜和所有己方英雄进入隐身状态。米拉娜在持续时间内获得伤害输出加成。只要还在月光阴影的持续时间内，即使隐身被打破也会在短时间内重新淡入隐身。",
+    "evidence_en": "Turns Mirana and all allied heroes invisible and grants bonus movement speed. Mirana gains bonus outgoing damage during the duration. If a hero is revealed, invisibility will restore after the fade delay as long as Moonlight Shadow's duration has not expired.",
+    "notes_zh": [
+      "受到作用的单位会自动停止攻击敌人。"
+    ],
+    "source_file": "sources/hero-9-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc"
+  },
+  {
+    "hero_id": 36,
+    "hero_name": "瘟疫法师",
+    "ability": "necrolyte_death_pulse",
+    "dimension": "ally_healing",
+    "claim_zh": "附近敌方受伤害、友方受治疗",
+    "conditions": [
+      "受作用范围与技能可用性限制；不能直接推断足以抵消敌方伤害"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "瘟疫法师向他的周围释放死亡波纹，伤害敌方单位并治疗友军单位。",
+    "evidence_en": "Necrophos releases a wave of death around him, dealing damage to enemy units and healing allied units.",
+    "notes_zh": [
+      "死亡脉冲不能被躲避。"
+    ],
+    "source_file": "sources/hero-36-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc"
+  },
+  {
+    "hero_id": 36,
+    "hero_name": "瘟疫法师",
+    "ability": "necrolyte_ghost_shroud",
+    "dimension": "defense_tradeoff",
+    "claim_zh": "无法攻击或被攻击，但受到的魔法伤害增加",
+    "conditions": [
+      "是附带代价的防护机制；不是对所有伤害更耐打"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "瘟疫法师步入将生者与死者相隔的领域。散发出一片灵气，减缓周围敌人的移动速度。在这个形态下，瘟疫法师为虚无状态，无法攻击或被攻击，受到的魔法伤害增加，但是生命/魔法恢复效果加强。",
+    "evidence_en": "Necrophos slips into the realm that separates the living from the dead. Unable to attack or be attacked, he emits an aura that slows enemies around him. He takes additional magic damage in this form, but his restorative powers are amplified.",
+    "notes_zh": [],
+    "source_file": "sources/hero-36-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc"
+  },
+  {
+    "hero_id": 145,
+    "hero_name": "凯",
+    "ability": "kez_switch_weapons",
+    "dimension": "weapon_mode_dependency",
+    "claim_zh": "切换武器改变攻击特性和技能，并有对应技能冷却关系",
+    "conditions": [
+      "实际模式、冷却与升级必须另外确认；不能把所有技能当作同时可用"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "凯可以在影武长刀和翔影双钗之间变换。基于装备的武器，他会获得不同的攻击特性和技能。技能会一起升级，而且使用后，相对的武器技能也会进入冷却。凯切换到长刀后第一次长刀攻击或技能会造成额外伤害，切换到双钗后会获得额外移动速度。",
+    "evidence_en": "Kez switches between his Kazurai Katana and Shodo Sai.He gains different attack capabilities and abilities based on the weapon equipped. The abilities level up together, and when an ability is used, the associated alternate weapon ability also goes on cooldown.Kez deals extra damage on the first Katana hit or ability after switching to Katana, and gains bonus speed after switching to Sai.",
+    "notes_zh": [],
+    "source_file": "sources/hero-145-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc"
+  },
+  {
+    "hero_id": 123,
+    "hero_name": "森海飞霞",
+    "ability": "hoodwink_bushwhack",
+    "dimension": "tree_conditional_stun",
+    "claim_zh": "靠近树木的目标受到眩晕和拖拽",
+    "conditions": [
+      "依赖树木；树被摧毁会解除眩晕；官方说明不能命中隐身单位"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "扔出一张网，对区域内靠近树木的敌人造成眩晕。敌人会持续受到伤害并被拖拽到目标区域内最近的树上，并且眩晕期间视野降低至0。",
+    "evidence_en": "Tosses a net trap that stuns enemies if they are near a tree in the area.  Affected enemies take damage over time and are pulled towards the tree nearest to them within the target area, and have their vision reduced to 0 for the duration of the stun.",
+    "notes_zh": [
+      "若树木被摧毁，被影响的单位将解除眩晕。",
+      "野地奇袭不会击中隐身单位。"
+    ],
+    "source_file": "sources/hero-123-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc"
+  },
+  {
+    "hero_id": 107,
+    "hero_name": "大地之灵",
+    "ability": "earth_spirit_geomagnetic_grip",
+    "dimension": "ally_reposition_and_silence",
+    "claim_zh": "牵引残岩或友方单位，路径敌人受到沉默和伤害",
+    "conditions": [
+      "需要有效目标和路径；官方说明时间结界、决斗、黑洞中的目标不适用"
+    ],
+    "requires_upgrade": "base",
+    "status": "agent_source_checked_patch_unverified_user_review_pending",
+    "evidence_zh": "大地之灵将目标残岩或友方单位拉扯到自己所在的位置，行进路径上被击中的敌人都会被沉默并受到伤害。拉扯的残岩也会对击中的敌人造成伤害。以友军为目标时施法距离减少。",
+    "evidence_en": "Earth Spirit pulls the target Stone Remnant or Allied Unit. Enemies struck by the gripped target will be silenced.Pulled Remnants also deal damage to struck enemies.Cast range is reduced when targeting an ally.",
+    "notes_zh": [
+      "如果目标处于时间结界，决斗或黑洞之中则不起作用。",
+      "地磁之握还可以对友方小兵施放。"
+    ],
+    "source_file": "sources/hero-107-schinese.json",
+    "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc"
+  }
+]

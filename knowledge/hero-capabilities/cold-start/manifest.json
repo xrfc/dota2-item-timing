@@ -1,0 +1,19 @@
+{
+  "schema": "hero-knowledge-cold-start/1",
+  "task": "official_ability_source_extraction",
+  "status": "candidate_not_training_admitted",
+  "training_allowed": false,
+  "snapshot_id": "1632148f256f55ca638e178a96c6de0e0f7529799bdc9e6c8fb3868962c0eef7",
+  "samples": 734,
+  "hero_groups": 127,
+  "file": "candidates.jsonl",
+  "sha256": "3df419c519524c2a62565faf90268599b2d1ddf9f35eb906f859c5cf0e1975bd",
+  "split_policy": "Group all locales, upgrades and paraphrases of a hero together; no split is created or admitted by this export.",
+  "limitations": [
+    "Source extraction pairs, not independent factual recall or reasoning supervision",
+    "No equipment choice, counter claim, matchup winner or decision-quality label",
+    "No unreviewed keyword signals used in outputs",
+    "Exact patch, semantic review and third-party reuse terms still require assessment",
+    "Not connected to replay training admission or any model trainer"
+  ]
+}

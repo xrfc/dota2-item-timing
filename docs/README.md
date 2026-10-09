@@ -7,6 +7,9 @@
 | 你要做什么 | 文档 |
 |---|---|
 | 先判断项目做到了哪里 | [完成度与验证证据](project-status.md) |
+| 查看全英雄机制资料与选人评估范围 | [英雄能力知识](../knowledge/README.md) |
+| 判断知识如何用于冷启动训练 | [知识与训练候选](knowledge-cold-start.md) |
+| 查资料迁移、外部证据与仓库维护路径 | [知识维护与路径清单](knowledge-maintenance.md) |
 | 安装、导入、标注、固定数据集、预留模型接入 | [教练工作流](coach-workflow.md) |
 | 日常操作、旧命令迁移、备份、故障恢复、人工核验 | [操作指南](workflow.md) |
 | 了解模块边界和数据流 | [工程设计](engineering-design.md) |

@@ -1,0 +1,2472 @@
+{
+  "hero_id": 135,
+  "npc_name": "npc_dota_hero_dawnbreaker",
+  "name_zh": "破晓辰星",
+  "name_en": "Dawnbreaker",
+  "learning_scope": "current_official_snapshot",
+  "source_patch": null,
+  "target_patch": null,
+  "patch_verified": false,
+  "knowledge_status": "official_source_facts_with_unreviewed_interpretation",
+  "published_role_labels": [
+    "Carry",
+    "Durable"
+  ],
+  "role_source": "OpenDota dotaconstants bf193a550f778dec35debf4d71d05a86bebcc418; descriptive role labels, not matchup ratings",
+  "official_role_levels_raw": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+  ],
+  "hero_summary_zh": "破晓辰星在战场的中央散发着万丈光芒，她乐于挥舞来自上界的战锤粉碎敌军，治疗附近的盟友。她也沉醉于将手中巨大的武器抛向敌阵，再与她的战锤在一道炽烈的尾迹中会合，她时刻等待着运用真正的宇宙之力飞去援助她的战友——不论她的敌人身在战场何处都将迎来溃败。",
+  "hero_summary_en": "Dawnbreaker shines in the heart of battle, happily crushing enemies with her celestial hammer and healing nearby allies. She revels in hurling her hammer through multiple foes and then converging with it in a blazing wake, always waiting to tap her true cosmic power to fly to the aid of her teammates — eager to rout her enemies on the battlefield no matter where they are.",
+  "base_stats": {
+    "attack_range": 150,
+    "damage_min": 55,
+    "damage_max": 59,
+    "attack_rate": 1.7,
+    "movement_speed": 300,
+    "armor": 4.3333335,
+    "magic_resistance": 25,
+    "sight_range_day": 1800,
+    "sight_range_night": 800
+  },
+  "abilities": [
+    {
+      "name": "dawnbreaker_fire_wreath",
+      "id": 7902,
+      "name_zh": "星破天惊",
+      "name_en": "Starbreaker",
+      "description_zh": "破晓辰星将她的战锤旋转3次，对敌人造成攻击伤害以及额外伤害。最后一次打击时，她将战锤击向地面，对她前方的敌人造成眩晕和伤害。",
+      "description_en": "Dawnbreaker whirls her hammer around 3 times, damaging enemies with her attack plus bonus damage. On the final strike, she smashes her hammer down, stunning and damaging enemies in front of her.",
+      "notes_zh": [
+        "破晓辰星在技能持续时间内以%movement_speed%的移动速度行进，并且最后一击后需要%self_stun_duration%秒才能复原。",
+        "连击期间无法施放上界重锤或天光现世。",
+        "此技能不继承分裂效果。",
+        "可以对自身施放来向前移动。",
+        "前两次挥击会减少敌人%swipe_slow%%%移动速度，持续%sweep_stun_duration%秒。"
+      ],
+      "notes_en": [
+        "Dawnbreaker travels at a rate of %movement_speed% for the duration of the ability and takes a brief %self_stun_duration%s to recover after the final strike.",
+        "Celestial Hammer or Solar Guardian cannot be cast during the combo.",
+        "Cleave does not work with this ability.",
+        "Can be self-cast to move forward.",
+        "The first two strikes will slow enemy movement speed by %swipe_slow%%% for %sweep_stun_duration%s."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/0",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "Dawnbreaker gains debuff immunity with %immunity_resist%%% magic resistance and free movement during Starbreaker. Dawnbreaker is slowed by %shard_movement_penalty%%% down to a minimum of %movement_speed%.",
+          "zh": "破晓辰星在星破天惊期间获得减益免疫，%immunity_resist%%%魔法抗性加成和自由移动状态。破晓辰星会被减速%shard_movement_penalty%%%，移速最低为%movement_speed%。"
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "Dawnbreaker and her allies in a %movespeed_bonus_radius% radius gain attack speed for %movespeed_bonus_duration% seconds at the end of Starbreaker for each swipe that hit enemy heroes.",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "在星破天惊结束后每次破晓辰星挥击和锤击敌方英雄都会使%movespeed_bonus_radius%范围内她和所有友军获得攻击速度加成，持续%movespeed_bonus_duration%秒。",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        17,
+        15,
+        13,
+        11
+      ],
+      "mana_costs": [
+        110
+      ],
+      "cast_points": [
+        0.1
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "duration",
+          "values_float": [
+            1.1
+          ],
+          "is_percentage": false,
+          "heading_loc": "COMBO DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "swipe_radius",
+          "values_float": [
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "SWIPE/SMASH RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "swipe_damage",
+          "values_float": [
+            25,
+            40,
+            55,
+            70
+          ],
+          "is_percentage": false,
+          "heading_loc": "SWIPE/SMASH BONUS DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "smash_radius",
+          "values_float": [
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "smash_damage",
+          "values_float": [
+            25,
+            40,
+            55,
+            70
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "movement_speed",
+          "values_float": [
+            215
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "total_attacks",
+          "values_float": [
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "smash_stun_duration",
+          "values_float": [
+            0.6,
+            0.8,
+            1,
+            1.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "SMASH STUN DURATION:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_fire_wreath_stun_duration",
+              "value": 0.5,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "sweep_stun_duration",
+          "values_float": [
+            0.12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "self_stun_duration",
+          "values_float": [
+            0.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "swipe_slow",
+          "values_float": [
+            -100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "smash_distance_from_hero",
+          "values_float": [
+            120
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "turn_rate",
+          "values_float": [
+            90
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "shard_cast_point",
+          "values_float": [
+            0.1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "shard_movement_penalty",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            35
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "movespeed_bonus_radius",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "dawnbreaker_blaze",
+            "values": [
+              700
+            ],
+            "operation": 0
+          },
+          "required_facet": "dawnbreaker_blaze"
+        },
+        {
+          "name": "movespeed_bonus_self_max",
+          "values_float": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS ATTACK SPEED PER SWIPE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "dawnbreaker_blaze",
+            "values": [
+              15,
+              21,
+              27,
+              33
+            ],
+            "operation": 0
+          },
+          "required_facet": "dawnbreaker_blaze"
+        },
+        {
+          "name": "movespeed_bonus_ally_max",
+          "values_float": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "BONUS ATTACK SPEED PER SWIPE (ALLIES):",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "dawnbreaker_blaze",
+            "values": [
+              9,
+              12,
+              15,
+              18
+            ],
+            "operation": 0
+          },
+          "required_facet": "dawnbreaker_blaze"
+        },
+        {
+          "name": "movespeed_bonus_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "dawnbreaker_blaze",
+            "values": [
+              4
+            ],
+            "operation": 0
+          },
+          "required_facet": "dawnbreaker_blaze"
+        },
+        {
+          "name": "immunity_resist",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [
+            50
+          ],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            110
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            17,
+            15,
+            13,
+            11
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_fire_wreath_cooldown",
+              "value": 4,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "4295229456",
+        "target_team": 2,
+        "target_type": 19,
+        "damage": 1,
+        "immunity": 3,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "dawnbreaker_celestial_hammer",
+      "id": 7914,
+      "name_zh": "上界重锤",
+      "name_en": "Celestial Hammer",
+      "description_zh": "破晓辰星向一个目标扔出她的武器，对沿途的敌人造成伤害。战锤会在目的地停留%pause_duration%秒，再飞回她的手中，期间留下一道炽烈之径，减缓敌人的移动速度。破晓辰星可以随时召回战锤，将自身朝战锤牵引，使二者在中点相遇。",
+      "description_en": "Dawnbreaker hurls her weapon at a target, damaging enemies struck along the way. The hammer pauses for %pause_duration% seconds at the destination before flying back to her, leaving a trail of fire that slows enemies. Dawnbreaker can recall the hammer at any time, pulling her towards it so they meet in the middle.",
+      "notes_zh": [
+        "战锤在飞出和飞回时都会对敌人造成伤害。",
+        "破晓辰星的会合移动距离不会超过技能的施法距离。",
+        "星破天惊无法在战锤脱手时施放。"
+      ],
+      "notes_en": [
+        "The hammer damages enemies both when thrown and when returning to Dawnbreaker.",
+        "Dawnbreaker's Converge movement distance is capped at the ability's cast range.",
+        "Starbreaker cannot be cast while the Hammer is out."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/1",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "",
+          "zh": ""
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "When Celestial Hammer lands on the ground, it creates the healing and damaging effects of Solar Guardian, reduced by %hammer_solar_guardian_effectiveness_pct%%% in a %hammer_solar_guardian_radius% AoE around it. Increases the duration that the hammer can remain stationary to %pause_duration%s.",
+        "",
+        "Allied heroes walking on Celestial Hammer's fire trail gain bonus movement speed."
+      ],
+      "facet_text_zh": [
+        "",
+        "上界重锤停在地面时，会产生天光现世的治疗和伤害效果，数值减少%hammer_solar_guardian_effectiveness_pct%%%，作用于重锤附近%hammer_solar_guardian_radius%范围。重锤的停留时间提升至%pause_duration%秒。",
+        "",
+        "友方英雄在上界重锤的炽烈之径上行走会获得移动速度加成。"
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "mana_costs": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "cast_points": [
+        0.2
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "hammer_damage",
+          "values_float": [
+            50,
+            80,
+            110,
+            140
+          ],
+          "is_percentage": false,
+          "heading_loc": "HAMMER DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_celestial_hammer_damage",
+              "value": 40,
+              "operation": 3
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "projectile_radius",
+          "values_float": [
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "projectile_speed",
+          "values_float": [
+            1600
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_celestial_hammer_cast_range",
+              "value": 80,
+              "operation": 3
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "flare_debuff_duration",
+          "values_float": [
+            2.5,
+            3,
+            3.5,
+            4
+          ],
+          "is_percentage": false,
+          "heading_loc": "FIRE TRAIL DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "flare_radius",
+          "values_float": [
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "FIRE TRAIL RADIUS:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "move_slow",
+          "values_float": [
+            24,
+            28,
+            32,
+            36
+          ],
+          "is_percentage": true,
+          "heading_loc": "FIRE TRAIL MOVEMENT SLOW:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "targets_allies",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_celestial_hammer_targets_allies",
+              "value": 1,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "burn_damage",
+          "values_float": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "FIRE TRAIL BURN DPS:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_celestial_hammer_damage",
+              "value": 40,
+              "operation": 3
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "burn_interval",
+          "values_float": [
+            0.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "pause_duration",
+          "values_float": [
+            2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_gleaming_hammer",
+              "value": 2,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "hammer_aoe_radius",
+          "values_float": [
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "travel_speed_pct",
+          "values_float": [
+            100
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "return_anim_distance_threshold",
+          "values_float": [
+            300
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "range",
+          "values_float": [
+            700,
+            900,
+            1100,
+            1300
+          ],
+          "is_percentage": false,
+          "heading_loc": "CAST RANGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_celestial_hammer_cast_range",
+              "value": 80,
+              "operation": 3
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "hammer_solar_guardian_radius",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_gleaming_hammer",
+              "value": 200,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "hammer_solar_guardian_effectiveness_pct",
+          "values_float": [],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_gleaming_hammer",
+              "value": 40,
+              "operation": 5
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.2
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            18,
+            16,
+            14,
+            12
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "16",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 2,
+        "immunity": 4,
+        "dispellable": 2,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "dawnbreaker_luminosity",
+      "id": 7918,
+      "name_zh": "熠熠生辉",
+      "name_en": "Luminosity",
+      "description_zh": "破晓辰星在数次攻击后提升了力量，她的下一次攻击会造成致命一击，并治疗她附近%heal_radius%范围内所有友方英雄，治疗量为攻击伤害的一定百分比。攻击小兵和野怪产生的治疗量有所减少。对友军的治疗量为%allied_healing_pct%%%。",
+      "description_en": "After a number of attacks, Dawnbreaker powers up, charging her next attack with a critical hit that heals all allied heroes within %heal_radius% units around her for a portion of attack damage dealt. Creeps and neutral enemies provide less healing. Allies are healed for %allied_healing_pct%%% of the amount.",
+      "notes_zh": [
+        "熠熠生辉的治疗效果可以通过生命回复增强效果获得提升。",
+        "破坏会使技能无法获得新的叠加效果。"
+      ],
+      "notes_en": [
+        "Luminosity Heal is increased by sources of Health Restoration Amplification.",
+        "Break disables the gaining of new stacks."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/2",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Dawnbreaker gets 2 Luminosity attacks every time she powers up.",
+          "zh": "Dawnbreaker gets 2 Luminosity attacks every time she powers up."
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "Whenever Dawnbreaker hits a target with a powered up Luminosity, she decreases the cooldowns of all of her abilities.",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "只要破晓辰星击中目标时触发了熠熠生辉的强化攻击，她所有技能的冷却时间都会减少。",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "attack_count",
+          "values_float": [
+            3
+          ],
+          "is_percentage": false,
+          "heading_loc": "ATTACKS REQUIRED:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_luminosity_attack_count",
+              "value": 1,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "heal_radius",
+          "values_float": [
+            650
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "heal_pct",
+          "values_float": [
+            35,
+            40,
+            45,
+            50
+          ],
+          "is_percentage": true,
+          "heading_loc": "HEALING FROM HEROES:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "heal_from_creeps",
+          "values_float": [
+            40
+          ],
+          "is_percentage": true,
+          "heading_loc": "CREEP HEAL PENALTY:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "bonus_damage",
+          "values_float": [
+            125,
+            150,
+            175,
+            200
+          ],
+          "is_percentage": true,
+          "heading_loc": "CRITICAL STRIKE DAMAGE:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_luminosity_crit",
+              "value": 25,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "allied_healing_pct",
+          "values_float": [
+            50
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "cooldown_reduction",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "COOLDOWN REDUCTION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "dawnbreaker_solar_charged",
+            "values": [
+              0.8
+            ],
+            "operation": 0
+          },
+          "required_facet": "dawnbreaker_solar_charged"
+        },
+        {
+          "name": "triggered_by_celestial_hammer",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [
+              1
+            ],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "2",
+        "target_team": 1,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 1,
+        "dispellable": 0,
+        "max_level": 4
+      }
+    },
+    {
+      "name": "dawnbreaker_break_of_dawn",
+      "id": 1424,
+      "name_zh": "辰星破晓",
+      "name_en": "Break of Dawn",
+      "description_zh": "只要太阳出来，破晓辰星就会获得基础攻击力加成和额外视野，加成效果会在整个白天内逐渐降低。如果是破晓辰星制造的白天，在整个白天时间内加成效果始终是最大值。",
+      "description_en": "Whenever the sun comes out, Dawnbreaker gains bonus base damage and vision that decreases throughout the course of the day. If Dawnbreaker causes the day these bonuses are at full power for the entirety of that daytime.",
+      "notes_zh": [],
+      "notes_en": [],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/3",
+      "innate": true,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Break of Dawn provides healing amplification equal to the current damage increase.",
+          "zh": "辰星破晓提供治疗增强，数值等于当前攻击力提升。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "special_values": [
+        {
+          "name": "day_threshold",
+          "values_float": [
+            0.006
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "max_dmg_pct",
+          "values_float": [
+            8
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX DAMAGE INCREASE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "max_vision_pct",
+          "values_float": [
+            20
+          ],
+          "is_percentage": true,
+          "heading_loc": "MAX VISION INCREASE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "current_dmg_tooltip",
+          "values_float": [
+            0
+          ],
+          "is_percentage": true,
+          "heading_loc": "CURRENT DAMAGE INCREASE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "current_vision_tooltip",
+          "values_float": [
+            0
+          ],
+          "is_percentage": true,
+          "heading_loc": "CURRENT VISION INCREASE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "heal_amp",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            1
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 0,
+        "behavior": "8589934658",
+        "target_team": 0,
+        "target_type": 0,
+        "damage": 0,
+        "immunity": 0,
+        "dispellable": 0,
+        "max_level": 1
+      }
+    },
+    {
+      "name": "dawnbreaker_solar_guardian",
+      "id": 7906,
+      "name_zh": "天光现世",
+      "name_en": "Solar Guardian",
+      "description_zh": "持续施法 - 破晓辰星在地图上任意友方英雄%max_offset_distance%距离内的一个地点创造一个脉冲效果，并制造持续%daytime_duration%秒的白天。每次脉冲都会对敌人造成伤害，并治疗友军。经过一段短暂时间后，她飞向目标地点，落地时造成额外伤害并眩晕敌人。开始持续施法后，破晓辰星无法中止此技能。",
+      "description_en": "CHANNELED - Dawnbreaker creates a pulsing effect at a location within %max_offset_distance% units of an allied hero anywhere on the map and creates daylight for %daytime_duration%s. Each pulse damages enemies and heals allies.After a short duration, she flies to the target location and deals additional damage and stuns enemies upon landing.Once channeled, Dawnbreaker cannot stop the ability.",
+      "notes_zh": [
+        "脉冲间隔为%pulse_interval%秒。",
+        "总飞行时间为%abilitychanneltime%秒持续施法时间 + %airtime_duration%秒飞行时间。",
+        "施放时立刻召回战锤。"
+      ],
+      "notes_en": [
+        "Pulse interval is %pulse_interval%s.",
+        "Total flight duration is %abilitychanneltime% seconds of channel time + %airtime_duration% of flight time.",
+        "Instantly recalls the Hammer on cast."
+      ],
+      "source_collection": "abilities",
+      "source_pointer": "/result/data/heroes/0/abilities/4",
+      "innate": false,
+      "granted_by_scepter": false,
+      "granted_by_shard": false,
+      "upgrade_text": {
+        "scepter_loc": {
+          "en": "Solar Guardian's aura follows Dawnbreaker for %scepter_aura_duration%s after landing.",
+          "zh": "天光现世的光环在破晓辰星落地后会跟随%scepter_aura_duration%秒。"
+        },
+        "shard_loc": {
+          "en": "",
+          "zh": ""
+        }
+      },
+      "facet_text_en": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "facet_text_zh": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "cast_ranges": [
+        0
+      ],
+      "cooldowns": [
+        110,
+        100,
+        90
+      ],
+      "mana_costs": [
+        150,
+        200,
+        250
+      ],
+      "cast_points": [
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "channel_times": [
+        1.7
+      ],
+      "special_values": [
+        {
+          "name": "scepter_aura_duration",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            2
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "miss_rate",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            0
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "base_heal",
+          "values_float": [
+            45,
+            70,
+            95
+          ],
+          "is_percentage": false,
+          "heading_loc": "HEAL PER PULSE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "radius",
+          "values_float": [
+            500
+          ],
+          "is_percentage": false,
+          "heading_loc": "LAND RADIUS:",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_solar_guardian_radius",
+              "value": 150,
+              "operation": 0
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "base_damage",
+          "values_float": [
+            30,
+            50,
+            70
+          ],
+          "is_percentage": false,
+          "heading_loc": "DAMAGE PER PULSE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "pulse_interval",
+          "values_float": [
+            0.5
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "land_damage",
+          "values_float": [
+            130,
+            160,
+            190
+          ],
+          "is_percentage": false,
+          "heading_loc": "LANDING DAMAGE:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "land_stun_duration",
+          "values_float": [
+            1.2,
+            1.4,
+            1.6
+          ],
+          "is_percentage": false,
+          "heading_loc": "LANDING STUN DURATION:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "max_offset_distance",
+          "values_float": [
+            350
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "scepter_channel_time",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            1.7
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "airtime_scepter_bonus",
+          "values_float": [
+            0
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [
+            3.5
+          ],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "airtime_scepter_movement_speed",
+          "values_float": [
+            200
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "airtime_duration",
+          "values_float": [
+            0.8
+          ],
+          "is_percentage": false,
+          "heading_loc": "AIR TIME:",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "daytime_duration",
+          "values_float": [
+            6
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityChannelTime",
+          "values_float": [
+            1.7
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCastPoint",
+          "values_float": [
+            0.1
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityManaCost",
+          "values_float": [
+            150,
+            200,
+            250
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        },
+        {
+          "name": "AbilityCooldown",
+          "values_float": [
+            110,
+            100,
+            90
+          ],
+          "is_percentage": false,
+          "heading_loc": "",
+          "bonuses": [
+            {
+              "name": "special_bonus_unique_dawnbreaker_solar_guardian_cooldown",
+              "value": 20,
+              "operation": 2
+            }
+          ],
+          "values_shard": [],
+          "values_scepter": [],
+          "facet_bonus": {
+            "name": "",
+            "values": [],
+            "operation": 0
+          },
+          "required_facet": ""
+        }
+      ],
+      "raw_mechanics": {
+        "type": 1,
+        "behavior": "144",
+        "target_team": 1,
+        "target_type": 1,
+        "damage": 2,
+        "immunity": 3,
+        "dispellable": 0,
+        "max_level": 3
+      }
+    }
+  ],
+  "talents_raw": [
+    {
+      "id": 7937,
+      "name": "special_bonus_unique_dawnbreaker_luminosity_crit",
+      "name_loc": "+{s:bonus_bonus_damage}% Luminosity Critical Strike Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 1843,
+      "name": "special_bonus_unique_dawnbreaker_celestial_hammer_targets_allies",
+      "name_loc": "Celestial Hammer Trail Grants Movement Speed to Allies",
+      "desc_loc": "Bonus movement speed is equal to the movement slow",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7933,
+      "name": "special_bonus_unique_dawnbreaker_celestial_hammer_damage",
+      "name_loc": "+{s:bonus_hammer_damage}% Celestial Hammer Trail/Hammer Damage",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7938,
+      "name": "special_bonus_unique_dawnbreaker_solar_guardian_cooldown",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Solar Guardian Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7930,
+      "name": "special_bonus_unique_dawnbreaker_solar_guardian_radius",
+      "name_loc": "+{s:bonus_radius} Solar Guardian Radius",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7940,
+      "name": "special_bonus_unique_dawnbreaker_luminosity_attack_count",
+      "name_loc": "-{s:bonus_attack_count} Luminosity Attacks Required",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7931,
+      "name": "special_bonus_unique_dawnbreaker_fire_wreath_cooldown",
+      "name_loc": "-{s:bonus_AbilityCooldown}s Starbreaker Cooldown",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    },
+    {
+      "id": 7934,
+      "name": "special_bonus_unique_dawnbreaker_celestial_hammer_cast_range",
+      "name_loc": "+{s:bonus_range}% Celestial Hammer Cast Range/Speed",
+      "desc_loc": "",
+      "lore_loc": "",
+      "notes_loc": [],
+      "shard_loc": "",
+      "scepter_loc": "",
+      "facets_loc": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "type": 2,
+      "behavior": "2",
+      "target_team": 0,
+      "target_type": 0,
+      "flags": 0,
+      "damage": 0,
+      "immunity": 0,
+      "dispellable": 0,
+      "max_level": 4,
+      "cast_ranges": [
+        0
+      ],
+      "cast_points": [
+        0
+      ],
+      "channel_times": [
+        0
+      ],
+      "cooldowns": [
+        0
+      ],
+      "durations": [
+        0
+      ],
+      "damages": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mana_costs": [
+        0
+      ],
+      "gold_costs": [],
+      "health_costs": [],
+      "special_values": [],
+      "is_item": false,
+      "ability_has_scepter": false,
+      "ability_has_shard": false,
+      "ability_is_granted_by_scepter": false,
+      "ability_is_granted_by_shard": false,
+      "ability_is_innate": false,
+      "item_cost": 0,
+      "item_initial_charges": 0,
+      "item_neutral_tier": 4294967295,
+      "item_stock_max": 0,
+      "item_stock_time": 0,
+      "item_quality": 0
+    }
+  ],
+  "facets_raw": [],
+  "capability_review_signals": [
+    {
+      "dimension": "stun",
+      "dimension_zh": "眩晕",
+      "ability": "dawnbreaker_fire_wreath",
+      "matched_text": "stunning",
+      "evidence_description_en": "Dawnbreaker whirls her hammer around 3 times, damaging enemies with her attack plus bonus damage. On the final strike, she smashes her hammer down, stunning and damaging enemies in front of her.",
+      "source_file": "sources/hero-135-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/0/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "slow",
+      "dimension_zh": "减速",
+      "ability": "dawnbreaker_celestial_hammer",
+      "matched_text": "slows",
+      "evidence_description_en": "Dawnbreaker hurls her weapon at a target, damaging enemies struck along the way. The hammer pauses for %pause_duration% seconds at the destination before flying back to her, leaving a trail of fire that slows enemies. Dawnbreaker can recall the hammer at any time, pulling her towards it so they meet in the middle.",
+      "source_file": "sources/hero-135-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "forced_movement",
+      "dimension_zh": "强制位移",
+      "ability": "dawnbreaker_celestial_hammer",
+      "matched_text": "pulling her toward",
+      "evidence_description_en": "Dawnbreaker hurls her weapon at a target, damaging enemies struck along the way. The hammer pauses for %pause_duration% seconds at the destination before flying back to her, leaving a trail of fire that slows enemies. Dawnbreaker can recall the hammer at any time, pulling her towards it so they meet in the middle.",
+      "source_file": "sources/hero-135-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/1/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "attack_interaction",
+      "dimension_zh": "攻击机制",
+      "ability": "dawnbreaker_luminosity",
+      "matched_text": "critical",
+      "evidence_description_en": "After a number of attacks, Dawnbreaker powers up, charging her next attack with a critical hit that heals all allied heroes within %heal_radius% units around her for a portion of attack damage dealt. Creeps and neutral enemies provide less healing. Allies are healed for %allied_healing_pct%%% of the amount.",
+      "source_file": "sources/hero-135-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "healing",
+      "dimension_zh": "治疗／恢复",
+      "ability": "dawnbreaker_luminosity",
+      "matched_text": "heals",
+      "evidence_description_en": "After a number of attacks, Dawnbreaker powers up, charging her next attack with a critical hit that heals all allied heroes within %heal_radius% units around her for a portion of attack damage dealt. Creeps and neutral enemies provide less healing. Allies are healed for %allied_healing_pct%%% of the amount.",
+      "source_file": "sources/hero-135-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/2/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "vision",
+      "dimension_zh": "视野／侦测",
+      "ability": "dawnbreaker_break_of_dawn",
+      "matched_text": "vision",
+      "evidence_description_en": "Whenever the sun comes out, Dawnbreaker gains bonus base damage and vision that decreases throughout the course of the day. If Dawnbreaker causes the day these bonuses are at full power for the entirety of that daytime.",
+      "source_file": "sources/hero-135-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/3/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "stun",
+      "dimension_zh": "眩晕",
+      "ability": "dawnbreaker_solar_guardian",
+      "matched_text": "stuns",
+      "evidence_description_en": "CHANNELED - Dawnbreaker creates a pulsing effect at a location within %max_offset_distance% units of an allied hero anywhere on the map and creates daylight for %daytime_duration%s. Each pulse damages enemies and heals allies.After a short duration, she flies to the target location and deals additional damage and stuns enemies upon landing.Once channeled, Dawnbreaker cannot stop the ability.",
+      "source_file": "sources/hero-135-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    },
+    {
+      "dimension": "healing",
+      "dimension_zh": "治疗／恢复",
+      "ability": "dawnbreaker_solar_guardian",
+      "matched_text": "heals",
+      "evidence_description_en": "CHANNELED - Dawnbreaker creates a pulsing effect at a location within %max_offset_distance% units of an allied hero anywhere on the map and creates daylight for %daytime_duration%s. Each pulse damages enemies and heals allies.After a short duration, she flies to the target location and deals additional damage and stuns enemies upon landing.Once channeled, Dawnbreaker cannot stop the ability.",
+      "source_file": "sources/hero-135-english.json",
+      "source_pointer": "/result/data/heroes/0/abilities/4/desc_loc",
+      "status": "text_signal_needs_review",
+      "availability": "conditional_not_currently_available",
+      "granted_by_scepter": false,
+      "granted_by_shard": false
+    }
+  ],
+  "source_files": [
+    "sources/hero-135-english.json",
+    "sources/hero-135-schinese.json"
+  ],
+  "open_questions": [
+    "Exact patch correspondence",
+    "Interpretation of mechanics enums",
+    "Availability by level/facet/upgrade",
+    "Reliability and prerequisites of each effect",
+    "Matchup and equipment recommendations require separate review"
+  ]
+}
