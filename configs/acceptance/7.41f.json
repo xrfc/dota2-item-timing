@@ -1,0 +1,15 @@
+{
+  "schema_version": "real-acceptance-config/1",
+  "patch": "7.41f",
+  "target_downloads": 8,
+  "minimum_average_rank_tier": 75,
+  "patch_boundary_buffer_seconds": 86400,
+  "minimum_duration_seconds": 900,
+  "maximum_duration_seconds": 5400,
+  "max_candidates": 30,
+  "discovery_pages": 5,
+  "max_archive_bytes": 536870912,
+  "max_total_download_bytes": 4294967296,
+  "parse_timeout_seconds": 480,
+  "minimum_ranked_players": 8
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": "saved-replay-regression-config/1",
+  "source_run_id": 37393085454,
+  "source_commit": "fc13280e8d836c3e5418e941fc023f349d11d658",
+  "patch": "7.41f",
+  "adapter_version": "gem-adapter/2.2"
+}

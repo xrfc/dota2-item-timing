@@ -1,0 +1,50 @@
+name: saved-replay-regression
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - configs/acceptance/regression.json
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[replay,data]"
+      - id: source
+        run: |
+          python - <<'PY'
+          import json, os
+          with open("configs/acceptance/regression.json") as stream:
+              config = json.load(stream)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as stream:
+              stream.write("run_id=" + str(int(config["source_run_id"])) + "\n")
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: acceptance-replays-and-workspaces
+          path: data/acceptance
+          run-id: ${{ steps.source.outputs.run_id }}
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: acceptance-evidence
+          path: data/acceptance
+          run-id: ${{ steps.source.outputs.run_id }}
+          github-token: ${{ github.token }}
+      - run: python scripts/audit_saved_replays.py
+      - name: Save regression evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: saved-replay-audit
+          path: |
+            data/regression/report.json
+            data/regression/exports/
+          retention-days: 30

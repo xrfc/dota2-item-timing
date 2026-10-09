@@ -3,6 +3,7 @@
 import bz2
 import hashlib
 import json
+import re
 import sqlite3
 import tempfile
 import zipfile
@@ -14,19 +15,25 @@ from pathlib import Path
 from typing import Any
 
 from ..normalize import normalize_match
+from ..storage import file_hash
+from .gem_observations import number, observations
 
 MAX_DEMO_BYTES = 2 * 1024**3
 CHUNK_BYTES = 1024**2
 DEMO_MAGIC = b"PBDEMS2"
 ZSTD_MAGIC = b"\x28\xb5\x2f\xfd"
+ADAPTER_VERSION = "gem-adapter/3.0"
 
 
-def _sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as stream:
-        for chunk in iter(lambda: stream.read(CHUNK_BYTES), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+def adapter_fingerprint():
+    root = Path(__file__).resolve().parents[1]
+    paths = (
+        "sources/gem_replay.py",
+        "sources/gem_capture.py",
+        "sources/gem_observations.py",
+        "data/context.py",
+    )
+    return hashlib.sha256("".join(file_hash(root / name) for name in paths).encode()).hexdigest()
 
 
 def _copy_bounded(source: Any, target: Any) -> None:
@@ -45,6 +52,8 @@ def prepared_demo(source: Path, scratch_dir: Path) -> Iterator[Path]:
         raise ValueError(f"Replay file does not exist: {source}")
     name = source.name.lower()
     if name.endswith(".dem"):
+        if source.stat().st_size > MAX_DEMO_BYTES:
+            raise ValueError("Replay exceeds the 2 GiB safety limit")
         with source.open("rb") as stream:
             if stream.read(len(DEMO_MAGIC)) != DEMO_MAGIC:
                 raise ValueError("Replay is not a Source 2 PBDEMS2 .dem file")
@@ -100,9 +109,9 @@ def _player_slot(player_id: int) -> int:
 
 def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
     """Convert Gem's typed match into the existing OpenDota-shaped report input."""
-    if not isinstance(match.match_id, int) or match.match_id <= 0:
+    if type(match.match_id) is not int or match.match_id <= 0:
         raise ValueError("Replay has no valid match_id; cannot initialize the match index")
-    if not isinstance(match.duration, int) or match.duration < 0:
+    if type(match.duration) is not int or match.duration < 0:
         raise ValueError("Replay has no valid game duration")
     if not match.players:
         raise ValueError("Replay contains no player summaries")
@@ -114,7 +123,22 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
         if slot in slots:
             raise ValueError(f"Replay contains duplicate player slot {slot}")
         slots.add(slot)
-        if not isinstance(player.hero_id, int) or player.hero_id <= 0:
+        hero_id = player.hero_id
+        identity = None
+        name = getattr(player, "hero_name", None)
+        if type(hero_id) is int and hero_id == 0 and isinstance(name, str):
+            from gem.catalog.heroes import hero_meta, hero_npc_name
+
+            canonical_name = hero_npc_name(name.removeprefix("npc_dota_hero_"))
+            if canonical_name:
+                hero_id = hero_meta(canonical_name).get("id", 0)
+                identity = {
+                    "method": "gem_catalog_alias",
+                    "source_ref": f"players[{player_index}].hero_name",
+                    "source_name": name,
+                    "canonical_name": canonical_name,
+                }
+        if type(hero_id) is not int or hero_id <= 0:
             issues.append(f"player {slot}: missing hero_id; omitted from normalized match")
             continue
         purchases: list[dict[str, Any]] = []
@@ -129,7 +153,7 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
             if second is None:
                 issues.append(f"player {slot}: purchase time unavailable at tick {event.tick}")
                 continue
-            if not isinstance(second, (int, float)) or second > match.duration:
+            if not number(second) or second > match.duration:
                 issues.append(f"player {slot}: purchase time outside match at tick {event.tick}")
                 continue
             key = name.removeprefix("item_")
@@ -146,8 +170,10 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
         players.append(
             {
                 "player_slot": slot,
-                "hero_id": player.hero_id,
+                "hero_id": hero_id,
+                **({"hero_identity": identity} if identity else {}),
                 "purchase_log": purchases,
+                **observations(player, player_index, match, issues),
             }
         )
     if not players:
@@ -155,7 +181,7 @@ def canonicalize_match(match: Any) -> tuple[dict[str, Any], list[str]]:
     if getattr(match, "post_game_tick", None) is None:
         issues.append("post_game_tick unavailable: replay may be incomplete")
     return {
-        "schema_version": "gem-adapter/1.0",
+        "schema_version": ADAPTER_VERSION,
         "match_id": match.match_id,
         "duration": match.duration,
         "game_mode": match.game_mode,
@@ -212,7 +238,13 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
     source = source.resolve()
     if not source.is_file():
         raise ValueError(f"Replay file does not exist: {source}")
-    source_sha = _sha256(source)
+    source_sha = file_hash(source)
+    from .gem_capture import CAPTURE_VERSION
+
+    try:
+        parser_version = version("gem-dota")
+    except PackageNotFoundError:
+        parser_version = "unknown"
     database = data_dir / "index.sqlite"
     with closing(_initialize_index(database)) as index:
         existing = index.execute(
@@ -220,12 +252,45 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
             "WHERE source_sha256 = ?",
             (source_sha,),
         ).fetchone()
+        cache_valid = False
         if existing and Path(existing[2]).is_file() and Path(existing[3]).is_file() and not force:
+            try:
+                cached = json.loads(Path(existing[2]).read_text(encoding="utf-8"))
+                manifest_path = Path(existing[2]).parent / "manifest.json"
+                manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+                raw_sha = file_hash(Path(existing[3]))
+                cache_valid = (
+                    cached.get("schema_version") == ADAPTER_VERSION
+                    and cached.get("adapter_fingerprint") == adapter_fingerprint()
+                    and cached.get("evidence_sha256") == raw_sha
+                    and manifest.get("schema_version") == "demo-import/1.1"
+                    and manifest.get("source_sha256") == source_sha
+                    and manifest.get("match_id") == cached.get("match_id") == existing[1]
+                    and manifest.get("raw_json_sha256") == raw_sha
+                    and manifest.get("normalized_json_sha256") == file_hash(Path(existing[2]))
+                    and manifest.get("adapter_fingerprint") == cached["adapter_fingerprint"]
+                    and manifest.get("capture_version")
+                    == cached.get("capture_version")
+                    == CAPTURE_VERSION
+                    and manifest.get("parser") == "gem-dota"
+                    and manifest.get("parser_version") == parser_version
+                    and isinstance(manifest.get("issues"), list)
+                    and isinstance(manifest.get("demo_sha256"), str)
+                    and re.fullmatch(r"[0-9a-f]{64}", manifest["demo_sha256"]) is not None
+                )
+            except (ValueError, OSError, AttributeError):
+                cache_valid = False
+        if cache_valid:
             return {
                 "status": "cached",
                 "source_sha256": source_sha,
+                "demo_sha256": manifest["demo_sha256"],
                 "match_id": existing[1],
                 "normalized_json": existing[2],
+                "manifest": str(manifest_path.resolve()),
+                "players": len(cached["players"]),
+                "item_events": sum(len(p["purchase_log"]) for p in cached["players"]),
+                "issues": manifest["issues"],
             }
 
     try:
@@ -233,8 +298,10 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
     except ImportError as error:
         raise ValueError("Gem is not installed; run pip install -e '.[replay]'") from error
     with prepared_demo(source, data_dir / ".tmp") as replay:
-        replay_sha = _sha256(replay)
-        match = gem.parse(replay)
+        replay_sha = file_hash(replay)
+        from .gem_capture import parse_with_state
+
+        match, states = parse_with_state(replay)
     canonical, issues = canonicalize_match(match)
     for player in canonical["players"]:
         validated = normalize_match(
@@ -245,16 +312,20 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
         )
         if any(flag.startswith("invalid_event:") for flag in validated.quality_flags):
             raise ValueError("Gem adapter produced an invalid purchase event")
-    try:
-        parser_version = version("gem-dota")
-    except PackageNotFoundError:
-        parser_version = "unknown"
     folder = data_dir / "matches" / source_sha
     folder.mkdir(parents=True, exist_ok=True)
     raw_path = folder / "raw-gem.json"
     normalized_path = folder / "normalized.json"
     manifest_path = folder / "manifest.json"
-    raw = gem.to_json(match)
+    from ..data.context import export_context
+
+    payload = json.loads(gem.to_json(match))
+    payload["coach_state_snapshots"] = states
+    payload["coach_capture_version"] = CAPTURE_VERSION
+    canonical["adapter_fingerprint"] = adapter_fingerprint()
+    canonical["capture_version"] = CAPTURE_VERSION
+    canonical["context"] = export_context(payload, match.game_clock, match.duration)
+    raw = json.dumps(payload, ensure_ascii=False, allow_nan=False)
     # Fail before indexing if serialization is not valid JSON.
     json.loads(raw)
     canonical["evidence_source"] = raw_path.name
@@ -264,14 +335,17 @@ def ingest_demo(source: Path, data_dir: Path, *, force: bool = False) -> dict[st
     temporary.replace(raw_path)
     _write_json(normalized_path, canonical)
     manifest = {
-        "schema_version": "demo-import/1.0",
+        "schema_version": "demo-import/1.1",
         "match_id": canonical["match_id"],
         "source_name": source.name,
         "source_sha256": source_sha,
         "demo_sha256": replay_sha,
         "raw_json_sha256": canonical["evidence_sha256"],
+        "normalized_json_sha256": file_hash(normalized_path),
         "parser": "gem-dota",
         "parser_version": parser_version,
+        "capture_version": CAPTURE_VERSION,
+        "adapter_fingerprint": canonical["adapter_fingerprint"],
         "imported_at": datetime.now(UTC).isoformat(),
         "issues": issues,
         "raw_json": str(raw_path.resolve()),

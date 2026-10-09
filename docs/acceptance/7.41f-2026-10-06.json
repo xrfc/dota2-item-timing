@@ -1,0 +1,1352 @@
+{
+  "array_smoke": {
+    "matches": {
+      "test": 9031371970,
+      "train": 9031384340,
+      "validation": 9031383523
+    },
+    "purpose": "array-format smoke only; no model training or evaluation",
+    "splits": {
+      "test": {
+        "X_dtype": "float32",
+        "X_shape": [
+          780,
+          38
+        ],
+        "item_mask_true": 395,
+        "route_mask_true": 760,
+        "sha256": "0aa3229e99aeef776d2664d5979b17ae0d918a4c2bbc6503ad6bebed0fe43ab9"
+      },
+      "train": {
+        "X_dtype": "float32",
+        "X_shape": [
+          710,
+          38
+        ],
+        "item_mask_true": 347,
+        "route_mask_true": 690,
+        "sha256": "6f5efe280972d4d096f52e5c99a29596a4d8bde725ca18dfdb4d43468d30f880"
+      },
+      "validation": {
+        "X_dtype": "float32",
+        "X_shape": [
+          620,
+          38
+        ],
+        "item_mask_true": 264,
+        "route_mask_true": 600,
+        "sha256": "e2d97be33024359c62a9961adc1f0690bcf5649d45441d23bd1c80263932fef1"
+      }
+    },
+    "train_samples": 710
+  },
+  "artifacts": {
+    "demos_and_original_workspaces": {
+      "bytes": 482450729,
+      "expires_at": "2026-10-13T00:25:17Z",
+      "sha256": "cfc9a55e953e3e55866cb1abc567d661aa6a952f17c27b728632a076079a424d",
+      "url": "https://github.com/xrfc/dota2-item-timing/actions/runs/37393085454/artifacts/11382665563"
+    },
+    "final_audit": {
+      "bytes": 8877782,
+      "expires_at": "2026-11-05T10:40:16Z",
+      "sha256": "723927ee42b97a26e43a29983722674a3f60dea7bf8b30cbc071e3edd06d44c5",
+      "url": "https://github.com/xrfc/dota2-item-timing/actions/runs/37451030026/artifacts/11406303075"
+    }
+  },
+  "cohort_id": "7.41f-2026-10-06",
+  "counts": {
+    "all_prepared": {
+      "excluded_purchase_projection": 334,
+      "item_supervised": 2421,
+      "quarantined": 660,
+      "route_supervised": 5130,
+      "samples": 5320,
+      "time_mappings_checked": 319659,
+      "time_mismatches": 0
+    },
+    "archive_bytes": 326573660,
+    "downloaded_matches": 8,
+    "held_matches": 5,
+    "pipeline_passed_matches": 3,
+    "pipeline_passed_only": {
+      "excluded_purchase_projection": 119,
+      "item_supervised": 1006,
+      "quarantined": 0,
+      "route_supervised": 2050,
+      "samples": 2110,
+      "time_mappings_checked": 127261,
+      "time_mismatches": 0
+    },
+    "prepared_matches": 8,
+    "ranks_at_api_fetch": {
+      "75": 2,
+      "80": 78
+    }
+  },
+  "item_classes_in_pipeline_passed_group": {
+    "black_king_bar": 17,
+    "desolator": 0,
+    "no_purchase": 0,
+    "other": 982,
+    "power_treads": 7
+  },
+  "item_label_reasons_in_pipeline_passed_group": {
+    "coverage_unknown": 907,
+    "next_observed_purchase": 1006,
+    "right_censored": 60,
+    "simultaneous_purchases": 137
+  },
+  "matches": [
+    {
+      "api_comparison": {
+        "players": [],
+        "status": "api_unparsed"
+      },
+      "api_leaver_status": {},
+      "api_sha256": "7be89777e84e82a833d46a6715cdf5deb695359719ca55a27c898ebf170134aa",
+      "archive_bytes": 48174214,
+      "archive_sha256": "2308741a2f0db2d5de13ea1434dbd1b1186909dd6798189fe1635c9e43410d09",
+      "counts": {
+        "excluded_purchase_projection": 54,
+        "item_supervised": 343,
+        "quarantined": 348,
+        "route_supervised": 720,
+        "samples": 750,
+        "time_mappings_checked": 44972,
+        "time_mismatches": 0
+      },
+      "duration_seconds": 2230,
+      "economy_coverage_min": 0.9866666666666667,
+      "hold_reasons": [
+        "quarantined_values_require_review"
+      ],
+      "match_id": 9031370153,
+      "pauses": [
+        {
+          "end_tick": 22861,
+          "start_tick": 22767
+        },
+        {
+          "end_tick": 23636,
+          "start_tick": 23187
+        }
+      ],
+      "pipeline_status": "held",
+      "players": 10,
+      "position_coverage_min": 0.9866666666666667,
+      "preparation_id": "5c74630a7cf5b462a76b6566",
+      "prepare_wall_seconds_initial": 57.75836251000001,
+      "prepared_manifest_sha256": "637d44057540201e3cee4ee539e72fc23c5447c3380917520a4f9162aedeeaa3",
+      "rank_evidence": {
+        "avg_rank_tier": 75,
+        "cluster": 181,
+        "dire_team": [
+          100,
+          53,
+          21,
+          39,
+          92
+        ],
+        "duration": 2230,
+        "game_mode": 22,
+        "lobby_type": 7,
+        "match_id": 9031370153,
+        "match_seq_num": 7586047056,
+        "num_rank_tier": 10,
+        "radiant_team": [
+          105,
+          8,
+          79,
+          69,
+          121
+        ],
+        "radiant_win": true,
+        "start_time": 1791241465
+      },
+      "ranks_at_api_fetch": {
+        "80": 10
+      },
+      "raw_gem_sha256": "3754998a1df144cee6115ae7ea4856575478b3f0b3eb0ec49db21646f4490fe5",
+      "replay_url": "http://replay181.valve.net/570/9031370153_192090972.dem.bz2",
+      "resolved_hero_aliases": [
+        {
+          "canonical_name": "npc_dota_hero_queenofpain",
+          "hero_id": 39,
+          "method": "gem_catalog_alias",
+          "player_slot": 131,
+          "source_name": "npc_dota_hero_queen_of_pain",
+          "source_ref": "players[8].hero_name"
+        }
+      ],
+      "start_time_utc": "2026-10-05T23:04:25+00:00",
+      "url": "https://www.opendota.com/matches/9031370153"
+    },
+    {
+      "api_comparison": {
+        "players": [],
+        "status": "api_unparsed"
+      },
+      "api_leaver_status": {},
+      "api_sha256": "5ac046d7d2dac338db2ddc86e13dd2ddaf46a9db3aa1d44434c9fa1ad90891b5",
+      "archive_bytes": 44369145,
+      "archive_sha256": "50a8167ea2b4fbeadfd6ce6b0ffbe7a3648dd4fc5914aff85fbca3ef469af962",
+      "counts": {
+        "excluded_purchase_projection": 42,
+        "item_supervised": 347,
+        "quarantined": 0,
+        "route_supervised": 690,
+        "samples": 710,
+        "time_mappings_checked": 42552,
+        "time_mismatches": 0
+      },
+      "duration_seconds": 2107,
+      "economy_coverage_min": 1.0,
+      "hold_reasons": [],
+      "match_id": 9031384340,
+      "pauses": [],
+      "pipeline_status": "passed",
+      "players": 10,
+      "position_coverage_min": 1.0,
+      "preparation_id": "8e3c22f2446b813c125b4fb6",
+      "prepare_wall_seconds_initial": 54.104280996,
+      "prepared_manifest_sha256": "f73ca8b8443f095da5f1a32f8e6a5a08b50e0a0e986ebe74ea3ec7e91f3a44e5",
+      "rank_evidence": {
+        "avg_rank_tier": 75,
+        "cluster": 184,
+        "dire_team": [
+          121,
+          8,
+          129,
+          100,
+          76
+        ],
+        "duration": 2107,
+        "game_mode": 22,
+        "lobby_type": 7,
+        "match_id": 9031384340,
+        "match_seq_num": 7586058424,
+        "num_rank_tier": 9,
+        "radiant_team": [
+          21,
+          137,
+          55,
+          105,
+          71
+        ],
+        "radiant_win": true,
+        "start_time": 1791243150
+      },
+      "ranks_at_api_fetch": {
+        "80": 10
+      },
+      "raw_gem_sha256": "38c33928f4eee5bf507a44b2a1ea88a3410ee61152a4c1d3fbf5d9f13f9cdd14",
+      "replay_url": "http://replay184.valve.net/570/9031384340_41128138.dem.bz2",
+      "resolved_hero_aliases": [],
+      "start_time_utc": "2026-10-05T23:32:30+00:00",
+      "url": "https://www.opendota.com/matches/9031384340"
+    },
+    {
+      "api_comparison": {
+        "players": [
+          {
+            "api_purchase_records": 26,
+            "economy_comparison": {
+              "denies": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "last_hits": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "net_worth": {
+                "compared": 31,
+                "different": 13,
+                "examples": [
+                  [
+                    780,
+                    5667,
+                    5666
+                  ],
+                  [
+                    840,
+                    6047,
+                    6046
+                  ],
+                  [
+                    900,
+                    6405,
+                    6404
+                  ],
+                  [
+                    960,
+                    6702,
+                    6701
+                  ],
+                  [
+                    1020,
+                    7253,
+                    7252
+                  ]
+                ],
+                "max_absolute_difference": 1
+              }
+            },
+            "player_slot": 0,
+            "purchase_only_api": 0,
+            "purchase_only_gem": 0,
+            "purchase_records": 26
+          },
+          {
+            "api_purchase_records": 37,
+            "economy_comparison": {
+              "denies": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "last_hits": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "net_worth": {
+                "compared": 31,
+                "different": 14,
+                "examples": [
+                  [
+                    540,
+                    1919,
+                    1969
+                  ],
+                  [
+                    780,
+                    2360,
+                    2359
+                  ],
+                  [
+                    840,
+                    2551,
+                    2550
+                  ],
+                  [
+                    900,
+                    2641,
+                    2640
+                  ],
+                  [
+                    960,
+                    2241,
+                    2240
+                  ]
+                ],
+                "max_absolute_difference": 50
+              }
+            },
+            "player_slot": 1,
+            "purchase_only_api": 0,
+            "purchase_only_gem": 0,
+            "purchase_records": 37
+          },
+          {
+            "api_purchase_records": 20,
+            "economy_comparison": {
+              "denies": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "last_hits": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "net_worth": {
+                "compared": 31,
+                "different": 13,
+                "examples": [
+                  [
+                    780,
+                    2412,
+                    2411
+                  ],
+                  [
+                    840,
+                    2442,
+                    2441
+                  ],
+                  [
+                    900,
+                    2747,
+                    2746
+                  ],
+                  [
+                    960,
+                    2772,
+                    2771
+                  ],
+                  [
+                    1020,
+                    3079,
+                    3078
+                  ]
+                ],
+                "max_absolute_difference": 1
+              }
+            },
+            "player_slot": 2,
+            "purchase_only_api": 0,
+            "purchase_only_gem": 0,
+            "purchase_records": 20
+          },
+          {
+            "api_purchase_records": 23,
+            "economy_comparison": {
+              "denies": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "last_hits": {
+                "compared": 31,
+                "different": 2,
+                "examples": [
+                  [
+                    60,
+                    1,
+                    0
+                  ],
+                  [
+                    780,
+                    59,
+                    57
+                  ]
+                ],
+                "max_absolute_difference": 2
+              },
+              "net_worth": {
+                "compared": 31,
+                "different": 15,
+                "examples": [
+                  [
+                    60,
+                    809,
+                    770
+                  ],
+                  [
+                    480,
+                    2275,
+                    2333
+                  ],
+                  [
+                    780,
+                    4088,
+                    4048
+                  ],
+                  [
+                    840,
+                    4781,
+                    4780
+                  ],
+                  [
+                    900,
+                    5288,
+                    5287
+                  ]
+                ],
+                "max_absolute_difference": 58
+              }
+            },
+            "player_slot": 3,
+            "purchase_only_api": 0,
+            "purchase_only_gem": 0,
+            "purchase_records": 23
+          },
+          {
+            "api_purchase_records": 21,
+            "economy_comparison": {
+              "denies": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "last_hits": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "net_worth": {
+                "compared": 31,
+                "different": 13,
+                "examples": [
+                  [
+                    780,
+                    3053,
+                    3052
+                  ],
+                  [
+                    840,
+                    3364,
+                    3363
+                  ],
+                  [
+                    900,
+                    3788,
+                    3787
+                  ],
+                  [
+                    960,
+                    3750,
+                    3749
+                  ],
+                  [
+                    1020,
+                    4320,
+                    4319
+                  ]
+                ],
+                "max_absolute_difference": 1
+              }
+            },
+            "player_slot": 4,
+            "purchase_only_api": 0,
+            "purchase_only_gem": 0,
+            "purchase_records": 21
+          },
+          {
+            "api_purchase_records": 52,
+            "economy_comparison": {
+              "denies": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "last_hits": {
+                "compared": 31,
+                "different": 1,
+                "examples": [
+                  [
+                    420,
+                    5,
+                    4
+                  ]
+                ],
+                "max_absolute_difference": 1
+              },
+              "net_worth": {
+                "compared": 31,
+                "different": 15,
+                "examples": [
+                  [
+                    420,
+                    1572,
+                    1484
+                  ],
+                  [
+                    480,
+                    1716,
+                    1707
+                  ],
+                  [
+                    780,
+                    2781,
+                    2780
+                  ],
+                  [
+                    840,
+                    2934,
+                    2933
+                  ],
+                  [
+                    900,
+                    3228,
+                    3227
+                  ]
+                ],
+                "max_absolute_difference": 88
+              }
+            },
+            "player_slot": 128,
+            "purchase_only_api": 0,
+            "purchase_only_gem": 0,
+            "purchase_records": 52
+          },
+          {
+            "api_purchase_records": 52,
+            "economy_comparison": {
+              "denies": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "last_hits": {
+                "compared": 31,
+                "different": 1,
+                "examples": [
+                  [
+                    1080,
+                    46,
+                    45
+                  ]
+                ],
+                "max_absolute_difference": 1
+              },
+              "net_worth": {
+                "compared": 31,
+                "different": 13,
+                "examples": [
+                  [
+                    780,
+                    3183,
+                    3182
+                  ],
+                  [
+                    840,
+                    3457,
+                    3456
+                  ],
+                  [
+                    900,
+                    3920,
+                    3919
+                  ],
+                  [
+                    960,
+                    4076,
+                    4075
+                  ],
+                  [
+                    1020,
+                    4657,
+                    4656
+                  ]
+                ],
+                "max_absolute_difference": 42
+              }
+            },
+            "player_slot": 129,
+            "purchase_only_api": 0,
+            "purchase_only_gem": 0,
+            "purchase_records": 52
+          },
+          {
+            "api_purchase_records": 34,
+            "economy_comparison": {
+              "denies": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "last_hits": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "net_worth": {
+                "compared": 31,
+                "different": 13,
+                "examples": [
+                  [
+                    780,
+                    5541,
+                    5540
+                  ],
+                  [
+                    840,
+                    5924,
+                    5923
+                  ],
+                  [
+                    900,
+                    6779,
+                    6778
+                  ],
+                  [
+                    960,
+                    7283,
+                    7282
+                  ],
+                  [
+                    1020,
+                    8198,
+                    8197
+                  ]
+                ],
+                "max_absolute_difference": 1
+              }
+            },
+            "player_slot": 130,
+            "purchase_only_api": 0,
+            "purchase_only_gem": 0,
+            "purchase_records": 34
+          },
+          {
+            "api_purchase_records": 46,
+            "economy_comparison": {
+              "denies": {
+                "compared": 31,
+                "different": 0,
+                "examples": [],
+                "max_absolute_difference": 0
+              },
+              "last_hits": {
+                "compared": 31,
+                "different": 3,
+                "examples": [
+                  [
+                    300,
+                    31,
+                    30
+                  ],
+                  [
+                    480,
+                    54,
+                    52
+                  ],
+                  [
+                    660,
+                    81,
+                    78
+                  ]
+                ],
+                "max_absolute_difference": 3
+              },
+              "net_worth": {
+                "compared": 31,
+                "different": 16,
+                "examples": [
+                  [
+                    300,
+                    2320,
+                    2345
+                  ],
+                  [
+                    480,
+                    3694,
+                    3422
+                  ],
+                  [
+                    660,
+                    5706,
+                    5594
+                  ],
+                  [
+                    780,
+                    6308,
+                    6307
+                  ],
+                  [
+                    840,
+                    6885,
+                    6884
+                  ]
+                ],
+                "max_absolute_difference": 272
+              }
+            },
+            "player_slot": 131,
+            "purchase_only_api": 0,
+            "purchase_only_gem": 0,
+            "purchase_records": 46
+          },
+          {
+            "api_purchase_records": 35,
+            "economy_comparison": {
+              "denies": {
+                "compared": 31,
+                "different": 1,
+                "examples": [
+                  [
+                    1260,
+                    49,
+                    48
+                  ]
+                ],
+                "max_absolute_difference": 1
+              },
+              "last_hits": {
+                "compared": 31,
+                "different": 3,
+                "examples": [
+                  [
+                    1020,
+                    154,
+                    153
+                  ],
+                  [
+                    1500,
+                    282,
+                    281
+                  ],
+                  [
+                    1740,
+                    326,
+                    325
+                  ]
+                ],
+                "max_absolute_difference": 1
+              },
+              "net_worth": {
+                "compared": 31,
+                "different": 14,
+                "examples": [
+                  [
+                    780,
+                    6566,
+                    6565
+                  ],
+                  [
+                    840,
+                    7302,
+                    7301
+                  ],
+                  [
+                    900,
+                    7989,
+                    7988
+                  ],
+                  [
+                    960,
+                    9112,
+                    9111
+                  ],
+                  [
+                    1020,
+                    10054,
+                    10028
+                  ]
+                ],
+                "max_absolute_difference": 42
+              }
+            },
+            "player_slot": 132,
+            "purchase_only_api": 0,
+            "purchase_only_gem": 0,
+            "purchase_records": 35
+          }
+        ],
+        "status": "compared"
+      },
+      "api_leaver_status": {},
+      "api_sha256": "eec4d98d79d42956c9f64b8e1742febd39733e550257a1da3d4705b69439e113",
+      "archive_bytes": 34519610,
+      "archive_sha256": "a337dfa5a0438d6ab57628f391ee5c582b6604df5ba16229cfc7b017f18b17b5",
+      "counts": {
+        "excluded_purchase_projection": 29,
+        "item_supervised": 264,
+        "quarantined": 0,
+        "route_supervised": 600,
+        "samples": 620,
+        "time_mappings_checked": 37426,
+        "time_mismatches": 0
+      },
+      "duration_seconds": 1853,
+      "economy_coverage_min": 1.0,
+      "hold_reasons": [],
+      "match_id": 9031383523,
+      "pauses": [],
+      "pipeline_status": "passed",
+      "players": 10,
+      "position_coverage_min": 1.0,
+      "preparation_id": "9994b63b406823341959f5ed",
+      "prepare_wall_seconds_initial": 44.375773364,
+      "prepared_manifest_sha256": "4d8fa15c07842cc6c9dabf8c487d1e080f3807485bbb4af4664fb0944bf823d3",
+      "rank_evidence": {
+        "avg_rank_tier": 75,
+        "cluster": 413,
+        "dire_team": [
+          68,
+          50,
+          2,
+          120,
+          54
+        ],
+        "duration": 1853,
+        "game_mode": 22,
+        "lobby_type": 7,
+        "match_id": 9031383523,
+        "match_seq_num": 7586055526,
+        "num_rank_tier": 9,
+        "radiant_team": [
+          90,
+          131,
+          9,
+          18,
+          135
+        ],
+        "radiant_win": false,
+        "start_time": 1791243040
+      },
+      "ranks_at_api_fetch": {
+        "80": 10
+      },
+      "raw_gem_sha256": "2667affd63beefadd0d210d1b392e0b2026516fa9f00a6223ed45c7730d2e57e",
+      "replay_url": "http://replay413.dota2.com.cn/570/9031383523_2053253944.dem.bz2",
+      "resolved_hero_aliases": [],
+      "start_time_utc": "2026-10-05T23:30:40+00:00",
+      "url": "https://www.opendota.com/matches/9031383523"
+    },
+    {
+      "api_comparison": {
+        "players": [],
+        "status": "api_unparsed"
+      },
+      "api_leaver_status": {},
+      "api_sha256": "a9484b41f2f9f0b2ccc7116faab0a963c2bcc34c0f284e043163277a64150cec",
+      "archive_bytes": 27440313,
+      "archive_sha256": "0071f599dbc14f8bfb2fff81491dc8e5f9a47359c032a3510e694ec60ef98989",
+      "counts": {
+        "excluded_purchase_projection": 29,
+        "item_supervised": 170,
+        "quarantined": 294,
+        "route_supervised": 410,
+        "samples": 440,
+        "time_mappings_checked": 26025,
+        "time_mismatches": 0
+      },
+      "duration_seconds": 1307,
+      "economy_coverage_min": 0.9772727272727273,
+      "hold_reasons": [
+        "quarantined_values_require_review"
+      ],
+      "match_id": 9031380277,
+      "pauses": [
+        {
+          "end_tick": 18885,
+          "start_tick": 18791
+        },
+        {
+          "end_tick": 20162,
+          "start_tick": 18933
+        }
+      ],
+      "pipeline_status": "held",
+      "players": 10,
+      "position_coverage_min": 0.9772727272727273,
+      "preparation_id": "069c57b7f3a7fc44978acf85",
+      "prepare_wall_seconds_initial": 35.85057954499999,
+      "prepared_manifest_sha256": "99da01d787150ae5cd0d854ab5d84adc19b95cfab5777e7a35508dc9f3610f21",
+      "rank_evidence": {
+        "avg_rank_tier": 75,
+        "cluster": 186,
+        "dire_team": [
+          33,
+          30,
+          114,
+          88,
+          76
+        ],
+        "duration": 1307,
+        "game_mode": 22,
+        "lobby_type": 7,
+        "match_id": 9031380277,
+        "match_seq_num": 7586049307,
+        "num_rank_tier": 9,
+        "radiant_team": [
+          60,
+          54,
+          71,
+          49,
+          112
+        ],
+        "radiant_win": true,
+        "start_time": 1791242650
+      },
+      "ranks_at_api_fetch": {
+        "80": 10
+      },
+      "raw_gem_sha256": "906a51fb2805849e9697a283fd789e4f7d4062da1e615882b1a108afead2b584",
+      "replay_url": "http://replay186.valve.net/570/9031380277_558540136.dem.bz2",
+      "resolved_hero_aliases": [],
+      "start_time_utc": "2026-10-05T23:24:10+00:00",
+      "url": "https://www.opendota.com/matches/9031380277"
+    },
+    {
+      "api_comparison": {
+        "players": [],
+        "status": "api_unparsed"
+      },
+      "api_leaver_status": {
+        "4": 1
+      },
+      "api_sha256": "80e66c3084feaf1312381832be6838e8dc558c67221bb8f762b5823fcb425f19",
+      "archive_bytes": 36507526,
+      "archive_sha256": "2167a2a7e37384d77e2cca1e99cb47360e9237d369f998620b052b82ed7c242e",
+      "counts": {
+        "excluded_purchase_projection": 30,
+        "item_supervised": 299,
+        "quarantined": 0,
+        "route_supervised": 620,
+        "samples": 640,
+        "time_mappings_checked": 38507,
+        "time_mismatches": 0
+      },
+      "duration_seconds": 1906,
+      "economy_coverage_min": 1.0,
+      "hold_reasons": [
+        "leaver_or_unknown_connection_status"
+      ],
+      "match_id": 9031377294,
+      "pauses": [],
+      "pipeline_status": "held",
+      "players": 10,
+      "position_coverage_min": 1.0,
+      "preparation_id": "42671a1f8b97076e7e94bfe9",
+      "prepare_wall_seconds_initial": 45.525853536,
+      "prepared_manifest_sha256": "38c4c3067d15a7f3bc26db0e406ea345efe59a4273ec829fba1a42b10c83045f",
+      "rank_evidence": {
+        "avg_rank_tier": 75,
+        "cluster": 410,
+        "dire_team": [
+          75,
+          64,
+          30,
+          135,
+          4
+        ],
+        "duration": 1906,
+        "game_mode": 22,
+        "lobby_type": 7,
+        "match_id": 9031377294,
+        "match_seq_num": 7586050559,
+        "num_rank_tier": 9,
+        "radiant_team": [
+          93,
+          69,
+          62,
+          40,
+          100
+        ],
+        "radiant_win": false,
+        "start_time": 1791242295
+      },
+      "ranks_at_api_fetch": {
+        "75": 1,
+        "80": 9
+      },
+      "raw_gem_sha256": "ee636713f9da341eedf29433086d8a71d9614a32e43139188dd8b05aff5ef6e2",
+      "replay_url": "http://replay410.valve.net/570/9031377294_309856378.dem.bz2",
+      "resolved_hero_aliases": [],
+      "start_time_utc": "2026-10-05T23:18:15+00:00",
+      "url": "https://www.opendota.com/matches/9031377294"
+    },
+    {
+      "api_comparison": {
+        "players": [],
+        "status": "api_unparsed"
+      },
+      "api_leaver_status": {},
+      "api_sha256": "3e00b1355c3c048731f616c3219b0e99677e16d189845a7df62f1cfe5303b5f9",
+      "archive_bytes": 55863478,
+      "archive_sha256": "0429aff5b9948db157c7293bf55f96521dad4510ac6f28b228555dfcafe83345",
+      "counts": {
+        "excluded_purchase_projection": 60,
+        "item_supervised": 359,
+        "quarantined": 18,
+        "route_supervised": 810,
+        "samples": 840,
+        "time_mappings_checked": 50547,
+        "time_mismatches": 0
+      },
+      "duration_seconds": 2504,
+      "economy_coverage_min": 0.9880952380952381,
+      "hold_reasons": [
+        "quarantined_values_require_review"
+      ],
+      "match_id": 9031375030,
+      "pauses": [],
+      "pipeline_status": "held",
+      "players": 10,
+      "position_coverage_min": 0.9880952380952381,
+      "preparation_id": "491bb79984ea3c37b98ce415",
+      "prepare_wall_seconds_initial": 67.81692792500002,
+      "prepared_manifest_sha256": "df706c2dde0d9b102a75e05941a211f233e3730a825ca351f1b83b5ca073baac",
+      "rank_evidence": {
+        "avg_rank_tier": 75,
+        "cluster": 129,
+        "dire_team": [
+          12,
+          86,
+          59,
+          113,
+          123
+        ],
+        "duration": 2504,
+        "game_mode": 22,
+        "lobby_type": 7,
+        "match_id": 9031375030,
+        "match_seq_num": 7586052935,
+        "num_rank_tier": 9,
+        "radiant_team": [
+          64,
+          49,
+          1,
+          20,
+          47
+        ],
+        "radiant_win": false,
+        "start_time": 1791242030
+      },
+      "ranks_at_api_fetch": {
+        "75": 1,
+        "80": 9
+      },
+      "raw_gem_sha256": "e9e2cb4fd34ee0a888042935675ed6f9bbd2e2c90d84b87d7cc188c16f85df3c",
+      "replay_url": "http://replay129.valve.net/570/9031375030_1864271852.dem.bz2",
+      "resolved_hero_aliases": [
+        {
+          "canonical_name": "npc_dota_hero_antimage",
+          "hero_id": 1,
+          "method": "gem_catalog_alias",
+          "player_slot": 2,
+          "source_name": "npc_dota_hero_anti_mage",
+          "source_ref": "players[2].hero_name"
+        },
+        {
+          "canonical_name": "npc_dota_hero_vengefulspirit",
+          "hero_id": 20,
+          "method": "gem_catalog_alias",
+          "player_slot": 3,
+          "source_name": "npc_dota_hero_vengeful_spirit",
+          "source_ref": "players[3].hero_name"
+        }
+      ],
+      "start_time_utc": "2026-10-05T23:13:50+00:00",
+      "url": "https://www.opendota.com/matches/9031375030"
+    },
+    {
+      "api_comparison": {
+        "players": [],
+        "status": "api_unparsed"
+      },
+      "api_leaver_status": {},
+      "api_sha256": "3ca652e823c67fe9b5ddbca7086096baeae6c4c7a5083b9d804c609c417c8a9e",
+      "archive_bytes": 49628538,
+      "archive_sha256": "476dfa6a7b7328121c17103ab6fd2ea0ea72424162742d1608eeb16bb4296ede",
+      "counts": {
+        "excluded_purchase_projection": 48,
+        "item_supervised": 395,
+        "quarantined": 0,
+        "route_supervised": 760,
+        "samples": 780,
+        "time_mappings_checked": 47283,
+        "time_mismatches": 0
+      },
+      "duration_seconds": 2339,
+      "economy_coverage_min": 1.0,
+      "hold_reasons": [],
+      "match_id": 9031371970,
+      "pauses": [],
+      "pipeline_status": "passed",
+      "players": 10,
+      "position_coverage_min": 1.0,
+      "preparation_id": "d04c99211a740ab8c08f7667",
+      "prepare_wall_seconds_initial": 64.92825274800003,
+      "prepared_manifest_sha256": "5bc24f77199f2b312a3f9efd6c0957e886d6e444c60ea1a19553058b68ddf33c",
+      "rank_evidence": {
+        "avg_rank_tier": 75,
+        "cluster": 181,
+        "dire_team": [
+          9,
+          36,
+          145,
+          123,
+          107
+        ],
+        "duration": 2339,
+        "game_mode": 22,
+        "lobby_type": 7,
+        "match_id": 9031371970,
+        "match_seq_num": 7586049042,
+        "num_rank_tier": 9,
+        "radiant_team": [
+          106,
+          18,
+          87,
+          69,
+          74
+        ],
+        "radiant_win": true,
+        "start_time": 1791241660
+      },
+      "ranks_at_api_fetch": {
+        "80": 10
+      },
+      "raw_gem_sha256": "0088eba8ec707aaa17e2ad537471895e786a2e4082e450f8c257df5e5491ed73",
+      "replay_url": "http://replay181.valve.net/570/9031371970_649209771.dem.bz2",
+      "resolved_hero_aliases": [],
+      "start_time_utc": "2026-10-05T23:07:40+00:00",
+      "url": "https://www.opendota.com/matches/9031371970"
+    },
+    {
+      "api_comparison": {
+        "players": [],
+        "status": "api_unparsed"
+      },
+      "api_leaver_status": {
+        "2": 1
+      },
+      "api_sha256": "9bb542767ed26dcec0d6959a18bed518608fcf28e7d8dc99b2d67aff73eef7d4",
+      "archive_bytes": 30070836,
+      "archive_sha256": "7717e9e5e677bbe93e44f77c26fe1e50c666ebdd763dbdf7da5204899d008791",
+      "counts": {
+        "excluded_purchase_projection": 42,
+        "item_supervised": 244,
+        "quarantined": 0,
+        "route_supervised": 520,
+        "samples": 540,
+        "time_mappings_checked": 32347,
+        "time_mismatches": 0
+      },
+      "duration_seconds": 1601,
+      "economy_coverage_min": 1.0,
+      "hold_reasons": [
+        "leaver_or_unknown_connection_status"
+      ],
+      "match_id": 9031369678,
+      "pauses": [],
+      "pipeline_status": "held",
+      "players": 10,
+      "position_coverage_min": 1.0,
+      "preparation_id": "8b853d41c96ddd90923587e7",
+      "prepare_wall_seconds_initial": 37.70498567100003,
+      "prepared_manifest_sha256": "5f6fd91b2a92ce6b46497f82bed38db2c3e00d9b78b1fe1e577bb72da272d9d3",
+      "rank_evidence": {
+        "avg_rank_tier": 75,
+        "cluster": 181,
+        "dire_team": [
+          101,
+          60,
+          10,
+          14,
+          107
+        ],
+        "duration": 1601,
+        "game_mode": 22,
+        "lobby_type": 7,
+        "match_id": 9031369678,
+        "match_seq_num": 7586041683,
+        "num_rank_tier": 9,
+        "radiant_team": [
+          131,
+          97,
+          11,
+          8,
+          119
+        ],
+        "radiant_win": false,
+        "start_time": 1791241400
+      },
+      "ranks_at_api_fetch": {
+        "80": 10
+      },
+      "raw_gem_sha256": "8315e9fe73c942620c822a1d7aa9ea4cdd566971f022399225c9c771dd108254",
+      "replay_url": "http://replay181.valve.net/570/9031369678_1132035598.dem.bz2",
+      "resolved_hero_aliases": [],
+      "start_time_utc": "2026-10-05T23:03:20+00:00",
+      "url": "https://www.opendota.com/matches/9031369678"
+    }
+  ],
+  "patch": {
+    "confidence": "time_inferred",
+    "lower_inclusive": 1789542000,
+    "name": "7.41f",
+    "official_response_sha256": "f0a014dbad7dbfe86a8a997a721636d4a5804ef510a93d2f932b09b536485bae",
+    "source": "https://www.dota2.com/datafeed/patchnoteslist?language=english",
+    "upper_exclusive": 1791245798
+  },
+  "pipeline_passed_match_ids": [
+    9031384340,
+    9031383523,
+    9031371970
+  ],
+  "provenance": {
+    "acquisition_commit": "fc13280e8d836c3e5418e941fc023f349d11d658",
+    "acquisition_report_sha256": "21beeea60006297bc55cb3c40095b5e330ba224c94662d1ad196cf83f918fd96",
+    "acquisition_run": 37393085454,
+    "adapter": "gem-adapter/2.2",
+    "dependencies": {
+      "gem-dota": "0.10.0",
+      "numpy": "2.5.3",
+      "pandas": "2.3.3",
+      "pydantic": "2.13.5",
+      "scikit-learn": "1.9.1"
+    },
+    "final_regression_commit": "a82f2a2ad802dbd15c08924e91ee7fc17fa39cfb",
+    "final_regression_run": 37451030026,
+    "final_report_sha256": "18553ba479dc81ff5f6f607b6580551ef13c209862e882bd2f559fa0bfa90f88",
+    "parser_exports_reused_in_regression": true,
+    "preparation": "coach-preparation/2"
+  },
+  "purpose": "calibration and regression; not a final model evaluation set",
+  "resolved_hero_aliases": [
+    {
+      "canonical_name": "npc_dota_hero_queenofpain",
+      "hero_id": 39,
+      "match_id": 9031370153,
+      "method": "gem_catalog_alias",
+      "player_slot": 131,
+      "source_name": "npc_dota_hero_queen_of_pain",
+      "source_ref": "players[8].hero_name"
+    },
+    {
+      "canonical_name": "npc_dota_hero_antimage",
+      "hero_id": 1,
+      "match_id": 9031375030,
+      "method": "gem_catalog_alias",
+      "player_slot": 2,
+      "source_name": "npc_dota_hero_anti_mage",
+      "source_ref": "players[2].hero_name"
+    },
+    {
+      "canonical_name": "npc_dota_hero_vengefulspirit",
+      "hero_id": 20,
+      "match_id": 9031375030,
+      "method": "gem_catalog_alias",
+      "player_slot": 3,
+      "source_name": "npc_dota_hero_vengeful_spirit",
+      "source_ref": "players[3].hero_name"
+    }
+  ],
+  "schema_version": "real-cohort/1",
+  "status": "completed_with_holds",
+  "supplemental_xp_audit": {
+    "api_match_id": 9031383523,
+    "different_points": 14,
+    "example": {
+      "api_end_level": 15,
+      "exported_final_xp_progress": 13407,
+      "match_id": 9031383523,
+      "player_slot": 0
+    },
+    "max_absolute_difference": 419,
+    "minute_points_compared": 310,
+    "observed_xp_decreases": 0,
+    "players_checked": 80,
+    "reason": "Gem 0.10 docs describe level progress/reset, but these exports show no resets and closely track OpenDota cumulative XP.",
+    "status": "semantics_unresolved"
+  },
+  "training_admission": "held",
+  "training_hold_reasons": [
+    "Default item classes desolator and no_purchase have no supervised examples in the admitted group.",
+    "Economy sampling differences remain; in-game coordinate/economy/visibility semantics have not been manually validated.",
+    "Hero/role scope and an independent model evaluation set have not been selected.",
+    "xp_progress semantics conflict with upstream level-reset documentation; do not use the field as level-local progress."
+  ]
+}

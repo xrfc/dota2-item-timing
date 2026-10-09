@@ -1,0 +1,74 @@
+# 独立学习区
+
+这里保存可视化学习页面、L01–L12 计划、任务模板、教学实验与相关测试。正式管线在 `src/`，工程验收在 `docs/`；学习工具不作为 Python 工程包或 CLI 的一部分发布。
+
+## 打开可视化学习
+
+只需 Python 3.11+，无需安装项目依赖：
+
+```bash
+python learning/build.py
+```
+
+用浏览器打开生成的 `learning/output/index.html`。页面包含内联数据、样式和脚本，可离线浏览；点击源码链接时才访问 GitHub。
+
+- **组件地图**：沿回放到报告的数据流，查看 10 个组件的输入、输出、实现边界及与计算机基础的联系。
+- **学习路线**：按四个阶段浏览 L01–L12，检查依赖与验收要求，保存个人笔记。
+- **技术选型**：查看采用原因、成本、替代方案及重新选型的条件。
+- **交互实验**：手动改变截止时间、划分方式和留出值，观察时间泄漏、同局泄漏与预处理泄漏。
+
+可选地读取现有工作区的数量摘要，不修改工作区，也不判断数据或模型质量：
+
+```bash
+python learning/build.py --workspace coach-workspace/demo
+```
+
+生成后页面是当时的快照。修改 ToDo 后重新运行生成命令；已经打开的页面需刷新。`--output` 可指定文件，外部路径需自行设置忽略规则。
+
+## 进度从哪里来
+
+| 记录 | 权威来源 | 更新方式 |
+|---|---|---|
+| 实际工程能力 | [工程 ToDo](../docs/roadmap.md) | 提供工程验收证据后修改 Markdown，重新生成 |
+| 学习实践验收 | [学习 ToDo](docs/roadmap.md) | 按任务要求完成实践与记录，再修改 Markdown |
+| 个人理解与笔记 | 浏览器本地存储 | 页面勾选、写笔记；可导出/导入 JSON |
+
+个人勾选不会改变任何 ToDo。完成学习练习也不会自动关闭工程任务。训练执行接口可用不等于训练算法已实现；页面里的小实验是合成教学例子。
+
+浏览器可能限制本地文件的存储，页面会提示仅在当前会话保存。导出的个人记录用于备份和迁移；重新生成 HTML 不会把个人笔记写入仓库。
+
+## 文件职责与维护
+
+```text
+learning/
+├── build.py          从 ToDo 生成离线页面，校验依赖与来源指纹
+├── assets/           组件/选型说明、模板、样式、界面与教学算法
+├── docs/             学习任务与执行流程
+├── templates/        待填写的任务记录和数据审计模板
+├── tests/            生成器与教学算法测试
+└── output/           HTML、生成清单及学习数据；已忽略，不提交
+```
+
+组件和选型解释在 `assets/catalog.json`；组件状态引用工程任务，学习关联引用 L 任务，不在界面脚本中维护另一套状态。新增任务时先在对应 ToDo 中声明，新增组件时检查任务、技术和源码路径。HTML 生成清单保留两份 ToDo 的 SHA-256，便于确认快照来源。
+
+实际学习记录需要时创建 `learning/records/`，练习代码需要时创建 `learning/exercises/`，不预建空目录。真实回放和完整玩家数据存入 `learning/output/` 或其他明确忽略的目录；正式管线需要的能力通过独立工程验收后再迁入 `src/`。
+
+在仓库根目录运行：
+
+```bash
+python scripts/check.py --scope learning
+```
+
+Python 检查仅使用标准库；安装 Node.js 22+ 时同时检查界面脚本语法和教学算法，CI 固定执行这两类检查。Ubuntu / Python 3.12 的 CI 另执行 Chromium 验收，检查导航、笔记、进度隔离、三个实验、导入/导出与 390px 布局，并保存 `learning-preview` 截图。源码说明或样式变更后也应人工检查截图。
+
+从 [L01 任务计划](docs/roadmap.md) 开始，按[开发流程](docs/development-workflow.md)使用[任务记录](templates/task-record.md)和[数据审计](templates/data-audit.md)模板留下实践证据。
+
+可选地在本地执行同一浏览器检查；Playwright 仅供学习测试使用：
+
+```bash
+python -m pip install "playwright>=1.50,<2"
+python -m playwright install chromium
+python learning/tests/browser_check.py
+```
+
+截图保存在 `learning/output/screenshots/`；浏览器检查需要允许浏览器进程启动与通信的环境。

@@ -9,7 +9,9 @@ dist/
 .env
 .env.*
 !.env.example
-data/
+/data/
 reports/
+.tools/
+coach-workspace/
 .DS_Store
 Thumbs.db

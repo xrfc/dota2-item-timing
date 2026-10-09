@@ -1,170 +1,162 @@
-# 从 Demo 到报告：运行与核验流程
+# 日常操作、迁移与恢复
 
-更新：2026-09-28；适用于当前 v0.2.0。下面命令在仓库根目录、Windows PowerShell 中运行。
-`data-validate`、自动恢复、参考组和模型仍在 [TODO](roadmap.md) 中，没有相应可运行命令。
-macOS/Linux 的环境建立方式见 [README](../README.md)。
+> v0.4 数据准备更新：`prepare` 已实现单文件清洗/特征/标签；`build-samples` 输出固定 split 的训练数组和 train-only 预处理。输入、错误策略、任务 mask 和操作示例以[数据管线](data-pipeline.md)为准。实际模型与真实字段验收仍待完成。
 
-## 1. 建立环境并验证示例
+基线：v0.3。首次使用及模型接入命令见[教练工作流](coach-workflow.md)；本文件维护日常操作、旧入口衔接与真实回放核验。
 
-新环境运行一次；已有 `.venv` 时跳过创建，只按需安装依赖。
+按学习计划开发清洗、对齐、样本和预处理功能时，使用[开发流程](../learning/docs/development-workflow.md)与 [L01–L12 任务清单](../learning/docs/roadmap.md)。下述日常操作是已有命令；清洗/样本接口已交付，真实核验与个人学习记录继续独立验收。完整来源、质量和样本记录可复制[数据审计模板](../learning/templates/data-audit.md)。
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e ".[dev,replay]"
-.\.venv\Scripts\dota-items.exe report examples/match.synthetic.json --player-slot 0 --output reports/demo
-Start-Process reports/demo/report.html
+## 1. 建议的本地使用方式
+
+把合成演练和真实数据放在不同工作区，便于核对状态：
+
+```bash
+python scripts/bootstrap.py --replay --dev
+python coach.py --workspace coach-workspace/demo demo
+python coach.py --workspace coach-workspace/real init
+python coach.py --workspace coach-workspace/real ingest /path/to/replays
+python coach.py --workspace coach-workspace/real status
+python coach.py --workspace coach-workspace/real doctor
 ```
 
-产物：`reports/demo/report.html` 与 `analysis.json`。页面应标记为合成数据，
-示例候选装备的首次记录为 07:00、18:20、23:10。这只验收报告链路，不验收 Demo 解析。
+安装后除 OpenDota fetch 外，已有回放/JSON 的操作可离线进行。目录导入默认递归；输入目录只放回放和比赛 JSON，不要把包含 manifest、quality 等辅助 JSON 的整个数据目录当作比赛输入。
 
-## 2. 导入一场自己的比赛
+建议每次批量导入后查看：
 
-保留下载的原始文件，先选一场完整 Demo，确认文件扩展名与实际来源。替换下面的示例路径。
-压缩包支持 `.dem.bz2`、`.dem.zst`、`.dem.zip`；ZIP 中必须恰好有一个 `.dem`。
-当前先串行使用一个导入进程，并避免将同一 Demo 的不同封装重复导入。
+1. `imports/import-*.json`：逐文件 imported/cached/failed 和 error。
+2. `catalog.json`：逻辑比赛、当前标签、警告和数据包路径。
+3. `replays/<match-id>-<bundle-id>/quality.json`：通道是否存在，有哪些基础警告。
+4. `doctor`：比赛包和数据集指纹是否仍有效。
 
-```powershell
-$demoPath = 'C:\path\to\your-match.dem.bz2'
-$importOutput = & .\.venv\Scripts\dota-items.exe ingest-demo $demoPath --data-dir data
-if ($LASTEXITCODE -ne 0) { throw '导入失败，请查看上方错误。' }
-$importResult = $importOutput | ConvertFrom-Json
-$matchPath = $importResult.normalized_json
-.\.venv\Scripts\dota-items.exe data-status --data-dir data
+文件夹 reference/personal 只是组织方式，不自动赋予 tier、role 或 patch。按实际来源标注后才构建参考数据集。命令占位示例：
+
+```bash
+python coach.py --workspace coach-workspace/real annotate 8822520406 --tier pro --patch 7.xx --role 1 --player-slots 0 --label-source "实际赛事/轮次/来源链接"
+python coach.py --workspace coach-workspace/real build-dataset --patch 7.xx --role 1 --hero-id 44 --require-spatial
 ```
 
-`status=imported` 表示本次写入，`cached` 表示命中当前缓存规则。
-首次导入的结果还有玩家数、事件数、issues 和 manifest 路径；cached 结果字段较少。
-不能把缓存命中或 issues 为空理解成文件完整性与游戏语义已验证。
+替换比赛 ID、补丁、槽位和来源；构建至少需要 3 场符合条件的不同比赛。输出中的 excluded 尚未自动存入快照，如需保留可把本次 stdout 重定向到工作区文件：
 
-解压只是把压缩包还原为 Demo；Gem 随后解析 Demo 才得到 JSON。两步不是同一个操作。
-一场大型比赛解析可能需要数分钟，完整 JSON 也可能很大。
-
-## 3. 找到玩家，生成并检查报告
-
-先列出槽位与英雄，再选择自己。不要把数组第几项直接当成 player_slot。
-如需确认英雄名称，应使用与比赛版本匹配的资料或直接对照游戏内比赛阵容。
-
-```powershell
-$match = Get-Content -LiteralPath $matchPath -Raw -Encoding utf8 | ConvertFrom-Json
-$match.players | Select-Object player_slot, hero_id
-$playerSlot = 0  # 示例值；按上一条输出和实际阵容修改
-.\.venv\Scripts\dota-items.exe report $matchPath --player-slot $playerSlot --config configs/analysis.json --output reports/my-match
-if ($LASTEXITCODE -ne 0) { throw '报告生成失败，请查看上方错误。' }
-Start-Process reports/my-match/report.html
+```bash
+python coach.py --workspace coach-workspace/real build-dataset --patch 7.xx --role 1 --hero-id 44 --require-spatial > coach-workspace/real/dataset-selection.json
 ```
 
-`configs/analysis.json` 目前只读取 `candidate_items`；先改为希望观察的物品 key。
-此文件不支持英雄、角色或版本过滤，添加这些键不会自动建立参考组。
-输出目录重复使用会覆盖旧报告，要保留多个报告请更换 `--output`。
+仅在命令成功退出时将此文件作为筛选结果，失败信息在 stderr。每次构建需长期保留时使用不同文件名，避免覆盖之前的结果。
 
-检查比赛 ID、玩家槽位、时长、赛前负数、重复购买、质量提示、来源与候选装备。
-Gem 的 patch 当前为未知；无记录不能直接解释为未购买；“首次记录”也不是送达时刻。
-单场缺少预期玩家或事件时先调查，不靠手工补几个数让报告看起来完整。
+## 2. 旧 dota-items 入口
 
-可先人工比对当前 raw 文件哈希；这不是完整的引用校验器：
+安装包后可以继续使用原命令；未激活 venv 时使用下面的模块形式。Windows 将 `.venv/bin/python` 替换为 `.venv/Scripts/python.exe`。
 
-```powershell
-$matchFolder = Split-Path -Parent $matchPath
-$manifestPath = Join-Path $matchFolder 'manifest.json'
-$manifest = Get-Content -LiteralPath $manifestPath -Raw -Encoding utf8 | ConvertFrom-Json
-$rawPath = Join-Path $matchFolder 'raw-gem.json'
-$actualRawHash = (Get-FileHash -LiteralPath $rawPath -Algorithm SHA256).Hash.ToLowerInvariant()
-if ($actualRawHash -ne $manifest.raw_json_sha256) { throw 'raw JSON 与 manifest 不一致。' }
+```bash
+.venv/bin/python -m dota_items.cli report examples/match.synthetic.json --player-slot 0 --output reports/smoke
+.venv/bin/python -m dota_items.cli ingest-demo /path/to/replays --recursive --data-dir data
+.venv/bin/python -m dota_items.cli data-status --data-dir data
 ```
 
-通过只说明 raw 与 manifest 相符；还需要验证每条引用，以及 normalized 是否确实由该 raw 产生。
-自动验证和异常状态正在 D01/D03 中规划。
-
-## 4. 批处理、重跑与故障排查
-
-单场核验通过后可小规模批处理，先处理自己的 3～5 场。
-目录默认不递归，需扫描子目录时加 `--recursive`。建议输入目录与项目 data 目录分开。
-
-```powershell
-New-Item -ItemType Directory -Force -Path reports | Out-Null
-.\.venv\Scripts\dota-items.exe ingest-demo 'C:\path\to\replays' --data-dir data 1> reports/import-results.jsonl 2> reports/import-errors.log
-$batchExitCode = $LASTEXITCODE
-$batchExitCode
-```
-
-stdout 每个成功/缓存结果一行 JSON；stderr 同时有解析进度和错误 JSON，因此错误文件不是纯 JSONL。
-退出码 0 表示批次无捕获到的文件失败，1 表示至少一场失败；成功文件仍已导入。
-`data-status` 当前只显示数量，不检查文件 hash、引用、语义或数据库与文件的一致性。
-
-| 情况 | 当前处理方式 |
+| 命令 | 行为与边界 |
 |---|---|
-| Gem 未安装 | 在当前虚拟环境安装 `.[replay]`，确认调用的是 `.venv` 中的程序 |
-| 文件头错误 / ZIP 内多个 Demo | 检查输入格式；多场比赛应放在目录中分别导入 |
-| 缺有效 match_id / 英雄 / 回放损坏 | 保留失败日志，尝试完整原件；不要加入参考组 |
-| 输出有 unknown / missing / invalid / 丢弃提示 | 回到原始 JSON 与游戏回放核验，记录处置结果 |
-| 修改解析代码后仍然 cached | 当前缓存不按代码/解析器版本失效；用独立数据目录检查新结果 |
-| 需要重解析 | 先备份原始 Demo 和 data；`--force` 会替换当前源文件对应的 JSON 与索引，不保留历史运行 |
-| 强制重跑中断 / data 搬迁后路径失效 | 当前无自动恢复/重建命令；保留原目录和日志，优先从原件导入新的数据根目录后核对 |
+| fetch MATCH_ID | 缓存 OpenDota 比赛 JSON；默认 data/raw；--refresh 重新获取 |
+| ingest-demo INPUT | 解析回放并写 raw-gem.json、normalized.json、manifest.json、index.sqlite；目录默认不递归 |
+| data-status | matches 是输入哈希索引的行数，可能大于独立比赛数；另有 distinct match_ids |
+| report INPUT --player-slot SLOT | 输出 analysis.json/report.html；默认配置 configs/analysis.json、输出 reports/latest |
 
-比较新解析规则时，可使用 `--data-dir data/reparse-check`，让旧结果保留在原来的索引中；
-不要把两个目录的记录拼起来当成更多比赛。完整的版本缓存、提交恢复和搬迁支持见 D02～D06。
+旧导入成功结果为 stdout JSONL；进度和错误在 stderr，批次有失败则退出 1。它不创建新工作区、不标注、不固定数据集。report 的声明哈希没有新导入同等的外部证据校验。
 
-OpenDota 是另一条可选入口：`fetch <match_id>` 缓存原始响应，再 `report data/raw/<match_id>.json`。
-其实际命令见 README。它不下载 Demo、不自动申请解析，也不进入当前 Demo 索引。
+需要 OpenDota 网络数据时：
 
-## 5. 可复制的人工核验记录
-
-把本节复制为本地 `data/validation/批次名称.md` 并填写；这些信息**不会被当前程序自动读取**。
-仅当决定公开且完成脱敏后，再把概括性结论放入文档，不提交个人原始数据。
-
-### 范围与环境
-
-| 字段 | 填写值 |
-|---|---|
-| 标注批次 / 标注日期 / 复核人 | 待填写 |
-| 英雄 / 位置 / 位置确认依据 | 待填写 |
-| 补丁 / 模式 / 各自来源 | 待填写；未知或冲突必须明示 |
-| 比赛日期及来源 | 待填写；后续时间划分需要 |
-| 目标装备 key（3～5 件） | 待填写 |
-| match_id + player_slot 清单 | 待填写；3～5 场只是起点 |
-| 代码提交 / Python / Gem / 适配器与 schema 版本 | 待填写 |
-| 源文件 / 解包 Demo / raw JSON hash | 从 manifest 摘录，并注明哪些已重新核验 |
-| 游戏内时钟到游戏秒数的换算 | 待填写；保留赛前负数与暂停场景 |
-| 核验对象和时间窗口 | 全场目标装备，或预先固定的连续窗口；不能只挑容易匹配的事件 |
-| 匹配规则与时间容差 | 查看结果前确定；按回放可观察精度制定并注明理由 |
-| 尚未覆盖的边界场景 | 赛前、重复、配方、自动合成、暂停、送达等逐项标记 |
-
-### 双向标注步骤
-
-1. 先从游戏回放独立标注所选范围的所有目标事件，保存游戏时钟、事件类型和本地截图/笔记位置。
-   无法看清或无法区分购买/合成的事件标为无法判定。
-2. 再与解析日志做一对一匹配。重复购买分别编号，一条输出不能匹配两条人工记录。
-3. 从解析日志另外抽查 10～20 条作为初步正确性检查；含可见边界场景。
-4. 只比较同一事件语义的时间；不能把送达比购买晚的差值当成解析误差。
-5. 对漏检、额外记录和偏移回溯 raw JSON，区分上游缺失、适配过滤、时钟换算和人工标注问题。
-
-| match_id / slot | 物品与重复序号 | 人工事件类型 | 游戏时钟 / 秒数 | 解析秒数 | raw 引用 / 画面证据 | 差值（解析−人工） | 匹配/漏检/额外/无法判断 | 原因与处置 |
-|---|---|---|---|---|---|---|---|---|
-| 待填写 | 待填写 | purchase / assembly / delivery 等 | 待填写 | 待填写或缺失 | 待填写 | 待填写或不适用 | 待填写 | 修复 / 排除 / 保留未知 |
-
-### 批次结论
-
-- 人工可判定目标事件数、匹配数、漏检数；解析记录数、可判定额外记录数、无法判断数。
-- 在预先定义且语义一致的范围内计算漏检比例；分母为人工独立标注的可判定目标事件。
-  无法判断数单列；额外记录需复核后才能认定误检。
-- 对已匹配且语义相同的事件报告绝对时间误差中位数和最大值，并记录有方向的系统偏移。
-- 按装备、场景、数据源列出问题；说明哪几场/哪种装备可继续分析，以及被排除的原因。
-- 决定：继续参考组 / 修复后重验 / 缩小装备范围 / 仅保留日志浏览。
-
-小样本用于发现问题，不作为总体准确率证明。未解决的系统性偏移、目标装备定义歧义应阻止相关分析。
-
-## 6. 每次开发的完成流程
-
-从 roadmap 选一个任务 → 明确输入输出与失败情形 → 加相关正反例 → 实现 → 验收 → 更新文档与 TODO → 小提交。
-先实现 D01，后续遵循任务依赖；已有测试替身不代替真实回放语义核验。
-
-```powershell
-.\.venv\Scripts\ruff.exe check .
-.\.venv\Scripts\ruff.exe format --check .
-.\.venv\Scripts\pytest.exe -q
+```bash
+.venv/bin/python -m dota_items.cli fetch 8822520406
+python coach.py --workspace coach-workspace/real ingest data/raw/8822520406.json
 ```
 
-数据结构变化附迁移/兼容说明，解析规则变化重验固定的已核对样本；
-发布比较或模型结果时保存数据清单、排除原因、配置及环境快照。
-先完成一个英雄的可靠比较报告，再决定是否投入案例检索和预测。
+API 可因回放状态或服务限制缺字段；成功 fetch 不保证具备训练所需通道。可通过环境变量传入 OPENDOTA_API_KEY，项目不自动加载 .env。当前不自动请求远端解析、不自动下载 demo。缓存命中主要依赖文件存在，不能视作内容重新验证。
+
+## 3. 从旧缓存迁移
+
+采用新旧并存方式：
+
+1. 停止正在写旧 data 和新工作区的任务，备份旧目录、原 demo 与来源记录。
+2. 初始化新工作区。
+3. 对选定比赛显式导入旧的 normalized.json，并保留它引用的 raw-gem.json 在原相对位置。
+4. 核对导入、doctor、购买事实与人工记录，重新填写来源标签。
+5. 固定新数据集，再比较逻辑比赛数和通道情况；保留旧目录用于追查。
+
+占位路径示例：
+
+```bash
+python coach.py --workspace coach-workspace/migrated init
+python coach.py --workspace coach-workspace/migrated ingest data/matches/SOURCE_HASH/normalized.json
+python coach.py --workspace coach-workspace/migrated doctor
+```
+
+SOURCE_HASH 替换为实际目录。不要递归导入整个 data：raw、manifest 也有 .json 后缀，会被尝试当作比赛。
+
+旧导出的购买数据可能没有位置/经济通道。新工作区不会补出缺失字段；需要时用原 demo 在新工作区重新解析。解析器升级产生内容冲突时另建工作区，--force 只作用于中间缓存，不覆盖既有比赛包。当前没有自动旧新 ID 映射或多来源合并工具。
+
+## 4. 备份与恢复
+
+复制前停止写任务，备份整个工作区，尤其是 catalog、replays、datasets、adapters、runs、models、reviews 与配置。原始 demo 如果在工作区外，需要另行备份；解析中间 manifest 也应保留，因为冻结数据集尚未完整携带所有解析环境信息。
+
+恢复建议：
+
+1. 恢复到新目录，重建 Python 环境，不直接跨系统复制 venv。
+2. 用全局 --workspace 指向新目录，执行 status 和 doctor。
+3. 打开已有事实报告，并对一场已导入比赛重新生成报告，核对内容。
+4. 接入模型后再核验登记产物及一次预测。doctor 本身不检查模型/运行/报告。
+5. 保留旧路径的 invocation/report 元数据作为历史记录；搬迁后它们不会自动改写，实际文件可按新目录定位。
+
+数据集和登记产物内部使用相对路径；旧 SQLite 缓存使用绝对路径，需要保留旧环境或从原 demo 重建。框架没有自动清理命令；删除数据包、数据集或模型前先确认引用关系并保留备份。
+
+## 5. 故障处理
+
+| 现象 | 定位和处理 |
+|---|---|
+| No module named gem | 用同一环境重新执行 bootstrap --replay；JSON 流程不依赖 Gem |
+| 某场导入失败、后续仍在运行 | 批次按设计继续；结束后看 imports 结果，仅对失败输入排查重试 |
+| Need at least 3 eligible distinct matches | 核对 tier、patch/role/hero、槽位、购买状态及空间通道；三个文件不一定是三场 |
+| already exists with different content | 保留两个来源核对；新工作区导入不同解析版本，勿改旧快照哈希 |
+| Missing or changed artifact / fingerprint mismatch | 保留损坏文件与日志；从备份或原数据重建，不能手改 manifest 掩盖变化 |
+| .writer.lock 残留 | 确认该工作区所有写进程已退出，再移除锁并重试；活跃任务时不能删锁 |
+| Trainer/Predictor not implemented | 当前模板刻意没有模型实现；先完成自己的适配器 |
+| train/review failed | 看 run/review 状态、process.log、invocation.json；校验输出契约和依赖 |
+| 强杀后仍是 running | 当前没有心跳与自动恢复；确认进程已结束，保留旧 run，重跑获得新 ID |
+| 解析一直不返回 | Gem 解析暂无任务级超时；人工终止后确认进程状态，再检查缓存与原输入 |
+
+训练器自行创建的子进程可能需要额外清理。通用自动续训尚未实现；检查点和恢复参数由训练器管理。Gem 缺失但 doctor 的 ok 为 true 是正常的 JSON 工作流状态，查看 replay_parser_installed 字段即可。
+
+## 6. 可复制的人工核验记录
+
+以下为待填写模板，不代表当前已有对应验收数据。先选 3–5 场发现问题，10–20 条事件可作初查；最终需要独立标注明确窗口中的全部目标事件以检查漏检。
+
+### 样本与环境
+
+| 字段 | 填写内容 |
+|---|---|
+| match_id / 原文件与解压 demo 哈希 | |
+| 原始来源、访问依据、职业/高分证据 | |
+| patch / game_mode / 英雄 / role / player_slot | |
+| Gem 精确版本 / adapter 版本 / Git 提交 / Python | |
+| 比赛时长、完整结束、暂停与恢复区间 | |
+| 核验窗口、目标装备、位置/经济采样规则 | |
+| 操作者、日期、回放时间码/记录位置 | |
+| 未知、冲突和未覆盖情况 | |
+
+### 购买双向对照
+
+| 人工事件 ID | 游戏时间 | 装备 | 购买/合成/送达 | 导出 key/time/ref | 匹配/误检/漏检 | 差异说明 |
+|---|---|---|---|---|---|---|
+| 待填写 | | | | | | |
+
+独立从回放标注目标事件，再与导出列表双向匹配。记录时间误差，分开报告误检和漏检；没有观察完整窗口时注明分母不完整。覆盖赛前、重复购买、配方、自动合成、退回/拆分、暂停和送达差异，未出现的边界列为未覆盖。
+
+### 位置与经济对照
+
+| 时间码 / tick | 通道 | 人工观察或原始值 | 导出值 | 单位/时间是否一致 | 缺失原因 |
+|---|---|---|---|---|---|
+| 待填写 | position / gold / net_worth / last_hits / denies / xp_progress | | | | |
+
+在暂停前后、死亡/复活、等级提升和缺失片段附近核验。位置不能只看曲线平滑就判正确；坐标系、tick 转换和采样对齐都需确认。xp_progress 的等级重置说明与 7.41f 实测存在冲突，不凭字段名解释上升或回落；先核对原始字段、采样时刻和游戏 UI。
+
+### 结论
+
+记录独立比赛数、目标事件分母、误检/漏检、时间误差、通道覆盖、系统性问题、纳入/排除决定与原因。若无法确认语义，应缩小字段或任务范围，再固定数据集。验收规则见[验证与交付](validation-and-delivery.md)。

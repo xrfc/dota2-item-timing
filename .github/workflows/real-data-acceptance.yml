@@ -1,0 +1,52 @@
+name: real-data-acceptance
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - configs/acceptance/7.41f.json
+permissions:
+  contents: read
+concurrency:
+  group: real-data-acceptance-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[replay,data]"
+      - name: Save installed dependency versions
+        run: |
+          mkdir -p data/acceptance
+          python -m pip freeze > data/acceptance/dependencies.txt
+      - name: Discover public matches and exercise the current preparation pipeline
+        run: python scripts/accept_replays.py
+      - name: Save acquisition evidence and small pipeline outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: acceptance-evidence
+          path: |
+            data/acceptance/*.json
+            data/acceptance/*.txt
+            data/acceptance/*.log
+            data/acceptance/metadata/
+            data/acceptance/exports/
+          retention-days: 30
+      - name: Save downloaded replays and full parser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: acceptance-replays-and-workspaces
+          path: |
+            data/acceptance/replays/
+            data/acceptance/workspaces/
+          compression-level: 1
+          retention-days: 7
+          if-no-files-found: ignore

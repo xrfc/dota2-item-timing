@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dota Coach · 可视化学习</title>
+  <style>{{CSS}}</style>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#architecture" aria-label="Dota Coach 学习主页">
+      <span class="brand-symbol">↗</span><span>DOTA COACH<small>工程学习工作台</small></span>
+    </a>
+    <div class="sidebar-caption">LEARN THE SYSTEM</div>
+    <nav aria-label="学习页面">
+      <button class="nav-item active" data-view="architecture"><span>01</span>组件地图</button>
+      <button class="nav-item" data-view="path"><span>02</span>学习路线</button>
+      <button class="nav-item" data-view="choices"><span>03</span>技术选型</button>
+      <button class="nav-item" data-view="lab"><span>04</span>交互实验</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="personal-label">我的学习记录 <span id="personal-count">0 / 10</span></div>
+      <div class="personal-meter"><i id="personal-meter"></i></div>
+      <p>勾选理解与保存笔记<br>工程验收状态来自工程 ToDo</p>
+      <div class="personal-actions"><button id="export-progress">导出记录</button><button id="import-progress">导入</button></div>
+      <input id="progress-file" type="file" accept=".json,application/json" hidden>
+      <span id="storage-status" class="storage-status">学习记录保存在此浏览器</span>
+      <div class="sidebar-version">工程 v{{VERSION}} · 独立学习页</div>
+    </div>
+  </aside>
+  <main>
+    <header class="topbar">
+      <div class="breadcrumbs">项目 / <strong id="view-label">组件地图</strong></div>
+      <label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="搜索组件、任务或技术…" aria-label="搜索组件、任务或技术"></label>
+      <span class="offline-dot">离线可用</span>
+    </header>
+    <section class="hero">
+      <div class="eyebrow"><span></span> FROM REPLAY TO DECISION</div>
+      <h1>看懂系统，再构建它。</h1>
+      <p>沿着一场回放的数据旅程，理解组件如何工作、为什么这样选型，<br class="desktop-break">以及下一步该验证什么。</p>
+      <div class="hero-foot"><span class="stage-badge">当前主线 · 训练前的数据准备</span><button class="text-action" id="next-task">从 L01 开始学习 <span>↗</span></button></div>
+    </section>
+    <section class="stats" aria-label="项目与学习状态">
+      <div><span>工作流已交付</span><strong id="workflow-count">—</strong><small>按 W 任务验收记录</small></div>
+      <div><span>学习实践已验收</span><strong id="task-count">—</strong><small>来自 learning/ 的实践任务</small></div>
+      <div><span>组件可探索</span><strong id="component-count">—</strong><small>点击组件查看输入、输出与取舍</small></div>
+      <div><span>当前工作区</span><strong id="workspace-count">—</strong><small id="workspace-note">读取生成时的目录记录</small></div>
+    </section>
+    <section id="architecture-view" class="view">
+      <div class="section-head"><div><h2>一场回放的数据旅程</h2><p>沿箭头浏览；虚线表示尚待实现的数据准备层。</p></div><div class="legend"><span><i class="ready"></i>已实现 / 接口可用</span><span><i class="partial"></i>部分完成</span><span><i class="planned"></i>待实现</span></div></div>
+      <div class="architecture-layout">
+        <div class="map-panel"><div id="component-map" class="component-map" aria-label="组件数据流"></div><div class="map-caption"><span>↳ 个人比赛也会进入预测与事实报告</span><span>完整模型算法仍待实现</span></div></div>
+        <article id="component-detail" class="detail-panel" aria-live="polite"></article>
+      </div>
+    </section>
+    <section id="path-view" class="view" hidden>
+      <div class="section-head"><div><h2>把理解变成可验收的产物</h2><p>学习勾选属于个人记录；任务完成状态由 learning ToDo 决定。</p></div></div>
+      <div id="stages" class="stages"></div>
+      <div class="path-toolbar"><div id="task-filters" class="segmented"><button data-filter="all" class="selected">全部任务</button><button data-filter="ready">依赖已满足</button><button data-filter="done">已验收</button></div><span id="task-filter-count"></span></div>
+      <div class="path-layout"><div id="task-list" class="task-list"></div><article id="task-detail" class="detail-panel" aria-live="polite"></article></div>
+    </section>
+    <section id="choices-view" class="view" hidden>
+      <div class="section-head"><div><h2>选择背后的工程判断</h2><p>把用途、成本和重新选型的条件放在一起看。</p></div><span class="subtle-label">当前采用 + 下一阶段建议</span></div>
+      <div id="choice-grid" class="choice-grid"></div>
+    </section>
+    <section id="lab-view" class="view" hidden>
+      <div class="section-head"><div><h2>用小实验检查你的直觉</h2><p>以下均为合成教学例子，用于理解规则；不是生产特征模块或模型结果。</p></div></div>
+      <div class="lab-grid">
+        <article class="lab-card wide">
+          <div class="lab-number">EXPERIMENT 01 · L05 / L07</div><h3>决策时刻能看到什么？</h3><p>拖动截止时间，观察最近历史值、观测年龄和缺失标记如何变化。</p>
+          <div class="lab-controls"><label>决策时刻 <strong id="cutoff-label">600 秒</strong><input id="cutoff" type="range" min="580" max="620" value="600"></label><label>允许观测年龄 <strong id="age-label">10 秒</strong><input id="max-age" type="range" min="0" max="30" value="10"></label><label class="checkbox-control"><input id="missing-gold" type="checkbox">模拟金币日志缺失</label></div>
+          <div id="timeline"></div><div id="asof-results" class="asof-results" aria-live="polite"></div>
+          <p class="lab-note">向后匹配只取 time ≤ cutoff 的观测。真实数据还需验证时钟、暂停和字段语义。</p>
+        </article>
+        <article class="lab-card">
+          <div class="lab-number">EXPERIMENT 02 · L06</div><h3>18 个窗口，还是 6 场比赛？</h3><p>切换划分规则，看同一场比赛是否出现在不同 split。</p>
+          <div class="segmented"><button id="split-group" class="selected">按比赛分组</button><button id="split-window">按窗口混合</button></div>
+          <div id="split-matrix"></div><div id="split-result" class="lab-result" aria-live="polite"></div>
+          <p class="lab-note">颜色：训练 / 验证 / 测试。示例分配固定，不模拟真实随机划分。</p>
+        </article>
+        <article class="lab-card">
+          <div class="lab-number">EXPERIMENT 03 · L09 / L11</div><h3>留出集能改变训练统计量吗？</h3><p>训练值固定为 100、200、300；改变一个留出值，比较拟合范围。</p>
+          <div class="segmented"><button id="fit-train" class="selected">仅训练集拟合</button><button id="fit-all">全量数据拟合</button></div>
+          <label class="holdout-control">留出值 <strong id="holdout-label">1000</strong><input id="holdout" type="range" min="400" max="2000" step="100" value="1000"></label>
+          <div id="fit-result" class="fit-result" aria-live="polite"></div>
+          <p class="lab-note">使用总体标准差作教学演示。固定配置下，train 拟合参数应独立于留出数据。</p>
+        </article>
+      </div>
+    </section>
+    <footer><span id="snapshot-info"></span><span>更新 ToDo 后运行 <code>python learning/build.py</code> 重新同步</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script id="learning-data" type="application/json">{{DATA}}</script>
+  <script>{{LABS}}</script>
+  <script>{{JS}}</script>
+</body>
+</html>

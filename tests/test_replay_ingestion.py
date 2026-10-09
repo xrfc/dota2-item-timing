@@ -49,8 +49,14 @@ def install_fake_gem(monkeypatch, calls):
         "gem",
         types.SimpleNamespace(
             parse=parse,
-            to_json=lambda match: json.dumps({"match_id": match.match_id, "players": []}),
+            to_json=lambda match: json.dumps(
+                {"match_id": match.match_id, "players": [vars(p) for p in match.players]},
+                default=vars,
+            ),
         ),
+    )
+    monkeypatch.setattr(
+        "dota_items.sources.gem_capture.parse_with_state", lambda path: (parse(path), [])
     )
 
 
@@ -192,3 +198,19 @@ def test_zstd_archive_detected_by_magic_even_with_bz2_extension(tmp_path):
     source.write_bytes(zstandard.ZstdCompressor().compress(DEMO))
     with prepared_demo(source, tmp_path / "scratch") as replay:
         assert replay.read_bytes() == DEMO
+
+
+@pytest.mark.parametrize(
+    "name,hero_id",
+    [("queen_of_pain", 39), ("anti_mage", 1), ("vengeful_spirit", 20)],
+)
+def test_real_gem_catalog_recovers_known_hero_aliases(name, hero_id):
+    pytest.importorskip("gem.catalog.heroes")
+    match = fake_match()
+    match.players[0].hero_id = 0
+    match.players[0].hero_name = "npc_dota_hero_" + name
+    canonical, _ = canonicalize_match(match)
+    player = canonical["players"][0]
+    assert player["hero_id"] == hero_id
+    assert player["hero_identity"]["source_ref"] == "players[0].hero_name"
+    assert match.players[0].hero_id == 0

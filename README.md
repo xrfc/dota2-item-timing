@@ -1,171 +1,91 @@
-# DOTA2 出装与装备时机分析
+# DOTA2 AI 教练基础设施
 
-一个从自己的比赛出发的学习项目：重建装备购买日志，逐步加入同类对局比较和相似案例检索。
+从职业或高分回放中准备训练数据，用自己的深度学习模型复盘出装与路线决策。当前版本 **0.4.0** 已实现 demo 清洗、历史特征/未来标签、训练集预处理和模型执行接口；实际网络、训练算法和效果评估将在下一阶段实现。
 
-**当前工程可运行：**离线 JSON → 装备事件 → 候选装备首次记录 → HTML/JSON 报告；支持 OpenDota 比赛抓取与原始缓存。
+## 当前能做什么
 
-**本地 replay 管道：**DOTA2 `.dem`（或 `.dem.bz2` / `.dem.zst` / `.dem.zip`）
-→ Gem 原始 JSON → 项目标准 JSON → 现有报告，同时建立 SQLite 索引。解析完全离线。
+- 批量导入 `.dem`、压缩回放或比赛 JSON，记录购买、位置和自身经济时序。
+- 开发分支新增视野/战斗、库存与英雄状态采样，以及 `observe` 玩家视角查询；详见[上下文接入](docs/observer-context.md)。新通道语义仍待核验。
+- 一条 `prepare` 命令生成特征、标签、缺失掩码和清洗报告；`build-samples` 输出训练数组。
+- 校验证据、按比赛去重、人工标注参考选手，固定按比赛划分的数据集。
+- 调用你实现的训练/推理程序，保存配置、日志、状态和模型产物。
+- 在没有模型时生成购买事实报告；接入模型后展示候选出装/路线及引用的观测记录。
+- 用合成样本离线验证基础设施。Linux Python 3.11/3.12 和 Windows Python 3.12 已通过 CI。
+- 独立采集指定补丁的公开高分候选回放，保存来源与逐场管线审计；[真实数据验收](docs/real-data-acceptance.md)说明准入边界和复现方法。
 
-**尚未实现：**参考组、角色/版本过滤、经济条件比较、相似案例与机器学习。不要把当前报告理解成出装推荐。
-
-## 文档导航与当前重点
-
-2026-09-29 已补充长期设计；**本轮只更新文档，规划功能尚未实现**。
-推荐从 [文档总览](docs/README.md) 开始。
-
-| 文档 | 用途 |
-|---|---|
-| [工程设计](docs/engineering-design.md) | 全流程、当前数据契约、目标架构和研究边界 |
-| [长期技术路线](docs/long-term-roadmap.md) | 模块边界、技术选择、扩展条件与架构决策 |
-| [数据与接口契约](docs/data-contracts.md) | 身份、版本、质量、重跑、迁移与接口草案 |
-| [验证与交付规范](docs/validation-and-delivery.md) | 测试分层、实验评估、复现、发布和维护 |
-| [工程审查](docs/project-review.md) | 基于 v0.2.0 代码的不足、影响与改进依据 |
-| [运行与核验流程](docs/workflow.md) | 从单场导入到报告、批处理、故障排查与人工标注模板 |
-| [TODO 与阶段验收](docs/roadmap.md) | 有优先级、依赖和完成标准的任务清单 |
-
-当前重点是**证据校验、去重、版本化缓存与失败恢复**，然后核验自己的比赛，再建立参考组。
-已验证一场公开回放的流程；当前仍不保证购买记录的完整性和合成/送达语义。
+当前没有网页上传、自动获取职业回放、可用模型权重或“决策正确率”。已完成一批 7.41f 真实回放的采集与管线审计；坐标和经济字段的游戏语义核验仍未全部完成。完整边界见[完成度与验证证据](docs/project-status.md)。
 
 ## 快速开始
 
-Python 3.11+。在仓库根目录运行：
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
-.\.venv\Scripts\dota-items.exe report examples/match.synthetic.json --player-slot 0 --output reports/demo
-Start-Process reports/demo/report.html
-```
-
-macOS / Linux：
+需要 Python 3.11+。在仓库根目录运行，Windows 也可使用这些命令：
 
 ```bash
-python3 -m venv .venv
-.venv/bin/python -m pip install -e '.[dev]'
-.venv/bin/dota-items report examples/match.synthetic.json --player-slot 0 --output reports/demo
+python scripts/bootstrap.py --dev
+python coach.py demo
+python coach.py doctor
+python coach.py status
 ```
 
-示例数据完全为合成数据，不是实际比赛或当前版本出装建议。报告不依赖外部脚本/CDN，可以离线打开。
+安装需要网络；以上 demo 在安装后可以离线执行。它生成 6 场带 synthetic 标识的比赛、4/1/1 划分的数据集和购买事实 HTML，不执行模型训练。输出 JSON 中的 `report` 是报告路径。
 
-## 分析实际比赛
+解析真实回放时安装可选依赖：
 
-先缓存比赛，然后选择正确的 `player_slot`。玩家槽位来自比赛 JSON，不能用数组下标代替。
-
-```powershell
-.\.venv\Scripts\dota-items.exe fetch 你的比赛ID
-.\.venv\Scripts\dota-items.exe report data/raw/你的比赛ID.json --player-slot 0 --output reports/my-match
+```bash
+python scripts/bootstrap.py --replay --data --dev
+python coach.py --workspace coach-workspace/real init
+python coach.py --workspace coach-workspace/real prepare /path/to/replays
 ```
 
-`fetch --refresh` 可重新抓取。部分比赛没有解析购买日志，报告会显示缺失；当前程序不会自动提交解析任务。
+将 `/path/to/replays` 换成自己的目录。然后标注补丁、角色、参考玩家与职业/高分来源，再构建数据集。完整操作见[数据管线](docs/data-pipeline.md)和[教练工作流](docs/coach-workflow.md)。
 
-可选 API key 通过环境变量 `OPENDOTA_API_KEY` 提供；不要写进命令参数、提交到 Git 或分享原始认证信息。`.env.example` 只是说明，本程序不会自动读取 `.env`。
+`coach.py` 自动使用项目的 `.venv`；安装后的等价入口为 `dota-coach`。工作区默认是当前目录的 `coach-workspace/`，也可通过 `DOTA_COACH_WORKSPACE` 设置。项目不自动读取 `.env`。
 
-## 导入已下载的 DOTA2 Demo
+## 技术选型
 
-首次使用先安装 replay 可选依赖：
+| 选择 | 当前用途与理由 | 主要代价 |
+|---|---|---|
+| Python 3.11+ | 数据处理、CLI 和未来 PyTorch 模型共用语言 | 大文件处理和并行解析需要额外设计 |
+| Gem（可选） | 复用 Dota 2 回放解析能力，项目负责语义适配 | 依赖解析器及游戏版本，需要真实样本核验 |
+| pandas + scikit-learn（data 可选依赖） | 向后时间对齐、填补/标准化/类别编码 | 目前整 split 在内存处理，依赖真实语义验收 |
+| Pydantic 2 | 配置、模型产物、预测接口校验并导出 Schema | 格式通过不代表游戏语义或模型结论正确 |
+| JSON/JSONL + SHA-256 | 可检查、可搬迁的数据包和固定快照 | 全量读取与复制占内存、磁盘；无签名或物理只读保证 |
+| SQLite | 旧回放解析缓存的索引 | 尚未统一成新工作区的任务/元数据数据库 |
+| Python 子进程 + 静态 HTML | 模型框架独立、日志可追踪，结果可离线查看 | 依赖仍共用环境，没有队列、GPU 调度和完整进程树管理 |
 
-```powershell
-.\.venv\Scripts\python.exe -m pip install -e ".[dev,replay]"
-.\.venv\Scripts\dota-items.exe ingest-demo "C:\path\to\match.dem.bz2" --data-dir data
-.\.venv\Scripts\dota-items.exe data-status --data-dir data
-```
+取舍、替代方案及升级条件见[技术选型与优化路线](docs/long-term-roadmap.md)。当前无需 PyTorch、CUDA、外部语言模型 API 或常驻服务器。
 
-`ingest-demo` 每成功导入一场，会输出包含 `normalized_json` 的 JSON 行。
-把该路径传给已有的 `report` 命令：
-
-```powershell
-.\.venv\Scripts\dota-items.exe report "data\matches\<输出中的source_sha256>\normalized.json" --player-slot 0 --output reports/my-match
-```
-
-也可以传入存放回放的目录；默认只扫描该目录，添加 `--recursive` 扫描子目录。
-相同输入内容再次导入会跳过解析，`--force` 可重新解析。批量导入时一场失败不会阻止
-其他比赛，但命令会返回非零退出码。Gem 对大型比赛的离线解析可能需要数分钟。
-
-当前去重依据是输入文件字节，同一 Demo 的不同压缩格式仍会产生多条导入记录。
-`data-status` 的 `matches` 是导入记录数；缓存尚未验证输出内容和解析规则版本。
-`--force` 会替换旧产物，文件与数据库尚无统一恢复协议；重跑前保留原件和数据备份。
-具体限制与改进任务见 [工程审查](docs/project-review.md)。
-
-文件位于 `data/matches/<源文件 SHA-256>/`：
-
-| 文件 | 含义 |
-|---|---|
-| `raw-gem.json` | Gem 的完整、未简化解析结果 |
-| `normalized.json` | 可直接供本项目 `report` 使用的玩家与购买事件 |
-| `manifest.json` | 原文件和解包后回放哈希、解析器版本、数据质量提示 |
-| `data/index.sqlite` | 比赛、玩家、购买事件的本地索引 |
-
-原始 JSON 可能包含玩家昵称、Steam ID、聊天等内容，因此整个 `data/` 默认不提交 Git。
-项目不会把 `.dem` 复制进仓库，也不会自动把真实比赛上传到 OpenDota。
-
-Gem 使用 0–9 的玩家编号，本项目标准 JSON 转为 OpenDota 风格槽位：天辉 0–4、
-夜魇 128–132。`purchase_log` 中无法确定时间的事件会跳过并在报告中提示；装备 key
-去掉 `item_` 前缀。比赛版本目前保持未知值，不从当前静态资料反推历史版本。
-
-管道已用一场公开的完整比赛（ID `8822520406`）做端到端测试：10 名玩家、362 条购买事件，
-事件都能追溯到原始 Gem JSON。自动化测试使用合成数据验证边界情况。
-**购买时间的游戏语义仍需人工核验**：先核对 10–20 条购买记录，再从回放独立标注目标装备，
-反向检查漏检。记录模板与判定方法见 [运行与核验流程](docs/workflow.md)。
-
-配置在 `configs/analysis.json`，`candidate_items` 使用上游物品 key。当前只指定关注装备，英雄、角色和版本限制留给后续参考组模块。
-
-## 时间语义
-
-- 时间以比赛开始后的秒数表示，允许赛前负数。
-- 所有事件的 `event_kind` 为 `purchase_record`，不推断当前库存。
-- 首次记录不等于合成完成、信使送达、可用或首次使用。
-- 日志缺失、空日志、某装备无记录分别处理；都不能直接证明“没有购买”。
-- 保留重复购买和未知物品 key；不从最终六格装备倒推获取时间。
-- 每个事件保存原始 JSON 字段位置，每份报告保存来源指纹；Gem 报告当前使用声明的原始 JSON
-  SHA-256，尚未自动重新核验对应证据文件。
-
-实际比赛字段语义需要人工对照回放。当前测试验证代码与合成样本，不证明实际比赛解析准确。
-
-## 项目结构
+## 数据流
 
 ```text
-src/dota_items/
-  sources/       数据源、缓存、有限重试
-  domain.py      类型、单位、证据
-  normalize.py   上游字段映射与质量检查
-  analysis.py    首次记录分析
-  report.py      自包含 HTML
-  cli.py         命令入口
-configs/         关注装备
-examples/        可公开的合成输入
-tests/           语义边界、抓取与端到端检查
-docs/            工程设计与后续计划
+回放 / 比赛 JSON
+  → Gem 解析与证据校验
+  → 工作区数据包 + 人工标签
+  → 按比赛划分的固定数据集
+  → 清洗、历史特征与未来标签 → 仅 train 拟合预处理 → NumPy 数组
+  → 自定义训练器（待实现）→ 运行记录 → 模型登记
+  → 自定义预测器（待实现）→ 事实 + 候选决策报告
 ```
 
-实际数据和生成报告分别在 `data/`、`reports/`，默认不提交。测试样本仅使用合成数据，不包含账号信息。
+观察快照保留整场数据；`build-samples` 生成与其绑定的独立样本快照。训练时必须使用任务 mask 排除未知/截尾标签，推理复用保存的预处理参数。报告中的时间引用检查无法替代模型内部的数据泄漏审计。
 
-## 开发检查
+## 文档与开发
 
-```powershell
-.\.venv\Scripts\ruff.exe check .
-.\.venv\Scripts\ruff.exe format --check .
-.\.venv\Scripts\pytest.exe -q
+- [文档索引](docs/README.md)：各文档职责与建议阅读顺序。
+- [项目完成度](docs/project-status.md)：已实现、已验证、待补足。
+- [训练准入与桌面核验](docs/training-admission.md)：真实训练默认 held，两个账号的工程/客户端分工及交接契约。
+- [架构](docs/engineering-design.md)与[数据契约](docs/data-contracts.md)：代码边界和真实接口。
+- [日常操作与恢复](docs/workflow.md)、[验证与交付](docs/validation-and-delivery.md)。
+- [任务清单](docs/roadmap.md)、[风险复核](docs/project-review.md)。
+- [独立学习区](learning/README.md)：组件地图、技术选型、交互实验和 L01–L12 实践计划。运行 `python learning/build.py`，打开 `learning/output/index.html`。
+- [贡献指南](CONTRIBUTING.md)、[变更记录](CHANGELOG.md)。
+
+旧入口 `dota-items fetch / ingest-demo / data-status / report` 保留，可继续生成购买事实报告；它的缓存和校验边界见[操作指南](docs/workflow.md)。新工作区的去重、快照和证据校验不能反推成旧入口也具有同等保障。
+
+开发检查：
+
+```bash
+python scripts/bootstrap.py --dev --replay --data
+python scripts/check.py
 ```
 
-GitHub Actions 位于 `.github/workflows/ci.yml`，在 Python 3.11 / 3.12 上运行检查、测试与示例报告。
-版本号在 `pyproject.toml` 和 `src/dota_items/__init__.py`。
-
-## 下一步
-
-1. 完成 D01：验证 raw 文件、证据引用和测试 fixture；再处理去重、缓存和重跑一致性。
-2. 选定一个英雄、位置、补丁、模式和 3～5 件装备，核验自己的 3～5 场比赛。
-3. 建立去重且来源明确的参考组，展示时间分布、分母、观察窗口与缺失率。
-4. 首个比较报告通过验收后，按兴趣加入历史案例检索和行为预测实验。
-
-完整设计见 [工程设计](docs/engineering-design.md)，实施事项见 [TODO 与阶段验收](docs/roadmap.md)。
-
-## 数据来源
-
-- [Gem 本地回放解析器](https://github.com/whanyu1212/gem-dota)
-- [OpenDota API](https://docs.opendota.com/)
-- [OpenDota 购买日志处理](https://github.com/odota/core/blob/master/svc/util/compute.ts)
-- [OpenDota 数据类型](https://github.com/odota/core/blob/master/global.d.ts)
-- [装备/英雄静态资料](https://github.com/odota/dotaconstants)
-
-本项目是独立学习项目，与 Valve 或 OpenDota 没有隶属关系。代码采用 MIT 许可；第三方数据、游戏资源和依赖遵循其各自许可与使用条款。
+检查入口自动使用项目 `.venv`，Linux、macOS 和 Windows 使用同一命令。安装 Node.js 22+ 可执行学习区的 JavaScript 检查。测试中的模型程序是接口桩，不能作为训练效果证据。许可证：[MIT](LICENSE)。
