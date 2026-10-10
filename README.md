@@ -1,10 +1,12 @@
 # DOTA2 AI 教练基础设施
 
+**当前开发主线（2026-10-10）：[7.41f 阵容出装推荐](docs/development-mainline.md)**。先完成十英雄阵容 → 需求 → 装备候选及理由，再接入回放与学习排序。推荐器尚未实现；下文为已交付的数据基础设施。架构约束见[模块边界](docs/module-boundaries.md)。
+
 从职业或高分回放中准备训练数据，用自己的深度学习模型复盘出装与路线决策。当前版本 **0.4.0** 已实现 demo 清洗、历史特征/未来标签、训练集预处理和模型执行接口；实际网络、训练算法和效果评估将在下一阶段实现。
 
-主干状态：2026-10-09 已将全部开发分支合入 `main`（代码基线 `725f35c`），包含上下文、训练准入及缓存/身份追踪修复；包版本仍为 0.4.0，未创建新发布。最新验证与剩余任务见[项目状态](docs/project-status.md)。
+实现核对基线：2026-10-10 的 `main c6a5e1f`，包括已合并的基础设施修复和知识迁入；包版本仍为 0.4.0。本轮开发文档在独立分支整理，不表示已合入 main 或创建新发布。最新验证与剩余任务见[项目状态](docs/project-status.md)。
 
-2026-10-10 新增[全英雄能力知识](knowledge/README.md)、[单事件追踪课程](learning/exercises/event-lineage/9031371970/README.md)与[冷启动候选](docs/knowledge-cold-start.md)。先学习当前官网快照，再补历史版本；资料覆盖和训练候选不等于最佳出装监督或训练准入。规范路径与后续维护约定见[路径清单](docs/knowledge-maintenance.md)。
+2026-10-10 新增[全英雄能力知识](knowledge/README.md)、[单事件追踪课程](learning/exercises/event-lineage/9031371970/README.md)与[冷启动候选](docs/knowledge-cold-start.md)。当前目标固定为 7.41f；未标版本的官网快照只作为待核验来源，资料覆盖和训练候选不等于最佳出装监督或训练准入。规范路径与后续维护约定见[路径清单](docs/knowledge-maintenance.md)。
 
 ## 当前能做什么
 

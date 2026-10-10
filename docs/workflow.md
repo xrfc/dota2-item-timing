@@ -1,5 +1,7 @@
 # 日常操作、迁移与恢复
 
+**文档定位（2026-10-10）**：本页维护既有回放/训练基础设施或其历史证据；当前开发优先级统一见[7.41f 主线](development-mainline.md)，新推荐模块约束见[模块边界](module-boundaries.md)。既有通用格式不因此改成仅支持7.41f；历史核验与 held 状态不变。
+
 > v0.4 数据准备更新：`prepare` 已实现单文件清洗/特征/标签；`build-samples` 输出固定 split 的训练数组和 train-only 预处理。输入、错误策略、任务 mask 和操作示例以[数据管线](data-pipeline.md)为准。实际模型与真实字段验收仍待完成。
 
 基线：v0.3。首次使用及模型接入命令见[教练工作流](coach-workflow.md)；本文件维护日常操作、旧入口衔接与真实回放核验。
@@ -35,7 +37,7 @@ python coach.py --workspace coach-workspace/real annotate 8822520406 --tier pro 
 python coach.py --workspace coach-workspace/real build-dataset --patch 7.xx --role 1 --hero-id 44 --require-spatial
 ```
 
-替换比赛 ID、补丁、槽位和来源；构建至少需要 3 场符合条件的不同比赛。输出中的 excluded 尚未自动存入快照，如需保留可把本次 stdout 重定向到工作区文件：
+替换比赛 ID、补丁、槽位和来源；构建至少需要 3 场符合条件的不同比赛。excluded 已自动存入快照 manifest，并随命令返回；如需额外保存操作收据，可将 stdout 重定向到工作区文件：
 
 ```bash
 python coach.py --workspace coach-workspace/real build-dataset --patch 7.xx --role 1 --hero-id 44 --require-spatial > coach-workspace/real/dataset-selection.json

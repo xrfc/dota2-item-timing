@@ -30,7 +30,7 @@
 1. Valve 官方 [英雄列表](https://www.dota2.com/datafeed/herolist?language=english)，逐英雄 `herodata` 中英文说明和数值。
 2. OpenDota [dotaconstants](https://github.com/odota/dotaconstants)，固定提交 `bf193a550f778dec35debf4d71d05a86bebcc418` 的英雄身份和已发布角色标签。角色标签是宽泛定位，不是实际分路、战术评分或当局强度。
 
-用户已于 2026-10-10 确定顺序：**先学习当前官网版本，再补历史版本**。当前学习范围为 `current_official_snapshot`，不再默认以 `7.41f` 为目标。来源详情接口没有返回明确 patch 字段，因此 **source_patch=null、target_patch=null、patch_verified=false**；这不妨碍学习该官网快照，但当前资料不能直接用于历史回放的反制或出装结论。
+用户最新约束：**所有新整理结论以7.41f为准**，取代此前先看未标版本官网的顺序。现有生成产物仍记录 `current_official_snapshot`、`source_patch=null、target_patch=null、patch_verified=false`；本轮不改写这些历史元数据。它们只作待核验来源，不能直接用于7.41f推荐。新知识包须保留来源版本与目标版本的区别并逐项核验。命石残留不进入推荐输入或机制规则。
 
 有些技能说明含未替换参数占位符，有些升级／命石文字可能残留；不猜数值，不假定现行，也不把原始枚举值自行翻译成减益免疫穿透、驱散等级等结论。中英文描述可能不完全一致，冲突需要另行核对，不能用一个语言自动覆盖另一个。
 
@@ -74,4 +74,4 @@ python3 -m unittest discover -s knowledge/hero-capabilities -p 'test_*.py' -v
 
 初版 9 项边界测试通过。当前目录已迁入仓库，作为独立能力理解与知识候选模块；不属于正式工程包，也未接入真实训练入口。迁移及路径映射见[知识维护与路径清单](../../docs/knowledge-maintenance.md)，冷启动用途见[训练用途说明](../../docs/knowledge-cold-start.md)。回放证据和真实训练准入状态未改变。
 
-下一步按当前官网快照共同核验能力机制、目标方向和限制，逐批将待核验线索变成有依据的判断规则。历史版本映射与回放适配后置；保留原始快照便于后续比较。
+下一步按[7.41f主线](../../docs/development-mainline.md)核验能力机制、装备、方向与限制；先形成有限范围的合格知识包，再生成推荐。原始快照不覆盖，历史来源解释不自动升级成7.41f认证结论。
