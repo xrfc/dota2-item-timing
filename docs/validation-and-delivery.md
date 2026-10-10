@@ -1,5 +1,19 @@
 # 验证与交付
 
+## 开发文档主线整理验证（2026-10-10）
+
+实现核对基线：[main c6a5e1f](https://github.com/xrfc/dota2-timing/commit/c6a5e1ff5eaa597d6c68567ef00f3acc973a64c9)，其[工程CI](https://github.com/xrfc/dota2-timing/actions/runs/37963462868)已通过。本轮文档分支 `docs/741f-development-mainline` 与 main 分开，不把文档设计写成推荐器实现。
+
+- 原159份Markdown全部纳入盘点，新增主线、模块边界和盘点3份，共162份。工程/开发说明全文审阅；生成英雄页只检查目录、版本警示与抽样，不逐技能认证。
+- 本地 `python3 scripts/check.py`：122项工程、10项学习、12项知识、6项JavaScript测试通过；Ruff检查与219个Python文件格式检查通过。
+- `python3 learning/build.py` 成功，12个L任务仍为未完成；M01–M07未进入现有交互页面，文档已标明。
+- 162份Markdown中的2202个相对目标路径检查无断链；新主线到roadmap的锚点单独验证通过。其他锚点与全部外部网页未逐一验证，不宣称全站链接健康。
+- 临时独立工作区运行demo和doctor通过：6场synthetic、4/1/1划分；不是真实回放重解析、机制核验或模型训练。
+- 本轮不改源码、配置、Schema、冻结知识JSON/JSONL或历史验收收据；只整理Markdown。学习HTML重建在忽略目录，不提交。
+- 审阅3份工作流：普通checks由push/PR触发，两份真实回放工作流只在各自配置变更或手动执行时触发；本轮不更改这些配置。
+
+以上为本地检查；新提交远端CI以该文档PR精确head为准。没有重新安装环境，也未在本地浏览器验证交互。
+
 ## 知识迁入与冷启动候选检查（2026-10-10）
 
 本轮检出基线 `d0be282`；以下属于迁移后的本地检查，不冒充远端 CI 或真实语义核验：
@@ -12,7 +26,7 @@
 
 本轮改动不触碰新比赛采集／固定回放回归的配置触发路径。远端合并结果与 CI 以本轮 [PR #5](https://github.com/xrfc/dota2-timing/pull/5) 及精确提交的 Actions 为准；知识说明和训练用途见[冷启动文档](knowledge-cold-start.md)。
 
-## 当前主干验证（2026-10-09）
+## 历史主干验证（2026-10-09）
 
 代码基线：[main / 725f35c](https://github.com/xrfc/dota2-timing/commit/725f35c25d74243a8ca52b17e7956107fd9dfa40)。PR #2 → #1 → [#3](https://github.com/xrfc/dota2-timing/pull/3) 依次合并，主干文件树与已验证的修复提交 `942ebfd` 一致；包版本仍为 0.4.0。
 

@@ -1,8 +1,10 @@
 # 学习驱动的开发流程
 
+**2026-10-10定位更新**：本页为学习循环与历史接口规划，产品开发统一走[主线流程](../../docs/development-mainline.md)。v0.4已实现清洗、窗口、特征/标签、预处理与样本快照；下文保留学习方法，不要求重写现有模块。
+
 更新：2026-10-03；运行代码基线 v0.3。适用于已掌握机器学习基本原理、通过项目学习数据工程与完整交付的人。
 
-当前优先级是来源、清洗、时间对齐、样本构造和预处理。任务状态统一记录在[roadmap](roadmap.md) 的 L01–L12；本文说明如何执行。下面提出的模块、质量字段、派生样本与验收机制均是计划，不是现有 CLI 已实现的功能。
+当前优先级是来源、清洗、时间对齐、样本构造和预处理。任务状态统一记录在[roadmap](roadmap.md) 的 L01–L12；本文说明如何执行。质量扩展和真实语义仍待验收；已交付的派生样本及接口以工程契约为准。
 
 ## 1. 一次迭代要交付什么
 
@@ -36,8 +38,8 @@
 新克隆示例，当前功能所在分支：
 
 ```bash
-git clone --branch feat/coach-workflow-infrastructure https://github.com/xrfc/dota2-item-timing.git
-cd dota2-item-timing
+git clone https://github.com/xrfc/dota2-timing.git
+cd dota2-timing
 python scripts/bootstrap.py --dev
 python coach.py --workspace learning/output/workspace demo
 python coach.py --workspace learning/output/workspace doctor
@@ -45,7 +47,7 @@ python coach.py --workspace learning/output/workspace doctor
 
 已有检出先检查 `git status`、当前分支与未提交内容，保存已有工作后再切换/更新；不要在混合改动上执行 reset/clean。进行实际回放解析时安装 `python scripts/bootstrap.py --replay --dev`，并使用独立真实工作区。具体导入命令见[教练工作流](../../docs/coach-workflow.md)。
 
-在干净、已同步的功能分支上，为一个小任务创建工作分支，例如：
+在干净、已同步的 main 上，为一个小任务创建工作分支，例如：
 
 ```bash
 git switch -c feat/l05-causal-alignment
@@ -59,15 +61,15 @@ git switch -c feat/l05-causal-alignment
 |---|---|---|---|
 | 解析与标准化 | demo → raw、规范 JSON | 保留证据，统一字段语义，不破坏原始文件 | 已有 sources/gem_replay.py、gem_observations.py |
 | 校验与质量 | 规范数据 → 警告、任务资格、理由 | 非法/稀有/未知分开；导入成功不等于研究合格 | 已有 workflow/validation.py 基础检查；质量扩展待实现 |
-| 时间对齐 | 多条自身时序 + cutoff → 历史状态 | 向后匹配、字段级最大年龄、缺失 mask；不使用未来插值 | 计划中的数据准备模块 |
-| 样本与特征 | 固定比赛 split → sample_id、X、元数据 | 仅使用所选槽位和 cutoff 之前的数据 | 计划中的 samples/features 模块 |
-| 标签 | 独立未来观察窗口 → y、有效性、引用 | 观察不足与无事件分开，未来值不回流到 X | 计划中的 labels 模块 |
-| 数值预处理 | train 样本 → 拟合产物；各 split → 变换结果 | fit 只用 train，transform 共用保存产物 | 计划中的 preprocessing 模块 |
-| 派生快照 | 样本、规则、拟合产物 → 清单与哈希 | 保留源 dataset_id 与原 split，不覆盖整场快照 | 计划中的样本发布层 |
+| 时间对齐 | 多条自身时序 + cutoff → 历史状态 | 向后匹配、字段级最大年龄、缺失 mask；不使用未来插值 | 已有 data/features.py |
+| 样本与特征 | 固定比赛 split → sample_id、X、元数据 | 仅使用所选槽位和 cutoff 之前的数据 | 已有 data/features.py |
+| 标签 | 独立未来观察窗口 → y、有效性、引用 | 观察不足与无事件分开，未来值不回流到 X | 已有 data/features.py；标签与输入分开输出 |
+| 数值预处理 | train 样本 → 拟合产物；各 split → 变换结果 | fit 只用 train，transform 共用保存产物 | 已有 data/preprocessing.py |
+| 派生快照 | 样本、规则、拟合产物 → 清单与哈希 | 保留源 dataset_id 与原 split，不覆盖整场快照 | 已有 data/pipeline.py |
 
 学习练习模块逐步建立于 `learning/exercises/`，具体命名随接口设计确定，不预先生成空模块。经独立工程任务审阅和验收后，确需用于正式管线的能力再迁入工程包；学习脚本和笔记始终留在 learning/。后续模型适配器消费这些接口，特征变换不在 train.py/predict.py 各写一套。
 
-现有 `train` 读取的是 `coach-dataset/1` 整场快照。派生样本没有现成 Schema/CLI，不能把规划字段直接塞进现有 Pydantic 契约；L10 需要设计新版本清单及适配器如何引用它，保留旧入口兼容。
+已有 `build-samples` 输出 `coach-samples/1`，真实 train 必须使用绑定审查记录的样本快照，不能直接用旧真实观察快照；详见[数据管线](../../docs/data-pipeline.md)与[准入](../../docs/training-admission.md)。L10学习应复查现有实现，不重复设计已交付接口；新阵容推荐另立契约。
 
 ## 5. 必须讨论清楚的规则
 
@@ -90,7 +92,7 @@ git switch -c feat/l05-causal-alignment
 
 ## 6. 验收矩阵
 
-下表是待实现任务的验收要求，不代表当前测试已覆盖。
+下表是个人学习实践的验收要求；部分已有工程回归覆盖，但不代表个人实践或真实语义验收完成。
 
 | 场景 | 预期结果 | 任务 |
 |---|---|---|
