@@ -15,7 +15,7 @@
 | `data/features.py`、`preprocessing.py` | 数据契约、pandas/sklearn | 相对集中；购买标签与特征同文件，但不等于推荐决策 | 新阵容任务用独立契约，不往旧 X 硬塞字段 |
 | `data/pipeline.py` | Gem、storage、workflow.validation、Workspace 对象 | 较高：领域变换与流程/持久化混合 | 新应用层负责编排；纯分析不调用 pipeline |
 | `workflow/validation.py`、`admission.py` | data.context、data.contracts、来源校验与 Gem 别名目录 | `data ↔ workflow` 包级双向关系 | 抽取中立契约/验证边界时保留兼容导入，不一次重写旧格式 |
-| `workflow/workspace.py` | 导入、catalog、快照检查、doctor；延迟导入 pipeline | 枢纽较高，数据访问与用例混合 | 新推荐只通过显式读取适配器获得输入，不接收整个 Workspace |
+| `workflow/workspace.py` | 导入、catalog、快照检查、doctor | 枢纽较高，数据访问与用例混合 | 新推荐只通过显式读取适配器获得输入，不接收整个 Workspace |
 | `workflow/jobs.py`、`reviews.py` | 运行、登记、预测校验与渲染 | 中高；新推荐若复用旧 Predictions 会绑定 item/route 和时刻引用 | 报告层适配，不强行复用不匹配契约 |
 | `workflow/cli.py` | 组合各模块并调度 | 入口扇出大是预期；新增业务分支继续堆积有风险 | CLI 只校验参数、调用用例、输出及退出码 |
 | `knowledge/hero-capabilities/` | 来源构建、档案、选人证据、候选导出 | 与正式包隔离，但版本未核验且未提供正式知识接口 | 通过验证后的知识包接入，禁止 src import 这些脚本 |
